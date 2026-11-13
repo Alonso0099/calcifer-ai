@@ -17,30 +17,43 @@ export function normalizeText(value) {
 }
 
 /**
- * Dice si un proceso coincide con una búsqueda, por su nombre o por el texto de sus pasos.
+ * Dice si un texto contiene la búsqueda, ya simplificada.
  *
- * @param {{name: string, steps: Array<{text: string}>}} process - El proceso a revisar.
- * @param {string} query - Lo que escribió el usuario.
- * @returns {boolean} true si el proceso coincide. Una búsqueda vacía no coincide con nada.
+ * @param {string} value - El texto donde se busca.
+ * @param {string} normalizedQuery - La búsqueda, ya pasada por normalizeText.
+ * @returns {boolean} true si la contiene.
  */
-export function processMatchesSearch(process, query) {
-  const normalizedQuery = normalizeText(query);
-  if (normalizedQuery === '') return false;
-  const searchableTexts = [process.name, ...process.steps.map((step) => step.text)];
-  return searchableTexts.some((value) => normalizeText(value).includes(normalizedQuery));
+function includesQuery(value, normalizedQuery) {
+  return normalizeText(value).includes(normalizedQuery);
 }
 
 /**
- * Busca el paso que hizo que un proceso apareciera en los resultados, para mostrarlo.
- * Si el nombre del proceso ya coincide, no hace falta explicar nada y regresa null.
+ * Explica por qué un proceso coincide con una búsqueda: por su nombre, por un paso
+ * o por un ingrediente. Se revisa en ese orden y se regresa la primera coincidencia.
  *
- * @param {{name: string, steps: Array<{text: string}>}} process - Un proceso de los resultados.
+ * @param {{name: string, steps: Array<{text: string}>, ingredients?: string[]}} process - El proceso a revisar.
  * @param {string} query - Lo que escribió el usuario.
- * @returns {string|null} El texto del primer paso que coincide, o null.
+ * @returns {{kind: 'name'|'step'|'ingredient', text: string}|null} Dónde coincidió y con qué
+ *   texto, o null si no coincide. Una búsqueda vacía no coincide con nada.
  */
-export function findMatchingStepText(process, query) {
+export function findSearchMatch(process, query) {
   const normalizedQuery = normalizeText(query);
-  if (normalizedQuery === '' || normalizeText(process.name).includes(normalizedQuery)) return null;
-  const matchingStep = process.steps.find((step) => normalizeText(step.text).includes(normalizedQuery));
-  return matchingStep ? matchingStep.text : null;
+  if (normalizedQuery === '') return null;
+  if (includesQuery(process.name, normalizedQuery)) return { kind: 'name', text: process.name };
+  const step = process.steps.find((candidate) => includesQuery(candidate.text, normalizedQuery));
+  if (step) return { kind: 'step', text: step.text };
+  const ingredient = (process.ingredients ?? []).find((candidate) => includesQuery(candidate, normalizedQuery));
+  if (ingredient) return { kind: 'ingredient', text: ingredient };
+  return null;
+}
+
+/**
+ * Dice si un proceso coincide con una búsqueda (por nombre, pasos o ingredientes).
+ *
+ * @param {object} process - El proceso a revisar.
+ * @param {string} query - Lo que escribió el usuario.
+ * @returns {boolean} true si el proceso coincide.
+ */
+export function processMatchesSearch(process, query) {
+  return findSearchMatch(process, query) !== null;
 }

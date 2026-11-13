@@ -1,7 +1,7 @@
-// Pantalla de búsqueda: encuentra procesos por su nombre o por el texto de sus pasos.
+// Pantalla de búsqueda: encuentra procesos por su nombre, sus pasos o sus ingredientes.
 import { useSearchParams } from 'react-router-dom';
 import { searchProcesses } from '../../data/index.js';
-import { findMatchingStepText } from '../../lib/searchText.js';
+import { findSearchMatch } from '../../lib/searchText.js';
 import ProcessCard from '../../shared/components/ProcessCard.jsx';
 import { text } from '../../shared/text.js';
 import { useLoadedData } from '../../shared/useLoadedData.js';
@@ -43,11 +43,13 @@ export default function SearchPage() {
           </p>
           <ul className="search-results">
             {results.map((process) => {
-              const matchedStep = findMatchingStepText(process, query);
+              // Si coincidió el nombre no hay nada que explicar; si fue un paso o un ingrediente, se muestra.
+              const match = findSearchMatch(process, query);
+              const showsMatch = match && match.kind !== 'name';
               return (
                 <li key={process.id}>
                   <ProcessCard process={process} />
-                  {matchedStep && <p className="search-matched-step">{text.search.matchedStep(matchedStep)}</p>}
+                  {showsMatch && <p className="search-matched-step">{text.search.matched[match.kind](match.text)}</p>}
                 </li>
               );
             })}
