@@ -1,0 +1,21 @@
+/* Estilos del aviso de "app no instalada". */
+
+.install-notice {
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background-color: var(--color-surface);
+  font-size: 0.95rem;
+}
+
+.install-notice p {
+  margin: 0 0 4px;
+}
+
+.install-notice-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-text);
+}

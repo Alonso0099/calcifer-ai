@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "processes": [
+    {
+      "id": "conteo-congelador",
+      "name": "Conteo del congelador y lista hasta 25",
+      "category": "compra",
+      "zone": "congelador",
+      "frequencyDays": 30,
+      "frequencyLabel": "Mensual (viernes antes del fin de semana de prep)",
+      "estimatedMinutes": {
+        "min": 30,
+        "max": 30
+      },
+      "active": true,
+      "source": "Kitchen Manual v0, sección 1 (mes tipo) y 3",
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Contar las unidades de cada zona del congelador: pollo, cerdo, res, seafood, bases de cocina, cubos de sabor, vegetales, desayuno, papa y raíces, fruta",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Anotar en la hoja de inventario (Google Sheets) una fila por categoría: meta, existencia y faltante",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Calcular la proteína que falta: 25 − existencia = unidades a comprar",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Armar la lista de la compra grande hasta llegar a 25 unidades",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "revision-antes-de-comprar",
+      "name": "Revisión antes de salir a comprar",
+      "category": "compra",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "Antes de cada compra",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual v0, sección 4",
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Revisar el refri: qué hay que comer primero",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Revisar el congelador (en la compra mensual, conteo completo)",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Revisar el seco: respaldos abiertos",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Revisar el menú de los próximos días",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Confirmar la lista en Reminders: solo faltantes, nunca \"todo el manual\"",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "compra-grande-mensual",
+      "name": "Compra grande",
+      "category": "compra",
+      "zone": null,
+      "frequencyDays": 30,
+      "frequencyLabel": "Mensual (sábado en la mañana; respaldo: domingo en la mañana)",
+      "estimatedMinutes": {
+        "min": 120,
+        "max": 120
+      },
+      "active": true,
+      "source": "Kitchen Manual v0, sección 1 (mes tipo), 2 (R1) y 4",
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Hacer la revisión antes de salir a comprar",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Comprar lo del ciclo mensual: proteína hasta 25, seafood, vegetales y fruta congelados, papas para prep, yuca, granos, legumbres, pasta, avena, condimentos y bolsas",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Carne en piezas enteras, para porcionarla en casa",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Marca de tienda en bolsas, legumbres, arroz y congelados",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Oferta fuera de lista: solo si es un básico, cabe en el congelador o el pantry y no pasa de 25 unidades (proteína) o de abierto + 2 respaldos (seco)",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Anotar el precio por libra en la hoja de inventario, para los 10 productos que más compran",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "compra-de-frescos",
+      "name": "Compra de frescos",
+      "category": "compra",
+      "zone": null,
+      "frequencyDays": 14,
+      "frequencyLabel": "Cada 2 semanas (miércoles; respaldo: jueves)",
+      "estimatedMinutes": {
+        "min": 45,
+        "max": 45
+      },
+      "active": true,
+      "source": "Kitchen Manual v0, sección 2 (R1), 3 y 4",
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Hacer la revisión antes de salir a comprar",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Comprar lo del ciclo de 2 semanas: verduras y frutas frescas, hierbas, huevos, lácteos, pan, tortillas y snacks refrigerados",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Planear por vida útil: lo delicado para la semana 1 y lo resistente para la semana 2",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "junta-mensual",
+      "name": "Junta mensual",
+      "category": "compra",
+      "zone": null,
+      "frequencyDays": 30,
+      "frequencyLabel": "Mensual (viernes del conteo, antes de armar la lista de la compra grande)",
+      "estimatedMinutes": {
+        "min": 20,
+        "max": 20
+      },
+      "active": true,
+      "source": "Kitchen Manual v0, sección 8",
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Revisar los seis indicadores",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Leer la bitácora: qué se saltó y por qué",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Decidir un máximo de 3 cambios al manual y anotarlos en la sección 9",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Revisar días fijos y si el plan de la semana alcanzó",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Ajustar respaldos del seco según lo que se acabó antes de tiempo",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "steps.minutes"
+      ]
+    }
+  ]
+}

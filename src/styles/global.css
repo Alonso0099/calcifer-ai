@@ -1,0 +1,95 @@
+/* Estilos base de toda la app: la paleta de colores (definida una sola vez),
+   la tipografía y los ajustes generales. Los componentes usan estas variables
+   y nunca escriben un color directo. */
+
+:root {
+  /* Fondos */
+  --color-bg: #F4ECE1;            /* papel: fondo de la app */
+  --color-surface: #FBF7F0;       /* tarjetas y paneles */
+  --color-border: #C5A993;        /* arena: bordes y divisores (nunca texto) */
+
+  /* Texto */
+  --color-text: #202137;          /* azul noche: texto principal (14.7:1) */
+  --color-text-strong: #4A3427;   /* café: títulos y énfasis (10.9:1) */
+  --color-text-muted: #546D80;    /* azul acero: texto secundario (5.1:1) */
+
+  /* Acciones */
+  --color-primary: #5E7660;       /* salvia: botones principales, con texto blanco (5.0:1) */
+  --color-primary-hover: #4F6451; /* salvia oscuro: botón presionado (6.4:1) */
+  --color-on-primary: #FFFFFF;    /* blanco: texto sobre los botones salvia (5.0:1) */
+  --color-highlight: #D1B174;     /* mostaza: fondo de resaltado, con texto café (5.7:1) */
+
+  /* Estado de tareas (barras de vencimiento) */
+  --color-ok: #8D9531;            /* oliva: barra "al día" (3.0:1, solo barra) */
+  --color-ok-text: #575C1E;       /* oliva oscuro: texto "al día" (6.7:1) */
+  --color-due: #D1B174;           /* mostaza: barra "vence pronto" (no es texto; siempre va con etiqueta) */
+  --color-due-text: #68583A;      /* mostaza oscuro: texto "vence pronto" (6.5:1) */
+  --color-late: #CB7673;          /* salmón: barra "atrasada" (3.1:1, solo barra) */
+  --color-late-text: #6C3332;     /* vino: texto "atrasada" (9.1:1) */
+
+  /* Categorías (punto de color junto al nombre; el texto siempre va en --color-text) */
+  --color-cat-compra: #546D80;        /* azul acero */
+  --color-cat-guardar: #5E7660;       /* salvia */
+  --color-cat-preparar: #CB7673;      /* salmón */
+  --color-cat-limpieza: #905F72;      /* malva */
+  --color-cat-mantenimiento: #D1B174; /* mostaza */
+  --color-cat-seguridad: #6C3332;     /* vino */
+}
+
+/* El ancho y alto de cada elemento incluyen su relleno y su borde:
+   así los tamaños son más fáciles de calcular. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  /* Tipografía del sistema: no hay que descargar nada y se lee bien en tablet y celular. */
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  /* Texto un poco más grande que el normal, para leerlo a un brazo de distancia. */
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+/* Botones. Miden al menos 44 px de alto para poder tocarlos con el dedo. */
+.button {
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.button-primary {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.button-primary:hover,
+.button-primary:active {
+  background-color: var(--color-primary-hover);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* Marco visible al navegar con teclado. */
+:focus-visible {
+  outline: 3px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+h2,
+h3 {
+  color: var(--color-text-strong);
+}

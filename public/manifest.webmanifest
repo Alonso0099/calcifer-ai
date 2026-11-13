@@ -1,0 +1,16 @@
+{
+  "name": "Calcifer",
+  "short_name": "Calcifer",
+  "description": "El manual de la cocina: procesos, limpieza, notas y tiempos.",
+  "lang": "es",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F4ECE1",
+  "theme_color": "#FBF7F0",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

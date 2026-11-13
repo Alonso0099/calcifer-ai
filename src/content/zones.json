@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "zones": [
+    {
+      "id": "cocina-general",
+      "name": "Cocina en general"
+    },
+    {
+      "id": "karlby",
+      "name": "KARLBY"
+    },
+    {
+      "id": "mesa-ikea",
+      "name": "Mesa de IKEA (estación de carne)"
+    },
+    {
+      "id": "estufa-horno",
+      "name": "Estufa y horno"
+    },
+    {
+      "id": "campana",
+      "name": "Campana"
+    },
+    {
+      "id": "microondas",
+      "name": "Microondas"
+    },
+    {
+      "id": "refri",
+      "name": "Refri"
+    },
+    {
+      "id": "congelador",
+      "name": "Congelador"
+    },
+    {
+      "id": "lavaplatos",
+      "name": "Lavaplatos"
+    },
+    {
+      "id": "fregadero",
+      "name": "Fregadero, llave y triturador"
+    },
+    {
+      "id": "gabinetes",
+      "name": "Gabinetes y manijas"
+    },
+    {
+      "id": "backsplash",
+      "name": "Backsplash"
+    },
+    {
+      "id": "piso",
+      "name": "Piso"
+    },
+    {
+      "id": "basurero",
+      "name": "Basurero"
+    },
+    {
+      "id": "pantry",
+      "name": "Pantry"
+    }
+  ]
+}

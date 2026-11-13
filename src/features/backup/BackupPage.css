@@ -1,0 +1,67 @@
+/* Estilos de la pantalla de respaldo (la página y su sección de restaurar). */
+
+.backup-title {
+  margin-top: 0;
+}
+
+.backup-intro {
+  color: var(--color-text-muted);
+}
+
+.backup-section {
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background-color: var(--color-surface);
+}
+
+.backup-section h3 {
+  margin-top: 0;
+}
+
+.backup-file {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.backup-file input {
+  min-height: 44px;
+  font: inherit;
+  font-weight: normal;
+}
+
+/* La confirmación se resalta: es la única acción de la app que reemplaza datos. */
+.backup-confirm {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: var(--color-highlight);
+  color: var(--color-text-strong);
+}
+
+.backup-confirm h4 {
+  margin: 0 0 4px;
+}
+
+.backup-confirm p {
+  margin: 0 0 12px;
+}
+
+.backup-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.backup-message {
+  margin: 12px 0 0;
+  font-weight: 600;
+  color: var(--color-ok-text);
+}
+
+.backup-message-error {
+  color: var(--color-late-text);
+}

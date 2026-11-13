@@ -1,0 +1,13 @@
+/* Estilos del botón Deshacer y su mensaje. */
+
+.undo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.undo-message {
+  margin: 0;
+  color: var(--color-text-muted);
+}

@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "processes": [
+    {
+      "id": "limpieza-de-cada-vez",
+      "name": "Limpieza de cada vez que se cocina",
+      "category": "limpieza",
+      "zone": "cocina-general",
+      "frequencyDays": null,
+      "frequencyLabel": "Cada vez que se cocina",
+      "estimatedMinutes": {
+        "min": 15,
+        "max": 25
+      },
+      "active": true,
+      "source": "Kitchen Manual v0, sección 6",
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Platos y utensilios: Dawn",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "KARLBY o mesa: agua tibia + 1–2 gotas de ECOS, microfibra y secar",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Cubierta de vidrio de la estufa: Weiman Daily (el Kit Heavy Duty solo para quemado)",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Fregadero: ECOS",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Secar la llave dorada",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Limpiar los derrames del piso",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "cierre-diario",
+      "name": "Cierre diario",
+      "category": "limpieza",
+      "zone": "cocina-general",
+      "frequencyDays": null,
+      "frequencyLabel": "Diario (cierre)",
+      "estimatedMinutes": {
+        "min": 5,
+        "max": 10
+      },
+      "active": true,
+      "source": "Kitchen Manual v0, sección 6",
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Lavaplatos: cargar y correr con Cascade",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Almuerzo de mañana empacado",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Proteína de mañana al refri",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "limpieza-semanal",
+      "name": "Limpieza semanal",
+      "category": "limpieza",
+      "zone": "cocina-general",
+      "frequencyDays": 7,
+      "frequencyLabel": "Semanal (viernes; respaldo: domingo)",
+      "estimatedMinutes": {
+        "min": 45,
+        "max": 60
+      },
+      "active": true,
+      "source": "Kitchen Manual v0, sección 6",
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Campana, exterior: Krud Kutter si hay grasa, luego Weiman Stainless",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Frentes y manijas: microfibra apenas húmeda con una gota de ECOS, sin empapar uniones ni bordes",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Llave dorada y manijas Ravinte: microfibra con ECOS diluido y secar (nunca Weiman, Krud Kutter, cloro, CLR, bicarbonato ni abrasivos)",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Backsplash: jabón suave y microfibra (nunca Krud Kutter ni abrasivos)",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Reset del refri: mover al frente lo que debe comerse antes de la siguiente compra; lo que no llegará se agrega a la lista o se congela",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Microondas: método de vapor + ECOS",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Basurero: Krud Kutter",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Piso: barrer y trapear con Zep pH neutro diluido, con el trapeador de microfibra apenas húmedo",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "steps.minutes"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+/* Estilos de la lista de procesos. */
+
+.process-list-title {
+  margin-top: 0;
+}
+
+.process-list-section h3 {
+  margin: 24px 0 8px;
+}
+
+/* En pantallas angostas hay una columna; en tablet caben dos o más. */
+.process-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

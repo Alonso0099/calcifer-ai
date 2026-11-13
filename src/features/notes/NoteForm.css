@@ -1,0 +1,60 @@
+/* Estilos del formulario de una nota. Los campos se "funden" con la hoja de papel:
+   sin borde ni fondo propios, para que parezca que se escribe sobre el papel. */
+
+.note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.note-form-title,
+.note-form-body {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  color: var(--color-text);
+  font-family: inherit;
+}
+
+.note-form-title {
+  /* El ancho total incluye el espacio reservado a la ramita. */
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-strong);
+}
+
+.note-form-body {
+  padding: 0;
+  font-size: inherit;
+  resize: vertical;
+  /* "local" hace que los renglones se muevan junto con el texto al desplazarse. */
+  background-attachment: local;
+}
+
+.note-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.note-form-field select {
+  min-height: 44px;
+  padding: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+}
+
+.note-form-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.note-form-delete {
+  color: var(--color-late-text);
+}

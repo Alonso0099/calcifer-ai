@@ -1,0 +1,46 @@
+/* Estilos del marco de la app: encabezado y área de contenido. */
+
+.app {
+  min-height: 100vh;
+}
+
+.app-header {
+  /* "relative" permite que el menú desplegable se coloque justo debajo del encabezado. */
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 8px 16px;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.app-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--color-text-strong);
+}
+
+.app-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* El título también es un enlace: se le da el alto mínimo para tocarlo con el dedo. */
+.app-title a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* En tablet el menú es una barra fija abajo: se deja espacio para que no tape el final de la pantalla. */
+@media (min-width: 700px) {
+  .app-main {
+    padding-bottom: calc(88px + env(safe-area-inset-bottom));
+  }
+}

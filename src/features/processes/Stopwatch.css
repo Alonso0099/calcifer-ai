@@ -1,0 +1,16 @@
+/* Estilos del cronómetro. */
+
+.stopwatch-clock {
+  margin: 0 0 8px;
+  font-size: 2.5rem;
+  font-weight: 600;
+  /* Números del mismo ancho: el reloj no "baila" al cambiar de dígito. */
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-strong);
+}
+
+.stopwatch-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

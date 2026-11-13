@@ -1,0 +1,4483 @@
+{
+  "schemaVersion": 1,
+  "processes": [
+    {
+      "id": "revision-semanal",
+      "name": "Menú y revisión de la semana",
+      "category": "preparar",
+      "zone": null,
+      "frequencyDays": 7,
+      "frequencyLabel": "Semanal (domingo; respaldo: lunes antes de cocinar)",
+      "estimatedMinutes": {
+        "min": 90,
+        "max": 150
+      },
+      "active": true,
+      "source": "Kitchen Manual v0, sección 1 (semana tipo), 2 (R1) y 3; Kitchen Manual Final (PDF), capítulo 5, sección 28",
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Revisión rápida del congelador: solo proteína",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Armar el menú de la semana",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Elegir los 7 desayunos, uno por día y con nombre (no solo \"desayuno\")",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Prep de desayunos",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Prep de bases",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "prep-desayunos-semana",
+      "name": "Prep de desayunos de la semana",
+      "category": "preparar",
+      "zone": null,
+      "frequencyDays": 7,
+      "frequencyLabel": "Semanal (domingo)",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 5, sección 17",
+      "notes": [
+        "Los pasos 2 a 11 son opciones posibles, no obligatorias. La meta es reducir trabajo, no comer breakfast leftovers toda la semana"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Elegir qué componentes dejar listos; no se cocinan siete desayunos completos",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Papas de desayuno",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Berries lavadas",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Smoothie bags",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Vegetales picados",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Hongos",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Frijoles cocidos",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Base de gallo pinto",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Huevos duros",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Relleno de breakfast burrito",
+          "minutes": null
+        },
+        {
+          "id": "paso-11",
+          "text": "Fruta lavada",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "servicio-diario",
+      "name": "Servicio diario: cocinar, empacar y reset",
+      "category": "preparar",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "Cada día que se cocina",
+      "estimatedMinutes": {
+        "min": 50,
+        "max": 90
+      },
+      "active": true,
+      "source": "Kitchen Manual v0, sección 1 (semana tipo), 5 y 6",
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Cocinar la comida del día: 1 unidad = 4 platos",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Empacar el almuerzo de mañana antes de servir la cena",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Limpieza de cada vez",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Reset de la noche (cierre diario); no se salta aunque se cambien días",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "prep-mensual-carnes",
+      "name": "Prep mensual de carnes",
+      "category": "preparar",
+      "zone": null,
+      "frequencyDays": 30,
+      "frequencyLabel": "Mensual (sábado en la tarde)",
+      "estimatedMinutes": {
+        "min": 180,
+        "max": 240
+      },
+      "active": true,
+      "source": "Kitchen Manual v0, sección 1 (mes tipo)",
+      "notes": [
+        "En pareja con roles fijos: uno corta y muele; el otro pesa, empaca, etiqueta y lava sobre la marcha. Nunca la compra y los dos preps el mismo día"
+      ],
+      "steps": [],
+      "pending": [
+        "steps"
+      ]
+    },
+    {
+      "id": "prep-verduras-bases-frutas",
+      "name": "Prep de verduras, bases y frutas",
+      "category": "preparar",
+      "zone": null,
+      "frequencyDays": 30,
+      "frequencyLabel": "Mensual (domingo)",
+      "estimatedMinutes": {
+        "min": 120,
+        "max": 180
+      },
+      "active": true,
+      "source": "Kitchen Manual v0, sección 1 (mes tipo)",
+      "steps": [],
+      "pending": [
+        "steps"
+      ]
+    },
+    {
+      "id": "pollo-marinado-sarten",
+      "name": "Master Skillet Chicken",
+      "category": "preparar",
+      "group": "pollo",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 3",
+      "ingredients": [
+        "1 unidad de filetes de pollo marinados",
+        "1 cda de aceite, si hace falta",
+        "2–4 cdas de agua o caldo de pollo, si la salsa necesita soltarse"
+      ],
+      "notes": [
+        "Sirve para: Teriyaki, Mustard-Honey, Mexican, Lizano, Cilantro-Lemon, BBQ, Italian y Cheese + Nutmeg Chicken. Rinde 1 unidad / 4 platos",
+        "Excepción BBQ: agregar salsa BBQ limpia adicional cerca del final. No echar marinada cruda sobre el pollo cocido"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Descongelar el pollo por completo en el refri",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Calentar una sartén grande a fuego medio-alto",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Agregar un poco de aceite si hace falta",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Sacar el pollo de la bolsa y dejar escurrir el exceso de marinada",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Sellar sin moverlo constantemente",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Voltear cuando el primer lado tenga buen color",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Bajar a fuego medio si la marinada se dora demasiado rápido",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Cocinar hasta que el pollo llegue a 165 °F por dentro",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Agregar un chorrito de caldo o agua si el fondo de la sartén necesita volverse una salsa ligera",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Reposar varios minutos",
+          "minutes": null
+        },
+        {
+          "id": "paso-11",
+          "text": "Rebanar cuando convenga",
+          "minutes": null
+        },
+        {
+          "id": "paso-12",
+          "text": "Servir según el Meal Combination Library",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "pollo-en-trocitos",
+      "name": "Master Chicken Chunks",
+      "category": "preparar",
+      "group": "pollo",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 4",
+      "ingredients": [
+        "1 unidad de pollo en trocitos",
+        "Aproximadamente 1 cda de aceite"
+      ],
+      "notes": [
+        "Para: chicken bowls, fajitas, curry, taco chicken, pasta chicken y stir-fries. Rinde 1 unidad"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Secar ligeramente los trocitos descongelados cuando no llevan marinada húmeda",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Calentar la sartén a fuego medio-alto",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Agregar aproximadamente 1 cda de aceite",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Extender el pollo en una sola capa",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Dejar que dore antes de mover",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Cocinar hasta que no quede centro crudo y llegue a 165 °F por dentro",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Sacar el pollo antes de agregar salsas cuando la receta pide una salsa aparte",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "No amontonar la sartén; cocinar en dos tandas si hace falta",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "curry-de-pollo",
+      "name": "Chicken Curry (cremoso, sin leche de coco)",
+      "category": "preparar",
+      "group": "pollo",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 5",
+      "ingredients": [
+        "1½ lb de pechuga de pollo en cubos",
+        "1 cda de aceite",
+        "1 cda de mantequilla",
+        "1 cebolla pequeña en cubitos",
+        "2 dientes de ajo picados",
+        "2 zanahorias en rodajas",
+        "1 taza de arvejas",
+        "1½ cdas de curry en polvo",
+        "½ cdta de comino",
+        "¼ cdta de canela",
+        "½ cdta de cúrcuma (opcional)",
+        "2 cdas de harina",
+        "1½ tazas de caldo de pollo",
+        "½ taza de crema espesa (heavy cream)",
+        "Sal",
+        "Pimienta negra",
+        "Culantro para terminar (opcional)"
+      ],
+      "notes": [
+        "Rinde 1 unidad / 4 platos. Servir con arroz + vegetal"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Sazonar el pollo ligeramente con sal y pimienta",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Calentar el aceite y la mantequilla en una sartén grande",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Dorar el pollo y sacarlo antes de que se cocine por completo",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Agregar la cebolla y las zanahorias",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Cocinar hasta que la cebolla empiece a suavizarse",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Agregar el ajo",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Agregar el curry, el comino, la canela y la cúrcuma",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Revolver aproximadamente 30 segundos",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Espolvorear la harina sobre los vegetales y mezclar",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Agregar el caldo de pollo poco a poco, revolviendo",
+          "minutes": null
+        },
+        {
+          "id": "paso-11",
+          "text": "Regresar el pollo",
+          "minutes": null
+        },
+        {
+          "id": "paso-12",
+          "text": "Hervir suave hasta que el pollo y las zanahorias estén cocidos",
+          "minutes": null
+        },
+        {
+          "id": "paso-13",
+          "text": "Agregar las arvejas",
+          "minutes": null
+        },
+        {
+          "id": "paso-14",
+          "text": "Bajar el fuego",
+          "minutes": null
+        },
+        {
+          "id": "paso-15",
+          "text": "Agregar la crema",
+          "minutes": null
+        },
+        {
+          "id": "paso-16",
+          "text": "Hervir suave solo hasta que la salsa espese",
+          "minutes": null
+        },
+        {
+          "id": "paso-17",
+          "text": "Ajustar la sal",
+          "minutes": null
+        },
+        {
+          "id": "paso-18",
+          "text": "Terminar con culantro si se quiere",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "tortellini-pollo-brocoli",
+      "name": "Chicken Tortellini + Broccoli in White Sauce",
+      "category": "preparar",
+      "group": "pollo",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 6",
+      "ingredients": [
+        "12–14 oz de tortellini de queso",
+        "1 lb de pechuga de pollo en trocitos pequeños",
+        "2 tazas de floretes de brócoli",
+        "1 cda de mantequilla",
+        "2 dientes de ajo",
+        "1 taza de caldo de pollo",
+        "¾ taza de crema espesa (heavy cream)",
+        "½ taza de parmesano",
+        "2 oz de queso crema (opcional)",
+        "½ cdta de Italian seasoning",
+        "Sal",
+        "Pimienta"
+      ],
+      "notes": [
+        "Rinde 1 unidad / 4 platos generosos"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Cocinar el tortellini según su paquete, justo al dente",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Reservar un poco del agua de la pasta",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Sazonar el pollo con sal y pimienta",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Dorar el pollo en la mantequilla",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Agregar el ajo y el Italian seasoning",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Agregar el brócoli",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Agregar el caldo de pollo",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Tapar un momento, hasta que el brócoli quede tierno pero firme",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Bajar el fuego",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Agregar la crema",
+          "minutes": null
+        },
+        {
+          "id": "paso-11",
+          "text": "Agregar el parmesano",
+          "minutes": null
+        },
+        {
+          "id": "paso-12",
+          "text": "Agregar el queso crema si se quiere una salsa más espesa",
+          "minutes": null
+        },
+        {
+          "id": "paso-13",
+          "text": "Regresar el tortellini",
+          "minutes": null
+        },
+        {
+          "id": "paso-14",
+          "text": "Mezclar con cuidado",
+          "minutes": null
+        },
+        {
+          "id": "paso-15",
+          "text": "Agregar agua de la pasta si la salsa queda muy espesa",
+          "minutes": null
+        },
+        {
+          "id": "paso-16",
+          "text": "Ajustar sal y pimienta",
+          "minutes": null
+        },
+        {
+          "id": "paso-17",
+          "text": "No hervir fuerte después de agregar la crema",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "pollo-sudado",
+      "name": "Pollo Sudado",
+      "category": "preparar",
+      "group": "pollo",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 7",
+      "ingredients": [
+        "1 unidad de pollo con hueso",
+        "1 cebolla pequeña",
+        "½ chile dulce",
+        "2 dientes de ajo",
+        "1 tomate",
+        "1 zanahoria",
+        "1–2 papas (opcional)",
+        "1 cdta de orégano",
+        "½ cdta de paprika",
+        "1 pizca pequeña de tomillo",
+        "Sal",
+        "Pimienta",
+        "1–1½ tazas de caldo de pollo o agua",
+        "Culantro"
+      ],
+      "notes": [
+        "Rinde 1 unidad"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Sazonar el pollo",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Dorarlo ligeramente en una olla",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Sacarlo un momento",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Sofreír la cebolla y el chile dulce",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Agregar el ajo",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Agregar el tomate y los condimentos",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Regresar el pollo",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Agregar el caldo",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Agregar la zanahoria, y la papa si se usa",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Tapar",
+          "minutes": null
+        },
+        {
+          "id": "paso-11",
+          "text": "Hervir suave hasta que el pollo esté completamente cocido y los vegetales tiernos",
+          "minutes": null
+        },
+        {
+          "id": "paso-12",
+          "text": "Destapar cerca del final si la salsa necesita reducirse",
+          "minutes": null
+        },
+        {
+          "id": "paso-13",
+          "text": "Terminar con culantro",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "pollo-hierbas-horno",
+      "name": "Bone-In Herb Chicken (horno)",
+      "category": "preparar",
+      "group": "pollo",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 8",
+      "ingredients": [
+        "1 unidad de pollo con hueso, con el adobo Herb Muslos / Encuentros"
+      ],
+      "notes": [
+        "Rinde 1 unidad"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Descongelar por completo",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Calentar el horno a 400 °F",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Acomodar el pollo con espacio entre las piezas",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Hornear hasta que esté dorado y completamente cocido",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Empezar a revisar a los 35 minutos las piezas pequeñas",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Las piezas grandes con hueso pueden necesitar aproximadamente 40–50 minutos",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Confirmar que está cocido en vez de confiar solo en el tiempo",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Reposar antes de servir",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "alitas-bbq",
+      "name": "BBQ Wings",
+      "category": "preparar",
+      "group": "pollo",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 9",
+      "ingredients": [
+        "1 unidad de alitas, con el adobo BBQ Wings",
+        "Salsa BBQ limpia"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Hornear o cocinar en air fryer hasta que estén casi crujientes",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Mezclar o barnizar con salsa BBQ limpia cerca del final",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Regresar un momento al calor para fijar el glaseado",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Servir de inmediato",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "fajitas-de-pollo",
+      "name": "Chicken Fajitas",
+      "category": "preparar",
+      "group": "pollo",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 10",
+      "ingredients": [
+        "1 unidad de pollo Mexican en trocitos",
+        "2 chiles dulces en tiras",
+        "1 cebolla en tiras",
+        "Tortillas",
+        "Aguacate / guacamole",
+        "Salsa"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Cocinar el pollo a fuego alto hasta que dore",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Sacarlo",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Saltear los chiles y la cebolla hasta que estén tiernos pero no aguados",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Regresar el pollo",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Mezclar todo",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Servir con tortillas calientes",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "bowl-de-pollo",
+      "name": "Chicken Bowl",
+      "category": "preparar",
+      "group": "pollo",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 11",
+      "ingredients": [
+        "1 unidad de pollo cocido",
+        "Arroz o quinoa",
+        "2 vegetales",
+        "Aguacate o salsa"
+      ],
+      "notes": [
+        "Es una fórmula: no necesita receta adicional. Usar el Meal Combination Library para elegir el armado"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "cerdo-marinado",
+      "name": "Master Marinated Pork",
+      "category": "preparar",
+      "group": "cerdo",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 12",
+      "ingredients": [
+        "1 unidad de cerdo marinado, en trocitos o en chuletas"
+      ],
+      "notes": [
+        "Sirve para: Hawaiian, Mustard-Honey, Cilantro-Lemon, Italian, BBQ, Teriyaki, Lizano y Mexican. Los pasos 1–5 son para trocitos y los 6–10 para chuletas"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Trocitos: calentar la sartén a fuego medio-alto",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Trocitos: dorar el cerdo en una sola capa",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Trocitos: bajar el fuego",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Trocitos: cocinar hasta que esté bien cocido",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Trocitos: agregar salsa limpia adicional solo cuando la receta lo pida",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Chuletas: sellar el primer lado sin mover",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Chuletas: voltear",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Chuletas: bajar el fuego si hace falta",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Chuletas: cocinar hasta al menos 145 °F por dentro",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Chuletas: reposar al menos 3 minutos",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "chuletas",
+      "name": "Chuletas",
+      "category": "preparar",
+      "group": "cerdo",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 13",
+      "ingredients": [
+        "1 unidad de chuletas de cerdo",
+        "Sal",
+        "Pimienta",
+        "Ajo",
+        "Paprika",
+        "1 cda de aceite"
+      ],
+      "notes": [
+        "Rinde 1 unidad. Regla de la casa: preferir arroz blanco + vegetal/ensalada en vez de gallo pinto"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Sazonar las chuletas",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Calentar bien la sartén",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Sellar aproximadamente 3–5 minutos por lado, según el grosor",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Bajar el fuego si hace falta",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Cocinar por completo sin resecar",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Reposar antes de servir",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "cerdo-con-frijoles",
+      "name": "Cerdo con Frijoles / Legumbres",
+      "category": "preparar",
+      "group": "cerdo",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 14",
+      "ingredients": [
+        "1–1½ lb de cerdo en trocitos",
+        "3 tazas de frijoles o legumbres cocidos",
+        "1 cebolla pequeña",
+        "½ chile dulce",
+        "2 dientes de ajo",
+        "1 tallo de apio",
+        "1 tomate",
+        "1 zanahoria",
+        "½ cdta de orégano",
+        "Paprika",
+        "Sal",
+        "Pimienta",
+        "Caldo, el necesario",
+        "Culantro"
+      ],
+      "notes": [
+        "Rinde aproximadamente 4–6 platos"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Dorar el cerdo",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Sacarlo un momento",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Sofreír la cebolla, el chile dulce y el apio",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Agregar el ajo",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Agregar el tomate y los condimentos",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Regresar el cerdo",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Agregar las legumbres y caldo suficiente para la consistencia deseada",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Hervir suave hasta que el cerdo esté tierno y los sabores se integren",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Terminar con culantro",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "garbanzos-con-cerdo",
+      "name": "Garbanzos con Cerdo",
+      "category": "preparar",
+      "group": "cerdo",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 15",
+      "ingredients": [
+        "1½ tazas de garbanzos secos, remojados toda la noche",
+        "1½ lb de cerdo en trocitos",
+        "1 cebolla",
+        "½ chile dulce",
+        "2 dientes de ajo",
+        "1 zanahoria",
+        "1 tallo de apio",
+        "1 tomate pequeño",
+        "½ cdta de orégano",
+        "1 cdta de paprika",
+        "Sal",
+        "Pimienta",
+        "Culantro",
+        "Agua o caldo"
+      ],
+      "notes": [
+        "Rinde aproximadamente 6 platos. Método en olla de presión"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Remojar los garbanzos toda la noche",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Escurrir",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Dorar ligeramente el cerdo, si se quiere",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Poner en la olla de presión los garbanzos, el cerdo, la cebolla, el chile, el ajo, la zanahoria, el apio y el tomate",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Cubrir bien con agua o caldo",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Sazonar ligeramente",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Cocinar a presión hasta que los garbanzos estén tiernos, vigilando el corte de cerdo que se usó",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Dejar que la presión baje sola",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Si los garbanzos necesitan más tiempo pero el cerdo ya está tierno, sacar el cerdo y seguir cocinando los garbanzos",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Regresar el cerdo",
+          "minutes": null
+        },
+        {
+          "id": "paso-11",
+          "text": "Hervir destapado si el caldo necesita espesar",
+          "minutes": null
+        },
+        {
+          "id": "paso-12",
+          "text": "Ajustar la sal",
+          "minutes": null
+        },
+        {
+          "id": "paso-13",
+          "text": "Terminar con culantro",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "albondigas-de-cerdo",
+      "name": "Ground Pork Meatballs",
+      "category": "preparar",
+      "group": "cerdo",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 16",
+      "ingredients": [
+        "1½ lb de cerdo molido",
+        "1 huevo",
+        "½ taza de pan molido",
+        "2 dientes de ajo",
+        "¼ taza de cebolla en cubitos finos",
+        "½ cdta de orégano",
+        "¾ cdta de sal",
+        "Pimienta"
+      ],
+      "notes": [
+        "Rinde 1 unidad"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Mezclar solo hasta integrar",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Formar las albóndigas",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Hornear a 400 °F o dorar en sartén",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Terminar en salsa o en sopa, según la receta",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "bistec-encebollado",
+      "name": "Bistec Encebollado",
+      "category": "preparar",
+      "group": "res",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 17",
+      "ingredients": [
+        "1½–2 lb de bistec delgado",
+        "Adobo de Bistec Encebollado (base Lizano)",
+        "2 cebollas en juliana",
+        "1 cda de aceite",
+        "1 chorrito de caldo de res, si hace falta"
+      ],
+      "notes": [
+        "Rinde 1 unidad"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Marinar la res de 30 minutos a 2 horas",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Calentar muy bien la sartén",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Cocinar los bisteces rápido, en tandas",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Sacarlos",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Agregar las cebollas a la misma sartén",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Cocinar hasta que estén suaves y ligeramente doradas",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Desglasar con un poco de caldo si hace falta",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Regresar la res un momento",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Cubrir con las cebollas y los jugos de la sartén",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "res-con-brocoli",
+      "name": "Beef & Broccoli",
+      "category": "preparar",
+      "group": "res",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 18",
+      "ingredients": [
+        "1½ lb de res en rebanadas delgadas",
+        "Mezcla velvet de Beef & Broccoli",
+        "Salsa: ⅔ taza de caldo de pollo o de res",
+        "Salsa: 2 cdas de salsa de soya",
+        "Salsa: 1½ cdas de salsa de ostión",
+        "Salsa: ½ cdta de aceite de ajonjolí",
+        "Salsa: 1 cdta de azúcar o Lakanto",
+        "Salsa: 1 cda de maicena + 2 cdas de agua",
+        "4–5 tazas de brócoli",
+        "2 dientes de ajo",
+        "½ cdta de jengibre",
+        "Aceite"
+      ],
+      "notes": [
+        "Rinde 1 unidad"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Pasar la res por el velvet un momento (10–20 minutos como máximo)",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Blanquear el brócoli aproximadamente 45–60 segundos",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Escurrir muy bien",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Calentar el wok o la sartén hasta que esté muy caliente",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Sellar la res rápido, en tandas",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Sacarla",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Agregar el ajo y el jengibre",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Agregar los ingredientes de la salsa, menos la maicena con agua",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Hervir suave",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Agregar la maicena con agua poco a poco",
+          "minutes": null
+        },
+        {
+          "id": "paso-11",
+          "text": "Regresar la res y el brócoli",
+          "minutes": null
+        },
+        {
+          "id": "paso-12",
+          "text": "Mezclar solo hasta cubrir",
+          "minutes": null
+        },
+        {
+          "id": "paso-13",
+          "text": "Servir de inmediato con arroz",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "carne-en-salsa",
+      "name": "Carne en Salsa",
+      "category": "preparar",
+      "group": "res",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 19",
+      "ingredients": [
+        "1½ lb de res en cubitos",
+        "1 cda de aceite",
+        "1 cebolla",
+        "½ chile dulce",
+        "2 dientes de ajo",
+        "1 tomate",
+        "1 zanahoria",
+        "2 papas (opcional)",
+        "1½ tazas de caldo de res",
+        "Orégano",
+        "Tomillo, poca cantidad",
+        "Sal",
+        "Pimienta"
+      ],
+      "notes": [
+        "Rinde 1 unidad"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Dorar la res en tandas",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Sacarla",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Sofreír la cebolla y el chile dulce",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Agregar el ajo y el tomate",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Regresar la res",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Agregar el caldo y los condimentos",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Tapar y hervir suave hasta que la res empiece a ponerse tierna",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Agregar la zanahoria y la papa en el momento adecuado para que no se deshagan",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Terminar destapado si la salsa necesita reducirse",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "carne-en-salsa-hongos",
+      "name": "Carne en Salsa + Mushrooms",
+      "category": "preparar",
+      "group": "res",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 20",
+      "ingredients": [
+        "Los ingredientes de Carne en Salsa",
+        "8 oz de hongos en rebanadas"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Preparar la receta de Carne en Salsa",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Saltear los hongos aparte hasta que doren",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Agregarlos en los últimos 10–15 minutos, para que no se pongan aguados ni se pierdan en la salsa",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "estofado-de-res",
+      "name": "Beef Stew",
+      "category": "preparar",
+      "group": "res",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 21",
+      "ingredients": [
+        "2 lb de res en cubitos",
+        "1 cebolla",
+        "2 zanahorias",
+        "2 tallos de apio",
+        "3 dientes de ajo",
+        "2 papas",
+        "1 cda de pasta de tomate",
+        "4 tazas de caldo de res",
+        "1 cdta de tomillo",
+        "Sal",
+        "Pimienta",
+        "1 cda de maicena + agua, si hace falta"
+      ],
+      "notes": [
+        "Rinde 6 platos"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Dorar la res",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Sacarla",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Sofreír la cebolla, la zanahoria y el apio",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Agregar el ajo y la pasta de tomate",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Regresar la res",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Agregar el caldo y el tomillo",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Hervir suave, tapado, hasta que la res empiece a ponerse tierna",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Agregar las papas",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Seguir hasta que todo esté tierno",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Espesar ligeramente solo si hace falta",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "hamburguesas",
+      "name": "Hamburgers",
+      "category": "preparar",
+      "group": "res",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 22",
+      "ingredients": [
+        "1½–2 lb de burger blend (res molida con más grasa)",
+        "Sal",
+        "Pimienta",
+        "Queso (opcional)",
+        "Pan de hamburguesa",
+        "Vegetales",
+        "Papas fritas del congelador"
+      ],
+      "notes": [
+        "Rinde 1 unidad"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Dividir en 4 tortas",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Formarlas con suavidad, sin compactar de más",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Hacer una pequeña hendidura en el centro",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Sazonar por fuera poco antes de cocinar",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Asar a la parrilla o sellar en sartén",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Agregar queso cerca del final si se quiere",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Servir con pan + vegetales + papas fritas del congelador",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "carne-molida-mexicana",
+      "name": "Mexican Ground Beef",
+      "category": "preparar",
+      "group": "res",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 23",
+      "ingredients": [
+        "1 unidad de res molida magra",
+        "½ cebolla",
+        "2 dientes de ajo",
+        "1 cdta de chili powder",
+        "1 cdta de paprika",
+        "½ cdta de comino",
+        "½ cdta de orégano",
+        "Sal",
+        "Pimienta",
+        "Limón al final"
+      ],
+      "notes": [
+        "Para burritos, bowls y tacos"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Dorar la res molida",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Agregar la cebolla",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Escurrir el exceso de grasa si hace falta",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Agregar el ajo y los condimentos",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Cocinar hasta que suelte aroma",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Agregar un chorrito de agua si el sazón necesita repartirse",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Terminar con limón",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "papas-rellenas",
+      "name": "Papas Rellenas",
+      "category": "preparar",
+      "group": "res",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 24",
+      "ingredients": [
+        "4 papas grandes horneadas",
+        "Mexican Ground Beef (relleno)",
+        "Queso",
+        "Greek yogurt o natilla (opcional)",
+        "Cebollín"
+      ],
+      "notes": [
+        "Rinde 4 porciones grandes"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Hornear las papas hasta que estén completamente tiernas",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Abrirlas",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Esponjar el interior",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Agregar la res",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Agregar el queso",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Regresar un momento al horno si se quiere",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Servir con ensalada",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "pasta-bowl",
+      "name": "Pasta Bowl",
+      "category": "preparar",
+      "group": "res",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 25",
+      "ingredients": [
+        "1 lb de res molida magra",
+        "10–12 oz de pasta",
+        "1 taza de hongos",
+        "1 taza de maíz",
+        "1 tomate o salsa de tomate",
+        "½ cebolla",
+        "2 dientes de ajo",
+        "Parmesano",
+        "Aceitunas (opcional)"
+      ],
+      "notes": [
+        "Rinde 1 unidad"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Cocinar la pasta al dente",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Dorar la res",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Agregar la cebolla y el ajo",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Agregar los hongos",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Agregar el tomate y el maíz",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Sazonar estilo italiano",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Mezclar con la pasta",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Agregar agua de la pasta si hace falta",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Terminar con parmesano",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "fajitas-tacos-de-res",
+      "name": "Beef Fajitas / Tacos",
+      "category": "preparar",
+      "group": "res",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 26",
+      "ingredients": [
+        "Res en corte delgado",
+        "Fajitas: chiles dulces, cebolla y sazón Mexican",
+        "Tacos: tortillas, repollo/cebolla, pico de gallo y aguacate"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Fajitas: cocinar la res con los chiles, la cebolla y el sazón Mexican",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Tacos: cocinar la res rápido, rebanarla o picarla y servirla con tortillas, repollo/cebolla, pico de gallo y aguacate",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "new-york-steak",
+      "name": "New York Steak",
+      "category": "preparar",
+      "group": "res",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 27",
+      "ingredients": [
+        "1 unidad = 4 steaks",
+        "Sal",
+        "Pimienta"
+      ],
+      "notes": [
+        "No se marina por default"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Quitar la humedad de la superficie",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Sazonar con sal y pimienta",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Calentar muy bien la parrilla o una sartén pesada",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Cocinar según el grosor del steak y el término preferido",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Voltear las veces necesarias para una cocción pareja",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Reposar antes de cortar",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "tilapia-cornflakes",
+      "name": "Crispy Cornflake Tilapia",
+      "category": "preparar",
+      "group": "seafood",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 28",
+      "ingredients": [
+        "4–6 filetes de tilapia, según el tamaño",
+        "½ taza de natilla (sour cream)",
+        "¼ taza de leche o agua",
+        "1 cdta de paprika",
+        "½ cdta de ajo en polvo",
+        "½ cdta de cebolla en polvo",
+        "Sal",
+        "Pimienta",
+        "3 tazas de cornflakes triturados",
+        "½ taza de harina"
+      ],
+      "notes": [
+        "Rinde 1 unidad"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Secar muy bien el pescado",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Mezclar la natilla con el líquido hasta que quede como buttermilk",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Sazonar el pescado",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Pasarlo ligeramente por la harina",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Sumergirlo en la mezcla de natilla",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Presionarlo contra los cornflakes triturados",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Rociar ligeramente con aceite",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Hornear a 425 °F o cocinar en air fryer hasta que esté crujiente y el pescado esté cocido",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Servir de inmediato",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "tilapia-frita",
+      "name": "Fried Tilapia",
+      "category": "preparar",
+      "group": "seafood",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 29",
+      "ingredients": [
+        "4–6 filetes de tilapia",
+        "1 taza de harina",
+        "½ taza de harina de maíz (cornmeal)",
+        "Paprika",
+        "Ajo en polvo",
+        "Cebolla en polvo",
+        "Sal",
+        "Pimienta",
+        "1 taza de buttermilk",
+        "Aceite para freír"
+      ],
+      "notes": [
+        "Rinde 1 unidad"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Secar el pescado",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Sazonar",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Sumergir en el buttermilk",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Cubrir muy bien con la mezcla sazonada de harina y cornmeal",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Dejar reposar el empanizado 5–10 minutos",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Calentar el aceite a aproximadamente 350 °F",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Freír en tandas",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "No amontonar",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Escurrir sobre una rejilla en vez de apilar",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "tilapia-al-ajillo",
+      "name": "Tilapia al Ajillo",
+      "category": "preparar",
+      "group": "seafood",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 30",
+      "ingredients": [
+        "4–6 filetes de tilapia",
+        "4 dientes de ajo en láminas delgadas",
+        "2 cdas de aceite de oliva",
+        "Sal",
+        "Pimienta",
+        "1 limón",
+        "Perejil o culantro"
+      ],
+      "notes": [
+        "Rinde 1 unidad"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Sazonar el pescado",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Calentar el aceite de oliva a fuego medio",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Agregar el pescado",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Después de aproximadamente 1–2 minutos, agregar el ajo en láminas",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Voltear el pescado con cuidado una sola vez",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Pasar el ajo encima del pescado si se dora demasiado rápido",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Cocinar hasta que el pescado se desmenuce fácil",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Terminar con limón fresco y hierbas",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "salmon-teriyaki",
+      "name": "Salmon Teriyaki",
+      "category": "preparar",
+      "group": "seafood",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 31",
+      "ingredients": [
+        "1 unidad de salmón",
+        "Marinada Sweet Teriyaki para salmón",
+        "Salsa teriyaki limpia para glasear"
+      ],
+      "notes": [
+        "Rinde 1 unidad"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Marinar un momento: aproximadamente 20–60 minutos",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Quitar el exceso de marinada",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Sellar el salmón en la sartén",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Voltear con cuidado",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Agregar salsa teriyaki limpia cerca del final",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Dejar que la salsa se reduzca hasta glasear",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Servir de inmediato",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "bowl-de-tuna-steak",
+      "name": "Tuna Steak Bowl",
+      "category": "preparar",
+      "group": "seafood",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 32",
+      "ingredients": [
+        "4 tuna steaks",
+        "Marinada de soya para tuna steak",
+        "Arroz",
+        "Pepino",
+        "Zanahoria",
+        "Repollo",
+        "Aguacate",
+        "Ajonjolí",
+        "Salsa estilo mayo para tuna"
+      ],
+      "notes": [
+        "Rinde 1 unidad"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Marinar el tuna solo 10–20 minutos",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Calentar la sartén hasta que esté muy caliente",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Sellar según el término preferido y la calidad del tuna",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Reposar un momento",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Rebanar",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Armar sobre el arroz y los vegetales",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Bañar con la salsa",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "tacos-de-camaron",
+      "name": "Shrimp Tacos",
+      "category": "preparar",
+      "group": "seafood",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 33",
+      "ingredients": [
+        "1½ lb de camarones",
+        "1 cdta de chili powder",
+        "½ cdta de comino",
+        "1 cdta de paprika ahumada",
+        "Ajo en polvo",
+        "Ralladura de limón",
+        "1 cda de aceite",
+        "Sal",
+        "Tortillas",
+        "Repollo",
+        "Pico de gallo",
+        "Aguacate",
+        "Limón"
+      ],
+      "notes": [
+        "Rinde 1 unidad"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Mezclar los camarones con las especias y el aceite",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Marinar aproximadamente 15 minutos",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Cocinar a fuego alto aproximadamente 2–3 minutos por lado, según el tamaño",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Sacar en cuanto estén opacos",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Calentar las tortillas",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Armar con repollo, pico de gallo y aguacate",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Exprimir limón al servir",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "bowl-de-camaron",
+      "name": "Shrimp Bowl",
+      "category": "preparar",
+      "group": "seafood",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 34",
+      "ingredients": [
+        "Los camarones de Shrimp Tacos",
+        "Arroz o quinoa (en lugar de tortillas)",
+        "Pepino",
+        "Repollo",
+        "Zanahoria",
+        "Maíz",
+        "Aguacate",
+        "La salsa que se quiera"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Preparar los camarones igual que en Shrimp Tacos",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Servir sobre arroz o quinoa en lugar de tortillas",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Agregar pepino, repollo, zanahoria, maíz, aguacate y la salsa que se quiera",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "sopa-de-pollo",
+      "name": "Simple Chicken Soup",
+      "category": "preparar",
+      "group": "sopas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 35",
+      "ingredients": [
+        "1½ lb de pollo",
+        "6 tazas de caldo de pollo",
+        "2 zanahorias",
+        "2 tallos de apio",
+        "1 cebolla",
+        "2 dientes de ajo",
+        "Sal",
+        "Pimienta",
+        "Culantro",
+        "Arroz, fideos o papa (opcional)"
+      ],
+      "notes": [
+        "Rinde 6 platos"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Cocinar la cebolla, la zanahoria y el apio hasta que empiecen a suavizarse",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Agregar el ajo",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Agregar el caldo y el pollo",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Hervir suave hasta que el pollo esté cocido",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Desmenuzar o cortar el pollo en cubos",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Agregar el arroz, los fideos o la papa, si se usan",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Regresar el pollo",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Ajustar el sazón",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Terminar con culantro",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "sopa-pollo-gnocchi",
+      "name": "Chicken Gnocchi Soup",
+      "category": "preparar",
+      "group": "sopas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 36",
+      "ingredients": [
+        "6 tazas de caldo de pollo",
+        "2 tazas de pollo cocido",
+        "11–12 oz de gnocchi de papa",
+        "2 zanahorias",
+        "1 tallo de apio",
+        "3 dientes de ajo",
+        "1 taza de arvejas",
+        "2 tazas de espinaca",
+        "½ taza de crema espesa (opcional, versión cremosa)",
+        "Parmesano",
+        "Sal",
+        "Pimienta"
+      ],
+      "notes": [
+        "Rinde 4–6 platos"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Sofreír las zanahorias y el apio",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Agregar el ajo",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Agregar el caldo",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Llevar a hervor suave",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Agregar los gnocchi",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Cocinar hasta que estén tiernos",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Agregar el pollo, las arvejas y la espinaca",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Agregar la crema si se hace la versión cremosa",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Sazonar",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Terminar con parmesano",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "pozole-rojo",
+      "name": "Pozole Rojo",
+      "category": "preparar",
+      "group": "sopas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 37",
+      "ingredients": [
+        "2 lb de paleta de cerdo (pork shoulder)",
+        "1 lb de costillas de cerdo",
+        "3 latas de 15 oz de maíz pozolero (hominy), escurrido",
+        "1 cebolla",
+        "6 dientes de ajo",
+        "4 chiles guajillo",
+        "4 chiles ancho",
+        "Sal",
+        "Agua",
+        "Para servir: repollo, rábano, cebolla, limón, aguacate y culantro"
+      ],
+      "notes": [
+        "Rinde 8 platos"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Hervir suave el cerdo con la cebolla, el ajo y la sal hasta que esté tierno",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Tostar y suavizar los chiles ya limpios",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Licuar los chiles con un poco de caldo y ajo",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Colar la salsa si se quiere",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Agregar la salsa roja al caldo del cerdo",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Agregar el maíz pozolero",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Hervir suave hasta que los sabores se integren",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Ajustar la sal",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Servir con los acompañamientos frescos",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "olla-de-carne",
+      "name": "Olla de Carne (versión de la casa)",
+      "category": "preparar",
+      "group": "sopas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 38",
+      "ingredients": [
+        "4–4½ lb de res con hueso",
+        "Sazón: ajo, orégano, un poco de tomillo, pimienta negra y sal",
+        "Aproximadamente 8–10 tazas de agua, ajustando",
+        "Cebolla",
+        "Ajo",
+        "Apio",
+        "Culantro coyote / culantro",
+        "Papa",
+        "Zanahoria",
+        "Elote",
+        "Camote",
+        "Ayote",
+        "Chayote",
+        "Yuca",
+        "Plátano verde",
+        "Plátano maduro"
+      ],
+      "notes": [
+        "Rinde aproximadamente 6 porciones generosas"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Sazonar la carne con ajo, orégano, tomillo, pimienta y sal",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Cocinar la carne con el agua hasta que esté tierna; se puede usar olla de presión",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Conservar el caldo",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Agregar los aromáticos al caldo antes que los vegetales",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Agregar los vegetales por grupos, según su tiempo de cocción",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Empezar con los vegetales más firmes",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Agregar después los delicados o de cocción rápida",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Regresar la carne",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Mantener el caldo claro; no licuar los vegetales",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Ajustar la sal antes de servir",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "sopa-de-albondigas",
+      "name": "Sopa de Albóndigas",
+      "category": "preparar",
+      "group": "sopas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 39",
+      "ingredients": [
+        "Albóndigas: 1 lb de carne molida",
+        "Albóndigas: 1 huevo",
+        "Albóndigas: ⅓ taza de pan molido o arroz cocido",
+        "Albóndigas: ajo, cebolla, sal y pimienta",
+        "Sopa: 6 tazas de caldo",
+        "Sopa: tomate",
+        "Sopa: cebolla",
+        "Sopa: zanahoria",
+        "Sopa: papa",
+        "Sopa: zucchini / chayote",
+        "Sopa: culantro"
+      ],
+      "notes": [
+        "Rinde 6 platos"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Formar albóndigas pequeñas",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Armar el caldo con tomate, cebolla y ajo",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Agregar los vegetales más firmes",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Llevar a hervor suave",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Agregar las albóndigas",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "No revolver fuerte hasta que las albóndigas cuajen",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Terminar de cocinar los vegetales",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Agregar el culantro",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "sopa-lasagna",
+      "name": "Lasagna Soup",
+      "category": "preparar",
+      "group": "sopas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 40",
+      "ingredients": [
+        "1 lb de res molida",
+        "8 oz de pasta para lasagna, quebrada",
+        "1 cebolla",
+        "3 dientes de ajo",
+        "2 cdas de pasta de tomate",
+        "1 lata de tomate triturado",
+        "4 tazas de caldo",
+        "1 cdta de orégano",
+        "¼ taza de crema espesa",
+        "Parmesano",
+        "Ricotta (opcional)"
+      ],
+      "notes": [
+        "Rinde 4–6 platos. Para las sobras, guardar la pasta aparte da mejor textura"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Dorar la res",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Agregar la cebolla y el ajo",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Agregar el orégano y la pasta de tomate",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Cocinar un momento la pasta de tomate",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Agregar los tomates y el caldo",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Hervir suave",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Cocinar la pasta aparte o directo en la sopa, según la textura que se quiera para las sobras",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Juntar",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Agregar la crema y el parmesano",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Servir con ricotta encima si se quiere",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "lentejas-con-pollo",
+      "name": "Lentils with Chicken",
+      "category": "preparar",
+      "group": "sopas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 41",
+      "ingredients": [
+        "1½ tazas de lentejas secas",
+        "1 lb de pollo",
+        "1 cebolla",
+        "1 zanahoria",
+        "1 tallo de apio",
+        "2 dientes de ajo",
+        "1 tomate",
+        "6 tazas de caldo o agua",
+        "Orégano",
+        "Sal",
+        "Pimienta",
+        "Espinaca (opcional)"
+      ],
+      "notes": [
+        "Rinde 6 platos"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Sofreír los aromáticos",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Agregar el ajo y el tomate",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Agregar las lentejas y el caldo",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Hervir suave hasta que estén a medio cocer",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Agregar el pollo en el momento adecuado, según el corte",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Cocinar hasta que las lentejas y el pollo estén listos",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Agregar la espinaca cerca del final si se quiere",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Ajustar el sazón",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "sopa-egg-drop",
+      "name": "Egg Drop Soup",
+      "category": "preparar",
+      "group": "sopas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 42",
+      "ingredients": [
+        "4 tazas de caldo de pollo",
+        "3 huevos ligeramente batidos",
+        "2 cdas de maicena",
+        "¼ taza de agua",
+        "½ cdta de aceite de ajonjolí",
+        "Pimienta blanca o negra",
+        "Sal",
+        "Cebollín"
+      ],
+      "notes": [
+        "Rinde 4–6 tazones"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Llevar el caldo a hervor suave",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Agregar el aceite de ajonjolí y el sazón",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Mezclar la maicena con el agua fría",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Revolver la mezcla de maicena en el caldo",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Hervir suave hasta que espese ligeramente",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Revolver la sopa en círculos",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Verter el huevo batido despacio, en hilo",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Dejar de revolver un momento para que se formen los listones de huevo",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Terminar con cebollín",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "sopa-brocoli-queso",
+      "name": "Broccoli Cheese Soup",
+      "category": "preparar",
+      "group": "sopas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 43",
+      "ingredients": [
+        "1½ lb de brócoli",
+        "1 cebolla",
+        "2 dientes de ajo",
+        "3 cdas de mantequilla",
+        "4 tazas de caldo",
+        "¾ taza de crema o half-and-half",
+        "1½–2 tazas de queso Cheddar",
+        "1 pizca de nuez moscada",
+        "Sal",
+        "Pimienta"
+      ],
+      "notes": [
+        "Rinde 6 tazones"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Cocinar la cebolla en la mantequilla",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Agregar el ajo",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Agregar el brócoli y el caldo",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Hervir suave hasta que esté tierno",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Licuar una parte o todo, según la textura preferida",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Regresar a fuego bajo",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Agregar la crema",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Agregar el queso poco a poco",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "No hervir fuerte después de agregar el queso",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Sazonar con nuez moscada, sal y pimienta",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "sopa-frijol-blanco",
+      "name": "White Bean Soup",
+      "category": "preparar",
+      "group": "sopas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 44",
+      "ingredients": [
+        "3 tazas de frijoles blancos cocidos",
+        "1 cebolla",
+        "1 zanahoria",
+        "1 tallo de apio",
+        "2 dientes de ajo",
+        "4 tazas de caldo de pollo",
+        "Espinaca",
+        "Orégano o romero",
+        "Aceite de oliva",
+        "Sal",
+        "Pimienta"
+      ],
+      "notes": [
+        "Rinde 4–6 tazones"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Sofreír la cebolla, la zanahoria y el apio",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Agregar el ajo",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Agregar los frijoles y el caldo",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Hervir suave 10–15 minutos",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Majar una pequeña parte de los frijoles para espesar de forma natural",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Agregar la espinaca",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Ajustar el sazón",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "sopa-de-tomate",
+      "name": "Tomato Soup + Bread",
+      "category": "preparar",
+      "group": "sopas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 45",
+      "ingredients": [
+        "1 cda de aceite de oliva o mantequilla",
+        "1 cebolla",
+        "2 dientes de ajo",
+        "28 oz de tomate enlatado",
+        "2 tazas de caldo",
+        "½ taza de crema (opcional)",
+        "Sal",
+        "Pimienta",
+        "Albahaca / orégano",
+        "Pan"
+      ],
+      "notes": [
+        "Rinde 4 tazones"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Cocinar la cebolla hasta que esté suave",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Agregar el ajo",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Agregar los tomates y el caldo",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Hervir suave aproximadamente 20 minutos",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Licuar hasta que quede tersa",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Agregar la crema si se quiere",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Ajustar el sazón",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Servir con pan o con tostada estilo grilled cheese",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "ramen-flex",
+      "name": "Ramen (versión flex)",
+      "category": "preparar",
+      "group": "sopas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 46",
+      "ingredients": [
+        "Fideos de ramen",
+        "Caldo / sazonador",
+        "Huevo",
+        "Cebollín",
+        "Vegetales congelados",
+        "Proteína que haya sobrado, si hay"
+      ],
+      "notes": [
+        "Es un armado de Flex Dinner: la meta es volver el ramen una comida sin convertirlo en un proyecto grande de cocina"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "kimchi-stew",
+      "name": "Kimchi Stew (formato rápido de la casa)",
+      "category": "preparar",
+      "group": "sopas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 47",
+      "ingredients": [
+        "Kimchi",
+        "Jugo de kimchi",
+        "Caldo o agua",
+        "Tofu",
+        "Cerdo o atún (opcional)",
+        "Cebollín",
+        "Ajo",
+        "Gochugaru / gochujang, si hay"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Cocinar el kimchi un momento",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Agregar el ajo y la carne, si se usa",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Agregar el caldo y el jugo de kimchi",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Hervir suave",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Agregar el tofu cerca del final",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Terminar con cebollín",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "sopa-de-legumbres",
+      "name": "Sopa de Legumbres",
+      "category": "preparar",
+      "group": "sopas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 48",
+      "ingredients": [
+        "2–3 legumbres o vegetales disponibles",
+        "Cebolla",
+        "Apio",
+        "Ajo",
+        "Tomate",
+        "Caldo",
+        "Hierbas"
+      ],
+      "notes": [
+        "Es una fórmula para usar el inventario, no una receta fija: la combinación exacta puede cambiar"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "sopa-fideos-yayi",
+      "name": "Sopa de Fideos de Yayi",
+      "category": "preparar",
+      "group": "sopas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 49",
+      "notes": [
+        "Receta de la casa por documentar. El PDF pide conservar el nombre y no reemplazarla por una sopa de fideos genérica"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "french-garlic-chicken",
+      "name": "French Garlic Chicken",
+      "category": "preparar",
+      "group": "sopas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 50",
+      "notes": [
+        "Nombre de receta de la casa por identificar: el PDF no define si es estilo 40 dientes de ajo, pollo cremoso al ajo u otra versión"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "arroz-con-atun",
+      "name": "Arroz con Atún",
+      "category": "preparar",
+      "group": "flex",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 51",
+      "ingredients": [
+        "Arroz cocido",
+        "1–2 latas de atún",
+        "Mayonesa o la salsa que se quiera",
+        "Pepino (opcional)",
+        "Aguacate",
+        "Salsa de soya (opcional)"
+      ],
+      "notes": [
+        "Para dos. Usa atún enlatado, no tuna steak"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Mezclar todo, o armarlo como bowl",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "quesadillas",
+      "name": "Quesadillas",
+      "category": "preparar",
+      "group": "flex",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 52",
+      "ingredients": [
+        "Tortillas",
+        "Queso",
+        "Opcional: pollo, pavo, frijoles o vegetales"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Cocinar en sartén seca o apenas engrasada hasta que la tortilla esté crujiente y el queso se derrita",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "dumplings",
+      "name": "Dumplings",
+      "category": "preparar",
+      "group": "flex",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 53",
+      "ingredients": [
+        "Dumplings congelados",
+        "Para una cena más completa: pepino, edamame, vegetales y salsa sencilla de soya para dipear"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Mantenerlos congelados hasta cocinarlos",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Cocinar según el método del paquete: al vapor, en sartén o hervidos, según el tipo",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Agregar pepino, edamame, vegetales y salsa de soya cuando se quiera una cena más completa",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "bowl-de-sobras",
+      "name": "Leftover Bowl",
+      "category": "preparar",
+      "group": "flex",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 8, receta 54",
+      "ingredients": [
+        "Proteína que sobró",
+        "Arroz o quinoa",
+        "Vegetal",
+        "Salsa o complemento"
+      ],
+      "notes": [
+        "Existe para que no se desperdicien cantidades pequeñas de comida"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "desayuno-gallo-pinto",
+      "name": "Gallo Pinto Breakfast",
+      "category": "preparar",
+      "group": "desayunos",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 5, sección 5",
+      "ingredients": [
+        "Gallo pinto",
+        "Huevos",
+        "Cottage cheese",
+        "Aguacate"
+      ],
+      "notes": [
+        "Tita: aproximadamente ½ taza de gallo pinto, 2 huevos, cottage cheese y aguacate",
+        "Alonso: misma base; puede aumentar gallo pinto, huevos, tortilla o tostada según apetito",
+        "El gallo pinto se cocina fresco cuando se pueda; los frijoles pueden prepararse antes (sección 20)"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "smoothie-de-proteina",
+      "name": "Protein Smoothie",
+      "category": "preparar",
+      "group": "desayunos",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 5, sección 6",
+      "ingredients": [
+        "Proteína: protein powder; kéfir y/o Greek yogurt",
+        "Fruta, una combinación: berries, banano o piña",
+        "Fibra / grasa: chía",
+        "Líquido: leche, kéfir o una combinación"
+      ],
+      "notes": [
+        "Tita: priorizar suficiente protein powder, berries, chía y kéfir/Greek yogurt; el banano puede usarse, pero no como única fruta ni como la mayor parte",
+        "Alonso: puede usar más banano, más cantidad, avena o granola como topping"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "huevos-con-tostada",
+      "name": "Eggs + Toast",
+      "category": "preparar",
+      "group": "desayunos",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 5, sección 7",
+      "ingredients": [
+        "Huevos (revueltos, fritos, over-easy, duros o estilo omelette)",
+        "Tostada integral",
+        "Fruta o vegetal",
+        "Aguacate (opcional)"
+      ],
+      "notes": [
+        "Tita, opción A: 2 huevos + tostada + aguacate. Opción B: 2 huevos + tostada + berries. Opción C: huevos + cottage cheese + tostada",
+        "Alonso: misma base; puede agregar otra tostada, más huevos, fruta o queso"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "burrito-de-desayuno",
+      "name": "Breakfast Burrito",
+      "category": "preparar",
+      "group": "desayunos",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 5, sección 8",
+      "ingredients": [
+        "Tortilla",
+        "Huevos",
+        "Papas de desayuno",
+        "Pavo / jamón",
+        "Queso",
+        "Cebolla / chile dulce, cuando se quiera",
+        "Opcional: frijoles, aguacate y salsa"
+      ],
+      "notes": [
+        "Tita: priorizar huevo, pavo, vegetales y aguacate; evitar que sea sobre todo tortilla + papa + queso sin suficiente proteína",
+        "Alonso: tortilla más grande, más papa, queso extra u otro burrito según apetito"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "omelette",
+      "name": "Omelette",
+      "category": "preparar",
+      "group": "desayunos",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 5, sección 9",
+      "ingredients": [
+        "Huevos",
+        "Elegir 2–4: hongos, espinaca, chile dulce, cebolla, tomate, pavo, jamón o queso",
+        "Para acompañar, según el menú: tostada, papa, fruta o gallo pinto"
+      ],
+      "notes": [
+        "Tita: el omelette es el componente principal, con un acompañamiento moderado",
+        "Alonso: misma preparación; puede agregar más tostada, papa, pinto o fruta"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "pancakes",
+      "name": "Pancake Day",
+      "category": "preparar",
+      "group": "desayunos",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 5, sección 10",
+      "ingredients": [
+        "Pancakes",
+        "Una proteína: huevos, Greek yogurt, cottage cheese o masa con proteína",
+        "Fruta: berries o banano"
+      ],
+      "notes": [
+        "Regla: los pancakes son el carbohidrato, no todo el desayuno",
+        "Tita: pancakes con buena fuente de proteína, berries, Greek yogurt/cottage y sirope sin azúcar o poco topping dulce",
+        "Alonso: más pancakes, banano y sirope/toppings según preferencia"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "bowl-de-papas-desayuno",
+      "name": "Potato Breakfast Bowl",
+      "category": "preparar",
+      "group": "desayunos",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 5, sección 11 y 19",
+      "ingredients": [
+        "Breakfast Potato Cubes (del congelador)",
+        "Huevos",
+        "Vegetales",
+        "Queso (opcional)",
+        "Aguacate",
+        "Puede llevar: pavo, jamón o frijoles"
+      ],
+      "notes": [
+        "Tita: primero la proteína (huevos / pavo), luego vegetales, papa y aguacate",
+        "Alonso: puede aumentar sobre todo papa, queso y huevos"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Sacar del congelador la cantidad necesaria de papas",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Cocinarlas en air fryer o en sartén",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Cocinar los huevos",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Agregar los vegetales",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Armar el bowl",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "waffles-de-papa",
+      "name": "Potato Waffles",
+      "category": "preparar",
+      "group": "desayunos",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 5, sección 12",
+      "ingredients": [
+        "Potato waffles",
+        "Para acompañar: huevos, pavo o cottage cheese",
+        "Opcional: aguacate y vegetales"
+      ],
+      "notes": [
+        "Son el componente de carbohidrato, no un desayuno completo por sí solos"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "quesadilla-de-desayuno",
+      "name": "Breakfast Quesadilla",
+      "category": "preparar",
+      "group": "desayunos",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 5, sección 13",
+      "ingredients": [
+        "Tortilla",
+        "Huevos",
+        "Pavo / jamón",
+        "Queso",
+        "Opcional: frijoles, cebolla, chile dulce, aguacate y salsa"
+      ],
+      "notes": [
+        "Mejor uso: días en que no se quiere cocinar mucho, hay tortillas abiertas, sobró relleno de huevo o se necesita un desayuno portable"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "avena",
+      "name": "Oatmeal",
+      "category": "preparar",
+      "group": "desayunos",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 5, sección 15",
+      "ingredients": [
+        "Avena",
+        "Proteína: Greek yogurt, protein powder, leche o cottage cheese aparte",
+        "Grasa / fibra: chía, mantequilla de maní o nueces",
+        "Fruta: berries, banano o manzana"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "cereal-completo",
+      "name": "Cereal Build",
+      "category": "preparar",
+      "group": "desayunos",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 5, sección 14",
+      "ingredients": [
+        "Cereal + leche",
+        "Agregar al menos una proteína: Greek yogurt, huevos, cottage cheese o leche alta en proteína",
+        "Y/o grasa / fibra: chía, nueces, mantequilla de nueces o berries"
+      ],
+      "notes": [
+        "Cereal + leche solo no es el desayuno default del sistema. Ejemplo: cereal + leche + Greek yogurt + berries"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "bowl-yogurt-griego",
+      "name": "Greek Yogurt Bowl",
+      "category": "preparar",
+      "group": "desayunos",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 5, sección 24 y 25",
+      "ingredients": [
+        "Greek yogurt",
+        "Berries",
+        "Chía",
+        "Nueces"
+      ],
+      "notes": [
+        "Aparece en la Breakfast Rotation Library y como desayuno de emergencia (opción 2)"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "marinada-teriyaki",
+      "name": "Marinada Teriyaki",
+      "category": "preparar",
+      "group": "marinadas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 6, sección 4",
+      "ingredients": [
+        "2 cdas de salsa de soya o tamari",
+        "1 cda de vinagre de arroz o jugo de limón",
+        "1 cdta de jengibre",
+        "1–2 dientes de ajo",
+        "1–2 cdtas de Lakanto o azúcar"
+      ],
+      "notes": [
+        "Para 1 unidad. Compatible: pollo y cerdo. Congelador: sí. Ácido: vinagre de arroz o limón",
+        "Después de descongelar: cocinar en cuanto esté descongelado; no dejar marinando varios días más",
+        "Va bien con: arroz, quinoa, brócoli, zanahoria, edamame y ajonjolí"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "marinada-mostaza-miel",
+      "name": "Marinada Mustard \"Honey\"",
+      "category": "preparar",
+      "group": "marinadas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 6, sección 5",
+      "ingredients": [
+        "2 cdas de mostaza",
+        "1 cda de vinagre de manzana",
+        "1–2 cdtas de Lakanto o azúcar",
+        "Pimienta negra",
+        "Sal, la mínima"
+      ],
+      "notes": [
+        "Para 1 unidad. Compatible: pollo, cerdo y chuletas. Congelador: sí. Ácido: vinagre de manzana",
+        "Va bien con: vainicas, papas, vegetales rostizados y ensalada"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "marinada-mexicana",
+      "name": "Marinada Mexican",
+      "category": "preparar",
+      "group": "marinadas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 6, sección 6",
+      "ingredients": [
+        "1 cdta de chili powder",
+        "1 cdta de paprika",
+        "1 cdta de comino (½ cdta para un sabor más suave)",
+        "½ cdta de orégano",
+        "Ajo",
+        "Cebolla",
+        "Sal",
+        "½ tomate"
+      ],
+      "notes": [
+        "Para 1 unidad. Compatible: pollo y cerdo. Congelador: sí. El tomate da una acidez ligera",
+        "Va bien con: fajitas, tacos, burritos, bowls, tortillas, pico de gallo y guacamole"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "marinada-lizano",
+      "name": "Marinada Lizano",
+      "category": "preparar",
+      "group": "marinadas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 6, sección 7",
+      "ingredients": [
+        "2–3 cdas de Salsa Lizano",
+        "1 cda de jugo de limón",
+        "Ajo (opcional)",
+        "Pimienta negra"
+      ],
+      "notes": [
+        "Para 1 unidad. Compatible: pollo y cerdo. Congelador: sí. Ácido: limón",
+        "Después de descongelar: cocinar el mismo día; no dejar marinando 1–2 días más en el refri",
+        "Va bien con: arroz, frijoles, picadillo de chayote, aguacate y ensalada sencilla"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "marinada-queso-nuez-moscada",
+      "name": "Marinada Queso + Nutmeg",
+      "category": "preparar",
+      "group": "marinadas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 6, sección 8",
+      "ingredients": [
+        "¼ taza de parmesano",
+        "1 cdta de ajo en polvo",
+        "Pimienta negra",
+        "1 pizca de sal",
+        "1 cdta de Lakanto o azúcar",
+        "1 cdta de nuez moscada"
+      ],
+      "notes": [
+        "Para 1 unidad. Compatible: solo pollo. Congelador: sí. Sin ácido",
+        "No es una salsa de crema: si se quiere un plato muy cremoso, se agrega crema o más queso al cocinar",
+        "Va bien con: pasta, hongos, espinaca, parmesano y aceitunas"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "marinada-cilantro-ajo-limon",
+      "name": "Marinada Cilantro + Garlic + Lemon",
+      "category": "preparar",
+      "group": "marinadas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 6, sección 9",
+      "ingredients": [
+        "½ taza de culantro",
+        "2–3 dientes de ajo",
+        "Jugo de 1 limón",
+        "Sal",
+        "Pimienta negra"
+      ],
+      "notes": [
+        "Para 1 unidad. Compatible: pollo y cerdo. Congelador: sí. Acidez alta (limón)",
+        "El culantro puede perder algo de aroma fresco al congelarse, pero sigue funcionando como marinada",
+        "Después de descongelar: cocinar pronto",
+        "Va bien con: arroz, frijoles, ensalada de garbanzos, pepino, tomate y aguacate"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "marinada-bbq",
+      "name": "Marinada BBQ",
+      "category": "preparar",
+      "group": "marinadas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 6, sección 10",
+      "ingredients": [
+        "1 cda de mostaza",
+        "2 cdas de pasta de tomate o ketchup sin azúcar",
+        "1½ cdas de paprika ahumada",
+        "Vinagre",
+        "Ajo en polvo",
+        "Cebolla en polvo",
+        "1–2 cdtas de Lakanto o azúcar"
+      ],
+      "notes": [
+        "Para 1 unidad. Compatible: pollo, cerdo, alitas y costillas. Congelador: sí. Ácido: vinagre + tomate",
+        "Al cocinar: no depender solo de la marinada del congelador para el glaseado final; agregar BBQ extra cerca del final"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "marinada-italiana",
+      "name": "Marinada Italian",
+      "category": "preparar",
+      "group": "marinadas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 6, sección 11",
+      "ingredients": [
+        "1 cdta de orégano",
+        "½ cdta de albahaca o Italian seasoning",
+        "Ajo",
+        "Pimienta negra",
+        "Jugo de limón o vinagre balsámico"
+      ],
+      "notes": [
+        "Para 1 unidad. Compatible: pollo y cerdo. Congelador: sí. Ácido: limón o balsámico",
+        "Va bien con: espárragos, hongos, tomate, pasta, quinoa, parmesano y aceitunas"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "marinada-hawaiana",
+      "name": "Marinada Hawaiian",
+      "category": "preparar",
+      "group": "marinadas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 6, sección 12",
+      "ingredients": [
+        "2 cdas de salsa de soya",
+        "2–3 cdas de jugo de piña",
+        "1 cda de vinagre de arroz",
+        "1 cdta de jengibre",
+        "1–2 cdtas de Lakanto o azúcar"
+      ],
+      "notes": [
+        "Para 1 unidad. Compatible: cerdo. Congelador: sí. Ácido: vinagre de arroz + piña; la piña tiene enzimas que suavizan la carne",
+        "Después de descongelar: cocinar dentro de aproximadamente 24 horas",
+        "Va bien con: arroz, ensalada de repollo, zanahoria y ajonjolí"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "adobo-alitas-bbq",
+      "name": "Adobo BBQ Wings",
+      "category": "preparar",
+      "group": "marinadas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 6, sección 13",
+      "ingredients": [
+        "1½ cdas de paprika ahumada",
+        "1 cdta de ajo en polvo",
+        "1 cdta de cebolla en polvo",
+        "½ cdta de pimienta negra",
+        "¾ cdta de sal",
+        "1 cda de vinagre de manzana",
+        "1 cda de mostaza",
+        "1–2 cdtas de Lakanto (opcional)",
+        "1 cda de aceite",
+        "2 cdas de pasta de tomate o ketchup sin azúcar (opcional)"
+      ],
+      "notes": [
+        "Rinde 1 unidad. Tiempo de marinado: aproximadamente 2–12 horas",
+        "Cocinar las alitas hasta que estén cocidas y crujientes; agregar el glaseado BBQ cerca del final"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "adobo-muslos-hierbas",
+      "name": "Adobo Herb Muslos / Encuentros",
+      "category": "preparar",
+      "group": "marinadas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 6, sección 14",
+      "ingredients": [
+        "Paprika",
+        "Ajo",
+        "Cebolla",
+        "1 cdta de orégano",
+        "½ cdta de tomillo (opcional)",
+        "Pimienta negra",
+        "¾ cdta de sal"
+      ],
+      "notes": [
+        "Rinde 1 unidad. Tiempo de marinado: aproximadamente 4–24 horas",
+        "Ideal para: horno, pollo sudado, olla de presión y pollo rostizado"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "adobo-bistec-encebollado",
+      "name": "Adobo de Bistec Encebollado",
+      "category": "preparar",
+      "group": "marinadas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 6, sección 16",
+      "ingredients": [
+        "2 cdas de Salsa Lizano",
+        "1 cda de aceite",
+        "2 dientes de ajo",
+        "½ cdta de sal",
+        "½ cdta de pimienta negra",
+        "½ cdta de salsa de soya (opcional)"
+      ],
+      "notes": [
+        "Rinde 1 unidad. Tiempo de marinado: aproximadamente 30 minutos–2 horas. No lleva ácido fuerte a propósito",
+        "Va bien con: cebolla, arroz, frijoles, ensalada y aguacate"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "velvet-res-brocoli",
+      "name": "Velvet de Beef & Broccoli",
+      "category": "preparar",
+      "group": "marinadas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 6, sección 17",
+      "ingredients": [
+        "2½ cdas de salsa de soya",
+        "1 cda de vinagre de arroz",
+        "1 cdta de jengibre",
+        "1–2 dientes de ajo",
+        "1½ cdas de maicena",
+        "1 cdta de aceite"
+      ],
+      "notes": [
+        "Rinde 1 unidad. No es marinada de congelador: es un tratamiento corto justo antes de cocinar",
+        "Tiempo: 10–20 minutos como máximo; no dejar varias horas",
+        "Va bien con: brócoli, arroz, ajonjolí y aceite de ajonjolí"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "marinada-salmon-teriyaki",
+      "name": "Marinada Sweet Teriyaki para salmón",
+      "category": "preparar",
+      "group": "marinadas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 6, sección 22",
+      "ingredients": [
+        "2½–3 cdas de salsa de soya",
+        "1 cda de vinagre de arroz o jugo de limón",
+        "1 cdta de jengibre",
+        "Ajo",
+        "2–3 cdtas de Lakanto o azúcar"
+      ],
+      "notes": [
+        "Rinde 1 unidad. Tiempo de marinado: aproximadamente 20–60 minutos. Se prepara el día de cocinar",
+        "Al cocinar: reducir aparte un poco de salsa limpia si se quiere y glasear cerca del final",
+        "Va bien con: quinoa, arroz, brócoli, espárragos y aguacate"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "marinada-tuna-soya",
+      "name": "Marinada de soya para tuna steak",
+      "category": "preparar",
+      "group": "marinadas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 6, sección 23",
+      "ingredients": [
+        "2½ cdas de salsa de soya",
+        "1 cda de vinagre de arroz o limón",
+        "Jengibre (opcional)",
+        "Un poco de aceite"
+      ],
+      "notes": [
+        "Rinde 1 unidad. Marinada corta: 10–20 minutos"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "salsa-mayo-tuna",
+      "name": "Salsa estilo mayo para tuna steak",
+      "category": "preparar",
+      "group": "marinadas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 6, sección 24",
+      "ingredients": [
+        "¼ taza de mayonesa",
+        "1½ cdas de salsa de soya",
+        "1 cda de jugo de limón",
+        "Lakanto o azúcar (opcional)",
+        "Ajo en polvo"
+      ],
+      "notes": [
+        "No se congela: se prepara al momento de cocinar. Se usa para bañar, como salsa de bowl o para dipear"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "sazon-molida-mexicana",
+      "name": "Sazón Mexican para carne molida",
+      "category": "preparar",
+      "group": "marinadas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 6, sección 19",
+      "ingredients": [
+        "Comino",
+        "Paprika",
+        "Chili powder",
+        "Orégano",
+        "Ajo",
+        "Cebolla",
+        "Sal",
+        "Para terminar: limón, si se quiere"
+      ],
+      "notes": [
+        "Se usa al cocinar: la carne molida se congela sin sazonar"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    },
+    {
+      "id": "sazon-molida-italiana",
+      "name": "Sazón Italian para carne molida",
+      "category": "preparar",
+      "group": "marinadas",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": null,
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 6, sección 20",
+      "ingredients": [
+        "Italian seasoning",
+        "Ajo",
+        "Cebolla",
+        "Sal",
+        "Pimienta negra",
+        "Para terminar: parmesano (opcional)"
+      ],
+      "notes": [
+        "Se usa al cocinar: la carne molida se congela sin sazonar"
+      ],
+      "steps": [],
+      "pending": [
+        "estimatedMinutes",
+        "steps"
+      ]
+    }
+  ]
+}

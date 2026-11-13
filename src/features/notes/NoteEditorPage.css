@@ -1,0 +1,12 @@
+/* Estilos de la pantalla de una nota. */
+
+.note-editor-back {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-text);
+}
+
+.note-editor-title {
+  margin: 4px 0 12px;
+}

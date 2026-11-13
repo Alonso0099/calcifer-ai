@@ -1,0 +1,18 @@
+/* Estilos de la pantalla de limpieza y mantenimiento. */
+
+.maintenance-title {
+  margin-top: 0;
+}
+
+.maintenance-intro {
+  color: var(--color-text-muted);
+}
+
+/* Una columna en celular; en tablet caben dos zonas por fila.
+   "align-items: start" evita que una zona corta se estire al alto de su vecina. */
+.maintenance-zones {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  align-items: start;
+  gap: 12px;
+}

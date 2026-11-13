@@ -1,0 +1,41 @@
+/* Estilos de la pantalla de búsqueda. */
+
+.search-title {
+  margin-top: 0;
+}
+
+.search-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.search-field input {
+  min-height: 48px;
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+}
+
+.search-status {
+  color: var(--color-text-muted);
+}
+
+.search-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* El paso que coincidió, pegado debajo de su tarjeta. */
+.search-matched-step {
+  margin: 4px 4px 0;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}

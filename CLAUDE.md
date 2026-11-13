@@ -57,7 +57,7 @@ Fuera de alcance por ahora (no lo construyas aunque parezca útil): inventario, 
 Ninguna tarea tiene un dueño fijo: quién hace cada cosa se decide en el momento, entre Alonso y Tita. Por eso:
 
 - No existe el campo `owner` en ningún JSON, y la app nunca muestra "a cargo de", "le toca a" ni totales por persona.
-- Al terminar un proceso, la app pregunta de forma opcional "¿Quién lo hizo?" con tres opciones: Alonso, Tita o "Prefiero no anotar". Se guarda como `doneBy` en el evento `process_finished`.
+- Al terminar un proceso, la app pregunta "¿Quién lo hizo?" con tres opciones: Nano, Tita o Ambos (viene elegido "Ambos"). Se guarda como `doneBy` en el evento `process_finished`.
 - `doneBy` es solo una **nota de historial**. No asigna nada, no cambia el estado de vencimiento y no se usa para repartir ni rotar tareas. Si se muestra, es como texto pequeño ("Lo hizo Tita"), nunca como un campo de la tarea.
 
 ## Colores
@@ -81,6 +81,7 @@ Los contrastes están medidos con la fórmula WCAG (mínimo 4.5:1 para texto, 3:
   /* Acciones */
   --color-primary: #5E7660;       /* salvia: botones principales, con texto blanco (5.0:1) */
   --color-primary-hover: #4F6451; /* salvia oscuro: botón presionado (6.4:1) */
+  --color-on-primary: #FFFFFF;    /* blanco: texto sobre los botones salvia (5.0:1) */
   --color-highlight: #D1B174;     /* mostaza: fondo de resaltado, con texto café (5.7:1) */
 
   /* Estado de tareas (barras de vencimiento) */
@@ -128,15 +129,17 @@ Ningún componente lee `localStorage` ni importa el JSON directamente. Todo pasa
 | --- | --- |
 | `getProcesses()` | Todos los procesos activos |
 | `getProcess(id)` | Un proceso con sus pasos |
-| `searchProcesses(text)` | Búsqueda sin distinguir mayúsculas ni acentos |
+| `searchProcesses(text)` | Búsqueda por nombre, pasos e ingredientes, sin distinguir mayúsculas ni acentos |
+| `getZones()` | Las zonas de la cocina (`id`, `name`) |
 | `getWeekPlan()` | La semana tipo: bloques por día con minutos estimados, sin dueños |
 | `toggleStep(processId, stepId)` | Marca o desmarca un paso; se guarda al momento |
-| `finishProcess(processId, minutes, doneBy?)` | Registra que se terminó y cuánto tardó; `doneBy` ("Alonso", "Tita" o `null`) es una nota opcional |
+| `finishProcess(processId, minutes, doneBy?)` | Registra que se terminó y cuánto tardó; `doneBy` ("Nano", "Tita" o "Ambos"; `null` si no se manda) es solo una nota |
 | `getLastDone(processId)` | Fecha de la última vez que se terminó |
 | `getNotes(processId?)` | Todas las notas, o solo las de un proceso; la más reciente primero |
 | `saveNote(note)` | Crea una nota o guarda los cambios de una existente |
 | `deleteNote(noteId)` | Borra una nota (se puede recuperar con Deshacer) |
 | `undoLastEvent()` | Anula el último evento |
+| `getStopwatch(processId)` / `saveStopwatch(processId, stopwatch)` | Lee y guarda el cronómetro en curso de un proceso, para que no se pierda al recargar la página. No es un evento: no entra al historial, al Deshacer ni al respaldo |
 | `exportBackup()` / `importBackup(file)` | Respaldo y restauración del historial |
 
 `src/data/index.js` elige el adaptador con la variable `VITE_DATA_SOURCE` (por ahora solo existe `local`). Un adaptador futuro (por ejemplo, PostgreSQL en Neon) debe implementar las mismas funciones con los mismos parámetros y resultados, sin cambiar ningún componente.
@@ -152,7 +155,7 @@ Cada acción se guarda como un evento nuevo; nunca se edita ni se borra uno ante
   processId: 'limpieza-semanal',  // en notas es opcional: null si la nota no está ligada a un proceso
   stepId: 'paso-3',        // solo en eventos de pasos
   minutes: 42,             // solo en process_finished
-  doneBy: 'Tita',          // solo en process_finished; opcional: 'Alonso' | 'Tita' | null. Es una nota, no una asignación
+  doneBy: 'Tita',          // solo en process_finished; 'Nano' | 'Tita' | 'Ambos' | null. Es una nota, no una asignación
   noteId: 'uuid',          // solo en eventos de notas; el mismo id en todas las versiones de una nota
   title: '...',            // solo en note_saved
   body: '...',             // solo en note_saved
@@ -171,7 +174,7 @@ Cada proceso, paso y zona tiene un id en formato slug (`limpieza-semanal`, `paso
 
 ## Estructura del contenido
 
-`src/content/processes.json`:
+Los procesos van en **un archivo por categoría** dentro de `src/content/processes/`: `compra.json`, `guardar.json`, `preparar.json`, `limpieza.json`, `mantenimiento.json` y `seguridad.json`. Todos tienen la misma forma. Ejemplo, `limpieza.json`:
 
 ```json
 {
@@ -183,26 +186,68 @@ Cada proceso, paso y zona tiene un id en formato slug (`limpieza-semanal`, `paso
       "category": "limpieza",
       "zone": "cocina-general",
       "frequencyDays": 7,
+      "frequencyLabel": "Semanal (viernes)",
+      "estimatedMinutes": { "min": 45, "max": 60 },
       "active": true,
       "source": "Kitchen Manual v0, sección 6",
       "steps": [
         { "id": "paso-1", "text": "Campana: exterior con Krud Kutter si hay grasa, luego Weiman Stainless", "minutes": null }
       ],
-      "pending": ["steps.paso-1.minutes"]
+      "pending": ["steps.minutes"]
     }
   ]
 }
 ```
 
-- `category`: `compra` | `guardar` | `preparar` | `limpieza` | `mantenimiento` | `seguridad`.
-- `frequencyDays`: número de días, o `null` si el proceso no se repite por calendario (por ejemplo, cocinar una receta).
-- No hay campo de dueño (ver "Sin dueños").
-- `minutes` de cada paso: número o `null`. El tiempo total de un proceso se calcula sumando sus pasos; si falta alguno, el total se muestra como aproximado.
+Campos obligatorios de cada proceso:
 
-`src/content/week.json`: la semana tipo (día → bloques con `processId` y `minutes` estimados).
-`src/content/zones.json`: las zonas de la cocina (`id`, `name`), por ejemplo estufa, refri, fregadero, piso, KARLBY y mesa.
+- `id`, `name`, `active`, `source`: como en el ejemplo. Los nombres de los platos se quedan como se usan en casa (`Beef & Broccoli`); el resto del texto va en español.
+- `category`: `compra` | `guardar` | `preparar` | `limpieza` | `mantenimiento` | `seguridad`. Debe coincidir con el archivo donde está el proceso.
+- `zone`: el id de una zona de `zones.json`, o `null` si el proceso no pertenece a una zona (por ejemplo, una receta).
+- `frequencyDays`: número de días, o `null` si el proceso no se repite por calendario (una receta) o si es una tarea diaria (las diarias no llevan registro de "última vez"). Conversión fija: mensual = 30 días; si el manual da un rango, se usa el número menor ("cada 2–3 meses" = 60).
+- `frequencyLabel`: la frecuencia con las palabras del manual ("Cada 2–3 meses", "Diario"), o `null`. Es el texto que ve el usuario; `frequencyDays` es el número con el que se calcula el vencimiento.
+- `estimatedMinutes`: `{ "min": 45, "max": 60 }`, el estimado del manual para el proceso completo, o `null` si el manual no lo da. Un estimado de un solo número lleva `min` y `max` iguales.
+- `steps`: lista de pasos (`id`, `text`, `minutes`). Si el manual todavía no da los pasos, va `[]` y se agrega `"steps"` a `pending`.
+- `minutes` de cada paso: un solo número **medido** en la cocina, o `null` mientras no se mida. Nunca se llena con un estimado.
+- `pending`: los nombres de los campos que faltan (`"estimatedMinutes"`, `"steps"`, `"steps.minutes"`). Lista vacía si no falta nada. Un `null` permitido por diseño no es un pendiente: `zone` en una receta, o `frequencyDays` en una receta o en una tarea diaria.
+- Minutos por paso en `pending`: mientras ningún paso esté medido, va una sola entrada `"steps.minutes"`. Cuando se mide el primero, esa entrada se cambia por una por cada paso que todavía falte (`"steps.paso-2.minutes"`, `"steps.paso-5.minutes"`).
 
-`scripts/validate-content.js` (Node, sin dependencias) revisa que los ids no se repitan, que cada `processId` y `zone` exista, que las categorías sean válidas, e imprime la lista de pendientes. Se corre con `npm run validate` y también antes de `npm run build`.
+Campos opcionales (solo se escriben cuando aplican):
+
+- `ingredients`: lista de textos, uno por ingrediente con su cantidad (`"2 chiles dulces en tiras"`). Para recetas y marinadas.
+- `notes`: lista de textos con lo que el manual dice del proceso y no es ingrediente ni paso: rendimiento ("Rinde 1 unidad"), con qué proteína es compatible una marinada, cuánto puede esperar después de descongelar, o el armado de Tita y el de Alonso en un desayuno. Son contenido del manual, de solo lectura; no confundir con las notas que escribe el usuario (funcionalidad 7).
+- `group`: solo en `preparar`, para dividir la categoría en la pantalla: `pollo` | `cerdo` | `res` | `seafood` | `sopas` | `flex` | `desayunos` | `marinadas`. Los procesos de `preparar` que no son recetas no lo llevan.
+
+No hay campo de dueño (ver "Sin dueños").
+
+El tiempo que muestra la app para un proceso: si todos sus pasos tienen `minutes`, es la suma (tiempo medido); si no, es el rango de `estimatedMinutes` ("45–60 min"); si tampoco existe, se muestra "Pendiente".
+
+`src/content/week.json`: la semana tipo.
+
+```json
+{
+  "schemaVersion": 1,
+  "days": [
+    {
+      "id": "miercoles",
+      "name": "Miércoles",
+      "meal": "Cena: cerdo",
+      "blocks": [
+        { "processId": "servicio-diario", "estimatedMinutes": { "min": 50, "max": 90 } },
+        { "processId": "compra-de-frescos", "estimatedMinutes": { "min": 45, "max": 45 }, "everyWeeks": 2 }
+      ]
+    }
+  ]
+}
+```
+
+- `meal`: la comida del sistema de ese día, con las palabras del manual, o `null`.
+- `blocks`: los bloques del día, cada uno con `processId` y `estimatedMinutes` (misma forma que en los procesos, o `null`). Un día de descanso lleva `[]`.
+- `everyWeeks`: opcional; cada cuántas semanas toca el bloque. Si no está, el bloque es de todas las semanas.
+
+`src/content/zones.json`: las zonas de la cocina (`id`, `name`), por ejemplo `estufa-horno`, `refri`, `fregadero`, `piso`, `karlby` y `mesa-ikea`. La estufa y el horno son una sola zona.
+
+`scripts/validate-content.js` (Node, sin dependencias) revisa que los ids no se repitan entre todos los archivos, que cada `processId` y `zone` exista, que `category` sea válida y coincida con su archivo, que `group` sea válido, que en `estimatedMinutes` `min` no sea mayor que `max`, que no exista ningún campo `owner`, y que `pending` coincida con lo que de verdad falta. Imprime cuántos procesos hay y la lista de pendientes. Se corre con `npm run validate` y también antes de `npm run build`.
 
 ## Estructura de carpetas
 
