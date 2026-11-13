@@ -74,7 +74,7 @@ La rotación es la opción por default: se pueden cambiar días entre sí, pero 
 | Bloque | Cuándo | Tiempo estimado |
 | --- | --- | --- |
 | Conteo del congelador y lista hasta 25 | Viernes antes del fin de semana de prep | 30 min |
-| Compra grande | Viernes en la noche | \~2 h |
+| Compra grande | Sábado en la mañana | \~2 h |
 | Prep de carnes + limpieza | Sábado en la tarde | 3–4 h |
 | Prep de verduras, bases y frutas + limpieza | Domingo | 2–3 h |
 | Mantenimiento mensual | Otra semana del mes | 30–40 min |
@@ -435,6 +435,7 @@ La v0 (5 de noviembre de 2026) resolvió 20 discrepancias: 10 que ya corregía e
 | 19 | Tareas sin registro | Columna "Quién" vacía | Registro de "última vez" (R5); quién la hizo es solo una nota opcional (R4) |
 | 20 | Idioma y numeración | Capítulos mezclan español e inglés; numeración repetida | Manual en español con numeración propia; etiquetas en inglés como en el PDF |
 | 21 | Dueños por área | La v0 inicial asignaba un dueño a cada área y tarea | Se quitaron (decisión del 13 nov 2026): R4 reescrita, sin columnas Dueño |
+| 22 | Día de la compra grande | El "Mes tipo" decía viernes en la noche; R1 y la sección 4 decían sábado en la mañana | Sábado en la mañana, respaldo el domingo; el viernes es el conteo (decisión del 13 nov 2026) |
 
 ## 10. Preguntas abiertas e ideas para la app
 

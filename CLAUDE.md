@@ -190,7 +190,7 @@ Los procesos van en **un archivo por categoría** dentro de `src/content/process
       "steps": [
         { "id": "paso-1", "text": "Campana: exterior con Krud Kutter si hay grasa, luego Weiman Stainless", "minutes": null }
       ],
-      "pending": ["steps.paso-1.minutes"]
+      "pending": ["steps.minutes"]
     }
   ]
 }
@@ -206,7 +206,8 @@ Campos obligatorios de cada proceso:
 - `estimatedMinutes`: `{ "min": 45, "max": 60 }`, el estimado del manual para el proceso completo, o `null` si el manual no lo da. Un estimado de un solo número lleva `min` y `max` iguales.
 - `steps`: lista de pasos (`id`, `text`, `minutes`). Si el manual todavía no da los pasos, va `[]` y se agrega `"steps"` a `pending`.
 - `minutes` de cada paso: un solo número **medido** en la cocina, o `null` mientras no se mida. Nunca se llena con un estimado.
-- `pending`: los nombres de los campos que faltan (`"zone"`, `"estimatedMinutes"`, `"steps"`, `"steps.paso-1.minutes"`). Lista vacía si no falta nada.
+- `pending`: los nombres de los campos que faltan (`"estimatedMinutes"`, `"steps"`, `"steps.minutes"`). Lista vacía si no falta nada. Un `null` permitido por diseño no es un pendiente: `zone` en una receta, o `frequencyDays` en una receta o en una tarea diaria.
+- Minutos por paso en `pending`: mientras ningún paso esté medido, va una sola entrada `"steps.minutes"`. Cuando se mide el primero, esa entrada se cambia por una por cada paso que todavía falte (`"steps.paso-2.minutes"`, `"steps.paso-5.minutes"`).
 
 Campos opcionales (solo se escriben cuando aplican):
 
