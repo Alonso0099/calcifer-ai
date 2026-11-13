@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "vite",
     "validate": "node scripts/validate-content.js",
+    "test": "node --test",
     "build": "npm run validate && vite build",
     "preview": "vite preview"
   },
