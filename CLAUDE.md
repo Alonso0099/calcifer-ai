@@ -171,7 +171,7 @@ Cada proceso, paso y zona tiene un id en formato slug (`limpieza-semanal`, `paso
 
 ## Estructura del contenido
 
-`src/content/processes.json`:
+Los procesos van en **un archivo por categoría** dentro de `src/content/processes/`: `compra.json`, `guardar.json`, `preparar.json`, `limpieza.json`, `mantenimiento.json` y `seguridad.json`. Todos tienen la misma forma. Ejemplo, `limpieza.json`:
 
 ```json
 {
@@ -183,6 +183,8 @@ Cada proceso, paso y zona tiene un id en formato slug (`limpieza-semanal`, `paso
       "category": "limpieza",
       "zone": "cocina-general",
       "frequencyDays": 7,
+      "frequencyLabel": "Semanal (viernes)",
+      "estimatedMinutes": { "min": 45, "max": 60 },
       "active": true,
       "source": "Kitchen Manual v0, sección 6",
       "steps": [
@@ -194,15 +196,53 @@ Cada proceso, paso y zona tiene un id en formato slug (`limpieza-semanal`, `paso
 }
 ```
 
-- `category`: `compra` | `guardar` | `preparar` | `limpieza` | `mantenimiento` | `seguridad`.
-- `frequencyDays`: número de días, o `null` si el proceso no se repite por calendario (por ejemplo, cocinar una receta).
-- No hay campo de dueño (ver "Sin dueños").
-- `minutes` de cada paso: número o `null`. El tiempo total de un proceso se calcula sumando sus pasos; si falta alguno, el total se muestra como aproximado.
+Campos obligatorios de cada proceso:
 
-`src/content/week.json`: la semana tipo (día → bloques con `processId` y `minutes` estimados).
-`src/content/zones.json`: las zonas de la cocina (`id`, `name`), por ejemplo estufa, refri, fregadero, piso, KARLBY y mesa.
+- `id`, `name`, `active`, `source`: como en el ejemplo. Los nombres de los platos se quedan como se usan en casa (`Beef & Broccoli`); el resto del texto va en español.
+- `category`: `compra` | `guardar` | `preparar` | `limpieza` | `mantenimiento` | `seguridad`. Debe coincidir con el archivo donde está el proceso.
+- `zone`: el id de una zona de `zones.json`, o `null` si el proceso no pertenece a una zona (por ejemplo, una receta).
+- `frequencyDays`: número de días, o `null` si el proceso no se repite por calendario (una receta) o si es una tarea diaria (las diarias no llevan registro de "última vez"). Conversión fija: mensual = 30 días; si el manual da un rango, se usa el número menor ("cada 2–3 meses" = 60).
+- `frequencyLabel`: la frecuencia con las palabras del manual ("Cada 2–3 meses", "Diario"), o `null`. Es el texto que ve el usuario; `frequencyDays` es el número con el que se calcula el vencimiento.
+- `estimatedMinutes`: `{ "min": 45, "max": 60 }`, el estimado del manual para el proceso completo, o `null` si el manual no lo da. Un estimado de un solo número lleva `min` y `max` iguales.
+- `steps`: lista de pasos (`id`, `text`, `minutes`). Si el manual todavía no da los pasos, va `[]` y se agrega `"steps"` a `pending`.
+- `minutes` de cada paso: un solo número **medido** en la cocina, o `null` mientras no se mida. Nunca se llena con un estimado.
+- `pending`: los nombres de los campos que faltan (`"zone"`, `"estimatedMinutes"`, `"steps"`, `"steps.paso-1.minutes"`). Lista vacía si no falta nada.
 
-`scripts/validate-content.js` (Node, sin dependencias) revisa que los ids no se repitan, que cada `processId` y `zone` exista, que las categorías sean válidas, e imprime la lista de pendientes. Se corre con `npm run validate` y también antes de `npm run build`.
+Campos opcionales (solo se escriben cuando aplican):
+
+- `ingredients`: lista de textos, uno por ingrediente con su cantidad (`"2 chiles dulces en tiras"`). Para recetas y marinadas.
+- `group`: solo en `preparar`, para dividir la categoría en la pantalla: `pollo` | `cerdo` | `res` | `seafood` | `sopas` | `flex` | `desayunos` | `marinadas`. Los procesos de `preparar` que no son recetas no lo llevan.
+
+No hay campo de dueño (ver "Sin dueños").
+
+El tiempo que muestra la app para un proceso: si todos sus pasos tienen `minutes`, es la suma (tiempo medido); si no, es el rango de `estimatedMinutes` ("45–60 min"); si tampoco existe, se muestra "Pendiente".
+
+`src/content/week.json`: la semana tipo.
+
+```json
+{
+  "schemaVersion": 1,
+  "days": [
+    {
+      "id": "miercoles",
+      "name": "Miércoles",
+      "meal": "Cena: cerdo",
+      "blocks": [
+        { "processId": "servicio-diario", "estimatedMinutes": { "min": 50, "max": 90 } },
+        { "processId": "compra-de-frescos", "estimatedMinutes": { "min": 45, "max": 45 }, "everyWeeks": 2 }
+      ]
+    }
+  ]
+}
+```
+
+- `meal`: la comida del sistema de ese día, con las palabras del manual, o `null`.
+- `blocks`: los bloques del día, cada uno con `processId` y `estimatedMinutes` (misma forma que en los procesos, o `null`). Un día de descanso lleva `[]`.
+- `everyWeeks`: opcional; cada cuántas semanas toca el bloque. Si no está, el bloque es de todas las semanas.
+
+`src/content/zones.json`: las zonas de la cocina (`id`, `name`), por ejemplo `estufa-horno`, `refri`, `fregadero`, `piso`, `karlby` y `mesa-ikea`. La estufa y el horno son una sola zona.
+
+`scripts/validate-content.js` (Node, sin dependencias) revisa que los ids no se repitan entre todos los archivos, que cada `processId` y `zone` exista, que `category` sea válida y coincida con su archivo, que `group` sea válido, que en `estimatedMinutes` `min` no sea mayor que `max`, que no exista ningún campo `owner`, y que `pending` coincida con lo que de verdad falta. Imprime cuántos procesos hay y la lista de pendientes. Se corre con `npm run validate` y también antes de `npm run build`.
 
 ## Estructura de carpetas
 
