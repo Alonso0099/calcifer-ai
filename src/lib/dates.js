@@ -1,5 +1,5 @@
 // Funciones puras sobre fechas. Las fechas se guardan en UTC y se muestran en la hora de la casa.
-import { HOUSE_TIME_ZONE } from '../shared/constants.js';
+import { HOUSE_TIME_ZONE, MS_PER_DAY } from '../shared/constants.js';
 
 /**
  * Convierte una fecha guardada (ISO, UTC) en un texto corto en la hora de la casa.
@@ -16,4 +16,24 @@ export function formatHouseDate(isoDate) {
     year: 'numeric',
   });
   return formatter.format(new Date(isoDate));
+}
+
+/**
+ * Convierte un momento en el número de su día en el calendario de la casa.
+ * Sirve para restar fechas y obtener días completos: dos momentos del mismo día
+ * en Denver dan el mismo número, sin importar la hora ni el cambio de horario.
+ *
+ * @param {Date} date - Un momento cualquiera.
+ * @returns {number} El número del día (días desde el 1 de enero de 1970).
+ */
+export function getHouseDayNumber(date) {
+  // formatToParts regresa la fecha en piezas (año, mes, día) ya en la hora de la casa.
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: HOUSE_TIME_ZONE,
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+  }).formatToParts(date);
+  const getPart = (type) => Number(parts.find((part) => part.type === type).value);
+  return Date.UTC(getPart('year'), getPart('month') - 1, getPart('day')) / MS_PER_DAY;
 }

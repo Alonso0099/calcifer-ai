@@ -8,6 +8,7 @@ const content = {
     { id: 'limpieza-semanal', name: 'Limpieza semanal', active: true, steps: [{ id: 'paso-1', text: 'Campana', minutes: null }, { id: 'paso-2', text: 'Trapear', minutes: null }] },
     { id: 'retirado', name: 'Proceso retirado', active: false, steps: [] },
   ],
+  zones: [{ id: 'cocina-general', name: 'Cocina en general' }],
   week: { schemaVersion: 1, days: [{ id: 'viernes', name: 'Viernes', meal: null, blocks: [{ processId: 'limpieza-semanal', estimatedMinutes: { min: 45, max: 60 } }] }] },
 };
 

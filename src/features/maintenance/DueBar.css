@@ -1,0 +1,40 @@
+/* Estilos de la barra de vencimiento. Cada estado usa su par de variables:
+   una para la barra y otra, más oscura, para el texto. */
+
+.due-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.due-bar-label {
+  font-weight: 600;
+}
+
+.due-bar-track {
+  display: block;
+  height: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background-color: var(--color-bg);
+  overflow: hidden;
+}
+
+.due-bar-fill {
+  display: block;
+  height: 100%;
+}
+
+.due-bar-ok .due-bar-label { color: var(--color-ok-text); }
+.due-bar-ok .due-bar-fill { background-color: var(--color-ok); }
+
+.due-bar-soon .due-bar-label,
+.due-bar-today .due-bar-label { color: var(--color-due-text); }
+.due-bar-soon .due-bar-fill,
+.due-bar-today .due-bar-fill { background-color: var(--color-due); }
+
+.due-bar-late .due-bar-label { color: var(--color-late-text); }
+.due-bar-late .due-bar-fill { background-color: var(--color-late); }
+
+/* Sin registro: no hay barra que llenar y el texto va en el color secundario. */
+.due-bar-none .due-bar-label { color: var(--color-text-muted); }

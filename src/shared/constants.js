@@ -49,3 +49,13 @@ export const PREPARE_GROUPS = ['pollo', 'cerdo', 'res', 'seafood', 'sopas', 'fle
 /** Milisegundos en un segundo y en un minuto, para las cuentas del cronómetro. */
 export const MS_PER_SECOND = 1000;
 export const MS_PER_MINUTE = 60000;
+export const MS_PER_DAY = 86400000;
+
+/**
+ * Umbral de color de las barras de vencimiento: una tarea "vence pronto" (mostaza)
+ * cuando le quedan estos días o menos. Con más días está "al día" (oliva).
+ */
+export const DUE_SOON_THRESHOLD_DAYS = 3;
+
+/** Las categorías cuyas tareas aparecen en la pantalla de limpieza y mantenimiento. */
+export const MAINTENANCE_CATEGORIES = ['limpieza', 'mantenimiento'];

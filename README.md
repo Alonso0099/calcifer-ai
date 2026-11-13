@@ -6,7 +6,7 @@ Esta versión fue construida con [Claude Code](https://claude.com/claude-code). 
 
 ## Estado
 
-Fase 1, en construcción. Ya existen el proyecto base, el contenido del manual, la capa de datos y tres pantallas: procesos como tarjetas con checklist, cronómetro y Deshacer; la vista semanal; y la búsqueda. Faltan mantenimiento, respaldo y notas.
+Fase 1, en construcción. Ya existen el proyecto base, el contenido del manual, la capa de datos y cuatro pantallas: procesos como tarjetas con checklist, cronómetro y Deshacer; la vista semanal; limpieza y mantenimiento por zona; y la búsqueda. Faltan respaldo y notas.
 
 ## Cómo correrla
 
@@ -103,5 +103,18 @@ Una línea por decisión importante, con su porqué.
 
 - **Lo que se busca vive en la dirección** (`/buscar?q=limon`): al abrir un resultado y volver, la búsqueda sigue ahí.
 - **Busca mientras se escribe**, sin botón: el contenido está en el dispositivo y la respuesta es inmediata.
-- **Si coincidió un paso y no el nombre, se muestra ese paso**: así se entiende por qué apareció el proceso.
+- **También busca en los ingredientes**: "limón" encuentra las marinadas que lo llevan.
+- **Si coincidió un paso o un ingrediente y no el nombre, se muestra ese texto**: así se entiende por qué apareció el proceso.
 - **`ProcessCard`, `CategoryDot` y `ProcessTime` se movieron a `src/shared/components/`**: ahora los usan dos funcionalidades, y una no puede importar archivos de otra.
+
+### Limpieza y mantenimiento
+
+- **Entran los procesos de limpieza y mantenimiento que tienen zona y frecuencia**: las tareas diarias no llevan "última vez" (regla R5 del manual).
+- **Solo se muestran las zonas que tienen tareas**: una tarjeta vacía no dice nada.
+- **Los días se cuentan en el calendario de Denver**, no en horas: algo hecho a las 8 pm cuenta como ese día aunque en UTC ya sea el siguiente.
+- **"Vence pronto" es a 3 días o menos** (`DUE_SOON_THRESHOLD_DAYS` en `constants.js`): el manual no da el número; lo eligió Alonso.
+- **"Sin registro" va antes que "al día"** al ordenar: si no se sabe cuándo se hizo, conviene revisarla.
+- **Las zonas se ordenan de la más atrasada a la que está al día**: el manual dice que lo vencido va primero.
+- **El estado siempre va escrito** junto al punto y a la barra: el color nunca es la única señal.
+- **Para registrar una tarea se abre su proceso y se termina**: así hay un solo lugar donde se guarda un "terminado".
+- **`getZones()` se agregó a la capa de datos**: la pantalla necesita las zonas y ningún componente puede importar el JSON.

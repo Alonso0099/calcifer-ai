@@ -129,7 +129,8 @@ Ningún componente lee `localStorage` ni importa el JSON directamente. Todo pasa
 | --- | --- |
 | `getProcesses()` | Todos los procesos activos |
 | `getProcess(id)` | Un proceso con sus pasos |
-| `searchProcesses(text)` | Búsqueda sin distinguir mayúsculas ni acentos |
+| `searchProcesses(text)` | Búsqueda por nombre, pasos e ingredientes, sin distinguir mayúsculas ni acentos |
+| `getZones()` | Las zonas de la cocina (`id`, `name`) |
 | `getWeekPlan()` | La semana tipo: bloques por día con minutos estimados, sin dueños |
 | `toggleStep(processId, stepId)` | Marca o desmarca un paso; se guarda al momento |
 | `finishProcess(processId, minutes, doneBy?)` | Registra que se terminó y cuánto tardó; `doneBy` ("Nano", "Tita" o "Ambos"; `null` si no se manda) es solo una nota |

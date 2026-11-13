@@ -16,7 +16,7 @@ import { createStopwatchFunctions } from './stopwatchStore.js';
  * @param {object} options
  * @param {{getItem: Function, setItem: Function}} options.storage - Dónde se guardan los
  *   eventos (localStorage en la app; uno falso en las pruebas).
- * @param {{processes: object[], week: object}} options.content - El contenido de los JSON.
+ * @param {{processes: object[], week: object, zones: object[]}} options.content - El contenido de los JSON.
  * @returns {object} Las funciones de la tabla "Regla 2" de CLAUDE.md.
  */
 export function createLocalAdapter({ storage, content }) {
@@ -54,10 +54,15 @@ export function createLocalAdapter({ storage, content }) {
 
     /**
      * @param {string} text - Lo que escribió el usuario.
-     * @returns {Promise<object[]>} Los procesos activos cuyo nombre o pasos coinciden.
+     * @returns {Promise<object[]>} Los procesos activos cuyo nombre, pasos o ingredientes coinciden.
      */
     async searchProcesses(text) {
       return activeProcesses.filter((process) => processMatchesSearch(process, text));
+    },
+
+    /** @returns {Promise<Array<{id: string, name: string}>>} Las zonas de la cocina. */
+    async getZones() {
+      return content.zones;
     },
 
     /** @returns {Promise<object>} La semana tipo; cada bloque incluye el nombre de su proceso. */

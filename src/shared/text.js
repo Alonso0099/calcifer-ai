@@ -14,6 +14,7 @@ export const text = {
     processes: 'Procesos',
     week: 'Semana',
     search: 'Buscar',
+    maintenance: 'Limpieza',
   },
   categories: {
     compra: 'Compra',
@@ -72,14 +73,33 @@ export const text = {
   },
   search: {
     title: 'Buscar',
-    inputLabel: 'Buscar por nombre o por texto de un paso',
+    inputLabel: 'Buscar por nombre, paso o ingrediente',
     placeholder: 'Por ejemplo: brócoli, filtros, limón',
     hint: 'Escribe una palabra. No importan las mayúsculas ni los acentos.',
     /** @param {number} count */
     resultCount: (count) => (count === 1 ? '1 resultado' : `${count} resultados`),
     empty: 'No se encontró ningún proceso.',
-    /** @param {string} stepText */
-    matchedStep: (stepText) => `Paso: ${stepText}`,
+    matched: {
+      /** @param {string} stepText */
+      step: (stepText) => `Paso: ${stepText}`,
+      /** @param {string} ingredientText */
+      ingredient: (ingredientText) => `Ingrediente: ${ingredientText}`,
+    },
+  },
+  maintenance: {
+    title: 'Limpieza y mantenimiento',
+    intro: 'Cada zona muestra el estado de su tarea más atrasada. Para registrar una tarea, ábrela y termínala.',
+    /** @param {string} date */
+    lastDone: (date) => `Última vez: ${date}`,
+  },
+  due: {
+    none: 'Sin registro',
+    ok: 'Al día',
+    today: 'Vence hoy',
+    /** @param {number} days */
+    soon: (days) => (days === 1 ? 'Vence en 1 día' : `Vence en ${days} días`),
+    /** @param {number} days */
+    late: (days) => (days === 1 ? 'Atrasada 1 día' : `Atrasada ${days} días`),
   },
   stopwatch: {
     title: 'Cronómetro',

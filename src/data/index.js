@@ -23,6 +23,7 @@ export const {
   getProcess,
   searchProcesses,
   getWeekPlan,
+  getZones,
   toggleStep,
   finishProcess,
   getLastDone,

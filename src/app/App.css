@@ -38,7 +38,8 @@
 
 .app-menu {
   display: flex;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
 .app-menu-link {
