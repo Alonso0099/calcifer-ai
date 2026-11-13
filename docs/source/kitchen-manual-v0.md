@@ -23,19 +23,17 @@ Este documento es la **fuente única de reglas** de la cocina: une el Kitchen Ma
 
 ## 1. La operación
 
-La cocina funciona como una pequeña empresa con cinco áreas, y cada área tiene **un dueño**. El dueño no hace todo: se asegura de que se haga, y si no se hace, lo anota.
+La cocina funciona como una pequeña empresa con cinco áreas. **Las áreas no tienen dueño fijo**: quién hace cada cosa lo deciden Alonso y Tita en el momento. Si quieren, anotan quién la hizo, solo como nota de historial (R4).
 
-### Áreas y dueños
+### Áreas
 
-| Área | Qué cubre | Dueño |
-| --- | --- | --- |
-| Planeación | Menú semanal, 7 desayunos, revisión del domingo |  |
-| Inventario y compras | Conteos, lista de compras, compra mensual y quincenal, precios |  |
-| Producción | Prep mensual de carnes, prep de verduras y bases |  |
-| Servicio diario | Cocinar, empacar el almuerzo, reset de la noche | Se turna |
-| Mantenimiento | Limpieza semanal, mensual y preventiva; suministros |  |
-
-La columna Dueño la llenan juntos. Se revisa en la junta mensual (sección 8).
+| Área | Qué cubre |
+| --- | --- |
+| Planeación | Menú semanal, 7 desayunos, revisión del domingo |
+| Inventario y compras | Conteos, lista de compras, compra mensual y quincenal, precios |
+| Producción | Prep mensual de carnes, prep de verduras y bases |
+| Servicio diario | Cocinar, empacar el almuerzo, reset de la noche |
+| Mantenimiento | Limpieza semanal, mensual y preventiva; suministros |
 
 ### Medidas oficiales
 
@@ -102,9 +100,9 @@ Estas diez reglas no estaban en el PDF ni en el anexo. Las primeras cinco atacan
 - Frescos que no alcanzan para **2 cenas más**: la compra de frescos se hace ese día o el siguiente.
 - Un básico del seco que se abre de su último respaldo (R9): entra a la lista ese mismo día.
 
-**R3. Movida dos veces = incidencia.** Si una tarea se mueve dos veces seguidas, se anota en la bitácora (R6) y se trata en la junta mensual. No es un regaño: es un dato de que el día o el dueño no funcionan.
+**R3. Movida dos veces = incidencia.** Si una tarea se mueve dos veces seguidas, se anota en la bitácora (R6) y se trata en la junta mensual. No es un regaño: es un dato de que el día o el plan no funcionan.
 
-**R4. Cada tarea tiene dueño.** El dueño puede pedir ayuda o turnarla, pero responde porque se haga. Una tarea sin dueño no entra al calendario.
+**R4. Nadie es dueño fijo.** Cada quien decide en el momento qué hace. Al terminar una tarea se puede anotar quién la hizo, solo como nota de historial y nunca como asignación. Lo que sí es fijo es el día de cada tarea (R1) y su "última vez" (R5).
 
 **R5. Registro de "última vez".** Cada tarea que no es diaria se anota con su fecha al terminarla (sección 6). Una tarea está **vencida** cuando pasa su frecuencia; las vencidas se hacen antes que cualquier tarea opcional.
 
@@ -337,17 +335,17 @@ Antes de usar un producto en un aparato nuevo, se confirma el acabado en su manu
 
 ### Calendario de mantenimiento
 
-| Frecuencia | Tarea | Tiempo | Dueño | Última vez |
-| --- | --- | --- | --- | --- |
-| Cada vez que se cocina | Platos, KARLBY o mesa, cubierta, fregadero, secar la llave, derrames del piso | 15–25 min | Quien cocina | — |
-| Diario (cierre) | Lavaplatos, almuerzo empacado, proteína de mañana al refri | 5–10 min | Quien cocina | — |
-| Semanal (viernes) | Campana exterior, frentes y manijas, backsplash, reset del refri, microondas, basurero, trapear | 45–60 min |  |  |
-| Cada 2 semanas | Filtro del lavaplatos; revisar filtros de la campana | 10 min |  |  |
-| Cada 3 semanas | Filtros de la campana al lavaplatos | 5 min |  |  |
-| Mensual | Ciclo de limpieza del lavaplatos, refri por zonas, revisar sello del fregadero y KARLBY, reponer suministros, cambiar esponjas | 30–40 min |  |  |
-| Cada 2–3 meses | Horno: Steam Clean, solo si hace falta | 20–40 min |  |  |
-| Cada 3–4 meses | Refri a fondo (repisas, cajones, organizadores) | 35–60 min |  |  |
-| Cada 3–6 meses | Congelador a fondo, gabinetes por dentro, aceite de KARLBY y mesa, silicón del fregadero, detrás de los aparatos | 1–2 h en bloques |  |  |
+| Frecuencia | Tarea | Tiempo | Última vez |
+| --- | --- | --- | --- |
+| Cada vez que se cocina | Platos, KARLBY o mesa, cubierta, fregadero, secar la llave, derrames del piso | 15–25 min | — |
+| Diario (cierre) | Lavaplatos, almuerzo empacado, proteína de mañana al refri | 5–10 min | — |
+| Semanal (viernes) | Campana exterior, frentes y manijas, backsplash, reset del refri, microondas, basurero, trapear | 45–60 min |  |
+| Cada 2 semanas | Filtro del lavaplatos; revisar filtros de la campana | 10 min |  |
+| Cada 3 semanas | Filtros de la campana al lavaplatos | 5 min |  |
+| Mensual | Ciclo de limpieza del lavaplatos, refri por zonas, revisar sello del fregadero y KARLBY, reponer suministros, cambiar esponjas | 30–40 min |  |
+| Cada 2–3 meses | Horno: Steam Clean, solo si hace falta | 20–40 min |  |
+| Cada 3–4 meses | Refri a fondo (repisas, cajones, organizadores) | 35–60 min |  |
+| Cada 3–6 meses | Congelador a fondo, gabinetes por dentro, aceite de KARLBY y mesa, silicón del fregadero, detrás de los aparatos | 1–2 h en bloques |  |
 
 Si la columna "Última vez" más la frecuencia ya pasó de hoy, la tarea está vencida y va primero en el siguiente bloque libre.
 
@@ -397,7 +395,7 @@ Seis números dicen si el sistema funciona. Se revisan en una junta de 20 minuto
 1. Revisar los seis indicadores.
 2. Leer la bitácora: qué se saltó y por qué.
 3. Decidir un máximo de 3 cambios al manual y anotarlos en la sección 9.
-4. Revisar dueños y días fijos.
+4. Revisar días fijos y si el plan de la semana alcanzó.
 5. Ajustar respaldos del seco según lo que se acabó antes de tiempo.
 
 ### Primer mes: medir
@@ -434,8 +432,9 @@ La v0 (5 de noviembre de 2026) resolvió 20 discrepancias: 10 que ya corregía e
 | 16 | Equipo de prep | Set de cuchillos y bandeja plástica | Un cuchillo de chef (Etapa 2) y bandejas half sheet |
 | 17 | Seco y frescos | Sin cantidades ni señal de compra | Dos contenedores para el seco y ciclo de 2 semanas para frescos |
 | 18 | Compras que se mueven | Sin regla | Día fijo, día de respaldo y piso duro (R1, R2) |
-| 19 | Tareas sin dueño | Columna "Quién" vacía | Dueños por área y registro de "última vez" (R4, R5) |
+| 19 | Tareas sin registro | Columna "Quién" vacía | Registro de "última vez" (R5); quién la hizo es solo una nota opcional (R4) |
 | 20 | Idioma y numeración | Capítulos mezclan español e inglés; numeración repetida | Manual en español con numeración propia; etiquetas en inglés como en el PDF |
+| 21 | Dueños por área | La v0 inicial asignaba un dueño a cada área y tarea | Se quitaron (decisión del 13 nov 2026): R4 reescrita, sin columnas Dueño |
 
 ## 10. Preguntas abiertas e ideas para la app
 
@@ -451,7 +450,6 @@ Quedan 12 preguntas antes de la v1. Las primeras cuatro vienen del anexo; las de
 - [ ] ¿Qué gaveta del congelador Samsung es cada una de las 10 zonas?
 - [ ] ¿Caben 25 unidades + vegetales + bases en ese congelador, o el congelador vertical se adelanta?
 - [ ] New York steak: ¿especial de un domingo al mes (y un seafood pasa a jueves) o va un martes?
-- [ ] Dueño de cada área (sección 1)
 - [ ] ¿La lista de Reminders ya está compartida entre los dos teléfonos y existe el Google Sheets del menú?
 - [ ] ¿Dónde va el basurero, ya que el diseño no tiene mueble para él?
 - [ ] Producto de limpieza del microondas nuevo cuando lo cambien

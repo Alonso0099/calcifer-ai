@@ -10,7 +10,7 @@ El manual de cocina de Alonso y Christa (Tita), convertido en una app. Sirve par
 
 - Consultar los procesos de la cocina: compra → guardar → preparar, más limpieza, mantenimiento y seguridad.
 - Seguir cada proceso como checklist mientras se hace.
-- Ver la división de tareas de la semana: quién hace qué y cuánto tiempo toma.
+- Ver la semana tipo: qué se hace cada día y cuánto tiempo toma. Nadie tiene tareas asignadas (ver "Sin dueños").
 - Saber qué limpieza o mantenimiento está al día y qué está vencido.
 - Medir los tiempos reales para mejorar el manual.
 
@@ -20,7 +20,7 @@ Quien mantiene el código es Alonso, estudiante de desarrollo de software (BYU-P
 
 - `docs/source/kitchen-manual-v0.md` es la **fuente oficial**. Si algo choca con otra fuente, manda la v0.
 - `docs/source/Kitchen_Manual_Final.pdf` (241 páginas) solo aporta el detalle de procedimientos y recetas (capítulos 5–8). Sus capítulos 1–4, 9 y 10 fueron reemplazados por la v0: no tomes de ahí reglas, productos de limpieza, temperaturas ni lugares de trabajo.
-- **Nunca inventes datos.** Si a un proceso le falta algo (tiempo, dueño, frecuencia, zona), el valor va en `null` y el nombre del campo se agrega a la lista `pending` de ese proceso. La app muestra esos datos como "Pendiente".
+- **Nunca inventes datos.** Si a un proceso le falta algo (tiempo, frecuencia, zona), el valor va en `null` y el nombre del campo se agrega a la lista `pending` de ese proceso. La app muestra esos datos como "Pendiente".
 
 ## Fase actual: fase 1
 
@@ -29,7 +29,7 @@ Un solo dispositivo (la tablet o el teléfono de la cocina). Sin cuentas, sin se
 Funciones de la fase 1, y nada más:
 
 1. Procesos como tarjetas, con checklist de pasos, cronómetro y pantalla siempre encendida mientras se cocina.
-2. Vista semanal: quién hace qué cada día y cuánto tiempo.
+2. Vista semanal: qué se hace cada día y cuánto tiempo estimado toma, sin nombres de personas ni totales por persona.
 3. Búsqueda de procesos.
 4. Limpieza y mantenimiento: tarjetas por zona con un indicador de color y barras de vencimiento ("Vence en 3 días", "Atrasada 5 días").
 5. Deshacer el último registro.
@@ -51,6 +51,14 @@ Fuera de alcance por ahora (no lo construyas aunque parezca útil): inventario, 
 - Interfaz en español. Código en inglés (archivos, componentes, funciones, variables, claves del JSON). Los textos que ve el usuario van en un solo archivo: `src/shared/text.js`.
 - La app se instala en la pantalla de inicio (incluye `manifest.webmanifest` e íconos). Safari puede borrar los datos de un sitio que no está instalado; por eso la app muestra un aviso si no se abrió como app instalada.
 - Zona horaria de la casa: `America/Denver`. Las fechas se guardan en UTC (ISO 8601) y "hoy" se calcula en `America/Denver`.
+
+### Sin dueños
+
+Ninguna tarea tiene un dueño fijo: quién hace cada cosa se decide en el momento, entre Alonso y Tita. Por eso:
+
+- No existe el campo `owner` en ningún JSON, y la app nunca muestra "a cargo de", "le toca a" ni totales por persona.
+- Al terminar un proceso, la app pregunta de forma opcional "¿Quién lo hizo?" con tres opciones: Alonso, Tita o "Prefiero no anotar". Se guarda como `doneBy` en el evento `process_finished`.
+- `doneBy` es solo una **nota de historial**. No asigna nada, no cambia el estado de vencimiento y no se usa para repartir ni rotar tareas. Si se muestra, es como texto pequeño ("Lo hizo Tita"), nunca como un campo de la tarea.
 
 ## Colores
 
@@ -121,9 +129,9 @@ Ningún componente lee `localStorage` ni importa el JSON directamente. Todo pasa
 | `getProcesses()` | Todos los procesos activos |
 | `getProcess(id)` | Un proceso con sus pasos |
 | `searchProcesses(text)` | Búsqueda sin distinguir mayúsculas ni acentos |
-| `getWeekPlan()` | La semana tipo con dueños y minutos |
+| `getWeekPlan()` | La semana tipo: bloques por día con minutos estimados, sin dueños |
 | `toggleStep(processId, stepId)` | Marca o desmarca un paso; se guarda al momento |
-| `finishProcess(processId, minutes)` | Registra que se terminó y cuánto tardó |
+| `finishProcess(processId, minutes, doneBy?)` | Registra que se terminó y cuánto tardó; `doneBy` ("Alonso", "Tita" o `null`) es una nota opcional |
 | `getLastDone(processId)` | Fecha de la última vez que se terminó |
 | `getNotes(processId?)` | Todas las notas, o solo las de un proceso; la más reciente primero |
 | `saveNote(note)` | Crea una nota o guarda los cambios de una existente |
@@ -144,6 +152,7 @@ Cada acción se guarda como un evento nuevo; nunca se edita ni se borra uno ante
   processId: 'limpieza-semanal',  // en notas es opcional: null si la nota no está ligada a un proceso
   stepId: 'paso-3',        // solo en eventos de pasos
   minutes: 42,             // solo en process_finished
+  doneBy: 'Tita',          // solo en process_finished; opcional: 'Alonso' | 'Tita' | null. Es una nota, no una asignación
   noteId: 'uuid',          // solo en eventos de notas; el mismo id en todas las versiones de una nota
   title: '...',            // solo en note_saved
   body: '...',             // solo en note_saved
@@ -174,13 +183,12 @@ Cada proceso, paso y zona tiene un id en formato slug (`limpieza-semanal`, `paso
       "category": "limpieza",
       "zone": "cocina-general",
       "frequencyDays": 7,
-      "owner": null,
       "active": true,
       "source": "Kitchen Manual v0, sección 6",
       "steps": [
         { "id": "paso-1", "text": "Campana: exterior con Krud Kutter si hay grasa, luego Weiman Stainless", "minutes": null }
       ],
-      "pending": ["owner", "steps.paso-1.minutes"]
+      "pending": ["steps.paso-1.minutes"]
     }
   ]
 }
@@ -188,10 +196,10 @@ Cada proceso, paso y zona tiene un id en formato slug (`limpieza-semanal`, `paso
 
 - `category`: `compra` | `guardar` | `preparar` | `limpieza` | `mantenimiento` | `seguridad`.
 - `frequencyDays`: número de días, o `null` si el proceso no se repite por calendario (por ejemplo, cocinar una receta).
-- `owner`: `"Alonso"`, `"Tita"`, `"Se turna"` o `null` si está pendiente.
+- No hay campo de dueño (ver "Sin dueños").
 - `minutes` de cada paso: número o `null`. El tiempo total de un proceso se calcula sumando sus pasos; si falta alguno, el total se muestra como aproximado.
 
-`src/content/week.json`: la semana tipo (día → bloques con `processId`, `owner` y `minutes`).
+`src/content/week.json`: la semana tipo (día → bloques con `processId` y `minutes` estimados).
 `src/content/zones.json`: las zonas de la cocina (`id`, `name`), por ejemplo estufa, refri, fregadero, piso, KARLBY y mesa.
 
 `scripts/validate-content.js` (Node, sin dependencias) revisa que los ids no se repitan, que cada `processId` y `zone` exista, que las categorías sean válidas, e imprime la lista de pendientes. Se corre con `npm run validate` y también antes de `npm run build`.
