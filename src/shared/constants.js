@@ -30,3 +30,16 @@ export const BACKUP_ERRORS = {
   unknownVersion: 'backup_unknown_version',
   invalidEvents: 'backup_invalid_events',
 };
+
+/** Zona horaria de la casa: con ella se decide qué día es "hoy" y cómo se muestran las fechas. */
+export const HOUSE_TIME_ZONE = 'America/Denver';
+
+/** Las categorías de procesos, en el orden del flujo de la cocina. */
+export const CATEGORIES = ['compra', 'guardar', 'preparar', 'limpieza', 'mantenimiento', 'seguridad'];
+
+/** Los grupos en que se divide la categoría "preparar", en el orden en que se muestran. */
+export const PREPARE_GROUPS = ['pollo', 'cerdo', 'res', 'seafood', 'sopas', 'flex', 'desayunos', 'marinadas'];
+
+/** Milisegundos en un segundo y en un minuto, para las cuentas del cronómetro. */
+export const MS_PER_SECOND = 1000;
+export const MS_PER_MINUTE = 60000;

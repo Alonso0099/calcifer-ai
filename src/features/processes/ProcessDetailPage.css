@@ -1,0 +1,34 @@
+/* Estilos de la pantalla de un proceso. */
+
+.process-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.process-detail-back {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 44px;
+  color: var(--color-text);
+}
+
+.process-detail-notice {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background-color: var(--color-highlight);
+  color: var(--color-text-strong);
+}
+
+.process-detail-finish {
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+.process-detail-saved {
+  margin: 0;
+  color: var(--color-ok-text);
+  font-weight: 600;
+}

@@ -1,0 +1,36 @@
+/* Estilos del checklist de pasos. */
+
+.checklist {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checklist-progress {
+  font-weight: normal;
+  color: var(--color-text-muted);
+}
+
+/* Cada paso es un renglón alto, fácil de tocar con las manos ocupadas. */
+.checklist-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 44px;
+  padding: 10px 4px;
+  border-bottom: 1px solid var(--color-border);
+  cursor: pointer;
+}
+
+.checklist-step input {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  accent-color: var(--color-primary);
+}
+
+.checklist-step-done span {
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}

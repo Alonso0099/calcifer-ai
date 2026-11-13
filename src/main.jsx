@@ -3,8 +3,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import App from './app/App.jsx';
+// Los estilos base se importan antes que App: así los estilos de cada componente,
+// que se cargan después, pueden ajustar los de base (por ejemplo, un botón elegido).
 import './styles/global.css';
+import App from './app/App.jsx';
 
 // createRoot le dice a React en qué elemento del HTML debe dibujar.
 // StrictMode solo actúa mientras se programa: avisa de errores comunes.

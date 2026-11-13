@@ -1,0 +1,16 @@
+/* El punto de color de cada categoría. Los colores salen de global.css. */
+
+.category-dot {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.category-dot-compra { background-color: var(--color-cat-compra); }
+.category-dot-guardar { background-color: var(--color-cat-guardar); }
+.category-dot-preparar { background-color: var(--color-cat-preparar); }
+.category-dot-limpieza { background-color: var(--color-cat-limpieza); }
+.category-dot-mantenimiento { background-color: var(--color-cat-mantenimiento); }
+.category-dot-seguridad { background-color: var(--color-cat-seguridad); }

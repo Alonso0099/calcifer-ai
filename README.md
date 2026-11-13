@@ -6,7 +6,7 @@ Esta versión fue construida con [Claude Code](https://claude.com/claude-code). 
 
 ## Estado
 
-Fase 1, en construcción. Ya existen el proyecto base, el contenido del manual y la capa de datos. Las pantallas (procesos, semana, búsqueda, mantenimiento, respaldo y notas) se construyen una por una.
+Fase 1, en construcción. Ya existen el proyecto base, el contenido del manual, la capa de datos y la primera pantalla: procesos como tarjetas con checklist, cronómetro y Deshacer. Faltan semana, búsqueda, mantenimiento, respaldo y notas.
 
 ## Cómo correrla
 
@@ -76,3 +76,17 @@ Una línea por decisión importante, con su porqué.
 - **Los errores del respaldo son códigos**, no frases: los textos que ve el usuario viven en `src/shared/text.js`.
 - **Si lo guardado en el dispositivo está dañado, la app falla en vez de empezar en blanco**: empezar en blanco borraría el historial en el siguiente guardado.
 - **Pruebas con `node --test`**: viene con Node, no agrega dependencias.
+
+### Procesos (tarjetas, checklist y cronómetro)
+
+- **El filtro de categoría vive en la dirección** (`/?categoria=limpieza`), no en la memoria del componente: al abrir un proceso y volver, el filtro sigue igual.
+- **"Preparar" se muestra por grupos** (pollo, cerdo, sopas...): son 87 procesos y en una sola lista no se encuentra nada.
+- **Cada paso marcado se guarda al momento** y la pantalla vuelve a leer el proceso: lo que se ve siempre sale de los eventos guardados.
+- **El cronómetro guarda la hora de arranque y calcula la diferencia**, en vez de sumar segundos: no se atrasa si el navegador pausa la pestaña.
+- **El cronómetro no sobrevive a recargar la página**: no se pidió, y los minutos se pueden corregir a mano al terminar.
+- **Al terminar, los minutos vienen llenos pero se pueden editar**: a veces se olvida iniciar o pausar el cronómetro.
+- **"¿Quién lo hizo?" viene en "Prefiero no anotar"**: `doneBy` es una nota opcional, nunca una asignación.
+- **Pantalla encendida con Wake Lock**, que se vuelve a pedir al regresar a la app; si el dispositivo no lo soporta, se avisa con texto.
+- **Deshacer dice qué deshizo**: anula el último registro de toda la app, que podría no ser de la pantalla abierta.
+- **`--color-on-primary` (blanco) se agregó a la paleta**: `CLAUDE.md` pide texto blanco sobre los botones salvia, pero no había variable para escribirlo sin un color directo.
+- **`global.css` se importa antes que los componentes**: así el estilo de un componente puede ajustar el estilo base de un botón.

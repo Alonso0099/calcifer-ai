@@ -1,0 +1,31 @@
+/* Estilos del encabezado del detalle de un proceso. */
+
+.process-summary h2 {
+  margin: 4px 0 12px;
+}
+
+.process-summary-category {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.process-summary-facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 4px 16px;
+  margin: 0;
+}
+
+.process-summary-facts dt {
+  color: var(--color-text-muted);
+}
+
+.process-summary-facts dd {
+  margin: 0;
+}
+
+.process-summary-last-done {
+  color: var(--color-text-muted);
+}

@@ -16,6 +16,7 @@
   /* Acciones */
   --color-primary: #5E7660;       /* salvia: botones principales, con texto blanco (5.0:1) */
   --color-primary-hover: #4F6451; /* salvia oscuro: botón presionado (6.4:1) */
+  --color-on-primary: #FFFFFF;    /* blanco: texto sobre los botones salvia (5.0:1) */
   --color-highlight: #D1B174;     /* mostaza: fondo de resaltado, con texto café (5.7:1) */
 
   /* Estado de tareas (barras de vencimiento) */
@@ -52,4 +53,43 @@ body {
   /* Texto un poco más grande que el normal, para leerlo a un brazo de distancia. */
   font-size: 1.125rem;
   line-height: 1.5;
+}
+
+/* Botones. Miden al menos 44 px de alto para poder tocarlos con el dedo. */
+.button {
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.button-primary {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.button-primary:hover,
+.button-primary:active {
+  background-color: var(--color-primary-hover);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* Marco visible al navegar con teclado. */
+:focus-visible {
+  outline: 3px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+h2,
+h3 {
+  color: var(--color-text-strong);
 }
