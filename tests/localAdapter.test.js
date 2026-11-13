@@ -41,7 +41,8 @@ test('finishProcess guarda la última vez y doneBy solo como nota', async () => 
   assert.equal(event.doneBy, 'Tita');
   assert.equal(await data.getLastDone('limpieza-semanal'), event.createdAt);
   assert.equal((await data.finishProcess('limpieza-semanal', 40)).doneBy, null);
-  await assert.rejects(data.finishProcess('limpieza-semanal', 40, 'Otra persona'));
+  assert.equal((await data.finishProcess('limpieza-semanal', 40, 'Ambos')).doneBy, 'Ambos');
+  await assert.rejects(data.finishProcess('limpieza-semanal', 40, 'Alonso'));
 });
 
 test('notas: crear, editar, borrar y recuperar con Deshacer', async () => {
@@ -72,4 +73,14 @@ test('el respaldo de un dispositivo se restaura en otro, con notas incluidas', a
   assert.equal((await second.getNotes()).length, 1);
   await assert.rejects(second.importBackup({ text: async () => 'basura' }));
   assert.equal((await second.getNotes()).length, 1, 'un archivo inválido no borra el historial');
+});
+
+test('el cronómetro se guarda por proceso, fuera del historial', async () => {
+  const data = createTestAdapter();
+  assert.equal(await data.getStopwatch('limpieza-semanal'), null);
+  await data.saveStopwatch('limpieza-semanal', { accumulatedMs: 60000, startedAt: null });
+  assert.deepEqual(await data.getStopwatch('limpieza-semanal'), { accumulatedMs: 60000, startedAt: null });
+  assert.equal(await data.undoLastEvent(), null, 'guardar el cronómetro no crea eventos');
+  await data.saveStopwatch('limpieza-semanal', null);
+  assert.equal(await data.getStopwatch('limpieza-semanal'), null);
 });

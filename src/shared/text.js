@@ -9,6 +9,11 @@ export const text = {
     pending: 'Pendiente',
     back: 'Volver a procesos',
   },
+  menu: {
+    label: 'Secciones',
+    processes: 'Procesos',
+    week: 'Semana',
+  },
   categories: {
     compra: 'Compra',
     guardar: 'Guardar',
@@ -57,6 +62,13 @@ export const text = {
     /** @param {number} done @param {number} total */
     progress: (done, total) => `${done} de ${total}`,
   },
+  week: {
+    title: 'Semana tipo',
+    intro: 'Lo que se hace cada día y el tiempo estimado. Los días se pueden cambiar entre sí.',
+    rest: 'Descanso del sistema',
+    /** @param {number} weeks */
+    everyWeeks: (weeks) => `cada ${weeks} semanas`,
+  },
   stopwatch: {
     title: 'Cronómetro',
     start: 'Iniciar',
@@ -68,8 +80,7 @@ export const text = {
     open: 'Terminar proceso',
     title: 'Registrar que se terminó',
     minutesLabel: 'Minutos que tardó',
-    doneByLabel: '¿Quién lo hizo? (opcional)',
-    doneByNone: 'Prefiero no anotar',
+    doneByLabel: '¿Quién lo hizo?',
     confirm: 'Guardar registro',
     cancel: 'Cancelar',
     /** @param {number} minutes */

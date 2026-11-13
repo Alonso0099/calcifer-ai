@@ -3,6 +3,9 @@
 /** Clave con la que se guarda el historial de eventos en el dispositivo. */
 export const STORAGE_KEY = 'calcifer.events';
 
+/** Clave con la que se guardan los cronómetros en curso (no son parte del historial). */
+export const STOPWATCH_STORAGE_KEY = 'calcifer.stopwatches';
+
 /** Los tipos de evento que existen (ver "Regla 3" en CLAUDE.md). */
 export const EVENT_TYPES = {
   stepChecked: 'step_checked',
@@ -13,8 +16,11 @@ export const EVENT_TYPES = {
   eventUndone: 'event_undone',
 };
 
-/** Nombres que se pueden anotar en "¿Quién lo hizo?". Es solo una nota de historial. */
-export const DONE_BY_OPTIONS = ['Alonso', 'Tita'];
+/** Opciones de "¿Quién lo hizo?". Es solo una nota de historial, nunca una asignación. */
+export const DONE_BY_OPTIONS = ['Nano', 'Tita', 'Ambos'];
+
+/** La opción que viene elegida al terminar un proceso. */
+export const DEFAULT_DONE_BY = 'Ambos';
 
 /** Datos que identifican un archivo de respaldo de esta app. */
 export const BACKUP_APP_NAME = 'calcifer';

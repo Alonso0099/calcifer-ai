@@ -6,7 +6,7 @@ Esta versión fue construida con [Claude Code](https://claude.com/claude-code). 
 
 ## Estado
 
-Fase 1, en construcción. Ya existen el proyecto base, el contenido del manual, la capa de datos y la primera pantalla: procesos como tarjetas con checklist, cronómetro y Deshacer. Faltan semana, búsqueda, mantenimiento, respaldo y notas.
+Fase 1, en construcción. Ya existen el proyecto base, el contenido del manual, la capa de datos y dos pantallas: procesos como tarjetas con checklist, cronómetro y Deshacer, y la vista semanal. Faltan búsqueda, mantenimiento, respaldo y notas.
 
 ## Cómo correrla
 
@@ -83,10 +83,18 @@ Una línea por decisión importante, con su porqué.
 - **"Preparar" se muestra por grupos** (pollo, cerdo, sopas...): son 87 procesos y en una sola lista no se encuentra nada.
 - **Cada paso marcado se guarda al momento** y la pantalla vuelve a leer el proceso: lo que se ve siempre sale de los eventos guardados.
 - **El cronómetro guarda la hora de arranque y calcula la diferencia**, en vez de sumar segundos: no se atrasa si el navegador pausa la pestaña.
-- **El cronómetro no sobrevive a recargar la página**: no se pidió, y los minutos se pueden corregir a mano al terminar.
+- **El cronómetro en curso se guarda en el dispositivo, fuera del historial**: no se pierde al recargar la página, y si estaba corriendo sigue contando. No es un evento porque no es algo que "pasó": no entra a Deshacer ni al respaldo.
 - **Al terminar, los minutos vienen llenos pero se pueden editar**: a veces se olvida iniciar o pausar el cronómetro.
-- **"¿Quién lo hizo?" viene en "Prefiero no anotar"**: `doneBy` es una nota opcional, nunca una asignación.
+- **"¿Quién lo hizo?" ofrece Nano, Tita o Ambos, y viene en "Ambos"**: `doneBy` es una nota de historial, nunca una asignación.
 - **Pantalla encendida con Wake Lock**, que se vuelve a pedir al regresar a la app; si el dispositivo no lo soporta, se avisa con texto.
 - **Deshacer dice qué deshizo**: anula el último registro de toda la app, que podría no ser de la pantalla abierta.
 - **`--color-on-primary` (blanco) se agregó a la paleta**: `CLAUDE.md` pide texto blanco sobre los botones salvia, pero no había variable para escribirlo sin un color directo.
 - **`global.css` se importa antes que los componentes**: así el estilo de un componente puede ajustar el estilo base de un botón.
+
+### Vista semanal
+
+- **Sin nombres ni totales por persona**: en esta cocina nadie tiene tareas asignadas.
+- **Cada bloque abre el checklist de su proceso**: la semana sirve para empezar a trabajar, no solo para leerla.
+- **No hay total de minutos por día**: la compra de frescos toca cada 2 semanas, así que un solo total diría de más o de menos.
+- **El menú sale de `routes.jsx`** (las rutas con `menuLabel`): agregar una pantalla al menú es la misma línea que la crea.
+- **`getWeekPlan()` ya trae el nombre de cada proceso**: la pantalla de semana no necesita importar nada de la de procesos.

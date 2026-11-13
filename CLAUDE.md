@@ -57,7 +57,7 @@ Fuera de alcance por ahora (no lo construyas aunque parezca útil): inventario, 
 Ninguna tarea tiene un dueño fijo: quién hace cada cosa se decide en el momento, entre Alonso y Tita. Por eso:
 
 - No existe el campo `owner` en ningún JSON, y la app nunca muestra "a cargo de", "le toca a" ni totales por persona.
-- Al terminar un proceso, la app pregunta de forma opcional "¿Quién lo hizo?" con tres opciones: Alonso, Tita o "Prefiero no anotar". Se guarda como `doneBy` en el evento `process_finished`.
+- Al terminar un proceso, la app pregunta "¿Quién lo hizo?" con tres opciones: Nano, Tita o Ambos (viene elegido "Ambos"). Se guarda como `doneBy` en el evento `process_finished`.
 - `doneBy` es solo una **nota de historial**. No asigna nada, no cambia el estado de vencimiento y no se usa para repartir ni rotar tareas. Si se muestra, es como texto pequeño ("Lo hizo Tita"), nunca como un campo de la tarea.
 
 ## Colores
@@ -131,12 +131,13 @@ Ningún componente lee `localStorage` ni importa el JSON directamente. Todo pasa
 | `searchProcesses(text)` | Búsqueda sin distinguir mayúsculas ni acentos |
 | `getWeekPlan()` | La semana tipo: bloques por día con minutos estimados, sin dueños |
 | `toggleStep(processId, stepId)` | Marca o desmarca un paso; se guarda al momento |
-| `finishProcess(processId, minutes, doneBy?)` | Registra que se terminó y cuánto tardó; `doneBy` ("Alonso", "Tita" o `null`) es una nota opcional |
+| `finishProcess(processId, minutes, doneBy?)` | Registra que se terminó y cuánto tardó; `doneBy` ("Nano", "Tita" o "Ambos"; `null` si no se manda) es solo una nota |
 | `getLastDone(processId)` | Fecha de la última vez que se terminó |
 | `getNotes(processId?)` | Todas las notas, o solo las de un proceso; la más reciente primero |
 | `saveNote(note)` | Crea una nota o guarda los cambios de una existente |
 | `deleteNote(noteId)` | Borra una nota (se puede recuperar con Deshacer) |
 | `undoLastEvent()` | Anula el último evento |
+| `getStopwatch(processId)` / `saveStopwatch(processId, stopwatch)` | Lee y guarda el cronómetro en curso de un proceso, para que no se pierda al recargar la página. No es un evento: no entra al historial, al Deshacer ni al respaldo |
 | `exportBackup()` / `importBackup(file)` | Respaldo y restauración del historial |
 
 `src/data/index.js` elige el adaptador con la variable `VITE_DATA_SOURCE` (por ahora solo existe `local`). Un adaptador futuro (por ejemplo, PostgreSQL en Neon) debe implementar las mismas funciones con los mismos parámetros y resultados, sin cambiar ningún componente.
@@ -152,7 +153,7 @@ Cada acción se guarda como un evento nuevo; nunca se edita ni se borra uno ante
   processId: 'limpieza-semanal',  // en notas es opcional: null si la nota no está ligada a un proceso
   stepId: 'paso-3',        // solo en eventos de pasos
   minutes: 42,             // solo en process_finished
-  doneBy: 'Tita',          // solo en process_finished; opcional: 'Alonso' | 'Tita' | null. Es una nota, no una asignación
+  doneBy: 'Tita',          // solo en process_finished; 'Nano' | 'Tita' | 'Ambos' | null. Es una nota, no una asignación
   noteId: 'uuid',          // solo en eventos de notas; el mismo id en todas las versiones de una nota
   title: '...',            // solo en note_saved
   body: '...',             // solo en note_saved

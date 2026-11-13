@@ -30,6 +30,8 @@ export const {
   saveNote,
   deleteNote,
   undoLastEvent,
+  getStopwatch,
+  saveStopwatch,
   exportBackup,
   importBackup,
 } = chooseAdapter();

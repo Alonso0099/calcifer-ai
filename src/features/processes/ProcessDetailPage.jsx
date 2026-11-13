@@ -24,7 +24,7 @@ import './ProcessDetailPage.css';
 export default function ProcessDetailPage() {
   // useParams lee la parte variable de la dirección: en /procesos/pozole-rojo, processId es "pozole-rojo".
   const { processId } = useParams();
-  const stopwatch = useStopwatch();
+  const stopwatch = useStopwatch(processId);
   const canKeepScreenOn = useWakeLock();
   const [isFinishing, setIsFinishing] = useState(false);
   const [savedMessage, setSavedMessage] = useState('');

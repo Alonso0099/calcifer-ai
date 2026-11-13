@@ -6,6 +6,7 @@ import { getCurrentNotes } from '../../lib/notes.js';
 import { processMatchesSearch } from '../../lib/searchText.js';
 import { buildBackup, parseBackup } from '../../lib/backup.js';
 import { createEventStore } from './eventStore.js';
+import { createStopwatchFunctions } from './stopwatchStore.js';
 
 /**
  * Crea el adaptador local. Todas sus funciones son "async" (regresan una promesa)
@@ -30,6 +31,9 @@ export function createLocalAdapter({ storage, content }) {
   }
 
   return {
+    // getStopwatch y saveStopwatch viven en su propio archivo porque no usan eventos.
+    ...createStopwatchFunctions(storage),
+
     /** @returns {Promise<object[]>} Todos los procesos activos. */
     async getProcesses() {
       return activeProcesses;
@@ -83,7 +87,7 @@ export function createLocalAdapter({ storage, content }) {
     /**
      * @param {string} processId - El id del proceso.
      * @param {number} minutes - Los minutos reales que tardó.
-     * @param {string|null} [doneBy] - "Alonso", "Tita" o null. Solo es una nota de historial.
+     * @param {string|null} [doneBy] - "Nano", "Tita" o "Ambos". Solo es una nota de historial.
      * @returns {Promise<object>} El evento guardado.
      */
     async finishProcess(processId, minutes, doneBy = null) {

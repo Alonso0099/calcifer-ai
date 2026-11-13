@@ -45,3 +45,17 @@ export function formatStopwatch(elapsedMs) {
 export function getMinutesFromElapsed(elapsedMs) {
   return Math.max(1, Math.round(elapsedMs / MS_PER_MINUTE));
 }
+
+/**
+ * Calcula cuánto tiempo lleva un cronómetro. Si está corriendo, suma lo acumulado
+ * más lo que ha pasado desde que arrancó; por eso sigue bien aunque se recargue la página.
+ *
+ * @param {{accumulatedMs: number, startedAt: number|null}} stopwatch - Lo sumado antes de la
+ *   última pausa y la hora (en milisegundos) en que arrancó, o null si está en pausa.
+ * @param {number} now - La hora actual en milisegundos (se recibe para poder probarla).
+ * @returns {number} Milisegundos transcurridos.
+ */
+export function getElapsedMs(stopwatch, now) {
+  const runningMs = stopwatch.startedAt === null ? 0 : Math.max(0, now - stopwatch.startedAt);
+  return stopwatch.accumulatedMs + runningMs;
+}

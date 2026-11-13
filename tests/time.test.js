@@ -1,7 +1,7 @@
 // Pruebas de los tiempos de un proceso, del cronómetro y de las fechas de la casa.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { formatStopwatch, getMinutesFromElapsed, getProcessTime } from '../src/lib/time.js';
+import { formatStopwatch, getElapsedMs, getMinutesFromElapsed, getProcessTime } from '../src/lib/time.js';
 import { formatHouseDate } from '../src/lib/dates.js';
 
 const step = (minutes) => ({ id: 'paso-1', text: 'x', minutes });
@@ -28,4 +28,9 @@ test('getMinutesFromElapsed redondea y nunca baja de 1', () => {
 test('formatHouseDate usa el día de Denver, no el de UTC', () => {
   // 03:15 UTC del 14 de noviembre todavía es 13 de noviembre en Denver.
   assert.match(formatHouseDate('2026-11-14T03:15:00.000Z'), /^13 nov 2026$/);
+});
+
+test('getElapsedMs suma lo acumulado y lo que lleva corriendo', () => {
+  assert.equal(getElapsedMs({ accumulatedMs: 5000, startedAt: null }, 99000), 5000);
+  assert.equal(getElapsedMs({ accumulatedMs: 5000, startedAt: 90000 }, 99000), 14000);
 });
