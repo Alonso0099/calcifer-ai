@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "days": [
+    {
+      "id": "domingo",
+      "name": "Domingo",
+      "meal": "Almuerzo especial: seafood (1 unidad) + cena flex",
+      "blocks": [
+        {
+          "processId": "revision-semanal",
+          "estimatedMinutes": {
+            "min": 90,
+            "max": 150
+          }
+        }
+      ]
+    },
+    {
+      "id": "lunes",
+      "name": "Lunes",
+      "meal": "Cena: pollo",
+      "blocks": [
+        {
+          "processId": "servicio-diario",
+          "estimatedMinutes": {
+            "min": 50,
+            "max": 90
+          }
+        }
+      ]
+    },
+    {
+      "id": "martes",
+      "name": "Martes",
+      "meal": "Cena: res",
+      "blocks": [
+        {
+          "processId": "servicio-diario",
+          "estimatedMinutes": {
+            "min": 50,
+            "max": 90
+          }
+        }
+      ]
+    },
+    {
+      "id": "miercoles",
+      "name": "Miércoles",
+      "meal": "Cena: cerdo",
+      "blocks": [
+        {
+          "processId": "servicio-diario",
+          "estimatedMinutes": {
+            "min": 50,
+            "max": 90
+          }
+        },
+        {
+          "processId": "compra-de-frescos",
+          "estimatedMinutes": {
+            "min": 45,
+            "max": 45
+          },
+          "everyWeeks": 2
+        }
+      ]
+    },
+    {
+      "id": "jueves",
+      "name": "Jueves",
+      "meal": "Cena: pollo",
+      "blocks": [
+        {
+          "processId": "servicio-diario",
+          "estimatedMinutes": {
+            "min": 50,
+            "max": 90
+          }
+        }
+      ]
+    },
+    {
+      "id": "viernes",
+      "name": "Viernes",
+      "meal": "Flex: leftovers o algo rápido",
+      "blocks": [
+        {
+          "processId": "limpieza-semanal",
+          "estimatedMinutes": {
+            "min": 45,
+            "max": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "sabado",
+      "name": "Sábado",
+      "meal": "Se come afuera",
+      "blocks": []
+    }
+  ]
+}

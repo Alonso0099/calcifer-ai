@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "processes": [
+    {
+      "id": "marinar-y-congelar",
+      "name": "Marinar, embolsar y congelar",
+      "category": "guardar",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de carnes",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 6, sección 32; etiqueta: Kitchen Manual v0, sección 5",
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Preparar primero todas las unidades de proteína",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Decidir qué unidades se quedan neutras (sin marinar)",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Agrupar las bolsas por sabor",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Preparar la marinada",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Poner la marinada en la bolsa",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Agregar la proteína",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Distribuir la marinada alrededor de la carne",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Sacar el exceso de aire",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Sellar",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Etiquetar con el formato único: proteína y corte, sabor (o UNSEASONED), 1 UNIT / 4 PLATES, fecha PREP, fecha USE BY y RAW",
+          "minutes": null
+        },
+        {
+          "id": "paso-11",
+          "text": "Acostar la bolsa plana cuando se pueda",
+          "minutes": null
+        },
+        {
+          "id": "paso-12",
+          "text": "Congelar de inmediato",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "checklist-marinadas-mensual",
+      "name": "Checklist de marinadas del mes",
+      "category": "guardar",
+      "zone": null,
+      "frequencyDays": 30,
+      "frequencyLabel": "Mensual (antes del prep de carnes)",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 6, secciones 27 y 47",
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Revisar el Recipe Library",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Revisar los condimentos del pantry",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Elegir de 4 a 6 sabores para el mes",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Revisar salsa de soya",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Revisar mostaza",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Revisar Salsa Lizano",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Revisar vinagre",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Revisar limones",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Revisar pasta de tomate / ketchup",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Revisar parmesano",
+          "minutes": null
+        },
+        {
+          "id": "paso-11",
+          "text": "Revisar nuez moscada",
+          "minutes": null
+        },
+        {
+          "id": "paso-12",
+          "text": "Revisar culantro",
+          "minutes": null
+        },
+        {
+          "id": "paso-13",
+          "text": "Revisar jengibre",
+          "minutes": null
+        },
+        {
+          "id": "paso-14",
+          "text": "Revisar ajo",
+          "minutes": null
+        },
+        {
+          "id": "paso-15",
+          "text": "Revisar Lakanto",
+          "minutes": null
+        },
+        {
+          "id": "paso-16",
+          "text": "Comprar solo lo que falta",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "descongelar-para-manana",
+      "name": "Descongelar la proteína de mañana",
+      "category": "guardar",
+      "zone": "refri",
+      "frequencyDays": null,
+      "frequencyLabel": "Diario (la noche anterior)",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual v0, sección 5",
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "La noche anterior, pasar la proteína de mañana del congelador al refri",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Ponerla en la bandeja de descongelar, en la repisa de abajo, siempre debajo de la comida lista para comer",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Nunca descongelar sobre la KARLBY, la mesa o el fregadero a temperatura ambiente",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Después de descongelar: pollo y carne molida se cocinan en 1–2 días; res y cerdo en trozos, en 3 días como máximo; marinadas con limón o Lizano + limón, el mismo día; Hawaiian, dentro de 24 horas",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    }
+  ]
+}
