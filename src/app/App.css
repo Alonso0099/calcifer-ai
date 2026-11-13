@@ -5,6 +5,11 @@
 }
 
 .app-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 16px;
   padding: 8px 16px;
   background-color: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
@@ -29,4 +34,26 @@
   min-height: 44px;
   color: inherit;
   text-decoration: none;
+}
+
+.app-menu {
+  display: flex;
+  gap: 8px;
+}
+
+.app-menu-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 8px;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* La pantalla actual se resalta con fondo y con negrita, no solo con color. */
+.app-menu-link.active {
+  background-color: var(--color-highlight);
+  color: var(--color-text-strong);
+  font-weight: 600;
 }

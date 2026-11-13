@@ -1,0 +1,51 @@
+/* Estilos de la tarjeta de un día. */
+
+.day-card {
+  padding: 14px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background-color: var(--color-surface);
+}
+
+.day-card h3 {
+  margin: 0;
+}
+
+.day-card-meal {
+  margin: 2px 0 8px;
+}
+
+.day-card-rest {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.day-card-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.day-card-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 12px;
+  border-left: 4px solid var(--color-primary);
+  border-radius: 4px;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.day-card-block-name {
+  font-weight: 600;
+}
+
+.day-card-block-time {
+  color: var(--color-text-muted);
+}

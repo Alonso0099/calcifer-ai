@@ -1,0 +1,16 @@
+/* Estilos de la vista semanal. */
+
+.week-title {
+  margin-top: 0;
+}
+
+.week-intro {
+  color: var(--color-text-muted);
+}
+
+/* Una columna en celular; en tablet caben dos o más días por fila. */
+.week-days {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
