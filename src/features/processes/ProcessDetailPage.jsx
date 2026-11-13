@@ -1,8 +1,9 @@
 // Pantalla de un proceso: sus datos, el checklist, el cronómetro y el registro al terminar.
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { finishProcess, getLastDone, getProcess, toggleStep } from '../../data/index.js';
+import { finishProcess, getLastDone, getNotes, getProcess, toggleStep } from '../../data/index.js';
 import { getMinutesFromElapsed } from '../../lib/time.js';
+import LinkedNotes from '../../shared/components/LinkedNotes.jsx';
 import UndoButton from '../../shared/components/UndoButton.jsx';
 import { text } from '../../shared/text.js';
 import { useLoadedData } from '../../shared/useLoadedData.js';
@@ -28,9 +29,13 @@ export default function ProcessDetailPage() {
   const canKeepScreenOn = useWakeLock();
   const [isFinishing, setIsFinishing] = useState(false);
   const [savedMessage, setSavedMessage] = useState('');
-  // Se piden juntos el proceso y su última vez; reload los vuelve a pedir tras cada cambio.
+  // Se piden juntos el proceso, su última vez y sus notas; reload los vuelve a pedir tras cada cambio.
   const { data, isLoading, hasError, reload } = useLoadedData(
-    async () => ({ process: await getProcess(processId), lastDoneIso: await getLastDone(processId) }),
+    async () => ({
+      process: await getProcess(processId),
+      lastDoneIso: await getLastDone(processId),
+      notes: await getNotes(processId),
+    }),
     [processId],
   );
 
@@ -72,7 +77,7 @@ export default function ProcessDetailPage() {
     );
   }
 
-  const { process, lastDoneIso } = data;
+  const { process, lastDoneIso, notes } = data;
   return (
     <article className="process-detail">
       {backLink}
@@ -97,6 +102,7 @@ export default function ProcessDetailPage() {
         {savedMessage}
       </p>
       <UndoButton onUndone={reload} />
+      <LinkedNotes processId={processId} notes={notes} />
     </article>
   );
 }

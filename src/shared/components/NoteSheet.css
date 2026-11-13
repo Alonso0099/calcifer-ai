@@ -1,0 +1,18 @@
+/* Estilos del pie de una nota mostrada: fecha y enlace para editar. */
+
+.note-sheet-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 12px;
+  margin: 8px 0 0;
+  color: var(--color-text-muted);
+}
+
+.note-sheet-edit {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-text);
+}

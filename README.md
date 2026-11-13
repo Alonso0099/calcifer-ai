@@ -6,7 +6,7 @@ Esta versión fue construida con [Claude Code](https://claude.com/claude-code). 
 
 ## Estado
 
-Fase 1, en construcción. Ya existen el proyecto base, el contenido del manual, la capa de datos y cinco pantallas: procesos como tarjetas con checklist, cronómetro y Deshacer; la vista semanal; limpieza y mantenimiento por zona; la búsqueda; y el respaldo. Faltan las notas.
+Fase 1, en construcción. Ya existen el proyecto base, el contenido del manual, la capa de datos y las seis funcionalidades: procesos como tarjetas con checklist, cronómetro y Deshacer; la vista semanal; la búsqueda; limpieza y mantenimiento por zona; el respaldo; y las notas. Falta el paso de instalación (manifest e íconos) y publicar.
 
 ## Cómo correrla
 
@@ -126,3 +126,14 @@ Una línea por decisión importante, con su porqué.
 - **Restaurar pide confirmación después de elegir el archivo**, mostrando su nombre: es la única acción de la app que reemplaza datos y Deshacer no la revierte.
 - **Un archivo que no es un respaldo válido no cambia nada**, y el mensaje lo dice.
 - **Los cronómetros en curso no entran al respaldo**: no son parte del historial.
+
+### Notas
+
+- **Una nota es una serie de eventos** (`note_saved`, `note_deleted`): editar no sobrescribe, y por eso borrar o editar se puede deshacer y las notas entran solas al respaldo.
+- **La hoja de papel está hecha con CSS**: los renglones son un `repeating-linear-gradient` y el texto usa el mismo alto de línea, así que cae sobre las rayas.
+- **La ramita es un SVG original dibujado en código** (un tallo y ocho hojas), con los colores de la paleta; es decorativa y el título le deja libre su esquina.
+- **`NotePaper`, `NoteSheet`, `LinkedNotes` y `HerbSprig` viven en `src/shared/components/`**: el detalle de un proceso muestra sus notas sin importar nada de `features/notes/`.
+- **Borrar no pide confirmación**: regresa a la lista, que avisa y tiene el botón Deshacer para recuperarla.
+- **Una nota nueva abierta desde un proceso ya viene ligada a él** y al guardar regresa a ese proceso.
+- **Ligar a un proceso es opcional** y se puede cambiar o quitar al editar.
+- **Una nota vacía no se guarda**: debe tener título o texto.

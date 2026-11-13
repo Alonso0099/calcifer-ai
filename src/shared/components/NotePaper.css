@@ -1,0 +1,47 @@
+/* La hoja de papel de las notas y sus renglones. */
+
+.note-paper {
+  /* El alto de un renglón. El texto usa este mismo alto de línea para caer sobre las rayas. */
+  --note-line-height: 2rem;
+  position: relative;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background-color: var(--color-surface);
+}
+
+/* La ramita va en la esquina de arriba a la derecha, por encima del papel. */
+.note-paper-sprig {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  /* No intercepta los toques: lo que quede debajo se puede seguir tocando. */
+  pointer-events: none;
+}
+
+/* El título deja libre el espacio de la ramita para que nunca lo tape. */
+.note-paper-title {
+  min-height: 48px;
+  margin: 0 0 8px;
+  padding-right: 60px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-text-strong);
+}
+
+/* Los renglones: un degradado que se repite. Es transparente casi todo el renglón
+   y pinta una raya fina del color del borde en el último pixel. */
+.note-paper-lines {
+  margin: 0;
+  line-height: var(--note-line-height);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(var(--note-line-height) - 1px),
+    var(--color-border) calc(var(--note-line-height) - 1px),
+    var(--color-border) var(--note-line-height)
+  );
+  /* Respeta los saltos de línea que escribió el usuario. */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}

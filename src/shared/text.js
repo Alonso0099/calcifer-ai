@@ -15,6 +15,7 @@ export const text = {
     week: 'Semana',
     search: 'Buscar',
     maintenance: 'Limpieza',
+    notes: 'Notas',
     backup: 'Respaldo',
   },
   categories: {
@@ -101,6 +102,33 @@ export const text = {
     soon: (days) => (days === 1 ? 'Vence en 1 día' : `Vence en ${days} días`),
     /** @param {number} days */
     late: (days) => (days === 1 ? 'Atrasada 1 día' : `Atrasada ${days} días`),
+  },
+  notes: {
+    title: 'Notas',
+    create: 'Nueva nota',
+    createTitle: 'Nueva nota',
+    editTitle: 'Editar nota',
+    empty: 'Todavía no hay notas.',
+    untitled: 'Sin título',
+    titleLabel: 'Título de la nota',
+    titlePlaceholder: 'Título',
+    bodyLabel: 'Texto de la nota',
+    bodyPlaceholder: 'Escribe aquí…',
+    processLabel: 'Ligar a un proceso (opcional)',
+    noProcess: 'Sin proceso',
+    save: 'Guardar nota',
+    delete: 'Borrar nota',
+    edit: 'Editar',
+    back: 'Volver a notas',
+    notFound: 'Esa nota no existe o fue borrada.',
+    deleted: 'Nota borrada. Puedes recuperarla con Deshacer.',
+    /** @param {string} date */
+    updated: (date) => `Último cambio: ${date}`,
+    /** @param {string} processName */
+    linkedTo: (processName) => `Ligada a: ${processName}`,
+    linkedTitle: 'Notas de este proceso',
+    linkedEmpty: 'Este proceso no tiene notas.',
+    addToProcess: 'Agregar nota a este proceso',
   },
   backup: {
     title: 'Respaldo',

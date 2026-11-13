@@ -1,0 +1,21 @@
+/* Colores y tamaño de la ramita de hierbas. */
+
+.herb-sprig {
+  width: 56px;
+  height: 56px;
+}
+
+.herb-sprig-stem {
+  fill: none;
+  stroke: var(--color-cat-guardar);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.herb-sprig-leaf {
+  fill: var(--color-cat-guardar);
+}
+
+.herb-sprig-leaf-light {
+  fill: var(--color-ok);
+}
