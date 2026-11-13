@@ -212,6 +212,7 @@ Campos obligatorios de cada proceso:
 Campos opcionales (solo se escriben cuando aplican):
 
 - `ingredients`: lista de textos, uno por ingrediente con su cantidad (`"2 chiles dulces en tiras"`). Para recetas y marinadas.
+- `notes`: lista de textos con lo que el manual dice del proceso y no es ingrediente ni paso: rendimiento ("Rinde 1 unidad"), con qué proteína es compatible una marinada, cuánto puede esperar después de descongelar, o el armado de Tita y el de Alonso en un desayuno. Son contenido del manual, de solo lectura; no confundir con las notas que escribe el usuario (funcionalidad 7).
 - `group`: solo en `preparar`, para dividir la categoría en la pantalla: `pollo` | `cerdo` | `res` | `seafood` | `sopas` | `flex` | `desayunos` | `marinadas`. Los procesos de `preparar` que no son recetas no lo llevan.
 
 No hay campo de dueño (ver "Sin dueños").

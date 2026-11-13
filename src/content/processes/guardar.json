@@ -11,6 +11,9 @@
       "estimatedMinutes": null,
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, sección 32; etiqueta: Kitchen Manual v0, sección 5",
+      "notes": [
+        "No tocar los frascos de especias con las manos contaminadas; no reusar cucharas contaminadas; no regresar marinada que tocó carne cruda a un lote limpio (cap. 6 §33)"
+      ],
       "steps": [
         {
           "id": "paso-1",
