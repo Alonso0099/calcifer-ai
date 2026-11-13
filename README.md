@@ -6,7 +6,7 @@ Esta versión fue construida con [Claude Code](https://claude.com/claude-code). 
 
 ## Estado
 
-Fase 1, en construcción. Ya existen el proyecto base, el contenido del manual, la capa de datos y dos pantallas: procesos como tarjetas con checklist, cronómetro y Deshacer, y la vista semanal. Faltan búsqueda, mantenimiento, respaldo y notas.
+Fase 1, en construcción. Ya existen el proyecto base, el contenido del manual, la capa de datos y tres pantallas: procesos como tarjetas con checklist, cronómetro y Deshacer; la vista semanal; y la búsqueda. Faltan mantenimiento, respaldo y notas.
 
 ## Cómo correrla
 
@@ -98,3 +98,10 @@ Una línea por decisión importante, con su porqué.
 - **No hay total de minutos por día**: la compra de frescos toca cada 2 semanas, así que un solo total diría de más o de menos.
 - **El menú sale de `routes.jsx`** (las rutas con `menuLabel`): agregar una pantalla al menú es la misma línea que la crea.
 - **`getWeekPlan()` ya trae el nombre de cada proceso**: la pantalla de semana no necesita importar nada de la de procesos.
+
+### Búsqueda
+
+- **Lo que se busca vive en la dirección** (`/buscar?q=limon`): al abrir un resultado y volver, la búsqueda sigue ahí.
+- **Busca mientras se escribe**, sin botón: el contenido está en el dispositivo y la respuesta es inmediata.
+- **Si coincidió un paso y no el nombre, se muestra ese paso**: así se entiende por qué apareció el proceso.
+- **`ProcessCard`, `CategoryDot` y `ProcessTime` se movieron a `src/shared/components/`**: ahora los usan dos funcionalidades, y una no puede importar archivos de otra.

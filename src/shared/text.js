@@ -13,6 +13,7 @@ export const text = {
     label: 'Secciones',
     processes: 'Procesos',
     week: 'Semana',
+    search: 'Buscar',
   },
   categories: {
     compra: 'Compra',
@@ -68,6 +69,17 @@ export const text = {
     rest: 'Descanso del sistema',
     /** @param {number} weeks */
     everyWeeks: (weeks) => `cada ${weeks} semanas`,
+  },
+  search: {
+    title: 'Buscar',
+    inputLabel: 'Buscar por nombre o por texto de un paso',
+    placeholder: 'Por ejemplo: brócoli, filtros, limón',
+    hint: 'Escribe una palabra. No importan las mayúsculas ni los acentos.',
+    /** @param {number} count */
+    resultCount: (count) => (count === 1 ? '1 resultado' : `${count} resultados`),
+    empty: 'No se encontró ningún proceso.',
+    /** @param {string} stepText */
+    matchedStep: (stepText) => `Paso: ${stepText}`,
   },
   stopwatch: {
     title: 'Cronómetro',

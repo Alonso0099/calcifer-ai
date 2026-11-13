@@ -1,6 +1,6 @@
 // Muestra el tiempo de un proceso: medido, estimado o "Pendiente".
 import { getProcessTime } from '../../lib/time.js';
-import { text } from '../../shared/text.js';
+import { text } from '../text.js';
 
 /**
  * Escribe el tiempo de un proceso con las palabras correctas según de dónde sale.

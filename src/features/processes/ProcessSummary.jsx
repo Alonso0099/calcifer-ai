@@ -1,8 +1,8 @@
 // El encabezado del detalle de un proceso: categoría, nombre, tiempo, frecuencia y última vez.
 import { formatHouseDate } from '../../lib/dates.js';
 import { text } from '../../shared/text.js';
-import CategoryDot from './CategoryDot.jsx';
-import ProcessTime from './ProcessTime.jsx';
+import CategoryDot from '../../shared/components/CategoryDot.jsx';
+import ProcessTime from '../../shared/components/ProcessTime.jsx';
 import './ProcessSummary.css';
 
 /**

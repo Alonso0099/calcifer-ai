@@ -1,6 +1,7 @@
-// La tarjeta de un proceso en la lista: nombre, categoría, tiempo y número de pasos.
+// La tarjeta de un proceso: nombre, categoría, tiempo y número de pasos.
+// Es compartida: la usan la lista de procesos y la búsqueda.
 import { Link } from 'react-router-dom';
-import { text } from '../../shared/text.js';
+import { text } from '../text.js';
 import CategoryDot from './CategoryDot.jsx';
 import ProcessTime from './ProcessTime.jsx';
 import './ProcessCard.css';

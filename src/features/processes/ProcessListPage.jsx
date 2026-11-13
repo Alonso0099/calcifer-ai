@@ -5,7 +5,7 @@ import { CATEGORIES } from '../../shared/constants.js';
 import { text } from '../../shared/text.js';
 import { useLoadedData } from '../../shared/useLoadedData.js';
 import CategoryFilter from './CategoryFilter.jsx';
-import ProcessCard from './ProcessCard.jsx';
+import ProcessCard from '../../shared/components/ProcessCard.jsx';
 import { groupProcesses } from './groupProcesses.js';
 import './ProcessListPage.css';
 

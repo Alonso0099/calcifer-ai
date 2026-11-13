@@ -29,3 +29,18 @@ export function processMatchesSearch(process, query) {
   const searchableTexts = [process.name, ...process.steps.map((step) => step.text)];
   return searchableTexts.some((value) => normalizeText(value).includes(normalizedQuery));
 }
+
+/**
+ * Busca el paso que hizo que un proceso apareciera en los resultados, para mostrarlo.
+ * Si el nombre del proceso ya coincide, no hace falta explicar nada y regresa null.
+ *
+ * @param {{name: string, steps: Array<{text: string}>}} process - Un proceso de los resultados.
+ * @param {string} query - Lo que escribió el usuario.
+ * @returns {string|null} El texto del primer paso que coincide, o null.
+ */
+export function findMatchingStepText(process, query) {
+  const normalizedQuery = normalizeText(query);
+  if (normalizedQuery === '' || normalizeText(process.name).includes(normalizedQuery)) return null;
+  const matchingStep = process.steps.find((step) => normalizeText(step.text).includes(normalizedQuery));
+  return matchingStep ? matchingStep.text : null;
+}

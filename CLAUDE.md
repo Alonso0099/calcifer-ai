@@ -81,6 +81,7 @@ Los contrastes están medidos con la fórmula WCAG (mínimo 4.5:1 para texto, 3:
   /* Acciones */
   --color-primary: #5E7660;       /* salvia: botones principales, con texto blanco (5.0:1) */
   --color-primary-hover: #4F6451; /* salvia oscuro: botón presionado (6.4:1) */
+  --color-on-primary: #FFFFFF;    /* blanco: texto sobre los botones salvia (5.0:1) */
   --color-highlight: #D1B174;     /* mostaza: fondo de resaltado, con texto café (5.7:1) */
 
   /* Estado de tareas (barras de vencimiento) */
