@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Ícono de Calcifer: una ramita de romero sobre papel. Arte original de esta app. -->
+  <rect width="512" height="512" fill="#F4ECE1"/>
+  <path d="M160 382 C 210 322, 270 222, 356 122" fill="none" stroke="#5E7660" stroke-width="14" stroke-linecap="round"/>
+  <g>
+    <ellipse cx="184" cy="318" rx="13" ry="40" fill="#5E7660" transform="rotate(-35 184 352)"/>
+    <ellipse cx="206" cy="286" rx="13" ry="40" fill="#8D9531" transform="rotate(62 206 320)"/>
+    <ellipse cx="228" cy="252" rx="13" ry="40" fill="#5E7660" transform="rotate(-30 228 286)"/>
+    <ellipse cx="252" cy="218" rx="13" ry="40" fill="#8D9531" transform="rotate(66 252 252)"/>
+    <ellipse cx="276" cy="184" rx="13" ry="38" fill="#5E7660" transform="rotate(-25 276 216)"/>
+    <ellipse cx="300" cy="154" rx="12" ry="36" fill="#8D9531" transform="rotate(70 300 184)"/>
+    <ellipse cx="324" cy="126" rx="12" ry="32" fill="#5E7660" transform="rotate(-20 324 154)"/>
+    <ellipse cx="348" cy="100" rx="11" ry="28" fill="#8D9531" transform="rotate(34 348 124)"/>
+  </g>
+</svg>

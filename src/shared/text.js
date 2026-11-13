@@ -11,12 +11,19 @@ export const text = {
   },
   menu: {
     label: 'Secciones',
+    toggle: 'Menú',
     processes: 'Procesos',
     week: 'Semana',
     search: 'Buscar',
     maintenance: 'Limpieza',
     notes: 'Notas',
     backup: 'Respaldo',
+  },
+  install: {
+    notice:
+      'La app no está instalada en este dispositivo. El navegador puede borrar el historial de un sitio que no está instalado.',
+    howTo: 'Para instalarla: en Safari, toca Compartir y luego "Agregar a inicio"; en Chrome, abre el menú y toca "Instalar app".',
+    backupLink: 'Mientras tanto, descarga un respaldo',
   },
   categories: {
     compra: 'Compra',

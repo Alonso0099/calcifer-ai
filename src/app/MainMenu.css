@@ -1,0 +1,75 @@
+/* Estilos del menú principal. Primero va el teléfono (menú desplegable) y al final,
+   dentro de @media, lo que cambia en tablet (barra fija abajo). */
+
+.main-menu-toggle {
+  font-weight: 600;
+}
+
+/* En teléfono la lista está oculta hasta que se abre el menú. */
+.main-menu-links {
+  display: none;
+}
+
+/* Abierta, la lista cuelga debajo del encabezado y ocupa todo el ancho. */
+.main-menu-links-open {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.main-menu-link {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 14px;
+  border-radius: 8px;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* La pantalla actual se resalta con fondo y con negrita, no solo con color. */
+.main-menu-link.active {
+  background-color: var(--color-highlight);
+  color: var(--color-text-strong);
+  font-weight: 600;
+}
+
+/* Tablet (700 px de ancho o más): el botón desaparece y las secciones forman una
+   barra fija en la parte de abajo, al alcance de los pulgares. */
+@media (min-width: 700px) {
+  .main-menu-toggle {
+    display: none;
+  }
+
+  .main-menu-links,
+  .main-menu-links-open {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    /* env(safe-area-inset-bottom) deja libre la franja de gestos de iPad y iPhone. */
+    padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--color-border);
+    border-bottom: none;
+    background-color: var(--color-surface);
+  }
+
+  .main-menu-link {
+    flex: 1;
+    justify-content: center;
+    min-height: 52px;
+    text-align: center;
+  }
+}

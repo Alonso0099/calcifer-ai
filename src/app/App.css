@@ -5,6 +5,8 @@
 }
 
 .app-header {
+  /* "relative" permite que el menú desplegable se coloque justo debajo del encabezado. */
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -36,25 +38,9 @@
   text-decoration: none;
 }
 
-.app-menu {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-}
-
-.app-menu-link {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  padding: 0 14px;
-  border-radius: 8px;
-  color: var(--color-text);
-  text-decoration: none;
-}
-
-/* La pantalla actual se resalta con fondo y con negrita, no solo con color. */
-.app-menu-link.active {
-  background-color: var(--color-highlight);
-  color: var(--color-text-strong);
-  font-weight: 600;
+/* En tablet el menú es una barra fija abajo: se deja espacio para que no tape el final de la pantalla. */
+@media (min-width: 700px) {
+  .app-main {
+    padding-bottom: calc(88px + env(safe-area-inset-bottom));
+  }
 }

@@ -6,7 +6,7 @@ Esta versión fue construida con [Claude Code](https://claude.com/claude-code). 
 
 ## Estado
 
-Fase 1, en construcción. Ya existen el proyecto base, el contenido del manual, la capa de datos y las seis funcionalidades: procesos como tarjetas con checklist, cronómetro y Deshacer; la vista semanal; la búsqueda; limpieza y mantenimiento por zona; el respaldo; y las notas. Falta el paso de instalación (manifest e íconos) y publicar.
+Fase 1, en construcción. Ya existen el proyecto base, el contenido del manual, la capa de datos y las seis funcionalidades: procesos como tarjetas con checklist, cronómetro y Deshacer; la vista semanal; la búsqueda; limpieza y mantenimiento por zona; el respaldo; y las notas. La app se puede instalar en la pantalla de inicio. Falta publicarla.
 
 ## Cómo correrla
 
@@ -137,3 +137,18 @@ Una línea por decisión importante, con su porqué.
 - **Una nota nueva abierta desde un proceso ya viene ligada a él** y al guardar regresa a ese proceso.
 - **Ligar a un proceso es opcional** y se puede cambiar o quitar al editar.
 - **Una nota vacía no se guarda**: debe tener título o texto.
+
+### Menú
+
+- **En teléfono es un botón "Menú" que despliega las secciones; en tablet (700 px o más) es una barra fija abajo**: con seis secciones, el menú de arriba ocupaba dos filas en el teléfono, y en la tablet la barra de abajo queda al alcance de los pulgares.
+- **Es un solo componente (`MainMenu`) y el cambio lo hace el CSS** con `@media`: no hay dos menús que mantener.
+- **El menú desplegable se cierra al elegir una sección.**
+
+### Instalación
+
+- **`manifest.webmanifest` más las etiquetas de Apple en `index.html`**: Android y Chrome usan el manifest; iPad y iPhone usan sus propias etiquetas.
+- **El ícono es la misma ramita de las notas**, dibujada en `public/icons/icon.svg`: arte original y simple, sin personajes. Los PNG se generaron a partir de ese SVG.
+- **El dibujo queda dentro del centro del ícono**: así el mismo archivo sirve aunque el sistema lo recorte en círculo ("maskable").
+- **El aviso de "no instalada" sale mientras la app se use desde el navegador** y no se puede cerrar: desaparece solo al abrirla instalada, que es cuando el riesgo de perder datos baja.
+- **Sin service worker**: la app necesita conexión para abrir. Funcionar sin conexión no está en la fase 1.
+- **Los colores del manifest y de `theme-color` están escritos directo**: esos archivos no pueden leer las variables de CSS.
