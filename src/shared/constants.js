@@ -26,6 +26,9 @@ export const DEFAULT_DONE_BY = 'Ambos';
 export const BACKUP_APP_NAME = 'calcifer';
 export const BACKUP_SCHEMA_VERSION = 1;
 
+/** Con qué empieza el nombre del archivo de respaldo; después va la fecha. */
+export const BACKUP_FILE_PREFIX = 'calcifer-respaldo';
+
 /**
  * Códigos de error al leer un respaldo. Son códigos y no frases porque los textos
  * que ve el usuario viven en text.js; la pantalla de respaldo traduce cada código.

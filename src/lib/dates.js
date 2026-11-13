@@ -37,3 +37,20 @@ export function getHouseDayNumber(date) {
   const getPart = (type) => Number(parts.find((part) => part.type === type).value);
   return Date.UTC(getPart('year'), getPart('month') - 1, getPart('day')) / MS_PER_DAY;
 }
+
+/**
+ * Escribe el día de la casa como "2026-11-13". Se usa en el nombre del archivo de
+ * respaldo: con ese formato, los archivos se ordenan solos por fecha.
+ *
+ * @param {Date} date - Un momento cualquiera.
+ * @returns {string} El día en formato año-mes-día.
+ */
+export function getHouseDayText(date) {
+  // El idioma "en-CA" (inglés de Canadá) escribe las fechas justo como año-mes-día.
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: HOUSE_TIME_ZONE,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(date);
+}

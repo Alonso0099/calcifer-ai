@@ -15,6 +15,7 @@ export const text = {
     week: 'Semana',
     search: 'Buscar',
     maintenance: 'Limpieza',
+    backup: 'Respaldo',
   },
   categories: {
     compra: 'Compra',
@@ -100,6 +101,32 @@ export const text = {
     soon: (days) => (days === 1 ? 'Vence en 1 día' : `Vence en ${days} días`),
     /** @param {number} days */
     late: (days) => (days === 1 ? 'Atrasada 1 día' : `Atrasada ${days} días`),
+  },
+  backup: {
+    title: 'Respaldo',
+    intro: 'El historial (pasos, procesos terminados y notas) vive solo en este dispositivo. Descarga un respaldo de vez en cuando.',
+    downloadTitle: 'Descargar el historial',
+    downloadHelp: 'Guarda un archivo con todo el historial de este dispositivo.',
+    download: 'Descargar respaldo',
+    downloaded: 'Respaldo descargado.',
+    restoreTitle: 'Restaurar un respaldo',
+    restoreHelp: 'Elige un archivo de respaldo descargado antes desde esta app.',
+    chooseFile: 'Elegir archivo de respaldo',
+    confirmTitle: '¿Reemplazar el historial de este dispositivo?',
+    /** @param {string} fileName */
+    confirmBody: (fileName) =>
+      `Todo el historial actual se reemplaza con el del archivo "${fileName}". Esto no se puede deshacer con el botón Deshacer. Si quieres conservar lo actual, descarga antes un respaldo.`,
+    confirm: 'Sí, reemplazar',
+    cancel: 'Cancelar',
+    /** @param {number} count */
+    restored: (count) => (count === 1 ? 'Se restauró 1 registro.' : `Se restauraron ${count} registros.`),
+    errors: {
+      backup_not_json: 'Ese archivo no es un respaldo: no se pudo leer. No se cambió nada.',
+      backup_wrong_app: 'Ese archivo no es un respaldo de esta app. No se cambió nada.',
+      backup_unknown_version: 'Ese respaldo es de una versión que esta app no conoce. No se cambió nada.',
+      backup_invalid_events: 'Ese respaldo tiene datos dañados. No se cambió nada.',
+      unknown: 'No se pudo restaurar el respaldo. No se cambió nada.',
+    },
   },
   stopwatch: {
     title: 'Cronómetro',

@@ -3,6 +3,7 @@
 import ProcessListPage from '../features/processes/ProcessListPage.jsx';
 import ProcessDetailPage from '../features/processes/ProcessDetailPage.jsx';
 import WeekPage from '../features/week/WeekPage.jsx';
+import BackupPage from '../features/backup/BackupPage.jsx';
 import MaintenancePage from '../features/maintenance/MaintenancePage.jsx';
 import SearchPage from '../features/search/SearchPage.jsx';
 import { text } from '../shared/text.js';
@@ -18,4 +19,5 @@ export const routes = [
   { path: '/semana', element: <WeekPage />, menuLabel: text.menu.week },
   { path: '/limpieza', element: <MaintenancePage />, menuLabel: text.menu.maintenance },
   { path: '/buscar', element: <SearchPage />, menuLabel: text.menu.search },
+  { path: '/respaldo', element: <BackupPage />, menuLabel: text.menu.backup },
 ];

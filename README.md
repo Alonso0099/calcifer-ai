@@ -6,7 +6,7 @@ Esta versión fue construida con [Claude Code](https://claude.com/claude-code). 
 
 ## Estado
 
-Fase 1, en construcción. Ya existen el proyecto base, el contenido del manual, la capa de datos y cuatro pantallas: procesos como tarjetas con checklist, cronómetro y Deshacer; la vista semanal; limpieza y mantenimiento por zona; y la búsqueda. Faltan respaldo y notas.
+Fase 1, en construcción. Ya existen el proyecto base, el contenido del manual, la capa de datos y cinco pantallas: procesos como tarjetas con checklist, cronómetro y Deshacer; la vista semanal; limpieza y mantenimiento por zona; la búsqueda; y el respaldo. Faltan las notas.
 
 ## Cómo correrla
 
@@ -118,3 +118,11 @@ Una línea por decisión importante, con su porqué.
 - **El estado siempre va escrito** junto al punto y a la barra: el color nunca es la única señal.
 - **Para registrar una tarea se abre su proceso y se termina**: así hay un solo lugar donde se guarda un "terminado".
 - **`getZones()` se agregó a la capa de datos**: la pantalla necesita las zonas y ningún componente puede importar el JSON.
+
+### Respaldo
+
+- **El respaldo es un archivo JSON con todos los eventos**: como el estado se calcula de los eventos, restaurarlos lo recupera todo, incluidas las notas.
+- **El nombre del archivo lleva la fecha de la casa** (`calcifer-respaldo-2026-11-13.json`): varios respaldos se ordenan solos.
+- **Restaurar pide confirmación después de elegir el archivo**, mostrando su nombre: es la única acción de la app que reemplaza datos y Deshacer no la revierte.
+- **Un archivo que no es un respaldo válido no cambia nada**, y el mensaje lo dice.
+- **Los cronómetros en curso no entran al respaldo**: no son parte del historial.

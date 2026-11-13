@@ -2,7 +2,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { formatStopwatch, getElapsedMs, getMinutesFromElapsed, getProcessTime } from '../src/lib/time.js';
-import { formatHouseDate } from '../src/lib/dates.js';
+import { formatHouseDate, getHouseDayText } from '../src/lib/dates.js';
 
 const step = (minutes) => ({ id: 'paso-1', text: 'x', minutes });
 
@@ -33,4 +33,8 @@ test('formatHouseDate usa el día de Denver, no el de UTC', () => {
 test('getElapsedMs suma lo acumulado y lo que lleva corriendo', () => {
   assert.equal(getElapsedMs({ accumulatedMs: 5000, startedAt: null }, 99000), 5000);
   assert.equal(getElapsedMs({ accumulatedMs: 5000, startedAt: 90000 }, 99000), 14000);
+});
+
+test('getHouseDayText escribe el día de Denver como año-mes-día', () => {
+  assert.equal(getHouseDayText(new Date('2026-11-14T03:15:00.000Z')), '2026-11-13');
 });
