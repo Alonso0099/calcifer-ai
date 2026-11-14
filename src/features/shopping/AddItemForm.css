@@ -1,0 +1,23 @@
+/* Estilos del campo para anotar algo a mano. */
+
+.add-item {
+  margin-bottom: 16px;
+  padding: 14px 16px;
+}
+
+.add-item-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.add-item-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.add-item-row input {
+  flex: 1;
+  min-width: 200px;
+}

@@ -16,6 +16,11 @@ export const EVENT_TYPES = {
   mealPlanned: 'meal_planned',
   freezerItemSaved: 'freezer_item_saved',
   freezerItemRemoved: 'freezer_item_removed',
+  shoppingItemAdded: 'shopping_item_added',
+  shoppingItemRemoved: 'shopping_item_removed',
+  shoppingItemChecked: 'shopping_item_checked',
+  shoppingItemUnchecked: 'shopping_item_unchecked',
+  shoppingCompleted: 'shopping_completed',
   eventUndone: 'event_undone',
 };
 
@@ -110,3 +115,12 @@ export const FREEZER_REMOVE_REASONS = ['cooked', 'discarded', 'correction'];
 
 /** Días antes de la fecha límite en que una bolsa se marca como "usar pronto". */
 export const USE_SOON_THRESHOLD_DAYS = 30;
+
+/** Cuántos días del menú (desde hoy) se miran para sacar los ingredientes de la lista de compras. */
+export const SHOPPING_MENU_DAYS = 7;
+
+/** Ingredientes que son 1 unidad de proteína: esos salen del congelador, no de la lista de ingredientes. */
+export const PROTEIN_UNIT_PATTERN = /unidad(es)? de /i;
+
+/** Ingredientes que solo remiten a otra receta ("Los ingredientes de Carne en Salsa"): no se compran. */
+export const REFERENCE_INGREDIENT_PATTERN = /^(los|las) (ingredientes|camarones) de |^la salsa que se quiera/i;

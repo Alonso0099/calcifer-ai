@@ -12,6 +12,8 @@ export const text = {
   menu: {
     label: 'Secciones',
     toggle: 'Secciones',
+    more: 'Más',
+    shopping: 'Compras',
     today: 'Hoy',
     planner: 'Menú',
     processes: 'Recetas',
@@ -94,6 +96,35 @@ export const text = {
     prepDayLabel: 'Día de preparación',
     unitsHelp: 'Normalmente 1 bolsa es 1 unidad. En pescado, mariscos y paquetes grandes se cuenta la comida, no las bolsas.',
     add: 'Agregar al congelador',
+  },
+  shopping: {
+    title: 'Compras',
+    empty: 'No hay nada que comprar por ahora.',
+    /** @param {number} done @param {number} total */
+    progress: (done, total) => `${done} de ${total} renglones marcados.`,
+    /** @param {string} date */
+    lastTrip: (date) => `Última compra terminada: ${date}.`,
+    proteinTitle: 'Proteína para el congelador',
+    proteinHelp: 'Lo que falta para llegar a la meta de 25 unidades.',
+    menuTitle: 'Ingredientes del menú de la semana',
+    menuHelp: 'Suma de las recetas planeadas en los próximos 7 días. Marca lo que ya tienes en casa.',
+    manualTitle: 'Anotado a mano',
+    manualHelp: 'Lo que agregaste tú.',
+    /** @param {string} recipeNames */
+    forRecipes: (recipeNames) => `Para: ${recipeNames}`,
+    /** @param {string} unit @param {number} amount */
+    unitLabel: (unit, amount) => {
+      const labels = { cda: ['cda', 'cdas'], cdta: ['cdta', 'cdtas'], taza: ['taza', 'tazas'], lb: ['lb', 'lb'], oz: ['oz', 'oz'], lata: ['lata', 'latas'], diente: ['diente', 'dientes'], pizca: ['pizca', 'pizcas'], tallo: ['tallo', 'tallos'], unidad: ['unidad', 'unidades'] };
+      return labels[unit][amount > 1 ? 1 : 0];
+    },
+    addLabel: 'Anotar algo que comprar',
+    addPlaceholder: 'Por ejemplo: pilas, bolsas para congelar',
+    add: 'Agregar',
+    remove: 'Quitar',
+    finish: 'Terminé la compra',
+    /** @param {number} count */
+    completed: (count) => `Compra terminada: ${count === 1 ? '1 renglón marcado' : `${count} renglones marcados`}.`,
+    toFreezer: 'La proteína entra al congelador cuando se porciona: registra las bolsas aquí.',
   },
   install: {
     notice:
@@ -271,6 +302,11 @@ export const text = {
       meal_planned: 'Se deshizo: cambio en el menú.',
       freezer_item_saved: 'Se deshizo: bolsa registrada en el congelador.',
       freezer_item_removed: 'Se deshizo: la bolsa volvió al congelador.',
+      shopping_item_added: 'Se deshizo: renglón agregado a la lista de compras.',
+      shopping_item_removed: 'Se deshizo: el renglón volvió a la lista de compras.',
+      shopping_item_checked: 'Se deshizo: renglón marcado.',
+      shopping_item_unchecked: 'Se deshizo: renglón desmarcado.',
+      shopping_completed: 'Se deshizo: compra terminada.',
       step_checked: 'Se deshizo: paso marcado.',
       step_unchecked: 'Se deshizo: paso desmarcado.',
       process_finished: 'Se deshizo: registro de proceso terminado.',

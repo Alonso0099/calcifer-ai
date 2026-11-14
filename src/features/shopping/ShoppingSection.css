@@ -1,0 +1,60 @@
+/* Estilos de una parte de la lista de compras. */
+
+.shopping-section {
+  margin-bottom: 16px;
+  padding: 14px 16px;
+}
+
+.shopping-section h3 {
+  margin: 0;
+}
+
+.shopping-help {
+  margin: 2px 0 8px;
+  color: var(--color-text-muted);
+}
+
+.shopping-items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.shopping-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-top: 1px solid var(--color-border);
+}
+
+.shopping-label {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 6px 0;
+  cursor: pointer;
+}
+
+/* Un renglón ya marcado se ve tachado y más suave, y la casilla marcada lo dice también. */
+.shopping-label-done .shopping-name {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+.shopping-name {
+  font-weight: 600;
+}
+
+/* Los nombres vienen de recetas escritas de distintas maneras: todos empiezan con mayúscula. */
+.shopping-name::first-letter {
+  text-transform: uppercase;
+}
+
+.shopping-recipes {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}

@@ -8,6 +8,7 @@ import { buildBackup, parseBackup } from '../../lib/backup.js';
 import { createEventStore } from './eventStore.js';
 import { createFreezerFunctions } from './freezerFunctions.js';
 import { createMealPlanFunctions } from './mealPlanFunctions.js';
+import { createShoppingFunctions } from './shoppingFunctions.js';
 import { createStopwatchFunctions } from './stopwatchStore.js';
 
 /**
@@ -39,6 +40,8 @@ export function createLocalAdapter({ storage, content }) {
     ...createMealPlanFunctions(store, requireProcess),
     // Las funciones del congelador (getFreezer, saveFreezerItem...) también viven aparte.
     ...createFreezerFunctions(store, content.freezer),
+    // Las funciones de compras (getShoppingState, addShoppingItem...) también viven aparte.
+    ...createShoppingFunctions(store),
 
     /** @returns {Promise<object[]>} Todos los procesos activos. */
     async getProcesses() {
