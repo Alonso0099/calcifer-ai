@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { finishProcess, getLastDone, getNotes, getProcess, toggleStep } from '../../data/index.js';
 import { getMinutesFromElapsed } from '../../lib/time.js';
+import { FOLLOW_UP_ROUTE_BY_PROCESS_ID } from '../../shared/constants.js';
 import LinkedNotes from '../../shared/components/LinkedNotes.jsx';
 import UndoButton from '../../shared/components/UndoButton.jsx';
 import { text } from '../../shared/text.js';
@@ -29,6 +30,7 @@ export default function ProcessDetailPage() {
   const canKeepScreenOn = useWakeLock();
   const [isFinishing, setIsFinishing] = useState(false);
   const [savedMessage, setSavedMessage] = useState('');
+  const [followUpRoute, setFollowUpRoute] = useState(null);
   // Se piden juntos el proceso, su última vez y sus notas; reload los vuelve a pedir tras cada cambio.
   const { data, isLoading, hasError, reload } = useLoadedData(
     async () => ({
@@ -49,6 +51,7 @@ export default function ProcessDetailPage() {
   function handleOpenFinish() {
     stopwatch.pause();
     setSavedMessage('');
+    setFollowUpRoute(null);
     setIsFinishing(true);
   }
 
@@ -58,6 +61,8 @@ export default function ProcessDetailPage() {
     stopwatch.reset();
     setIsFinishing(false);
     setSavedMessage(text.finish.saved(minutes));
+    // Algunos procesos tienen un siguiente paso en otra pantalla (la preparación de carnes, el congelador).
+    setFollowUpRoute(FOLLOW_UP_ROUTE_BY_PROCESS_ID[processId] ?? null);
     await reload();
   }
 
@@ -100,6 +105,12 @@ export default function ProcessDetailPage() {
       )}
       <p className="process-detail-saved" role="status">
         {savedMessage}
+        {followUpRoute && (
+          <>
+            {' '}
+            <Link to={followUpRoute}>{text.finish.followUpFreezer}</Link>
+          </>
+        )}
       </p>
       <UndoButton onUndone={reload} />
       <LinkedNotes processId={processId} notes={notes} />

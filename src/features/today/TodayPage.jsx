@@ -30,7 +30,11 @@ export default function TodayPage() {
           <section className="card today-card">
             <h3>{text.today.thawTitle}</h3>
             {data.recipesToThaw.map((recipe) => (
-              <p key={recipe.id}>{text.today.thaw(recipe.name)}</p>
+              <div key={recipe.id}>
+                <p>{text.today.thaw(recipe.name)}</p>
+                {/* Solo dice lo que hay registrado en el congelador; cuál bolsa sacar lo decide quien cocina. */}
+                <p className="today-thaw-stock">{recipe.stock?.oldestBag ? text.today.thawStock(recipe.stock) : text.today.thawNoStock(recipe.stock?.name ?? '')}</p>
+              </div>
             ))}
             <Link className="today-thaw-link" to={`/procesos/${THAW_PROCESS_ID}`}>
               {text.today.thawLink}

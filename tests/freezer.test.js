@@ -2,7 +2,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { addMonths, getDaysBetween } from '../src/lib/dates.js';
-import { buildFreezerBoard, getFreezerItems, getUseByDay } from '../src/lib/freezer.js';
+import { buildFreezerBoard, getFreezerItems, getProteinStock, getUseByDay } from '../src/lib/freezer.js';
 
 const catalog = {
   marinatedUseByMonths: 3,
@@ -49,4 +49,16 @@ test('el tablero calcula meta − existencia y pone primero lo más viejo', () =
   // Hay más mariscos que la meta: lo que falta nunca es negativo.
   assert.deepEqual([seafood.units, seafood.missing], [5, 0]);
   assert.deepEqual([board.totalUnits, board.totalTarget, board.totalMissing], [7, 14, 8]);
+});
+
+test('getProteinStock dice cuánto hay y cuál bolsa se saca primero', () => {
+  const items = [
+    { id: 'nueva', cutId: 'pollo-filetes', marinated: false, units: 1, prepDay: '2026-11-07' },
+    { id: 'vieja', cutId: 'pollo-filetes', marinated: false, units: 1, prepDay: '2026-09-01' },
+  ];
+  const board = buildFreezerBoard(items, catalog, '2026-11-14');
+  const pollo = getProteinStock(board, 'pollo');
+  assert.deepEqual([pollo.units, pollo.oldestBag.id], [2, 'vieja']);
+  assert.equal(getProteinStock(board, 'seafood').oldestBag, null);
+  assert.equal(getProteinStock(board, 'no-existe'), null);
 });

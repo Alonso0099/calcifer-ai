@@ -12,6 +12,12 @@
   gap: 16px;
 }
 
+.today-thaw-stock {
+  margin-top: -8px;
+  font-weight: 600;
+  color: var(--color-text-strong);
+}
+
 .today-thaw-link {
   display: inline-flex;
   align-items: center;

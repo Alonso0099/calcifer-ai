@@ -107,6 +107,9 @@ export const DAILY_SERVICE_PROCESS_ID = 'servicio-diario';
 export const WEEKDAY_IDS = ['domingo', 'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado'];
 export const DAYS_PER_WEEK = 7;
 
+/** Procesos que, al terminar, tienen un siguiente paso en otra pantalla (la ruta a la que se ofrece ir). */
+export const FOLLOW_UP_ROUTE_BY_PROCESS_ID = { 'prep-mensual-carnes': '/congelador' };
+
 /** El proceso que explica cómo descongelar la proteína de mañana. */
 export const THAW_PROCESS_ID = 'descongelar-para-manana';
 

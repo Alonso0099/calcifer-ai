@@ -66,3 +66,16 @@ export function buildFreezerBoard(items, catalog, today) {
   const sum = (field) => proteins.reduce((total, protein) => total + protein[field], 0);
   return { proteins, totalUnits: sum('units'), totalTarget: sum('target'), totalMissing: sum('missing') };
 }
+
+/**
+ * Dice cuánto hay de una proteína en el congelador y cuál es su bolsa más vieja (la que se saca primero).
+ * Sirve para el aviso de descongelar: el grupo de la receta ("pollo") es también el id de la proteína.
+ *
+ * @param {{proteins: Array<{id: string, name: string, units: number, items: object[]}>}} board - El tablero del congelador.
+ * @param {string} proteinId - El id de la proteína: "pollo", "cerdo", "res" o "seafood".
+ * @returns {{name: string, units: number, oldestBag: object|null}|null} Lo que hay, o null si ese id no existe.
+ */
+export function getProteinStock(board, proteinId) {
+  const protein = board.proteins.find((candidate) => candidate.id === proteinId);
+  return protein ? { name: protein.name, units: protein.units, oldestBag: protein.items[0] ?? null } : null;
+}

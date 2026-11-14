@@ -242,3 +242,9 @@ Una línea por decisión importante, con su porqué.
 - **Lo anotado a mano sale de la lista cuando se compra**; lo que no se compró se queda para la siguiente.
 - **El menú pasó a tener "Más"**: con nueve secciones la barra de abajo ya no cabía. En teléfono sigue siendo una sola lista; en tablet, "Más" abre un panel encima de la barra.
 
+### Fase 2: conexiones entre pantallas
+
+- **"Hoy" avisa qué hay en el congelador de la proteína de mañana**: cuántas unidades y cuál es la bolsa más vieja. Si no hay ninguna registrada, lo dice. No decide qué bolsa sacar.
+- **Al terminar la preparación mensual de carnes se ofrece registrar las bolsas**: un enlace al congelador, no un registro automático, porque el inventario solo cambia con una confirmación.
+- **Los enlaces de "siguiente paso" salen de una tabla** (`FOLLOW_UP_ROUTE_BY_PROCESS_ID` en `constants.js`): agregar otro es una línea.
+

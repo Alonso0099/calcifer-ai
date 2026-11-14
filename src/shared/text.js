@@ -45,6 +45,10 @@ export const text = {
     thawTitle: 'Para mañana',
     /** @param {string} recipeName */
     thaw: (recipeName) => `Esta noche, pasar del congelador al refri la proteína para: ${recipeName}.`,
+    /** @param {{name: string, units: number, oldestBag: {cutName: string}}} stock */
+    thawStock: (stock) => `En el congelador hay ${stock.units === 1 ? '1 unidad' : `${stock.units} unidades`} de ${stock.name.toLowerCase()}. La bolsa más vieja es: ${stock.oldestBag.cutName}.`,
+    /** @param {string} proteinName */
+    thawNoStock: (proteinName) => `No hay bolsas de ${proteinName.toLowerCase()} registradas en el congelador: revísalo o regístralas.`,
     thawLink: 'Ver cómo descongelar',
     packLunch: 'Antes de servir la cena, empacar los 2 almuerzos de mañana.',
   },
@@ -289,6 +293,7 @@ export const text = {
     cancel: 'Cancelar',
     /** @param {number} minutes */
     saved: (minutes) => `Registrado: ${minutes} min.`,
+    followUpFreezer: 'Ahora registra las bolsas que quedaron en el congelador.',
   },
   wakeLock: {
     active: 'La pantalla se queda encendida mientras este proceso está abierto.',
