@@ -1,0 +1,76 @@
+/* Estilos de un día del menú. */
+
+.planner-day {
+  padding: 14px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background-color: var(--color-surface);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--color-text-strong) 12%, transparent);
+}
+
+/* Hoy se distingue por un borde grueso y la etiqueta "Hoy", no solo por color. */
+.planner-day-today {
+  border: 3px solid var(--color-primary);
+}
+
+.planner-day h3 {
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.planner-day-badge {
+  margin-left: 8px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  font-family: system-ui, sans-serif;
+  font-size: 0.85rem;
+  text-transform: none;
+}
+
+.planner-day-usual {
+  margin: 2px 0 10px;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.planner-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.planner-slot {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  align-items: center;
+  gap: 8px;
+  min-height: 52px;
+  padding: 6px 12px;
+  border: 2px solid var(--color-border-strong);
+  border-radius: 10px;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.planner-slot-label {
+  color: var(--color-text-muted);
+}
+
+.planner-slot-meal {
+  font-weight: 600;
+}
+
+/* Un momento sin planear: borde punteado y la palabra "Elegir". */
+.planner-slot-empty {
+  border-style: dashed;
+}
+
+.planner-slot-empty .planner-slot-meal {
+  font-weight: normal;
+  color: var(--color-text-muted);
+}

@@ -6,6 +6,7 @@ import { getCurrentNotes } from '../../lib/notes.js';
 import { processMatchesSearch } from '../../lib/searchText.js';
 import { buildBackup, parseBackup } from '../../lib/backup.js';
 import { createEventStore } from './eventStore.js';
+import { createMealPlanFunctions } from './mealPlanFunctions.js';
 import { createStopwatchFunctions } from './stopwatchStore.js';
 
 /**
@@ -33,6 +34,8 @@ export function createLocalAdapter({ storage, content }) {
   return {
     // getStopwatch y saveStopwatch viven en su propio archivo porque no usan eventos.
     ...createStopwatchFunctions(storage),
+    // getMealPlan y planMeal (el menú) también viven aparte.
+    ...createMealPlanFunctions(store, requireProcess),
 
     /** @returns {Promise<object[]>} Todos los procesos activos. */
     async getProcesses() {

@@ -165,6 +165,8 @@ Ningún componente lee `localStorage` ni importa el JSON directamente. Todo pasa
 | `getNotes(processId?)` | Todas las notas, o solo las de un proceso; la más reciente primero |
 | `saveNote(note)` | Crea una nota o guarda los cambios de una existente |
 | `deleteNote(noteId)` | Borra una nota (se puede recuperar con Deshacer) |
+| `getMealPlan()` | El menú: qué comida está planeada en cada día y momento (desayuno, almuerzo, cena) |
+| `planMeal(day, slot, meal)` | Planea, cambia o quita una comida; `meal` es una receta (`kind: "recipe"` y su `processId`), `"leftovers"`, `"eat_out"`, `"quick"` o `"none"` para quitar |
 | `undoLastEvent()` | Anula el último evento |
 | `getStopwatch(processId)` / `saveStopwatch(processId, stopwatch)` | Lee y guarda el cronómetro en curso de un proceso, para que no se pierda al recargar la página. No es un evento: no entra al historial, al Deshacer ni al respaldo |
 | `exportBackup()` / `importBackup(file)` | Respaldo y restauración del historial |
@@ -178,7 +180,7 @@ Cada acción se guarda como un evento nuevo; nunca se edita ni se borra uno ante
 ```js
 {
   id: 'uuid generado con crypto.randomUUID()',
-  type: 'step_checked' | 'step_unchecked' | 'process_finished' | 'note_saved' | 'note_deleted' | 'event_undone',
+  type: 'step_checked' | 'step_unchecked' | 'process_finished' | 'note_saved' | 'note_deleted' | 'meal_planned' | 'event_undone',
   processId: 'limpieza-semanal',  // en notas es opcional: null si la nota no está ligada a un proceso
   stepId: 'paso-3',        // solo en eventos de pasos
   minutes: 42,             // solo en process_finished
@@ -186,10 +188,15 @@ Cada acción se guarda como un evento nuevo; nunca se edita ni se borra uno ante
   noteId: 'uuid',          // solo en eventos de notas; el mismo id en todas las versiones de una nota
   title: '...',            // solo en note_saved
   body: '...',             // solo en note_saved
+  day: '2026-11-16',       // solo en meal_planned: el día de la casa, sin hora
+  slot: 'dinner',          // solo en meal_planned: 'breakfast' | 'lunch' | 'dinner'
+  kind: 'recipe',          // solo en meal_planned: 'recipe' | 'leftovers' | 'eat_out' | 'quick' | 'none' (quitar)
   targetEventId: '...',    // solo en event_undone
   createdAt: '2026-11-13T02:15:00.000Z'
 }
 ```
+
+En el menú, cada día y momento muestra el último `meal_planned` guardado ahí (`kind: 'none'` lo deja vacío).
 
 Una nota se ve siempre en su versión más reciente (el último `note_saved` con su `noteId`), a menos que exista un `note_deleted` posterior.
 
@@ -286,6 +293,8 @@ src/
 │   ├── App.jsx            (layout y menú)
 │   └── routes.jsx         (la lista de pantallas: una línea por funcionalidad)
 ├── features/
+│   ├── today/             (pantalla de inicio: qué toca hoy)
+│   ├── planner/           (menú de la semana y selector de comidas)
 │   ├── processes/         (tarjetas, detalle, checklist, cronómetro)
 │   ├── week/              (vista semanal)
 │   ├── search/            (búsqueda)

@@ -85,3 +85,15 @@ test('el cronómetro se guarda por proceso, fuera del historial', async () => {
   await data.saveStopwatch('limpieza-semanal', null);
   assert.equal(await data.getStopwatch('limpieza-semanal'), null);
 });
+
+test('el menú se planea, se cambia, se quita y se puede deshacer', async () => {
+  const data = createTestAdapter();
+  await data.planMeal('2026-11-16', 'dinner', { kind: 'recipe', processId: 'limpieza-semanal' });
+  await data.planMeal('2026-11-16', 'lunch', { kind: 'leftovers' });
+  assert.deepEqual(await data.getMealPlan(), { '2026-11-16': { dinner: { kind: 'recipe', processId: 'limpieza-semanal' }, lunch: { kind: 'leftovers', processId: null } } });
+  await data.planMeal('2026-11-16', 'lunch', { kind: 'none' });
+  await data.undoLastEvent();
+  assert.equal((await data.getMealPlan())['2026-11-16'].lunch.kind, 'leftovers');
+  await assert.rejects(data.planMeal('2026-11-16', 'dinner', { kind: 'recipe', processId: 'no-existe' }));
+  await assert.rejects(data.planMeal('2026-11-16', 'merienda', { kind: 'quick' }));
+});

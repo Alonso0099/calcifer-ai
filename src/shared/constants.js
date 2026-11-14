@@ -13,6 +13,7 @@ export const EVENT_TYPES = {
   processFinished: 'process_finished',
   noteSaved: 'note_saved',
   noteDeleted: 'note_deleted',
+  mealPlanned: 'meal_planned',
   eventUndone: 'event_undone',
 };
 
@@ -73,3 +74,31 @@ export const DUE_SOON_THRESHOLD_DAYS = 3;
 
 /** Las categorías cuyas tareas aparecen en la pantalla de limpieza y mantenimiento. */
 export const MAINTENANCE_CATEGORIES = ['limpieza', 'mantenimiento'];
+
+/** Los momentos de comida de un día, en el orden en que se muestran. */
+export const MEAL_SLOTS = ['breakfast', 'lunch', 'dinner'];
+
+/**
+ * Qué puede ir en un momento de comida: una receta, o una de estas opciones sin receta.
+ * "none" se usa para quitar lo planeado.
+ */
+export const MEAL_KINDS = { recipe: 'recipe', leftovers: 'leftovers', eatOut: 'eat_out', quick: 'quick', none: 'none' };
+
+/** Grupos de "preparar" que son comidas y se pueden poner en el menú. */
+export const MENU_GROUPS = ['pollo', 'cerdo', 'res', 'seafood', 'sopas', 'flex', 'desayunos'];
+
+/** Grupos cuya proteína suele venir del congelador: avisan que hay que descongelar la noche anterior. */
+export const THAW_GROUPS = ['pollo', 'cerdo', 'res', 'seafood'];
+
+/** Procesos que se hacen cada día que se cocina (ids del contenido). */
+export const AFTER_COOKING_PROCESS_ID = 'limpieza-de-cada-vez';
+export const NIGHT_CLOSE_PROCESS_ID = 'cierre-diario';
+/** El bloque de la semana tipo que ya queda cubierto por "cocinar + limpiar + cerrar". */
+export const DAILY_SERVICE_PROCESS_ID = 'servicio-diario';
+
+/** Los ids de los días en week.json, en el orden de getUTCDay (0 = domingo). */
+export const WEEKDAY_IDS = ['domingo', 'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado'];
+export const DAYS_PER_WEEK = 7;
+
+/** El proceso que explica cómo descongelar la proteína de mañana. */
+export const THAW_PROCESS_ID = 'descongelar-para-manana';

@@ -6,7 +6,9 @@ Esta versión fue construida con [Claude Code](https://claude.com/claude-code). 
 
 ## Estado
 
-Fase 1, en construcción. Ya existen el proyecto base, el contenido del manual, la capa de datos y las seis funcionalidades: procesos como tarjetas con checklist, cronómetro y Deshacer; la vista semanal; la búsqueda; limpieza y mantenimiento por zona; el respaldo; y las notas. La app se puede instalar en la pantalla de inicio. Falta publicarla.
+La fase 1 está terminada y publicada: procesos con checklist, cronómetro y Deshacer; semana tipo; búsqueda; limpieza y mantenimiento por zona; respaldo; y notas.
+
+La fase 2 está en construcción (el orden completo está en `CLAUDE.md`). Ya funcionan: el uso sin conexión, la pantalla **Hoy** y el **menú de la semana**. Falta: sincronizar dos dispositivos, ingredientes con cantidad y unidad, inventario del congelador, compras y el modo de cocina paso a paso.
 
 ## Cómo correrla
 
@@ -186,3 +188,16 @@ Una línea por decisión importante, con su porqué.
 - **Botones y campos con borde fuerte** (`--color-border-strong`, 4.2:1): se ve dónde se puede tocar.
 - **Títulos con la tipografía con remates del dispositivo**: aire de libro ilustrado sin descargar fuentes.
 - **La app abre sin conexión**: el historial ya vivía en el dispositivo; ahora también la app.
+
+### Fase 2: Hoy y menú de la semana
+
+- **La app abre en "Hoy"**: la comida planeada, las tareas del día y qué descongelar para mañana, sin tener que buscarlo. La lista de recetas y tareas pasó a `/procesos`.
+- **Las tareas de hoy se calculan, no se guardan**: salen del menú, de la semana tipo y de las tareas de limpieza vencidas, con una función pura (`buildTodayTasks`).
+- **Una tarea se marca hecha sola** cuando su proceso se termina ese día: no hay una segunda casilla que mantener.
+- **Si hoy se cocina, aparecen "Limpiar después de cocinar" y "Cerrar la cocina"**; si se come afuera o sobras, no aparece ninguna tarea de cocina.
+- **Planear una comida es un evento `meal_planned`**: cambiar o quitar se puede deshacer, entra al respaldo y se sincronizará igual que lo demás.
+- **Un momento de comida puede llevar una receta o una opción sin receta** (sobras, comer afuera, algo rápido): el menú real no siempre es una receta.
+- **El aviso de descongelar no supone nada**: solo nombra la receta de mañana si es de pollo, cerdo, res o pescado; cuál bolsa sacar lo decide quien cocina.
+- **"Lo habitual este día" viene de la semana tipo del manual**: orienta sin obligar; la rotación es flexible.
+- **La semana empieza en domingo**, que es el día en que se planea el menú.
+- **La semana tipo salió del menú principal** y se abre desde el menú de la semana: con siete secciones la barra ya está llena.

@@ -1,0 +1,37 @@
+/* Estilos del menú de la semana. */
+
+.planner-title {
+  margin-top: 0;
+}
+
+.planner-intro {
+  color: var(--color-text-muted);
+}
+
+.planner-weeks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.planner-weeks .button {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.planner-days {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  align-items: start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.planner-typical {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-text);
+}
