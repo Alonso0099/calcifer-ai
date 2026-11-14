@@ -43,7 +43,7 @@ Fuera de alcance por ahora (no lo construyas aunque parezca útil): inventario, 
 - React + Vite, en **JavaScript** (no TypeScript).
 - CSS normal en archivos `.css`. Sin Tailwind ni librerías de componentes.
 - Dependencias permitidas: `react`, `react-dom`, `react-router-dom`, `vite`, `@vitejs/plugin-react`. Cualquier otra dependencia necesita aprobación de Alonso antes de instalarse.
-- Publicación: GitHub + Render como **Static Site**. Build command `npm run build`, publish directory `dist`, y una regla de rewrite de `/*` a `/index.html` para que funcionen las rutas de React Router.
+- Publicación: GitHub + Render como **Static Site**. Build command `npm install && npm run build` (Render empieza sin dependencias instaladas), publish directory `dist`, y una regla de rewrite de `/*` a `/index.html` para que funcionen las rutas de React Router.
 
 ## Reglas de producto
 

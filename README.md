@@ -20,6 +20,21 @@ npm test           # corre las pruebas de src/lib/ y de la capa de datos
 npm run build      # valida el contenido y empaqueta la app en dist/
 ```
 
+## Publicación
+
+La app está publicada en Render como **Static Site**, desde la rama `main`. Cada cambio que llega a `main` se publica solo.
+
+| Ajuste en Render | Valor |
+| --- | --- |
+| Branch | `main` |
+| Build Command | `npm install && npm run build` |
+| Publish Directory | `dist` |
+| Redirects/Rewrites | `/*` → `/index.html`, acción **Rewrite** |
+
+- `npm install` va en el comando porque Render empieza con la carpeta sin dependencias; sin él, Vite no existe y el build falla.
+- La regla de rewrite hace que direcciones como `/semana` abran la app en vez de dar "Not Found".
+- No hace falta ninguna variable de entorno en Render: `VITE_DATA_SOURCE=local` viene en el archivo `.env` del repo.
+
 ## Dónde está cada cosa
 
 | Carpeta | Qué contiene |
