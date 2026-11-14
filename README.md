@@ -201,3 +201,14 @@ Una línea por decisión importante, con su porqué.
 - **"Lo habitual este día" viene de la semana tipo del manual**: orienta sin obligar; la rotación es flexible.
 - **La semana empieza en domingo**, que es el día en que se planea el menú.
 - **La semana tipo salió del menú principal** y se abre desde el menú de la semana: con siete secciones la barra ya está llena.
+
+### Fase 2: diseño con relieve y en un solo lugar
+
+- **El diseño vive en dos archivos**: `global.css` tiene los valores (colores y medidas) y `components.css` el aspecto de botones, tarjetas, campos, casillas y barras. Cambiar el estilo de toda la app no toca ninguna pantalla.
+- **Las pantallas usan clases compartidas** (`card`, `button`, `tile`, `field`) y su CSS solo acomoda: antes cada tarjeta repetía su borde, fondo y sombra en su propio archivo.
+- **Nada es plano**: los botones sobresalen con un canto sólido y se hunden al presionarlos; las tarjetas tienen canto y sombra; campos y barras están hundidos.
+- **El relieve se hace con sombras de CSS**, sin imágenes: pesa nada, se ve nítido en cualquier pantalla y sale de las mismas variables de color.
+- **Casillas y opciones dibujadas a mano** (32 px, con palomita): grandes, con relieve e iguales en todos los dispositivos.
+- **Un filtro elegido se ve hundido y dorado** usando `aria-pressed`: el mismo dato sirve para el lector de pantalla y para el estilo.
+- **`prefers-reduced-motion` apaga el movimiento** de los botones.
+

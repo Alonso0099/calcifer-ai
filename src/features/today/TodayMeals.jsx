@@ -19,7 +19,7 @@ export default function TodayMeals({ meals, usualMeal, processesById }) {
   // La comida que se cocina: la última receta del día (normalmente la cena).
   const recipeSlot = [...MEAL_SLOTS].reverse().find((slot) => meals[slot]?.kind === MEAL_KINDS.recipe);
   return (
-    <section className="today-card">
+    <section className="card today-card">
       <h3>{text.today.mealsTitle}</h3>
       <dl className="today-meals">
         {MEAL_SLOTS.map((slot) => (

@@ -13,7 +13,7 @@ import './NotePaper.css';
  */
 export default function NotePaper({ children }) {
   return (
-    <div className="note-paper">
+    <div className="card note-paper">
       <span className="note-paper-sprig">
         <HerbSprig />
       </span>

@@ -87,6 +87,17 @@ Ninguna tarea tiene un dueño fijo: quién hace cada cosa se decide en el moment
 
 La paleta es cálida y acogedora: crema, madera y tonos de fuego, como una cocina de cuento ilustrado. Es fija. Todos los colores se definen una sola vez como variables en `src/styles/global.css`, y ningún componente escribe un color directo (`#...`): siempre usa la variable. Así, cambiar un color es cambiar una sola línea.
 
+### El diseño vive en dos archivos
+
+Para cambiar cómo se ve la app no hay que tocar las pantallas:
+
+- `src/styles/global.css`: los **valores**. Colores, y también las medidas del diseño como variables: `--radius-card`, `--radius-control`, `--depth` (cuánto sobresale un botón), `--depth-card`, las tipografías y las sombras.
+- `src/styles/components.css`: el **aspecto** de las piezas que se repiten: `.button`, `.card`, `.tile` (renglón tocable), `.field` (campo), casillas, opciones y barras.
+
+El CSS de cada funcionalidad solo acomoda (espacios, columnas, tamaños de texto). Nunca vuelve a definir bordes, fondos, esquinas ni sombras de una tarjeta, un botón o un campo: usa la clase compartida.
+
+El estilo es **con relieve, no plano**: lo que se puede tocar sobresale y se hunde al presionarlo; las tarjetas descansan como tablas, con un canto abajo; los campos y las barras están hundidos. El movimiento es breve y se apaga si el dispositivo pide menos movimiento.
+
 Los contrastes están medidos con la fórmula WCAG sobre el fondo más claro (mínimo 4.5:1 para texto, 3:1 para barras, puntos y bordes de botones y campos). El contraste alto es un requisito, no un adorno: la app tiene que leerse de un vistazo. No uses un color en un papel distinto al de esta tabla sin revisar su contraste.
 
 ```css
@@ -312,7 +323,8 @@ src/
 │   ├── constants.js       (números con nombre: umbrales de color, minutos, etc.)
 │   └── text.js            (todos los textos de la interfaz)
 └── styles/
-    └── global.css         (variables de color, tipografía y base)
+    ├── global.css         (variables de color y de medidas, tipografía y base)
+    └── components.css     (aspecto compartido: botones, tarjetas, campos, casillas, barras)
 ```
 
 Reglas de estructura:

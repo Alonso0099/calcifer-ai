@@ -24,7 +24,7 @@ export default function InstallNotice() {
   if (isInstalledApp()) return null;
   return (
     // <aside> marca contenido aparte del principal; role="note" lo anuncia como una nota.
-    <aside className="install-notice" role="note">
+    <aside className="card install-notice" role="note">
       <p>{text.install.notice}</p>
       <p>{text.install.howTo}</p>
       <p>{text.install.offline}</p>

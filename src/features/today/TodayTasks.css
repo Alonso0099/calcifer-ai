@@ -7,10 +7,6 @@
 
 .today-progress-track {
   display: block;
-  height: 12px;
-  border: 1px solid var(--color-border-strong);
-  border-radius: 6px;
-  background-color: var(--color-bg);
   overflow: hidden;
 }
 
@@ -35,9 +31,6 @@
   justify-content: center;
   min-height: 56px;
   padding: 8px 12px;
-  border: 2px solid var(--color-border-strong);
-  border-radius: 10px;
-  background-color: var(--color-surface);
   color: var(--color-text);
   text-decoration: none;
 }

@@ -14,13 +14,6 @@
   gap: 8px;
   margin-bottom: 16px;
 }
-
-.planner-weeks .button {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-}
-
 .planner-days {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

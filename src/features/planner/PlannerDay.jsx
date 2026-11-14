@@ -19,7 +19,7 @@ import './PlannerDay.css';
  */
 export default function PlannerDay({ day, isToday, meals, usualMeal, processesById }) {
   return (
-    <section className={isToday ? 'planner-day planner-day-today' : 'planner-day'}>
+    <section className={isToday ? 'card planner-day planner-day-today' : 'card planner-day'}>
       <h3>
         {formatDayLong(day)}
         {isToday && <span className="planner-day-badge">{text.planner.today}</span>}
@@ -30,7 +30,7 @@ export default function PlannerDay({ day, isToday, meals, usualMeal, processesBy
           const mealName = getMealName(meals[slot], processesById);
           return (
             <li key={slot}>
-              <Link className={mealName ? 'planner-slot' : 'planner-slot planner-slot-empty'} to={`/menu/elegir?dia=${day}&momento=${slot}`}>
+              <Link className={mealName ? 'tile planner-slot' : 'tile planner-slot planner-slot-empty'} to={`/menu/elegir?dia=${day}&momento=${slot}`}>
                 <span className="planner-slot-label">{text.slots[slot]}</span>
                 <span className="planner-slot-meal">{mealName ?? text.planner.empty}</span>
               </Link>

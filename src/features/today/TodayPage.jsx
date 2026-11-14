@@ -27,7 +27,7 @@ export default function TodayPage() {
         <TodayMeals meals={data.todayMeals} usualMeal={data.usualMeal} processesById={data.processesById} />
         <TodayTasks tasks={data.tasks} />
         {data.recipesToThaw.length > 0 && (
-          <section className="today-card">
+          <section className="card today-card">
             <h3>{text.today.thawTitle}</h3>
             {data.recipesToThaw.map((recipe) => (
               <p key={recipe.id}>{text.today.thaw(recipe.name)}</p>

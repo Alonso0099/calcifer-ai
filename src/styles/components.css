@@ -1,0 +1,204 @@
+/* El aspecto de las piezas que se repiten en toda la app: botones, tarjetas, renglones
+   tocables, campos, casillas y barras. Cada pantalla solo acomoda estas piezas; si se
+   quiere cambiar cómo se ven, se cambia aquí (y las medidas y colores, en global.css).
+
+   La idea del diseño: nada es plano. Lo que se puede tocar sobresale y se hunde al
+   presionarlo; las tarjetas descansan sobre la mesa como tablas; los campos y las barras
+   están hundidos, como tallados. */
+
+/* ---------- Botones ---------- */
+
+/* Un botón sobresale: debajo tiene un "canto" sólido (la primera sombra) que mide --depth. */
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 8px 18px;
+  border: 2px solid var(--color-border-strong);
+  border-radius: var(--radius-control);
+  background-color: var(--color-surface);
+  background-image: var(--shine);
+  box-shadow: 0 var(--depth) 0 var(--color-border-strong), var(--shadow-soft);
+  color: var(--color-text);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  /* Deja libre el espacio del canto, para que no se encime con lo que está debajo. */
+  margin-bottom: var(--depth);
+  transition: transform var(--press-time), box-shadow var(--press-time);
+}
+
+/* Al presionarlo baja la altura del canto y el canto desaparece: se siente que se hunde. */
+.button:active,
+.button[aria-pressed='true'] {
+  transform: translateY(var(--depth));
+  box-shadow: 0 0 0 var(--color-border-strong);
+}
+
+.button-primary {
+  border-color: var(--color-primary-hover);
+  background-color: var(--color-primary);
+  box-shadow: 0 var(--depth) 0 var(--color-primary-hover), var(--shadow-soft);
+  color: var(--color-on-primary);
+}
+
+.button-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.button-primary:active {
+  box-shadow: 0 0 0 var(--color-primary-hover);
+}
+
+/* Un botón elegido (un filtro activo) se queda hundido y dorado. */
+.button[aria-pressed='true'] {
+  background-color: var(--color-highlight);
+  background-image: none;
+  box-shadow: var(--sunken);
+  color: var(--color-text-strong);
+}
+
+.button:disabled {
+  opacity: 0.55;
+  transform: none;
+  cursor: default;
+}
+
+/* ---------- Tarjetas ---------- */
+
+/* Una tarjeta es una tabla apoyada: borde, canto grueso abajo y una sombra suave más lejos. */
+.card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background-color: var(--color-surface);
+  box-shadow: 0 var(--depth-card) 0 var(--color-border), var(--shadow-soft);
+}
+
+/* Una tarjeta que es un enlace también se hunde un poco al tocarla. */
+a.card {
+  transition: transform var(--press-time), box-shadow var(--press-time);
+}
+
+a.card:active {
+  transform: translateY(var(--depth-card));
+  box-shadow: 0 0 0 var(--color-border);
+}
+
+/* ---------- Renglones tocables ---------- */
+
+/* Un renglón que abre algo (una tarea de hoy, un momento del menú): un botón ancho y bajito. */
+.tile {
+  border: 2px solid var(--color-border-strong);
+  border-radius: var(--radius-control);
+  background-color: var(--color-surface);
+  background-image: var(--shine);
+  box-shadow: 0 var(--depth-card) 0 var(--color-border-strong);
+  transition: transform var(--press-time), box-shadow var(--press-time);
+}
+
+.tile:active {
+  transform: translateY(var(--depth-card));
+  box-shadow: 0 0 0 var(--color-border-strong);
+}
+
+/* ---------- Campos para escribir y elegir ---------- */
+
+/* Un campo está hundido (sombra por dentro): se ve que ahí se escribe. */
+.field {
+  min-height: 48px;
+  padding: 8px 12px;
+  border: 2px solid var(--color-border-strong);
+  border-radius: var(--radius-control);
+  background-color: var(--color-bg);
+  box-shadow: var(--sunken);
+  color: var(--color-text);
+  font: inherit;
+}
+
+/* ---------- Casillas y opciones ---------- */
+
+/* Las casillas y los círculos de opción se dibujan a mano para que sean grandes,
+   con relieve, y se vean igual en todos los dispositivos. */
+input[type='checkbox'],
+input[type='radio'] {
+  appearance: none;
+  flex-shrink: 0;
+  display: inline-grid;
+  place-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  border: 2px solid var(--color-border-strong);
+  border-radius: 9px;
+  background-color: var(--color-bg);
+  box-shadow: var(--sunken);
+  cursor: pointer;
+}
+
+input[type='radio'] {
+  border-radius: 50%;
+}
+
+/* Marcada: se llena de color brasa y sobresale, con su palomita o su punto en blanco. */
+input[type='checkbox']:checked,
+input[type='radio']:checked {
+  border-color: var(--color-primary-hover);
+  background-color: var(--color-primary);
+  background-image: var(--shine);
+  box-shadow: 0 2px 0 var(--color-primary-hover);
+}
+
+input[type='checkbox']:checked::after {
+  content: '✓';
+  color: var(--color-on-primary);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+input[type='radio']:checked::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-on-primary);
+}
+
+/* ---------- Barras de avance ---------- */
+
+/* El riel de una barra está hundido y el relleno tiene un brillo arriba, como un tubo lleno. */
+.due-bar-track,
+.today-progress-track {
+  height: 16px;
+  border: 2px solid var(--color-border-strong);
+  border-radius: 999px;
+  background-color: var(--color-bg);
+  box-shadow: var(--sunken);
+}
+
+.due-bar-fill,
+.today-progress-fill {
+  background-image: var(--shine);
+  border-radius: 999px;
+}
+
+/* ---------- Avisos resaltados ---------- */
+
+/* Los avisos dorados (recordatorios) sobresalen un poco, como una nota pegada. */
+.today-reminder,
+.process-detail-notice,
+.backup-confirm {
+  box-shadow: 0 var(--depth-card) 0 color-mix(in srgb, var(--color-highlight) 60%, var(--color-text-strong));
+}
+
+/* Quien pidió a su dispositivo menos movimiento no ve los botones moverse. */
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .tile,
+  a.card {
+    transition: none;
+  }
+}

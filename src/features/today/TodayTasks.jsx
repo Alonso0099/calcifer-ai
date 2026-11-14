@@ -14,7 +14,7 @@ import './TodayTasks.css';
 export default function TodayTasks({ tasks }) {
   const doneCount = tasks.filter((task) => task.isDone).length;
   return (
-    <section className="today-card">
+    <section className="card today-card">
       <h3>{text.today.tasksTitle}</h3>
       {tasks.length === 0 ? (
         <p>{text.today.noTasks}</p>
@@ -28,7 +28,7 @@ export default function TodayTasks({ tasks }) {
           <ul className="today-tasks">
             {tasks.map((task) => (
               <li key={task.processId}>
-                <Link className={task.isDone ? 'today-task today-task-done' : 'today-task'} to={`/procesos/${task.processId}`}>
+                <Link className={task.isDone ? 'tile today-task today-task-done' : 'tile today-task'} to={`/procesos/${task.processId}`}>
                   <span className="today-task-name">{task.name}</span>
                   <span className="today-task-details">
                     {text.today.reasons[task.reason]} · <strong>{task.isDone ? text.today.done : text.today.pending}</strong>

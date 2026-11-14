@@ -6,9 +6,3 @@
   gap: 8px;
   margin-bottom: 16px;
 }
-
-.category-filter-selected {
-  background-color: var(--color-highlight);
-  color: var(--color-text-strong);
-  font-weight: 600;
-}

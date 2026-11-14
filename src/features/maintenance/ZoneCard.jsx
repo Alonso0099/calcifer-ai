@@ -16,7 +16,7 @@ import './ZoneCard.css';
  */
 export default function ZoneCard({ board }) {
   return (
-    <section className="zone-card">
+    <section className="card zone-card">
       <header className="zone-card-header">
         <h3>{board.zone.name}</h3>
         <p className="zone-card-status">

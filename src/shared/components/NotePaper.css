@@ -5,9 +5,7 @@
   --note-line-height: 2rem;
   position: relative;
   padding: 16px;
-  border: 1px solid var(--color-border);
   border-radius: 6px;
-  background-color: var(--color-surface);
 }
 
 /* La ramita va en la esquina de arriba a la derecha, por encima del papel. */

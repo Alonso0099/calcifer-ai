@@ -69,7 +69,7 @@ export default function MealPickerPage() {
       <h3>{text.planner.recipes}</h3>
       <label className="meal-picker-search">
         {text.planner.searchLabel}
-        <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} />
+        <input className="field" type="search" value={query} onChange={(event) => setQuery(event.target.value)} />
       </label>
       {visibleRecipes.length === 0 && <p>{text.planner.noRecipes}</p>}
       {groupOrder.map((group) => {

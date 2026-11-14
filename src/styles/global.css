@@ -1,5 +1,6 @@
-/* Estilos base de toda la app: la paleta de colores (definida una sola vez),
-   la tipografía y los ajustes generales. Los componentes usan estas variables
+/* Estilos base de toda la app: la paleta de colores y las medidas del diseño (definidas
+   una sola vez), la tipografía y los ajustes generales. El aspecto de botones, tarjetas
+   y campos está en components.css. Los componentes usan estas variables
    y nunca escriben un color directo. */
 
 :root {
@@ -38,6 +39,23 @@
   --color-cat-seguridad: #A32626;     /* rojo */
 }
 
+/* Forma y relieve: las medidas del diseño, también en un solo lugar.
+   Cambiar cuánto "sobresale" un botón o qué tan redonda es una tarjeta es cambiar una línea. */
+:root {
+  --radius-card: 18px;      /* esquinas de tarjetas y paneles */
+  --radius-control: 12px;   /* esquinas de botones, campos y renglones tocables */
+  --depth: 4px;             /* cuánto sobresale un botón; al presionarlo baja esa misma distancia */
+  --depth-card: 3px;        /* grosor del "canto" bajo una tarjeta, como una tabla de madera */
+  --press-time: 90ms;       /* duración del movimiento al presionar */
+  --font-title: ui-serif, Georgia, 'Times New Roman', serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Sombras y brillos, hechos mezclando colores de la paleta con transparencia. */
+  --shadow-soft: 0 10px 18px -8px color-mix(in srgb, var(--color-text-strong) 35%, transparent);
+  --shine: linear-gradient(to bottom, color-mix(in srgb, var(--color-on-primary) 22%, transparent), transparent 55%);
+  --sunken: inset 0 2px 4px color-mix(in srgb, var(--color-text-strong) 22%, transparent);
+}
+
 /* El ancho y alto de cada elemento incluyen su relleno y su borde:
    así los tamaños son más fáciles de calcular. */
 *,
@@ -50,40 +68,11 @@ body {
   margin: 0;
   background-color: var(--color-bg);
   color: var(--color-text);
-  /* Tipografía del sistema: no hay que descargar nada y se lee bien en tablet y celular. */
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  /* Tipografía del sistema (ver --font-body): no hay que descargar nada y se lee bien en tablet y celular. */
+  font-family: var(--font-body);
   /* Texto un poco más grande que el normal, para leerlo a un brazo de distancia. */
   font-size: 1.125rem;
   line-height: 1.5;
-}
-
-/* Botones. Miden al menos 44 px de alto para poder tocarlos con el dedo. */
-.button {
-  min-height: 44px;
-  padding: 8px 16px;
-  border: 2px solid var(--color-border-strong);
-  border-radius: 10px;
-  background-color: var(--color-surface);
-  color: var(--color-text);
-  font: inherit;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.button-primary {
-  border-color: var(--color-primary);
-  background-color: var(--color-primary);
-  color: var(--color-on-primary);
-}
-
-.button-primary:hover,
-.button-primary:active {
-  background-color: var(--color-primary-hover);
-}
-
-.button:disabled {
-  opacity: 0.6;
-  cursor: default;
 }
 
 /* Marco visible al navegar con teclado. */
@@ -98,18 +87,6 @@ h3,
 h4 {
   color: var(--color-text-strong);
   /* Tipografía con remates del propio dispositivo: da aire de libro de cuentos sin descargar nada. */
-  font-family: ui-serif, Georgia, 'Times New Roman', serif;
+  font-family: var(--font-title);
 }
 
-/* Sombra suave bajo las tarjetas: las separa del fondo sin líneas duras.
-   color-mix mezcla un color de la paleta con transparencia, sin escribir un color nuevo. */
-.process-card,
-.day-card,
-.zone-card,
-.note-card,
-.note-paper,
-.backup-section,
-.finish-form,
-.install-notice {
-  box-shadow: 0 2px 8px color-mix(in srgb, var(--color-text-strong) 12%, transparent);
-}
