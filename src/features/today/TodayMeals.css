@@ -1,0 +1,58 @@
+/* Estilos de las tarjetas de la pantalla "Hoy" (comidas, tareas y avisos). */
+
+.today-card {
+  padding: 16px;
+}
+
+.today-card h3 {
+  margin-top: 0;
+}
+
+.today-meals {
+  margin: 0;
+}
+
+.today-meal {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.today-meal dt {
+  color: var(--color-text-muted);
+}
+
+.today-meal dd {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.today-usual {
+  margin: 8px 0 0;
+  color: var(--color-text-muted);
+}
+
+.today-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+/* El botón principal de la pantalla: más grande que los demás. */
+.today-start {
+  min-height: 56px;
+  padding: 8px 24px;
+  font-size: 1.2rem;
+}
+
+.today-reminder {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background-color: var(--color-highlight);
+  color: var(--color-text-strong);
+  font-weight: 600;
+}

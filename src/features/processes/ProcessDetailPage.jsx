@@ -64,7 +64,7 @@ export default function ProcessDetailPage() {
   if (isLoading) return <p>{text.common.loading}</p>;
   if (hasError) return <p>{text.common.loadError}</p>;
   const backLink = (
-    <Link className="process-detail-back" to="/">
+    <Link className="process-detail-back" to="/procesos">
       ← {text.common.back}
     </Link>
   );

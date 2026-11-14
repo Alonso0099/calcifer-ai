@@ -21,8 +21,9 @@ export default function CategoryFilter({ selected, onSelect }) {
         <button
           key={option.label}
           type="button"
-          className={option.value === selected ? 'button category-filter-selected' : 'button'}
-          // aria-pressed le dice a un lector de pantalla cuál botón está activo.
+          className="button"
+          // aria-pressed le dice a un lector de pantalla cuál botón está activo;
+          // components.css usa ese mismo dato para dibujarlo hundido y dorado.
           aria-pressed={option.value === selected}
           onClick={() => onSelect(option.value)}
         >

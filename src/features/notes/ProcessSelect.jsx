@@ -16,7 +16,7 @@ export default function ProcessSelect({ processes, value, onChange }) {
   return (
     <label className="note-form-field">
       {text.notes.processLabel}
-      <select value={value} onChange={(event) => onChange(event.target.value)}>
+      <select className="field" value={value} onChange={(event) => onChange(event.target.value)}>
         <option value="">{text.notes.noProcess}</option>
         {CATEGORIES.map((category) => (
           // optgroup pone un título no elegible sobre cada grupo de opciones.

@@ -24,10 +24,7 @@
 
 .checklist-step input {
   flex-shrink: 0;
-  width: 28px;
-  height: 28px;
   margin: 0;
-  accent-color: var(--color-primary);
 }
 
 .checklist-step-done span {

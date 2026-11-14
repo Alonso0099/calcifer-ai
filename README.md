@@ -6,7 +6,9 @@ Esta versión fue construida con [Claude Code](https://claude.com/claude-code). 
 
 ## Estado
 
-Fase 1, en construcción. Ya existen el proyecto base, el contenido del manual, la capa de datos y las seis funcionalidades: procesos como tarjetas con checklist, cronómetro y Deshacer; la vista semanal; la búsqueda; limpieza y mantenimiento por zona; el respaldo; y las notas. La app se puede instalar en la pantalla de inicio. Falta publicarla.
+La fase 1 está terminada y publicada: procesos con checklist, cronómetro y Deshacer; semana tipo; búsqueda; limpieza y mantenimiento por zona; respaldo; y notas.
+
+La fase 2 está en construcción (el orden completo está en `CLAUDE.md`). Ya funcionan: el uso sin conexión, la pantalla **Hoy** y el **menú de la semana**. Falta: sincronizar dos dispositivos, ingredientes con cantidad y unidad, inventario del congelador, compras y el modo de cocina paso a paso.
 
 ## Cómo correrla
 
@@ -165,7 +167,7 @@ Una línea por decisión importante, con su porqué.
 - **El ícono es la misma ramita de las notas**, dibujada en `public/icons/icon.svg`: arte original y simple, sin personajes. Los PNG se generaron a partir de ese SVG.
 - **El dibujo queda dentro del centro del ícono**: así el mismo archivo sirve aunque el sistema lo recorte en círculo ("maskable").
 - **El aviso de "no instalada" sale mientras la app se use desde el navegador** y no se puede cerrar: desaparece solo al abrirla instalada, que es cuando el riesgo de perder datos baja.
-- **Sin service worker**: la app necesita conexión para abrir. Funcionar sin conexión no está en la fase 1.
+- **Service worker escrito a mano** (`public/sw.js`), sin librerías: guarda la app para abrirla sin conexión. La página se pide primero a internet (para ver siempre la versión nueva) y los archivos de `/assets/` salen de la copia guardada, porque su nombre cambia cuando cambia su contenido.
 - **Los colores del manifest y de `theme-color` están escritos directo**: esos archivos no pueden leer las variables de CSS.
 
 ### Pasos de los preps mensuales (capítulos 3 y 4 del PDF)
@@ -176,3 +178,37 @@ Una línea por decisión importante, con su porqué.
 - **Dos grupos nuevos en "preparar"**, `prep-carnes` y `prep-verduras`: separan los procedimientos de prep de las recetas.
 - **No se copiaron las temperaturas ni las reglas de almacenamiento del PDF** (refri y congelador, air fryer, ajo en aceite): `CLAUDE.md` pide no tomarlas de esos capítulos; si hacen falta, se agregan primero a la v0.
 - **Los cortes que el PDF describe sin pasos** (chuletas, cubitos, tilapia...) quedaron como notas del prep de carnes, no como procesos vacíos.
+
+### Fase 2: lenguaje, paleta y uso sin conexión
+
+- **Tareas en lenguaje claro**: cada paso es una acción que se entiende sola, sin palabras del manual que solo conoce quien lo escribió.
+- **Sin marcas de aparatos ni nombres propios** en los textos ("la campana", no su marca); el validador las rechaza. Las marcas se quedan en productos de limpieza, que es como se buscan en la tienda.
+- **Los ids no cambiaron** aunque algunos lleven una marca (`karlby`, `mesa-ikea`): un id nunca se renombra, y el usuario no lo ve.
+- **Paleta cálida de crema, madera y fuego**, con contraste medido: se lee de un vistazo y se siente como una cocina de cuento.
+- **Botones y campos con borde fuerte** (`--color-border-strong`, 4.2:1): se ve dónde se puede tocar.
+- **Títulos con la tipografía con remates del dispositivo**: aire de libro ilustrado sin descargar fuentes.
+- **La app abre sin conexión**: el historial ya vivía en el dispositivo; ahora también la app.
+
+### Fase 2: Hoy y menú de la semana
+
+- **La app abre en "Hoy"**: la comida planeada, las tareas del día y qué descongelar para mañana, sin tener que buscarlo. La lista de recetas y tareas pasó a `/procesos`.
+- **Las tareas de hoy se calculan, no se guardan**: salen del menú, de la semana tipo y de las tareas de limpieza vencidas, con una función pura (`buildTodayTasks`).
+- **Una tarea se marca hecha sola** cuando su proceso se termina ese día: no hay una segunda casilla que mantener.
+- **Si hoy se cocina, aparecen "Limpiar después de cocinar" y "Cerrar la cocina"**; si se come afuera o sobras, no aparece ninguna tarea de cocina.
+- **Planear una comida es un evento `meal_planned`**: cambiar o quitar se puede deshacer, entra al respaldo y se sincronizará igual que lo demás.
+- **Un momento de comida puede llevar una receta o una opción sin receta** (sobras, comer afuera, algo rápido): el menú real no siempre es una receta.
+- **El aviso de descongelar no supone nada**: solo nombra la receta de mañana si es de pollo, cerdo, res o pescado; cuál bolsa sacar lo decide quien cocina.
+- **"Lo habitual este día" viene de la semana tipo del manual**: orienta sin obligar; la rotación es flexible.
+- **La semana empieza en domingo**, que es el día en que se planea el menú.
+- **La semana tipo salió del menú principal** y se abre desde el menú de la semana: con siete secciones la barra ya está llena.
+
+### Fase 2: diseño con relieve y en un solo lugar
+
+- **El diseño vive en dos archivos**: `global.css` tiene los valores (colores y medidas) y `components.css` el aspecto de botones, tarjetas, campos, casillas y barras. Cambiar el estilo de toda la app no toca ninguna pantalla.
+- **Las pantallas usan clases compartidas** (`card`, `button`, `tile`, `field`) y su CSS solo acomoda: antes cada tarjeta repetía su borde, fondo y sombra en su propio archivo.
+- **Nada es plano**: los botones sobresalen con un canto sólido y se hunden al presionarlos; las tarjetas tienen canto y sombra; campos y barras están hundidos.
+- **El relieve se hace con sombras de CSS**, sin imágenes: pesa nada, se ve nítido en cualquier pantalla y sale de las mismas variables de color.
+- **Casillas y opciones dibujadas a mano** (32 px, con palomita): grandes, con relieve e iguales en todos los dispositivos.
+- **Un filtro elegido se ve hundido y dorado** usando `aria-pressed`: el mismo dato sirve para el lector de pantalla y para el estilo.
+- **`prefers-reduced-motion` apaga el movimiento** de los botones.
+

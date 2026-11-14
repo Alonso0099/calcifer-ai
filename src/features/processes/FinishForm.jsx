@@ -26,11 +26,12 @@ export default function FinishForm({ initialMinutes, onConfirm, onCancel }) {
   }
 
   return (
-    <form className="finish-form" onSubmit={handleSubmit}>
+    <form className="card finish-form" onSubmit={handleSubmit}>
       <h3>{text.finish.title}</h3>
       <label className="finish-form-field">
         {text.finish.minutesLabel}
         <input
+          className="field"
           type="number"
           inputMode="numeric"
           min="1"

@@ -17,7 +17,7 @@ export default function ProcessCard({ process }) {
   const stepCount = process.steps.length;
   return (
     // Link es el <a> de React Router: cambia de pantalla sin recargar la página.
-    <Link className="process-card" to={`/procesos/${process.id}`}>
+    <Link className="card process-card" to={`/procesos/${process.id}`}>
       <span className="process-card-category">
         <CategoryDot category={process.category} />
         {text.categories[process.category]}

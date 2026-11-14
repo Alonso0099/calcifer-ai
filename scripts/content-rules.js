@@ -1,6 +1,8 @@
 // Las reglas que debe cumplir cada proceso del contenido (src/content/processes/).
 // Son funciones puras: reciben un proceso y regresan la lista de errores encontrados.
 
+import { findForbiddenTerms } from './content-language.js';
+
 export const CATEGORIES = ['compra', 'guardar', 'preparar', 'limpieza', 'mantenimiento', 'seguridad'];
 const GROUPS = ['prep-carnes', 'prep-verduras', 'pollo', 'cerdo', 'res', 'seafood', 'sopas', 'flex', 'desayunos', 'marinadas'];
 const REQUIRED_FIELDS = [
@@ -142,6 +144,15 @@ export function checkProcess(process, fileCategory, zoneIds) {
   for (const field of ['ingredients', 'notes']) {
     if (field in process && !isTextList(process[field])) errors.push(`${field} debe ser una lista de textos`);
   }
+
+  const visibleTexts = [
+    process.name,
+    process.frequencyLabel ?? '',
+    ...(process.ingredients ?? []),
+    ...(process.notes ?? []),
+    ...(Array.isArray(process.steps) ? process.steps.map((step) => step.text ?? '') : []),
+  ];
+  for (const term of findForbiddenTerms(visibleTexts)) errors.push(`el texto menciona "${term}": di qué es, sin la marca ni el nombre`);
 
   const stepErrors = checkSteps(process.steps);
   errors.push(...stepErrors);

@@ -3,26 +3,26 @@
   "processes": [
     {
       "id": "marinar-y-congelar",
-      "name": "Marinar, embolsar y congelar",
+      "name": "Marinar, embolsar y congelar la carne",
       "category": "guardar",
       "zone": null,
       "frequencyDays": null,
-      "frequencyLabel": "En el prep mensual de carnes",
+      "frequencyLabel": "Durante la preparación mensual de carnes",
       "estimatedMinutes": null,
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, sección 32; etiqueta: Kitchen Manual v0, sección 5",
       "notes": [
-        "No tocar los frascos de especias con las manos contaminadas; no reusar cucharas contaminadas; no regresar marinada que tocó carne cruda a un lote limpio (cap. 6 §33)"
+        "No tocar los frascos de especias con las manos sucias de carne cruda; no volver a usar cucharas que tocaron carne cruda; no regresar a la marinada limpia la que ya tocó carne cruda"
       ],
       "steps": [
         {
           "id": "paso-1",
-          "text": "Preparar primero todas las unidades de proteína",
+          "text": "Tener listas todas las unidades de proteína antes de empezar",
           "minutes": null
         },
         {
           "id": "paso-2",
-          "text": "Decidir qué unidades se quedan neutras (sin marinar)",
+          "text": "Decidir qué unidades se quedan sin marinar",
           "minutes": null
         },
         {
@@ -47,22 +47,22 @@
         },
         {
           "id": "paso-7",
-          "text": "Distribuir la marinada alrededor de la carne",
+          "text": "Repartir la marinada alrededor de la carne",
           "minutes": null
         },
         {
           "id": "paso-8",
-          "text": "Sacar el exceso de aire",
+          "text": "Sacar el aire que sobra",
           "minutes": null
         },
         {
           "id": "paso-9",
-          "text": "Sellar",
+          "text": "Cerrar la bolsa",
           "minutes": null
         },
         {
           "id": "paso-10",
-          "text": "Etiquetar con el formato único: proteína y corte, sabor (o UNSEASONED), 1 UNIT / 4 PLATES, fecha PREP, fecha USE BY y RAW",
+          "text": "Etiquetar cada bolsa: proteína y corte, sabor de la marinada (o UNSEASONED si va sin marinar), 1 UNIT / 4 PLATES, fecha de preparación (PREP), fecha límite (USE BY) y RAW",
           "minutes": null
         },
         {
@@ -72,7 +72,7 @@
         },
         {
           "id": "paso-12",
-          "text": "Congelar de inmediato",
+          "text": "Meterla al congelador de inmediato",
           "minutes": null
         }
       ],
@@ -83,23 +83,23 @@
     },
     {
       "id": "checklist-marinadas-mensual",
-      "name": "Checklist de marinadas del mes",
+      "name": "Elegir las marinadas del mes y revisar sus ingredientes",
       "category": "guardar",
       "zone": null,
       "frequencyDays": 30,
-      "frequencyLabel": "Mensual (antes del prep de carnes)",
+      "frequencyLabel": "Una vez al mes, antes de la preparación de carnes",
       "estimatedMinutes": null,
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, secciones 27 y 47",
       "steps": [
         {
           "id": "paso-1",
-          "text": "Revisar el Recipe Library",
+          "text": "Revisar el recetario",
           "minutes": null
         },
         {
           "id": "paso-2",
-          "text": "Revisar los condimentos del pantry",
+          "text": "Revisar los condimentos de la despensa",
           "minutes": null
         },
         {
@@ -109,62 +109,62 @@
         },
         {
           "id": "paso-4",
-          "text": "Revisar salsa de soya",
+          "text": "Revisar si hay salsa de soya",
           "minutes": null
         },
         {
           "id": "paso-5",
-          "text": "Revisar mostaza",
+          "text": "Revisar si hay mostaza",
           "minutes": null
         },
         {
           "id": "paso-6",
-          "text": "Revisar Salsa Lizano",
+          "text": "Revisar si hay Salsa Lizano",
           "minutes": null
         },
         {
           "id": "paso-7",
-          "text": "Revisar vinagre",
+          "text": "Revisar si hay vinagre",
           "minutes": null
         },
         {
           "id": "paso-8",
-          "text": "Revisar limones",
+          "text": "Revisar si hay limones",
           "minutes": null
         },
         {
           "id": "paso-9",
-          "text": "Revisar pasta de tomate / ketchup",
+          "text": "Revisar si hay pasta de tomate o ketchup",
           "minutes": null
         },
         {
           "id": "paso-10",
-          "text": "Revisar parmesano",
+          "text": "Revisar si hay queso parmesano",
           "minutes": null
         },
         {
           "id": "paso-11",
-          "text": "Revisar nuez moscada",
+          "text": "Revisar si hay nuez moscada",
           "minutes": null
         },
         {
           "id": "paso-12",
-          "text": "Revisar culantro",
+          "text": "Revisar si hay culantro",
           "minutes": null
         },
         {
           "id": "paso-13",
-          "text": "Revisar jengibre",
+          "text": "Revisar si hay jengibre",
           "minutes": null
         },
         {
           "id": "paso-14",
-          "text": "Revisar ajo",
+          "text": "Revisar si hay ajo",
           "minutes": null
         },
         {
           "id": "paso-15",
-          "text": "Revisar Lakanto",
+          "text": "Revisar si hay endulzante Lakanto",
           "minutes": null
         },
         {
@@ -184,7 +184,7 @@
       "category": "guardar",
       "zone": "refri",
       "frequencyDays": null,
-      "frequencyLabel": "Diario (la noche anterior)",
+      "frequencyLabel": "Todos los días, la noche anterior",
       "estimatedMinutes": null,
       "active": true,
       "source": "Kitchen Manual v0, sección 5",
@@ -201,12 +201,12 @@
         },
         {
           "id": "paso-3",
-          "text": "Nunca descongelar sobre la KARLBY, la mesa o el fregadero a temperatura ambiente",
+          "text": "Nunca descongelar sobre la encimera, la mesa o el fregadero a temperatura ambiente",
           "minutes": null
         },
         {
           "id": "paso-4",
-          "text": "Después de descongelar: pollo y carne molida se cocinan en 1–2 días; res y cerdo en trozos, en 3 días como máximo; marinadas con limón o Lizano + limón, el mismo día; Hawaiian, dentro de 24 horas",
+          "text": "Ya descongelada: el pollo y la carne molida se cocinan en 1 o 2 días; la res y el cerdo en trozos, en 3 días como máximo; las marinadas con limón, el mismo día; la marinada Hawaiian, dentro de 24 horas",
           "minutes": null
         }
       ],

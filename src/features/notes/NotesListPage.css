@@ -3,14 +3,6 @@
 .notes-title {
   margin-top: 0;
 }
-
-/* El enlace "Nueva nota" se ve como botón; se centra su texto como en un botón real. */
-.notes-new {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-}
-
 .notes-deleted {
   font-weight: 600;
   color: var(--color-due-text);

@@ -31,6 +31,8 @@ export const {
   saveNote,
   deleteNote,
   undoLastEvent,
+  getMealPlan,
+  planMeal,
   getStopwatch,
   saveStopwatch,
   exportBackup,

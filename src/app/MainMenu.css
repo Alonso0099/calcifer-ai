@@ -37,6 +37,7 @@
 /* La pantalla actual se resalta con fondo y con negrita, no solo con color. */
 .main-menu-link.active {
   background-color: var(--color-highlight);
+  box-shadow: var(--sunken);
   color: var(--color-text-strong);
   font-weight: 600;
 }
@@ -61,8 +62,10 @@
     gap: 4px;
     /* env(safe-area-inset-bottom) deja libre la franja de gestos de iPad y iPhone. */
     padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
-    border-top: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-border-strong);
     border-bottom: none;
+    /* Sombra hacia arriba: la barra se ve apoyada encima del contenido. */
+    box-shadow: 0 -6px 14px -8px color-mix(in srgb, var(--color-text-strong) 40%, transparent);
     background-color: var(--color-surface);
   }
 

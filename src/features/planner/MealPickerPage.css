@@ -1,0 +1,52 @@
+/* Estilos del selector de comidas. */
+
+.meal-picker-back {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-text);
+}
+
+.meal-picker-title {
+  margin: 4px 0 12px;
+}
+
+.meal-picker-title::first-letter {
+  text-transform: uppercase;
+}
+
+.meal-picker-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.meal-picker-options .button {
+  min-height: 48px;
+  text-align: left;
+}
+
+.meal-picker-remove {
+  color: var(--color-late-text);
+}
+
+/* La receta que ya está elegida se resalta con fondo dorado y borde grueso. */
+.meal-picker-current {
+  border-width: 3px;
+  background-color: var(--color-highlight);
+  color: var(--color-text-strong);
+}
+
+.meal-picker-search {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 420px;
+}
+
+.meal-picker-search input {
+}
+
+.meal-picker-group {
+  margin: 16px 0 8px;
+}

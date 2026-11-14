@@ -31,7 +31,7 @@ export default function SearchPage() {
       <h2 className="search-title">{text.search.title}</h2>
       <label className="search-field">
         {text.search.inputLabel}
-        <input type="search" value={query} placeholder={text.search.placeholder} onChange={handleChange} autoFocus />
+        <input className="field" type="search" value={query} placeholder={text.search.placeholder} onChange={handleChange} autoFocus />
       </label>
       {hasError && <p>{text.common.loadError}</p>}
       {!hasQuery && <p className="search-status">{text.search.hint}</p>}

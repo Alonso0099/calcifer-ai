@@ -29,7 +29,7 @@ export default function BackupPage() {
     <>
       <h2 className="backup-title">{text.backup.title}</h2>
       <p className="backup-intro">{text.backup.intro}</p>
-      <section className="backup-section">
+      <section className="card backup-section">
         <h3>{text.backup.downloadTitle}</h3>
         <p>{text.backup.downloadHelp}</p>
         <button type="button" className="button button-primary" onClick={handleDownload}>

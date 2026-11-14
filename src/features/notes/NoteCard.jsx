@@ -14,7 +14,7 @@ import './NoteCard.css';
  */
 export default function NoteCard({ note, processName }) {
   return (
-    <Link className="note-card" to={`/notas/${note.id}`}>
+    <Link className="card note-card" to={`/notas/${note.id}`}>
       <span className="note-card-title">{note.title || text.notes.untitled}</span>
       {/* El CSS corta el texto a dos renglones; aquí se pasa completo. */}
       <span className="note-card-body">{note.body}</span>

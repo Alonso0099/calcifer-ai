@@ -1,6 +1,7 @@
 // Revisa que el contenido de src/content/ cumpla las reglas de CLAUDE.md e imprime
 // cuántos procesos hay y qué datos siguen pendientes. Se corre con "npm run validate".
 import { readFileSync } from 'node:fs';
+import { findForbiddenTerms } from './content-language.js';
 import { CATEGORIES, checkProcess, isSlug, isValidEstimate } from './content-rules.js';
 
 const CONTENT_FOLDER = new URL('../src/content/', import.meta.url);
@@ -27,6 +28,7 @@ function validateZones(errors) {
     if (!isSlug(zone.id)) errors.push(`zones.json: id inválido "${zone.id}"`);
     if (zoneIds.has(zone.id)) errors.push(`zones.json: id repetido "${zone.id}"`);
     if (typeof zone.name !== 'string' || zone.name === '') errors.push(`zones.json: "${zone.id}" no tiene nombre`);
+    for (const term of findForbiddenTerms([zone.name ?? ''])) errors.push(`zones.json: "${zone.id}" menciona "${term}"`);
     zoneIds.add(zone.id);
   }
   return zoneIds;

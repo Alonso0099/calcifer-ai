@@ -40,7 +40,7 @@ export default function RestoreSection() {
   }
 
   return (
-    <section className="backup-section">
+    <section className="card backup-section">
       <h3>{text.backup.restoreTitle}</h3>
       <p>{text.backup.restoreHelp}</p>
       <label className="backup-file">

@@ -2,9 +2,6 @@
 
 .day-card {
   padding: 14px 16px;
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  background-color: var(--color-surface);
 }
 
 .day-card h3 {
@@ -35,9 +32,6 @@
   justify-content: center;
   min-height: 44px;
   padding: 8px 12px;
-  border-left: 4px solid var(--color-primary);
-  border-radius: 4px;
-  background-color: var(--color-bg);
   color: var(--color-text);
   text-decoration: none;
 }

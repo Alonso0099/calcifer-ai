@@ -1,0 +1,20 @@
+/* Estilos de la pantalla "Hoy". */
+
+.today-title {
+  margin-top: 0;
+}
+
+/* Una columna en teléfono; en tablet acostada, comidas y tareas quedan lado a lado. */
+.today-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: start;
+  gap: 16px;
+}
+
+.today-thaw-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-text);
+}

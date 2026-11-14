@@ -1,39 +1,59 @@
-/* Estilos base de toda la app: la paleta de colores (definida una sola vez),
-   la tipografía y los ajustes generales. Los componentes usan estas variables
+/* Estilos base de toda la app: la paleta de colores y las medidas del diseño (definidas
+   una sola vez), la tipografía y los ajustes generales. El aspecto de botones, tarjetas
+   y campos está en components.css. Los componentes usan estas variables
    y nunca escriben un color directo. */
 
 :root {
-  /* Fondos */
-  --color-bg: #F4ECE1;            /* papel: fondo de la app */
-  --color-surface: #FBF7F0;       /* tarjetas y paneles */
-  --color-border: #C5A993;        /* arena: bordes y divisores (nunca texto) */
+  /* Fondos: crema cálida, como una cocina iluminada por el fuego */
+  --color-bg: #FFF4DF;            /* crema: fondo de la app */
+  --color-surface: #FFFBF2;       /* marfil: tarjetas y paneles */
+  --color-border: #DDBF94;        /* trigo: divisores y bordes de tarjetas (nunca texto) */
+  --color-border-strong: #9A6B3F; /* madera: borde de botones y campos, para que se distingan (4.2:1) */
 
   /* Texto */
-  --color-text: #202137;          /* azul noche: texto principal (14.7:1) */
-  --color-text-strong: #4A3427;   /* café: títulos y énfasis (10.9:1) */
-  --color-text-muted: #546D80;    /* azul acero: texto secundario (5.1:1) */
+  --color-text: #33241C;          /* café tostado: texto principal (13.7:1) */
+  --color-text-strong: #6B2A12;   /* caoba: títulos y énfasis (9.8:1) */
+  --color-text-muted: #6A5345;    /* café con leche: texto secundario (6.6:1) */
 
   /* Acciones */
-  --color-primary: #5E7660;       /* salvia: botones principales, con texto blanco (5.0:1) */
-  --color-primary-hover: #4F6451; /* salvia oscuro: botón presionado (6.4:1) */
-  --color-on-primary: #FFFFFF;    /* blanco: texto sobre los botones salvia (5.0:1) */
-  --color-highlight: #D1B174;     /* mostaza: fondo de resaltado, con texto café (5.7:1) */
+  --color-primary: #B23A15;       /* brasa: botones principales, con texto blanco (6.0:1) */
+  --color-primary-hover: #8E2C0E; /* brasa oscura: botón presionado (8.3:1) */
+  --color-on-primary: #FFFFFF;    /* blanco: texto sobre los botones brasa */
+  --color-highlight: #F7C65B;     /* dorado: fondo de resaltado, con texto caoba (6.7:1) */
+  --color-accent: #F47735;        /* llama: solo adornos; nunca texto ni lo único que comunica algo */
 
   /* Estado de tareas (barras de vencimiento) */
-  --color-ok: #8D9531;            /* oliva: barra "al día" (3.0:1, solo barra) */
-  --color-ok-text: #575C1E;       /* oliva oscuro: texto "al día" (6.7:1) */
-  --color-due: #D1B174;           /* mostaza: barra "vence pronto" (no es texto; siempre va con etiqueta) */
-  --color-due-text: #68583A;      /* mostaza oscuro: texto "vence pronto" (6.5:1) */
-  --color-late: #CB7673;          /* salmón: barra "atrasada" (3.1:1, solo barra) */
-  --color-late-text: #6C3332;     /* vino: texto "atrasada" (9.1:1) */
+  --color-ok: #5E8A2E;            /* hoja: barra "al día" (3.7:1, solo barra) */
+  --color-ok-text: #3A5A14;       /* hoja oscura: texto "al día" (7.3:1) */
+  --color-due: #BF7600;           /* ámbar: barra "vence pronto" (3.3:1, solo barra) */
+  --color-due-text: #7A4A00;      /* ámbar oscuro: texto "vence pronto" (6.9:1) */
+  --color-late: #D2432A;          /* rojo fuego: barra "atrasada" (4.2:1, solo barra) */
+  --color-late-text: #8A1F10;     /* rojo ladrillo: texto "atrasada" (8.4:1) */
 
   /* Categorías (punto de color junto al nombre; el texto siempre va en --color-text) */
-  --color-cat-compra: #546D80;        /* azul acero */
-  --color-cat-guardar: #5E7660;       /* salvia */
-  --color-cat-preparar: #CB7673;      /* salmón */
-  --color-cat-limpieza: #905F72;      /* malva */
-  --color-cat-mantenimiento: #D1B174; /* mostaza */
-  --color-cat-seguridad: #6C3332;     /* vino */
+  --color-cat-compra: #2F6F93;        /* azul cielo */
+  --color-cat-guardar: #3F6B33;       /* verde hierba */
+  --color-cat-preparar: #D9622B;      /* naranja fuego */
+  --color-cat-limpieza: #8E4F7C;      /* ciruela */
+  --color-cat-mantenimiento: #B98300; /* latón */
+  --color-cat-seguridad: #A32626;     /* rojo */
+}
+
+/* Forma y relieve: las medidas del diseño, también en un solo lugar.
+   Cambiar cuánto "sobresale" un botón o qué tan redonda es una tarjeta es cambiar una línea. */
+:root {
+  --radius-card: 18px;      /* esquinas de tarjetas y paneles */
+  --radius-control: 12px;   /* esquinas de botones, campos y renglones tocables */
+  --depth: 4px;             /* cuánto sobresale un botón; al presionarlo baja esa misma distancia */
+  --depth-card: 3px;        /* grosor del "canto" bajo una tarjeta, como una tabla de madera */
+  --press-time: 90ms;       /* duración del movimiento al presionar */
+  --font-title: ui-serif, Georgia, 'Times New Roman', serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Sombras y brillos, hechos mezclando colores de la paleta con transparencia. */
+  --shadow-soft: 0 10px 18px -8px color-mix(in srgb, var(--color-text-strong) 35%, transparent);
+  --shine: linear-gradient(to bottom, color-mix(in srgb, var(--color-on-primary) 22%, transparent), transparent 55%);
+  --sunken: inset 0 2px 4px color-mix(in srgb, var(--color-text-strong) 22%, transparent);
 }
 
 /* El ancho y alto de cada elemento incluyen su relleno y su borde:
@@ -48,39 +68,11 @@ body {
   margin: 0;
   background-color: var(--color-bg);
   color: var(--color-text);
-  /* Tipografía del sistema: no hay que descargar nada y se lee bien en tablet y celular. */
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  /* Tipografía del sistema (ver --font-body): no hay que descargar nada y se lee bien en tablet y celular. */
+  font-family: var(--font-body);
   /* Texto un poco más grande que el normal, para leerlo a un brazo de distancia. */
   font-size: 1.125rem;
   line-height: 1.5;
-}
-
-/* Botones. Miden al menos 44 px de alto para poder tocarlos con el dedo. */
-.button {
-  min-height: 44px;
-  padding: 8px 16px;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  background-color: var(--color-surface);
-  color: var(--color-text);
-  font: inherit;
-  cursor: pointer;
-}
-
-.button-primary {
-  border-color: var(--color-primary);
-  background-color: var(--color-primary);
-  color: var(--color-on-primary);
-}
-
-.button-primary:hover,
-.button-primary:active {
-  background-color: var(--color-primary-hover);
-}
-
-.button:disabled {
-  opacity: 0.6;
-  cursor: default;
 }
 
 /* Marco visible al navegar con teclado. */
@@ -89,7 +81,12 @@ body {
   outline-offset: 2px;
 }
 
+h1,
 h2,
-h3 {
+h3,
+h4 {
   color: var(--color-text-strong);
+  /* Tipografía con remates del propio dispositivo: da aire de libro de cuentos sin descargar nada. */
+  font-family: var(--font-title);
 }
+

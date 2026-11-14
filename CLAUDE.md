@@ -23,11 +23,13 @@ Quien mantiene el código es Alonso, estudiante de desarrollo de software (BYU-P
 - **Excepción: capítulos 3 y 4.** De ahí sí se toman los **pasos de preparación** del prep mensual de carnes y del prep de verduras, bases y frutas (qué se hace y en qué orden, cortes y tiempos de blanqueado). Todo lo demás de esos capítulos sigue reemplazado por la v0: el lugar de trabajo, los productos, las temperaturas, el formato de etiqueta y las reglas de almacenamiento salen de la v0.
 - **Nunca inventes datos.** Si a un proceso le falta algo (tiempo, frecuencia, zona), el valor va en `null` y el nombre del campo se agrega a la lista `pending` de ese proceso. La app muestra esos datos como "Pendiente".
 
-## Fase actual: fase 1
+## Fases
 
-Un solo dispositivo (la tablet o el teléfono de la cocina). Sin cuentas, sin servidor, sin base de datos.
+La meta de la app es **quitarle carga mental a quien cocina**: la app recuerda, la persona confirma y el sistema se actualiza. Se construye por fases, y cada paso se prueba en la cocina antes de empezar el siguiente.
 
-Funciones de la fase 1, y nada más:
+### Fase 1 (terminada y publicada)
+
+Un solo dispositivo, sin cuentas ni servidor.
 
 1. Procesos como tarjetas, con checklist de pasos, cronómetro y pantalla siempre encendida mientras se cocina.
 2. Vista semanal: qué se hace cada día y cuánto tiempo estimado toma, sin nombres de personas ni totales por persona.
@@ -37,7 +39,25 @@ Funciones de la fase 1, y nada más:
 6. Respaldo: descargar el historial en un archivo y restaurarlo.
 7. Notas: crear, editar y borrar notas de texto (título y cuerpo), con la opción de ligarlas a un proceso. Un proceso muestra sus notas ligadas: las pide con `getNotes(processId)` y las dibuja con un componente de `src/shared/components/`, nunca importando archivos de `features/notes/`. La página de notas se ve como una hoja de papel con renglones (ver "Diseño de las notas").
 
-Fuera de alcance por ahora (no lo construyas aunque parezca útil): inventario, lista de compras, cuentas, sincronizar entre dispositivos, asignar o rotar tareas, gamificación, escalar porciones, códigos de barras, notificaciones, fotos o archivos en las notas.
+### Fase 2 (en construcción), en este orden
+
+El ciclo que debe funcionar completo es: planear → revisar qué hay → cocinar → empacar → actualizar → cerrar la cocina.
+
+1. **Base.** Funcionar sin conexión; sincronizar el historial entre dos dispositivos (un adaptador nuevo de la capa de datos, sobre los mismos eventos); ingredientes con nombre, cantidad y unidad por separado.
+2. **Hoy y menú.** Una pantalla de inicio que dice qué toca hoy (comida, tareas, qué descongelar, almuerzos por empacar) y un menú semanal que se puede cambiar: asignar recetas, mover días, cancelar.
+3. **Inventario del congelador** por unidades, con "25 − existencia = a comprar", y la preparación mensual que lo actualiza al confirmar.
+4. **Compras**: la lista sale del menú y del inventario; al terminar de comprar se confirma qué entra al inventario.
+5. **Modo de cocina** (un paso a la vez, con temporizadores), etiquetas imprimibles, bitácora de incidencias y los seis indicadores del manual.
+
+Reglas de la fase 2:
+
+- La app nunca cambia el inventario ni marca algo como hecho por suposición: siempre pide confirmación.
+- Una tarea aparece cuando toca; no se muestran todas las posibles a la vez.
+- Lo que se registra en un lugar no se vuelve a pedir en otro.
+- Todo lo nuevo se guarda como eventos (Regla 3): así se puede deshacer, respaldar y sincronizar sin conflictos.
+- Seguridad de alimentos: no se inventan tiempos de conservación, un temporizador no confirma que algo está cocido, y las mediciones reales (temperatura, peso) las confirma la persona.
+
+Fuera de alcance (no lo construyas aunque parezca útil): asignar o rotar tareas, perfiles públicos o funciones sociales, gamificación, códigos de barras, publicidad o analíticas de terceros, fotos o archivos en las notas, y una mascota o arte basados en personajes existentes. Escalar porciones y las notificaciones se deciden cuando llegue su paso.
 
 ## Stack fijo
 
@@ -51,6 +71,8 @@ Fuera de alcance por ahora (no lo construyas aunque parezca útil): inventario, 
 - Pensada primero para celular y tablet. Botones de al menos 44 px, texto legible a un brazo de distancia.
 - Interfaz en español. Código en inglés (archivos, componentes, funciones, variables, claves del JSON). Los textos que ve el usuario van en un solo archivo: `src/shared/text.js`.
 - La app se instala en la pantalla de inicio (incluye `manifest.webmanifest` e íconos). Safari puede borrar los datos de un sitio que no está instalado; por eso la app muestra un aviso si no se abrió como app instalada.
+- **Lenguaje claro.** Cada tarea se escribe como una acción que se entiende sola ("Limpiar el fregadero con ECOS"), sin palabras técnicas ni abreviaturas del manual. Los aparatos, muebles y materiales se nombran por lo que son ("la campana", "la encimera de madera", "la licuadora"), sin marca ni modelo, y no se mencionan nombres de personas ajenas a la casa. Las marcas sí se usan en productos de limpieza ("Krud Kutter") y en ingredientes que se compran por marca. El validador rechaza las marcas de aparatos. Los ids no cambian aunque contengan una marca.
+- Funciona sin conexión: un service worker (`public/sw.js`) guarda la app en el dispositivo.
 - Zona horaria de la casa: `America/Denver`. Las fechas se guardan en UTC (ISO 8601) y "hoy" se calcula en `America/Denver`.
 
 ### Sin dueños
@@ -63,51 +85,66 @@ Ninguna tarea tiene un dueño fijo: quién hace cada cosa se decide en el moment
 
 ## Colores
 
-La paleta es fija. Todos los colores se definen una sola vez como variables en `src/styles/global.css`, y ningún componente escribe un color directo (`#...`): siempre usa la variable. Así, cambiar un color es cambiar una sola línea.
+La paleta es cálida y acogedora: crema, madera y tonos de fuego, como una cocina de cuento ilustrado. Es fija. Todos los colores se definen una sola vez como variables en `src/styles/global.css`, y ningún componente escribe un color directo (`#...`): siempre usa la variable. Así, cambiar un color es cambiar una sola línea.
 
-Los contrastes están medidos con la fórmula WCAG (mínimo 4.5:1 para texto, 3:1 para barras y puntos). No uses un color en un papel distinto al de esta tabla sin revisar su contraste.
+### El diseño vive en dos archivos
+
+Para cambiar cómo se ve la app no hay que tocar las pantallas:
+
+- `src/styles/global.css`: los **valores**. Colores, y también las medidas del diseño como variables: `--radius-card`, `--radius-control`, `--depth` (cuánto sobresale un botón), `--depth-card`, las tipografías y las sombras.
+- `src/styles/components.css`: el **aspecto** de las piezas que se repiten: `.button`, `.card`, `.tile` (renglón tocable), `.field` (campo), casillas, opciones y barras.
+
+El CSS de cada funcionalidad solo acomoda (espacios, columnas, tamaños de texto). Nunca vuelve a definir bordes, fondos, esquinas ni sombras de una tarjeta, un botón o un campo: usa la clase compartida.
+
+El estilo es **con relieve, no plano**: lo que se puede tocar sobresale y se hunde al presionarlo; las tarjetas descansan como tablas, con un canto abajo; los campos y las barras están hundidos. El movimiento es breve y se apaga si el dispositivo pide menos movimiento.
+
+Los contrastes están medidos con la fórmula WCAG sobre el fondo más claro (mínimo 4.5:1 para texto, 3:1 para barras, puntos y bordes de botones y campos). El contraste alto es un requisito, no un adorno: la app tiene que leerse de un vistazo. No uses un color en un papel distinto al de esta tabla sin revisar su contraste.
 
 ```css
 :root {
-  /* Fondos */
-  --color-bg: #F4ECE1;            /* papel: fondo de la app */
-  --color-surface: #FBF7F0;       /* tarjetas y paneles */
-  --color-border: #C5A993;        /* arena: bordes y divisores (nunca texto) */
+  /* Fondos: crema cálida, como una cocina iluminada por el fuego */
+  --color-bg: #FFF4DF;            /* crema: fondo de la app */
+  --color-surface: #FFFBF2;       /* marfil: tarjetas y paneles */
+  --color-border: #DDBF94;        /* trigo: divisores y bordes de tarjetas (nunca texto) */
+  --color-border-strong: #9A6B3F; /* madera: borde de botones y campos, para que se distingan (4.2:1) */
 
   /* Texto */
-  --color-text: #202137;          /* azul noche: texto principal (14.7:1) */
-  --color-text-strong: #4A3427;   /* café: títulos y énfasis (10.9:1) */
-  --color-text-muted: #546D80;    /* azul acero: texto secundario (5.1:1) */
+  --color-text: #33241C;          /* café tostado: texto principal (13.7:1) */
+  --color-text-strong: #6B2A12;   /* caoba: títulos y énfasis (9.8:1) */
+  --color-text-muted: #6A5345;    /* café con leche: texto secundario (6.6:1) */
 
   /* Acciones */
-  --color-primary: #5E7660;       /* salvia: botones principales, con texto blanco (5.0:1) */
-  --color-primary-hover: #4F6451; /* salvia oscuro: botón presionado (6.4:1) */
-  --color-on-primary: #FFFFFF;    /* blanco: texto sobre los botones salvia (5.0:1) */
-  --color-highlight: #D1B174;     /* mostaza: fondo de resaltado, con texto café (5.7:1) */
+  --color-primary: #B23A15;       /* brasa: botones principales, con texto blanco (6.0:1) */
+  --color-primary-hover: #8E2C0E; /* brasa oscura: botón presionado (8.3:1) */
+  --color-on-primary: #FFFFFF;    /* blanco: texto sobre los botones brasa */
+  --color-highlight: #F7C65B;     /* dorado: fondo de resaltado, con texto caoba (6.7:1) */
+  --color-accent: #F47735;        /* llama: solo adornos; nunca texto ni lo único que comunica algo */
 
   /* Estado de tareas (barras de vencimiento) */
-  --color-ok: #8D9531;            /* oliva: barra "al día" (3.0:1, solo barra) */
-  --color-ok-text: #575C1E;       /* oliva oscuro: texto "al día" (6.7:1) */
-  --color-due: #D1B174;           /* mostaza: barra "vence pronto" (no es texto; siempre va con etiqueta) */
-  --color-due-text: #68583A;      /* mostaza oscuro: texto "vence pronto" (6.5:1) */
-  --color-late: #CB7673;          /* salmón: barra "atrasada" (3.1:1, solo barra) */
-  --color-late-text: #6C3332;     /* vino: texto "atrasada" (9.1:1) */
+  --color-ok: #5E8A2E;            /* hoja: barra "al día" (3.7:1, solo barra) */
+  --color-ok-text: #3A5A14;       /* hoja oscura: texto "al día" (7.3:1) */
+  --color-due: #BF7600;           /* ámbar: barra "vence pronto" (3.3:1, solo barra) */
+  --color-due-text: #7A4A00;      /* ámbar oscuro: texto "vence pronto" (6.9:1) */
+  --color-late: #D2432A;          /* rojo fuego: barra "atrasada" (4.2:1, solo barra) */
+  --color-late-text: #8A1F10;     /* rojo ladrillo: texto "atrasada" (8.4:1) */
 
   /* Categorías (punto de color junto al nombre; el texto siempre va en --color-text) */
-  --color-cat-compra: #546D80;        /* azul acero */
-  --color-cat-guardar: #5E7660;       /* salvia */
-  --color-cat-preparar: #CB7673;      /* salmón */
-  --color-cat-limpieza: #905F72;      /* malva */
-  --color-cat-mantenimiento: #D1B174; /* mostaza */
-  --color-cat-seguridad: #6C3332;     /* vino */
+  --color-cat-compra: #2F6F93;        /* azul cielo */
+  --color-cat-guardar: #3F6B33;       /* verde hierba */
+  --color-cat-preparar: #D9622B;      /* naranja fuego */
+  --color-cat-limpieza: #8E4F7C;      /* ciruela */
+  --color-cat-mantenimiento: #B98300; /* latón */
+  --color-cat-seguridad: #A32626;     /* rojo */
 }
 ```
 
 Reglas de uso:
 
 - El estado de una tarea nunca se comunica solo con color: la barra siempre va con su texto ("Atrasada 5 días"), para que se entienda aunque el color no se distinga bien.
-- Mostaza, arena, salmón y oliva nunca se usan como color de texto sobre los fondos claros; para texto se usan sus variables `-text`.
-- Por ahora solo hay modo claro. Un modo oscuro (con azul noche y café de fondo) es para una fase futura.
+- Dorado, trigo, llama, ámbar y los colores de barra nunca se usan como color de texto sobre los fondos claros; para texto se usan sus variables `-text`.
+- Botones y campos llevan borde `--color-border-strong`, para que se vea dónde se puede tocar.
+- `--color-accent` (llama) es solo para adornos pequeños.
+- Por ahora solo hay modo claro.
 
 ### Diseño de las notas
 
@@ -139,6 +176,8 @@ Ningún componente lee `localStorage` ni importa el JSON directamente. Todo pasa
 | `getNotes(processId?)` | Todas las notas, o solo las de un proceso; la más reciente primero |
 | `saveNote(note)` | Crea una nota o guarda los cambios de una existente |
 | `deleteNote(noteId)` | Borra una nota (se puede recuperar con Deshacer) |
+| `getMealPlan()` | El menú: qué comida está planeada en cada día y momento (desayuno, almuerzo, cena) |
+| `planMeal(day, slot, meal)` | Planea, cambia o quita una comida; `meal` es una receta (`kind: "recipe"` y su `processId`), `"leftovers"`, `"eat_out"`, `"quick"` o `"none"` para quitar |
 | `undoLastEvent()` | Anula el último evento |
 | `getStopwatch(processId)` / `saveStopwatch(processId, stopwatch)` | Lee y guarda el cronómetro en curso de un proceso, para que no se pierda al recargar la página. No es un evento: no entra al historial, al Deshacer ni al respaldo |
 | `exportBackup()` / `importBackup(file)` | Respaldo y restauración del historial |
@@ -152,7 +191,7 @@ Cada acción se guarda como un evento nuevo; nunca se edita ni se borra uno ante
 ```js
 {
   id: 'uuid generado con crypto.randomUUID()',
-  type: 'step_checked' | 'step_unchecked' | 'process_finished' | 'note_saved' | 'note_deleted' | 'event_undone',
+  type: 'step_checked' | 'step_unchecked' | 'process_finished' | 'note_saved' | 'note_deleted' | 'meal_planned' | 'event_undone',
   processId: 'limpieza-semanal',  // en notas es opcional: null si la nota no está ligada a un proceso
   stepId: 'paso-3',        // solo en eventos de pasos
   minutes: 42,             // solo en process_finished
@@ -160,10 +199,15 @@ Cada acción se guarda como un evento nuevo; nunca se edita ni se borra uno ante
   noteId: 'uuid',          // solo en eventos de notas; el mismo id en todas las versiones de una nota
   title: '...',            // solo en note_saved
   body: '...',             // solo en note_saved
+  day: '2026-11-16',       // solo en meal_planned: el día de la casa, sin hora
+  slot: 'dinner',          // solo en meal_planned: 'breakfast' | 'lunch' | 'dinner'
+  kind: 'recipe',          // solo en meal_planned: 'recipe' | 'leftovers' | 'eat_out' | 'quick' | 'none' (quitar)
   targetEventId: '...',    // solo en event_undone
   createdAt: '2026-11-13T02:15:00.000Z'
 }
 ```
+
+En el menú, cada día y momento muestra el último `meal_planned` guardado ahí (`kind: 'none'` lo deja vacío).
 
 Una nota se ve siempre en su versión más reciente (el último `note_saved` con su `noteId`), a menos que exista un `note_deleted` posterior.
 
@@ -260,6 +304,8 @@ src/
 │   ├── App.jsx            (layout y menú)
 │   └── routes.jsx         (la lista de pantallas: una línea por funcionalidad)
 ├── features/
+│   ├── today/             (pantalla de inicio: qué toca hoy)
+│   ├── planner/           (menú de la semana y selector de comidas)
 │   ├── processes/         (tarjetas, detalle, checklist, cronómetro)
 │   ├── week/              (vista semanal)
 │   ├── search/            (búsqueda)
@@ -277,7 +323,8 @@ src/
 │   ├── constants.js       (números con nombre: umbrales de color, minutos, etc.)
 │   └── text.js            (todos los textos de la interfaz)
 └── styles/
-    └── global.css         (variables de color, tipografía y base)
+    ├── global.css         (variables de color y de medidas, tipografía y base)
+    └── components.css     (aspecto compartido: botones, tarjetas, campos, casillas, barras)
 ```
 
 Reglas de estructura:

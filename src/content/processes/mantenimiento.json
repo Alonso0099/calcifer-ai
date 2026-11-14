@@ -3,7 +3,7 @@
   "processes": [
     {
       "id": "filtro-lavaplatos-y-revision-campana",
-      "name": "Filtro del lavaplatos y revisión de filtros de la campana",
+      "name": "Limpiar el filtro del lavaplatos y revisar los filtros de la campana",
       "category": "mantenimiento",
       "zone": "cocina-general",
       "frequencyDays": 14,
@@ -17,12 +17,12 @@
       "steps": [
         {
           "id": "paso-1",
-          "text": "Limpiar el filtro del lavaplatos",
+          "text": "Sacar y limpiar el filtro del lavaplatos",
           "minutes": null
         },
         {
           "id": "paso-2",
-          "text": "Revisar los filtros de la campana",
+          "text": "Revisar si los filtros de la campana ya tienen grasa",
           "minutes": null
         }
       ],
@@ -32,7 +32,7 @@
     },
     {
       "id": "filtros-campana-al-lavaplatos",
-      "name": "Filtros de la campana al lavaplatos",
+      "name": "Lavar los filtros de la campana",
       "category": "mantenimiento",
       "zone": "campana",
       "frequencyDays": 21,
@@ -46,12 +46,12 @@
       "steps": [
         {
           "id": "paso-1",
-          "text": "Meter los filtros baffle de la campana al lavaplatos",
+          "text": "Sacar los filtros metálicos de la campana y lavarlos en el lavaplatos",
           "minutes": null
         },
         {
           "id": "paso-2",
-          "text": "Dejarlos secar por completo; nunca reinstalarlos mojados",
+          "text": "Dejarlos secar por completo antes de volver a ponerlos; nunca ponerlos mojados",
           "minutes": null
         }
       ],
@@ -61,11 +61,11 @@
     },
     {
       "id": "mantenimiento-mensual",
-      "name": "Mantenimiento mensual",
+      "name": "Mantenimiento mensual de la cocina",
       "category": "mantenimiento",
       "zone": "cocina-general",
       "frequencyDays": 30,
-      "frequencyLabel": "Mensual",
+      "frequencyLabel": "Una vez al mes",
       "estimatedMinutes": {
         "min": 30,
         "max": 40
@@ -75,27 +75,27 @@
       "steps": [
         {
           "id": "paso-1",
-          "text": "Ciclo de limpieza del lavaplatos",
+          "text": "Correr el ciclo de limpieza del lavaplatos",
           "minutes": null
         },
         {
           "id": "paso-2",
-          "text": "Refri por zonas: interior con ECOS o bicarbonato",
+          "text": "Limpiar el refri por dentro, zona por zona, con ECOS o bicarbonato",
           "minutes": null
         },
         {
           "id": "paso-3",
-          "text": "Revisar el sello del fregadero y la KARLBY",
+          "text": "Revisar que el sello del fregadero y la encimera de madera estén en buen estado",
           "minutes": null
         },
         {
           "id": "paso-4",
-          "text": "Reponer suministros",
+          "text": "Reponer los productos de limpieza que se estén acabando",
           "minutes": null
         },
         {
           "id": "paso-5",
-          "text": "Cambiar esponjas",
+          "text": "Cambiar las esponjas",
           "minutes": null
         }
       ],
@@ -105,11 +105,11 @@
     },
     {
       "id": "horno-steam-clean",
-      "name": "Horno: Steam Clean",
+      "name": "Limpiar el horno con vapor",
       "category": "mantenimiento",
       "zone": "estufa-horno",
       "frequencyDays": 60,
-      "frequencyLabel": "Cada 2–3 meses, solo si hace falta",
+      "frequencyLabel": "Cada 2 o 3 meses, solo si hace falta",
       "estimatedMinutes": {
         "min": 20,
         "max": 40
@@ -119,12 +119,12 @@
       "steps": [
         {
           "id": "paso-1",
-          "text": "Correr el Steam Clean del horno",
+          "text": "Usar la función de limpieza con vapor del horno",
           "minutes": null
         },
         {
           "id": "paso-2",
-          "text": "Pasta de bicarbonato para lo que quede; nunca limpiador en las resistencias ni en el empaque",
+          "text": "Para lo que quede pegado, usar pasta de bicarbonato. Nunca poner limpiador en las resistencias ni en el empaque de la puerta",
           "minutes": null
         }
       ],
@@ -134,11 +134,11 @@
     },
     {
       "id": "refri-a-fondo",
-      "name": "Refri a fondo",
+      "name": "Limpiar el refri a fondo",
       "category": "mantenimiento",
       "zone": "refri",
       "frequencyDays": 90,
-      "frequencyLabel": "Cada 3–4 meses",
+      "frequencyLabel": "Cada 3 o 4 meses",
       "estimatedMinutes": {
         "min": 35,
         "max": 60
@@ -148,17 +148,17 @@
       "steps": [
         {
           "id": "paso-1",
-          "text": "Repisas: ECOS o bicarbonato",
+          "text": "Lavar las repisas con ECOS o bicarbonato",
           "minutes": null
         },
         {
           "id": "paso-2",
-          "text": "Cajones: ECOS o bicarbonato",
+          "text": "Lavar los cajones con ECOS o bicarbonato",
           "minutes": null
         },
         {
           "id": "paso-3",
-          "text": "Organizadores: ECOS o bicarbonato",
+          "text": "Lavar los organizadores con ECOS o bicarbonato",
           "minutes": null
         }
       ],
@@ -168,16 +168,16 @@
     },
     {
       "id": "congelador-a-fondo",
-      "name": "Congelador a fondo",
+      "name": "Limpiar el congelador a fondo",
       "category": "mantenimiento",
       "zone": "congelador",
       "frequencyDays": 90,
-      "frequencyLabel": "Cada 3–6 meses",
+      "frequencyLabel": "Cada 3 a 6 meses",
       "estimatedMinutes": null,
       "active": true,
       "source": "Kitchen Manual v0, sección 6",
       "notes": [
-        "La v0 da 1–2 h en bloques para las cinco tareas de esta fila juntas, no por tarea"
+        "El manual calcula de 1 a 2 horas, en bloques, para las cinco tareas de esta frecuencia juntas; no da el tiempo de cada una"
       ],
       "steps": [],
       "pending": [
@@ -187,16 +187,16 @@
     },
     {
       "id": "gabinetes-por-dentro",
-      "name": "Gabinetes por dentro",
+      "name": "Limpiar los gabinetes por dentro",
       "category": "mantenimiento",
       "zone": "gabinetes",
       "frequencyDays": 90,
-      "frequencyLabel": "Cada 3–6 meses",
+      "frequencyLabel": "Cada 3 a 6 meses",
       "estimatedMinutes": null,
       "active": true,
       "source": "Kitchen Manual v0, sección 6",
       "notes": [
-        "La v0 da 1–2 h en bloques para las cinco tareas de esta fila juntas, no por tarea"
+        "El manual calcula de 1 a 2 horas, en bloques, para las cinco tareas de esta frecuencia juntas; no da el tiempo de cada una"
       ],
       "steps": [],
       "pending": [
@@ -206,16 +206,16 @@
     },
     {
       "id": "aceite-karlby-y-mesa",
-      "name": "Aceite de mantenimiento de la KARLBY y la mesa",
+      "name": "Poner aceite de mantenimiento a la encimera de madera y a la mesa",
       "category": "mantenimiento",
       "zone": "karlby",
       "frequencyDays": 90,
-      "frequencyLabel": "Cada 3–6 meses",
+      "frequencyLabel": "Cada 3 a 6 meses",
       "estimatedMinutes": null,
       "active": true,
       "source": "Kitchen Manual v0, sección 6",
       "notes": [
-        "La v0 da 1–2 h en bloques para las cinco tareas de esta fila juntas, no por tarea"
+        "El manual calcula de 1 a 2 horas, en bloques, para las cinco tareas de esta frecuencia juntas; no da el tiempo de cada una"
       ],
       "steps": [],
       "pending": [
@@ -225,16 +225,16 @@
     },
     {
       "id": "silicon-del-fregadero",
-      "name": "Silicón del fregadero",
+      "name": "Revisar el silicón del fregadero",
       "category": "mantenimiento",
       "zone": "fregadero",
       "frequencyDays": 90,
-      "frequencyLabel": "Cada 3–6 meses",
+      "frequencyLabel": "Cada 3 a 6 meses",
       "estimatedMinutes": null,
       "active": true,
       "source": "Kitchen Manual v0, sección 6",
       "notes": [
-        "La v0 da 1–2 h en bloques para las cinco tareas de esta fila juntas, no por tarea"
+        "El manual calcula de 1 a 2 horas, en bloques, para las cinco tareas de esta frecuencia juntas; no da el tiempo de cada una"
       ],
       "steps": [],
       "pending": [
@@ -244,16 +244,16 @@
     },
     {
       "id": "detras-de-los-aparatos",
-      "name": "Detrás de los aparatos",
+      "name": "Limpiar detrás de los electrodomésticos",
       "category": "mantenimiento",
       "zone": "cocina-general",
       "frequencyDays": 90,
-      "frequencyLabel": "Cada 3–6 meses",
+      "frequencyLabel": "Cada 3 a 6 meses",
       "estimatedMinutes": null,
       "active": true,
       "source": "Kitchen Manual v0, sección 6",
       "notes": [
-        "La v0 da 1–2 h en bloques para las cinco tareas de esta fila juntas, no por tarea"
+        "El manual calcula de 1 a 2 horas, en bloques, para las cinco tareas de esta frecuencia juntas; no da el tiempo de cada una"
       ],
       "steps": [],
       "pending": [

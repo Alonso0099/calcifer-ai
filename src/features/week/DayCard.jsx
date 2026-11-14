@@ -13,7 +13,7 @@ import './DayCard.css';
  */
 export default function DayCard({ day }) {
   return (
-    <section className="day-card">
+    <section className="card day-card">
       <h3>{day.name}</h3>
       {day.meal && <p className="day-card-meal">{day.meal}</p>}
       {day.blocks.length === 0 ? (
@@ -23,7 +23,7 @@ export default function DayCard({ day }) {
           {day.blocks.map((block) => (
             <li key={block.processId}>
               {/* Cada bloque lleva al checklist de su proceso. */}
-              <Link className="day-card-block" to={`/procesos/${block.processId}`}>
+              <Link className="tile day-card-block" to={`/procesos/${block.processId}`}>
                 <span className="day-card-block-name">{block.processName}</span>
                 <span className="day-card-block-time">
                   {block.estimatedMinutes

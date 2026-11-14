@@ -1,5 +1,5 @@
 // Funciones puras sobre fechas. Las fechas se guardan en UTC y se muestran en la hora de la casa.
-import { HOUSE_TIME_ZONE, MS_PER_DAY } from '../shared/constants.js';
+import { DAYS_PER_WEEK, HOUSE_TIME_ZONE, MS_PER_DAY, WEEKDAY_IDS } from '../shared/constants.js';
 
 /**
  * Convierte una fecha guardada (ISO, UTC) en un texto corto en la hora de la casa.
@@ -53,4 +53,53 @@ export function getHouseDayText(date) {
     month: '2-digit',
     day: '2-digit',
   }).format(date);
+}
+
+/**
+ * Suma (o resta) días a un día escrito como "2026-11-13".
+ * Trabaja con el texto del día, no con horas: así el cambio de horario no mueve la fecha.
+ *
+ * @param {string} dayText - Un día en formato año-mes-día.
+ * @param {number} amount - Cuántos días sumar; negativo para restar.
+ * @returns {string} El día resultante, en el mismo formato.
+ */
+export function addDays(dayText, amount) {
+  const [year, month, day] = dayText.split('-').map(Number);
+  return new Date(Date.UTC(year, month - 1, day + amount)).toISOString().slice(0, 10);
+}
+
+/**
+ * Dice qué día de la semana es un día dado.
+ *
+ * @param {string} dayText - Un día en formato año-mes-día.
+ * @returns {string} El id del día como en week.json: "domingo", "lunes"...
+ */
+export function getWeekdayId(dayText) {
+  const [year, month, day] = dayText.split('-').map(Number);
+  return WEEKDAY_IDS[new Date(Date.UTC(year, month - 1, day)).getUTCDay()];
+}
+
+/**
+ * Regresa los 7 días de la semana (de domingo a sábado) a la que pertenece un día.
+ * La semana empieza en domingo porque ese día se planea el menú.
+ *
+ * @param {string} dayText - Cualquier día de la semana que se quiere.
+ * @returns {string[]} Los 7 días, en formato año-mes-día.
+ */
+export function getWeekDays(dayText) {
+  const sunday = addDays(dayText, -WEEKDAY_IDS.indexOf(getWeekdayId(dayText)));
+  return Array.from({ length: DAYS_PER_WEEK }, (unused, index) => addDays(sunday, index));
+}
+
+/**
+ * Escribe un día como "viernes 13 de noviembre".
+ *
+ * @param {string} dayText - Un día en formato año-mes-día.
+ * @returns {string} El día con palabras, en español.
+ */
+export function formatDayLong(dayText) {
+  const [year, month, day] = dayText.split('-').map(Number);
+  // Se formatea en UTC porque dayText ya es el día correcto de la casa.
+  const formatter = new Intl.DateTimeFormat('es', { timeZone: 'UTC', weekday: 'long', day: 'numeric', month: 'long' });
+  return formatter.format(new Date(Date.UTC(year, month - 1, day)));
 }
