@@ -63,51 +63,55 @@ Ninguna tarea tiene un dueño fijo: quién hace cada cosa se decide en el moment
 
 ## Colores
 
-La paleta es fija. Todos los colores se definen una sola vez como variables en `src/styles/global.css`, y ningún componente escribe un color directo (`#...`): siempre usa la variable. Así, cambiar un color es cambiar una sola línea.
+La paleta es cálida y acogedora: crema, madera y tonos de fuego, como una cocina de cuento ilustrado. Es fija. Todos los colores se definen una sola vez como variables en `src/styles/global.css`, y ningún componente escribe un color directo (`#...`): siempre usa la variable. Así, cambiar un color es cambiar una sola línea.
 
-Los contrastes están medidos con la fórmula WCAG (mínimo 4.5:1 para texto, 3:1 para barras y puntos). No uses un color en un papel distinto al de esta tabla sin revisar su contraste.
+Los contrastes están medidos con la fórmula WCAG sobre el fondo más claro (mínimo 4.5:1 para texto, 3:1 para barras, puntos y bordes de botones y campos). El contraste alto es un requisito, no un adorno: la app tiene que leerse de un vistazo. No uses un color en un papel distinto al de esta tabla sin revisar su contraste.
 
 ```css
 :root {
-  /* Fondos */
-  --color-bg: #F4ECE1;            /* papel: fondo de la app */
-  --color-surface: #FBF7F0;       /* tarjetas y paneles */
-  --color-border: #C5A993;        /* arena: bordes y divisores (nunca texto) */
+  /* Fondos: crema cálida, como una cocina iluminada por el fuego */
+  --color-bg: #FFF4DF;            /* crema: fondo de la app */
+  --color-surface: #FFFBF2;       /* marfil: tarjetas y paneles */
+  --color-border: #DDBF94;        /* trigo: divisores y bordes de tarjetas (nunca texto) */
+  --color-border-strong: #9A6B3F; /* madera: borde de botones y campos, para que se distingan (4.2:1) */
 
   /* Texto */
-  --color-text: #202137;          /* azul noche: texto principal (14.7:1) */
-  --color-text-strong: #4A3427;   /* café: títulos y énfasis (10.9:1) */
-  --color-text-muted: #546D80;    /* azul acero: texto secundario (5.1:1) */
+  --color-text: #33241C;          /* café tostado: texto principal (13.7:1) */
+  --color-text-strong: #6B2A12;   /* caoba: títulos y énfasis (9.8:1) */
+  --color-text-muted: #6A5345;    /* café con leche: texto secundario (6.6:1) */
 
   /* Acciones */
-  --color-primary: #5E7660;       /* salvia: botones principales, con texto blanco (5.0:1) */
-  --color-primary-hover: #4F6451; /* salvia oscuro: botón presionado (6.4:1) */
-  --color-on-primary: #FFFFFF;    /* blanco: texto sobre los botones salvia (5.0:1) */
-  --color-highlight: #D1B174;     /* mostaza: fondo de resaltado, con texto café (5.7:1) */
+  --color-primary: #B23A15;       /* brasa: botones principales, con texto blanco (6.0:1) */
+  --color-primary-hover: #8E2C0E; /* brasa oscura: botón presionado (8.3:1) */
+  --color-on-primary: #FFFFFF;    /* blanco: texto sobre los botones brasa */
+  --color-highlight: #F7C65B;     /* dorado: fondo de resaltado, con texto caoba (6.7:1) */
+  --color-accent: #F47735;        /* llama: solo adornos; nunca texto ni lo único que comunica algo */
 
   /* Estado de tareas (barras de vencimiento) */
-  --color-ok: #8D9531;            /* oliva: barra "al día" (3.0:1, solo barra) */
-  --color-ok-text: #575C1E;       /* oliva oscuro: texto "al día" (6.7:1) */
-  --color-due: #D1B174;           /* mostaza: barra "vence pronto" (no es texto; siempre va con etiqueta) */
-  --color-due-text: #68583A;      /* mostaza oscuro: texto "vence pronto" (6.5:1) */
-  --color-late: #CB7673;          /* salmón: barra "atrasada" (3.1:1, solo barra) */
-  --color-late-text: #6C3332;     /* vino: texto "atrasada" (9.1:1) */
+  --color-ok: #5E8A2E;            /* hoja: barra "al día" (3.7:1, solo barra) */
+  --color-ok-text: #3A5A14;       /* hoja oscura: texto "al día" (7.3:1) */
+  --color-due: #BF7600;           /* ámbar: barra "vence pronto" (3.3:1, solo barra) */
+  --color-due-text: #7A4A00;      /* ámbar oscuro: texto "vence pronto" (6.9:1) */
+  --color-late: #D2432A;          /* rojo fuego: barra "atrasada" (4.2:1, solo barra) */
+  --color-late-text: #8A1F10;     /* rojo ladrillo: texto "atrasada" (8.4:1) */
 
   /* Categorías (punto de color junto al nombre; el texto siempre va en --color-text) */
-  --color-cat-compra: #546D80;        /* azul acero */
-  --color-cat-guardar: #5E7660;       /* salvia */
-  --color-cat-preparar: #CB7673;      /* salmón */
-  --color-cat-limpieza: #905F72;      /* malva */
-  --color-cat-mantenimiento: #D1B174; /* mostaza */
-  --color-cat-seguridad: #6C3332;     /* vino */
+  --color-cat-compra: #2F6F93;        /* azul cielo */
+  --color-cat-guardar: #3F6B33;       /* verde hierba */
+  --color-cat-preparar: #D9622B;      /* naranja fuego */
+  --color-cat-limpieza: #8E4F7C;      /* ciruela */
+  --color-cat-mantenimiento: #B98300; /* latón */
+  --color-cat-seguridad: #A32626;     /* rojo */
 }
 ```
 
 Reglas de uso:
 
 - El estado de una tarea nunca se comunica solo con color: la barra siempre va con su texto ("Atrasada 5 días"), para que se entienda aunque el color no se distinga bien.
-- Mostaza, arena, salmón y oliva nunca se usan como color de texto sobre los fondos claros; para texto se usan sus variables `-text`.
-- Por ahora solo hay modo claro. Un modo oscuro (con azul noche y café de fondo) es para una fase futura.
+- Dorado, trigo, llama, ámbar y los colores de barra nunca se usan como color de texto sobre los fondos claros; para texto se usan sus variables `-text`.
+- Botones y campos llevan borde `--color-border-strong`, para que se vea dónde se puede tocar.
+- `--color-accent` (llama) es solo para adornos pequeños.
+- Por ahora solo hay modo claro.
 
 ### Diseño de las notas
 
