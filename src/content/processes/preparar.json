@@ -163,7 +163,7 @@
       "id": "prep-mensual-carnes",
       "name": "Prep mensual de carnes",
       "category": "preparar",
-      "zone": null,
+      "zone": "mesa-ikea",
       "frequencyDays": 30,
       "frequencyLabel": "Mensual (sábado en la tarde)",
       "estimatedMinutes": {
@@ -171,13 +171,125 @@
         "max": 240
       },
       "active": true,
-      "source": "Kitchen Manual v0, sección 1 (mes tipo)",
+      "source": "Kitchen Manual v0, sección 1 (mes tipo), 5 y 6; Kitchen Manual Final (PDF), capítulo 3, secciones 30 a 36",
       "notes": [
-        "En pareja con roles fijos: uno corta y muele; el otro pesa, empaca, etiqueta y lava sobre la marcha. Nunca la compra y los dos preps el mismo día"
+        "En pareja con roles fijos: uno corta y muele; el otro pesa, empaca, etiqueta y lava sobre la marcha. Nunca la compra y los dos preps el mismo día",
+        "Orden res → cerdo → pollo: es solo para organizarse; no reemplaza limpiar y sanitizar entre proteínas",
+        "Solo se procesa lo necesario para volver a 25 unidades: 25 − unidades existentes = unidades nuevas",
+        "Distribución del PDF. Pollo (10): 6 de filetes de pechuga, 2 de trocitos, 2 con hueso. Cerdo (6): 3 de chuletas, 2 de pork shoulder en trocitos, 1 molido. Res (5): 1 de thin-cut bistec, 1 en cubitos, 1 molida para hamburguesa, 1 molida magra, 1 de New York steak. Seafood (4): salmón, tuna steak, tilapia y camarones",
+        "Trocitos de pollo: salen de los recortes de pechuga y de las partes irregulares; pueden congelarse marinados o neutros",
+        "Pollo con hueso: 1 unidad son aproximadamente 8 piezas, ajustando si son muy grandes o muy pequeñas",
+        "Chuletas: el número de piezas por bolsa depende del tamaño; lo que cuenta es que alcance para 4 platos",
+        "Thin-cut bistec: congelar entero; se corta en tiras después de descongelar si la receta lo pide",
+        "Res en cubitos, carne molida y cerdo molido: se congelan sin marinar",
+        "New York steak: 4 steaks = 1 unidad; no se marina por default",
+        "Tuna steak, tilapia y camarones: se cuenta comida, no paquetes; se marinan cerca del momento de cocinar",
+        "Bolsa quart para unidades compactas; gallon cuando hay huesos, piezas grandes o la unidad no cabe cómoda"
       ],
-      "steps": [],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Limpiar y despejar la cocina",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Montar la estación de carne sobre la mesa de IKEA: el tapete de silicón y, encima, la tabla de carne (nunca cortar sobre el tapete)",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Preparar la tabla, los cuchillos y los bowls",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Preparar las bolsas",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Preparar las etiquetas",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Mantener las carnes en el refri",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Sacar solo una tanda a la vez; el resto se queda refrigerado",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Procesar la res",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Limpiar y sanitizar",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Procesar el cerdo",
+          "minutes": null
+        },
+        {
+          "id": "paso-11",
+          "text": "Limpiar y sanitizar",
+          "minutes": null
+        },
+        {
+          "id": "paso-12",
+          "text": "Procesar el pollo",
+          "minutes": null
+        },
+        {
+          "id": "paso-13",
+          "text": "Limpiar y sanitizar",
+          "minutes": null
+        },
+        {
+          "id": "paso-14",
+          "text": "Preparar las marinadas",
+          "minutes": null
+        },
+        {
+          "id": "paso-15",
+          "text": "Empacar: 1 bolsa = 1 unidad siempre que se pueda; sacar el aire y aplanar",
+          "minutes": null
+        },
+        {
+          "id": "paso-16",
+          "text": "Etiquetar con el formato único: proteína y corte, sabor (o UNSEASONED), 1 UNIT / 4 PLATES, fecha PREP, fecha USE BY y RAW",
+          "minutes": null
+        },
+        {
+          "id": "paso-17",
+          "text": "Congelar de inmediato",
+          "minutes": null
+        },
+        {
+          "id": "paso-18",
+          "text": "Limpieza de la estación de carne: lavar y sanitizar la tabla, el tapete y el fregadero; revisar la mesa debajo y limpiarla con ECOS",
+          "minutes": null
+        },
+        {
+          "id": "paso-19",
+          "text": "Actualizar el inventario del congelador contando unidades, no bolsas, y dejar lo más viejo adelante",
+          "minutes": null
+        },
+        {
+          "id": "paso-20",
+          "text": "Hacer la revisión final del prep de carnes",
+          "minutes": null
+        }
+      ],
       "pending": [
-        "steps"
+        "steps.minutes"
       ]
     },
     {
@@ -192,10 +304,93 @@
         "max": 180
       },
       "active": true,
-      "source": "Kitchen Manual v0, sección 1 (mes tipo)",
-      "steps": [],
+      "source": "Kitchen Manual v0, sección 1 (mes tipo); Kitchen Manual Final (PDF), capítulo 4, secciones 2 y 44",
+      "notes": [
+        "Precongelar sobre todo lo que se pega, se compacta o se saca en cantidades pequeñas: papas fritas, papas de desayuno, berries, banano, brócoli y coliflor",
+        "Chile dulce para congelar: en cubitos (arroz, huevos, sofritos, frijoles) y en juliana (fajitas, stir-fries, bowls, bistec)",
+        "Culantro: fresco para pico de gallo, ensaladas, tacos y toppings; congelado (picado o en base) para arroz, frijoles, sopas, guisos, marinadas y salsas cocidas",
+        "Vegetales comprados ya congelados: no se vuelven a blanquear",
+        "No hacer prep solo por hacerlo: lo que sabe mejor fresco se queda fresco"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Revisar el refri",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Revisar el congelador",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Identificar lo que debe usarse primero",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Separar los productos según su destino: fresco, congelación, bases o cocción",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Lavar lo que corresponda",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Cortar",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Blanquear o cocinar cuando haga falta",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Enfriar rápido",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Secar bien",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Precongelar cuando corresponda",
+          "minutes": null
+        },
+        {
+          "id": "paso-11",
+          "text": "Empacar",
+          "minutes": null
+        },
+        {
+          "id": "paso-12",
+          "text": "Etiquetar: nombre, preparación, fecha PREP y fecha USE BY",
+          "minutes": null
+        },
+        {
+          "id": "paso-13",
+          "text": "Guardar",
+          "minutes": null
+        },
+        {
+          "id": "paso-14",
+          "text": "Actualizar el inventario",
+          "minutes": null
+        },
+        {
+          "id": "paso-15",
+          "text": "Limpieza al terminar: secar por completo el perímetro del fregadero, la base de la llave, el backsplash y las uniones y bordes de la KARLBY",
+          "minutes": null
+        }
+      ],
       "pending": [
-        "steps"
+        "steps.minutes"
       ]
     },
     {
@@ -4477,6 +4672,1751 @@
       "pending": [
         "estimatedMinutes",
         "steps"
+      ]
+    },
+    {
+      "id": "filetes-de-pechuga",
+      "name": "Filetes de pechuga",
+      "category": "preparar",
+      "group": "prep-carnes",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de carnes",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 3, sección 3",
+      "notes": [
+        "Meta: 6 unidades (24 platos)"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Separar las pechugas",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Retirar solo la grasa o el tejido que no se quiere",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Cortar filetes de grosor parecido",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Aprovechar los recortes para la categoría de trocitos",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Dividir en 6 grupos de 1 unidad",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Marinar algunos grupos según el plan del mes",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Dejar algunos neutros si se quiere más flexibilidad",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Empacar y congelar",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "cerdo-en-trocitos",
+      "name": "Pork shoulder en trocitos",
+      "category": "preparar",
+      "group": "prep-carnes",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de carnes",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 3, sección 8",
+      "notes": [
+        "Meta: 2 unidades. Elegir una pieza económica de pork shoulder",
+        "Usos: cerdo con frijoles, garbanzos con cerdo, cerdo con legumbres, carne en salsa, Hawaiian pork y guisos"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Retirar solo el exceso de grasa que no se quiere",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Reservar la grasa útil cuando corresponda",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Cortar parte de la carne en trozos uniformes",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Armar 2 unidades de pork chunks",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "res-molida-para-hamburguesa",
+      "name": "Ground Beef — Burger Blend",
+      "category": "preparar",
+      "group": "prep-carnes",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de carnes",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 3, sección 15",
+      "notes": [
+        "Meta: 1 unidad. Se congela sin marinar",
+        "La molida magra (1 unidad) se muele sin agregar grasa extra"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Separar la grasa aprovechable",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Moler la carne",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Agregar la grasa necesaria para una mezcla adecuada para hamburguesas",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "moler-carne",
+      "name": "Moler carne en el molino",
+      "category": "preparar",
+      "group": "prep-carnes",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de carnes",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 3, sección 41",
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Mantener la carne fría",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Cortarla en piezas adecuadas para el molino",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Mantener en el refri las piezas que esperan",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Moler solo la cantidad necesaria",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Separar el burger blend de la molida magra",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Empacar rápido",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Desarmar el molino",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Lavar por completo todas las piezas que tocan comida",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Sanitizar las piezas compatibles",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Secar por completo antes de guardar",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "porcionar-salmon",
+      "name": "Porcionar salmón",
+      "category": "preparar",
+      "group": "prep-carnes",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de carnes",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 3, sección 19",
+      "notes": [
+        "Meta: 1 unidad. Normalmente no se marina en el prep mensual: se sazona o marina cerca del momento de cocinar"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Dividir el filete grande en cantidad suficiente para 4 platos",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Empacar",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Congelar",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "revision-final-prep-carnes",
+      "name": "Revisión final del prep de carnes",
+      "category": "preparar",
+      "group": "prep-carnes",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de carnes",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 3, sección 42; lugar de trabajo: Kitchen Manual v0, sección 6",
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "10 unidades de pollo, o las necesarias para completar la meta",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "6 unidades de cerdo, o las necesarias",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "5 unidades de res, o las necesarias",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "4 unidades de seafood, o las necesarias",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Todas las bolsas etiquetadas",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Todas las fechas visibles",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Marinadas identificadas",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "RAW claramente indicado",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Inventario del congelador actualizado",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Proteínas más antiguas colocadas adelante",
+          "minutes": null
+        },
+        {
+          "id": "paso-11",
+          "text": "Molino completamente limpio",
+          "minutes": null
+        },
+        {
+          "id": "paso-12",
+          "text": "Tabla lavada y sanitizada",
+          "minutes": null
+        },
+        {
+          "id": "paso-13",
+          "text": "Tapete de silicón lavado y sanitizado",
+          "minutes": null
+        },
+        {
+          "id": "paso-14",
+          "text": "Fregadero limpio",
+          "minutes": null
+        },
+        {
+          "id": "paso-15",
+          "text": "Manijas contaminadas limpiadas",
+          "minutes": null
+        },
+        {
+          "id": "paso-16",
+          "text": "Mesa revisada debajo del tapete, limpia y seca",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "estacion-de-blanqueado",
+      "name": "Preparar la estación de blanqueado",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 41 y 42",
+      "notes": [
+        "Tener todo listo evita que el vegetal se sobrecueza mientras se buscan recipientes",
+        "El proceso completo: agua hirviendo → vegetal → blanqueado con tiempo → baño de hielo → escurrir → secar → precongelar → bolsa. Saltarse el enfriado y el secado baja la calidad"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Olla grande",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Colador",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Bowl grande",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Hielo",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Bandejas",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Toallas",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Bolsas freezer",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Etiquetas",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "cebolla-para-congelar",
+      "name": "Cebolla para congelar",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 3",
+      "notes": [
+        "Small dice: gallo pinto, frijoles arreglados, huevos, sofritos y rellenos",
+        "Large dice: sopas, guisos, arroces y fondos",
+        "Juliana: bistec encebollado, fajitas, stir-fries y salteados",
+        "La cebolla morada se mantiene fresca y se corta al momento"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Pelar",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Cortar en los tres cortes: small dice, large dice y juliana",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Separar por tipo de corte",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Precongelar si ayuda a evitar bloques",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Guardar en bolsas diferentes; no mezclar los cortes en una sola bolsa",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Etiquetar",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "ajo-procesado",
+      "name": "Ajo procesado en cubos",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 6 y 30",
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Separar los dientes",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Pelar",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Revisar y desechar las piezas dañadas",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Procesar en la Ninja",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Agregar solo el poco aceite necesario para facilitar el procesado",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Distribuir en porciones pequeñas: moldes de silicón, bolsa o recipiente apto para congelador",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Congelar de inmediato",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Pasar los cubos ya congelados a un recipiente hermético y etiquetar GARLIC + OIL",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "cebollin-para-congelar",
+      "name": "Cebollín para congelar",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 7",
+      "notes": [
+        "Mantener una cantidad pequeña fresca para toppings, ramen, huevos y bowls; se congela el excedente"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Lavar",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Secar muy bien",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Picar",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Congelar",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Pasar a un recipiente o bolsa",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "apio-fresco",
+      "name": "Guardar apio fresco",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 10",
+      "notes": [
+        "Revisar cada cierto tiempo que no tenga humedad de más"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Separar los tallos",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Lavar",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Secar muy bien",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Envolver en aluminio",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Refrigerar",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "base-de-apio",
+      "name": "Celery Base",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 10",
+      "notes": [
+        "Se hace con el excedente de apio. Usos: sopas, guisos, fondos y olla de carne"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Lavar",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Cortar",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Licuar con un poco de agua",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Dividir",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Congelar",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "brocoli-para-congelar",
+      "name": "Brócoli fresco para congelar",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 12",
+      "notes": [
+        "Es opcional: para sustituir parte del brócoli comprado congelado"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Elegir brócoli firme",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Lavar",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Separar en floretes de aproximadamente 1½ pulgadas o menos",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Poner una olla con agua a hervir",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Blanquear: 3 minutos en agua hirviendo, o 5 minutos al vapor",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Pasar de inmediato al baño de hielo",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Enfriar",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Escurrir",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Secar",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Precongelar en bandeja",
+          "minutes": null
+        },
+        {
+          "id": "paso-11",
+          "text": "Pasar a una bolsa freezer",
+          "minutes": null
+        },
+        {
+          "id": "paso-12",
+          "text": "Etiquetar",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "coliflor-para-congelar",
+      "name": "Coliflor fresca para congelar",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 13",
+      "notes": [
+        "Preparación opcional"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Separar en floretes de aproximadamente 1 pulgada",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Lavar",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Blanquear aproximadamente 3 minutos",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Baño de hielo",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Escurrir",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Secar",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Precongelar",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Empacar",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "zanahoria-para-congelar",
+      "name": "Zanahoria para congelar",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 14",
+      "notes": [
+        "Reservar una parte fresca para ensaladas, snacks, slaw y acompañamientos"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Cortar en rodajas, cubitos o bastones",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Blanquear aproximadamente 2 minutos",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Baño de hielo",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Escurrir",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Secar",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Precongelar",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Empacar",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "hongos-para-congelar",
+      "name": "Hongos salteados para congelar",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 15",
+      "notes": [
+        "No se congelan crudos: salteados quedan con mejor textura",
+        "La parte fresca se guarda en empaque ventilado o en bolsa de papel"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Limpiar",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Cortar",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Saltear",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Cocinar hasta reducir buena parte de su humedad",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Enfriar por completo",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Dividir en porciones pequeñas",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Congelar",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "chayote-para-congelar",
+      "name": "Chayote para congelar",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 16",
+      "notes": [
+        "Se prefiere usarlo fresco; se congela solo el excedente destinado a guisos. Usos: picadillo, sopas y guisos"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Pelar",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Cortar",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Blanquear aproximadamente 2 minutos",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Baño de hielo",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Secar",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Congelar",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "esparragos-para-congelar",
+      "name": "Espárragos para congelar",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 17",
+      "notes": [
+        "Se prefiere comprarlos frescos; se congelan solo si hace falta"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Lavar",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Retirar las bases duras",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Blanquear según el grosor: delgados 2 minutos, medianos 3 minutos, gruesos 4 minutos",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Baño de hielo",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Secar",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Precongelar",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Empacar",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "remolacha-para-congelar",
+      "name": "Remolacha para congelar",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 18",
+      "notes": [
+        "Usos: ensaladas, acompañamientos y bowls"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Lavar",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Cocinar hasta que esté tierna",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Enfriar",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Pelar",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Cortar en cubitos",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Dividir en porciones",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Congelar",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "papas-de-desayuno",
+      "name": "Breakfast Potato Cubes",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 23",
+      "notes": [
+        "Usos: breakfast bowls, burritos, platos con huevo y acompañamientos"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Lavar",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Pelar si se quiere",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Cortar en cubos uniformes",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Precocinar hasta que estén parcialmente tiernas",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Enfriar rápido",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Escurrir",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Secar",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Colocar en bandeja",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Precongelar",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Pasar a una bolsa freezer",
+          "minutes": null
+        },
+        {
+          "id": "paso-11",
+          "text": "Etiquetar: BREAKFAST POTATOES",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "pure-de-papa-para-congelar",
+      "name": "Mashed Potato para congelar",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 24",
+      "notes": [
+        "No hace falta prepararlo todos los meses si no aparece en el menú"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Pelar",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Cortar",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Hervir hasta que estén completamente suaves",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Escurrir",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Preparar el puré",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Enfriar rápido",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Dividir en porciones",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Guardar en bolsas planas o en recipientes aptos para congelador",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Congelar",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "papas-fritas-para-congelar",
+      "name": "Homemade Freezer Fries",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 26",
+      "notes": [
+        "Se cocinan directo del congelador en el air fryer: empezar a revisar entre los 12 y los 20 minutos, según el grosor, la cantidad y el modelo; sacudir a la mitad y ajustar después de la primera tanda"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Lavar",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Pelar si se quiere",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Cortar de aproximadamente ¼ a ⅜ de pulgada, buscando que queden parejas",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Enjuagar para quitar el almidón de la superficie",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Blanquear en agua hirviendo aproximadamente 2 minutos",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Baño de hielo",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Escurrir",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Secar muy bien",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Mezclar con un poco de aceite",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Extender en una sola capa",
+          "minutes": null
+        },
+        {
+          "id": "paso-11",
+          "text": "Precongelar",
+          "minutes": null
+        },
+        {
+          "id": "paso-12",
+          "text": "Pasar a una bolsa freezer",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "yuca-para-congelar",
+      "name": "Yuca para congelar",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 27",
+      "notes": [
+        "Se compra fresca, se prepara y se congela. Cocinarla por completo antes de comerla"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Pelar",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Lavar",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Cortar en piezas",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Retirar las partes fibrosas cuando corresponda",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Dividir",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Congelar",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "base-de-culantro",
+      "name": "Cilantro Base",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 29",
+      "notes": [
+        "Usos: arroz, frijoles, sopas y salsas"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Lavar",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Elegir las hojas y los tallos adecuados",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Escurrir",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Licuar con un poco de agua",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Distribuir en moldes",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Congelar",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Pasar a un recipiente",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "cubos-de-pesto",
+      "name": "Pesto Cubes",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 31",
+      "notes": [
+        "Usos: pasta, pollo, salsas y vegetales"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Preparar el pesto",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Dividir en porciones pequeñas",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Congelar",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Pasar a un recipiente",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "base-mixta-de-vegetales",
+      "name": "Mixed Sofrito Base",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 32",
+      "notes": [
+        "Usar solo vegetales frescos y en buen estado; no es una forma de \"salvar\" produce deteriorado",
+        "Etiquetar lo suficiente para recordar qué lleva si cambia mucho de la mezcla habitual"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Elegir excedentes compatibles",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Lavar",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Cocinar o blanquear cuando corresponda",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Procesar",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Enfriar si se cocinó",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Dividir",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Congelar",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "fruta-para-congelar",
+      "name": "Fruta para congelar (smoothies)",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 33",
+      "notes": [
+        "Frutas principales: fresas, blueberries, blackberries, banano y piña"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Lavar cuando corresponda",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Secar",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Pelar si hace falta",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Cortar",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Precongelar cuando ayude a evitar bloques",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Guardar en una bolsa freezer",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "banano-para-congelar",
+      "name": "Banano para congelar",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 34",
+      "notes": [
+        "Cuando el banano está maduro y no se va a usar a tiempo. No se congela con cáscara"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Pelar",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Cortar",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Precongelar",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Guardar",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
+    },
+    {
+      "id": "checklist-prep-verduras",
+      "name": "Checklist del prep mensual de verduras",
+      "category": "preparar",
+      "group": "prep-verduras",
+      "zone": null,
+      "frequencyDays": null,
+      "frequencyLabel": "En el prep mensual de verduras",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 46",
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Cebolla — small dice",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Cebolla — large dice",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Cebolla — juliana",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Chile dulce — cubitos",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Chile dulce — juliana",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Cebollín",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Cubos de ajo",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Base de culantro",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Base de apio",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Pesto / sofrito, si hace falta",
+          "minutes": null
+        },
+        {
+          "id": "paso-11",
+          "text": "Revisar el brócoli congelado",
+          "minutes": null
+        },
+        {
+          "id": "paso-12",
+          "text": "Revisar la coliflor congelada",
+          "minutes": null
+        },
+        {
+          "id": "paso-13",
+          "text": "Revisar las vainicas",
+          "minutes": null
+        },
+        {
+          "id": "paso-14",
+          "text": "Revisar las arvejas",
+          "minutes": null
+        },
+        {
+          "id": "paso-15",
+          "text": "Revisar el maíz",
+          "minutes": null
+        },
+        {
+          "id": "paso-16",
+          "text": "Zanahorias, si hace falta",
+          "minutes": null
+        },
+        {
+          "id": "paso-17",
+          "text": "Hongos, si hace falta",
+          "minutes": null
+        },
+        {
+          "id": "paso-18",
+          "text": "Otros vegetales para blanquear",
+          "minutes": null
+        },
+        {
+          "id": "paso-19",
+          "text": "Papas de desayuno",
+          "minutes": null
+        },
+        {
+          "id": "paso-20",
+          "text": "Papas fritas para congelar",
+          "minutes": null
+        },
+        {
+          "id": "paso-21",
+          "text": "Puré de papa, si está en el plan",
+          "minutes": null
+        },
+        {
+          "id": "paso-22",
+          "text": "Yuca",
+          "minutes": null
+        },
+        {
+          "id": "paso-23",
+          "text": "Fresas",
+          "minutes": null
+        },
+        {
+          "id": "paso-24",
+          "text": "Blueberries",
+          "minutes": null
+        },
+        {
+          "id": "paso-25",
+          "text": "Blackberries",
+          "minutes": null
+        },
+        {
+          "id": "paso-26",
+          "text": "Bananos",
+          "minutes": null
+        },
+        {
+          "id": "paso-27",
+          "text": "Piña, si hace falta",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
       ]
     }
   ]

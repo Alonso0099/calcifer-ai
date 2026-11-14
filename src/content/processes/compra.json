@@ -208,6 +208,106 @@
       "pending": [
         "steps.minutes"
       ]
+    },
+    {
+      "id": "checklist-de-frescos",
+      "name": "Checklist de frescos",
+      "category": "compra",
+      "zone": null,
+      "frequencyDays": 14,
+      "frequencyLabel": "Cada 2 semanas (con la compra de frescos)",
+      "estimatedMinutes": null,
+      "active": true,
+      "source": "Kitchen Manual Final (PDF), capítulo 4, sección 47",
+      "notes": [
+        "Es para revisar o reponer, no para comprar todo cada vez"
+      ],
+      "steps": [
+        {
+          "id": "paso-1",
+          "text": "Cebolla morada",
+          "minutes": null
+        },
+        {
+          "id": "paso-2",
+          "text": "Chile dulce fresco",
+          "minutes": null
+        },
+        {
+          "id": "paso-3",
+          "text": "Culantro",
+          "minutes": null
+        },
+        {
+          "id": "paso-4",
+          "text": "Perejil",
+          "minutes": null
+        },
+        {
+          "id": "paso-5",
+          "text": "Apio",
+          "minutes": null
+        },
+        {
+          "id": "paso-6",
+          "text": "Espinaca baby",
+          "minutes": null
+        },
+        {
+          "id": "paso-7",
+          "text": "Lechuga",
+          "minutes": null
+        },
+        {
+          "id": "paso-8",
+          "text": "Pepino",
+          "minutes": null
+        },
+        {
+          "id": "paso-9",
+          "text": "Tomate",
+          "minutes": null
+        },
+        {
+          "id": "paso-10",
+          "text": "Repollo",
+          "minutes": null
+        },
+        {
+          "id": "paso-11",
+          "text": "Aguacate",
+          "minutes": null
+        },
+        {
+          "id": "paso-12",
+          "text": "Limones",
+          "minutes": null
+        },
+        {
+          "id": "paso-13",
+          "text": "Fruta fresca",
+          "minutes": null
+        },
+        {
+          "id": "paso-14",
+          "text": "Papas",
+          "minutes": null
+        },
+        {
+          "id": "paso-15",
+          "text": "Hongos frescos, si hace falta",
+          "minutes": null
+        },
+        {
+          "id": "paso-16",
+          "text": "Espárragos frescos, si están en el plan",
+          "minutes": null
+        }
+      ],
+      "pending": [
+        "estimatedMinutes",
+        "steps.minutes"
+      ]
     }
   ]
 }

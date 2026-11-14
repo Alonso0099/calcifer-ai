@@ -2,7 +2,7 @@
 // Son funciones puras: reciben un proceso y regresan la lista de errores encontrados.
 
 export const CATEGORIES = ['compra', 'guardar', 'preparar', 'limpieza', 'mantenimiento', 'seguridad'];
-const GROUPS = ['pollo', 'cerdo', 'res', 'seafood', 'sopas', 'flex', 'desayunos', 'marinadas'];
+const GROUPS = ['prep-carnes', 'prep-verduras', 'pollo', 'cerdo', 'res', 'seafood', 'sopas', 'flex', 'desayunos', 'marinadas'];
 const REQUIRED_FIELDS = [
   'id', 'name', 'category', 'zone', 'frequencyDays', 'frequencyLabel',
   'estimatedMinutes', 'active', 'source', 'steps', 'pending',
