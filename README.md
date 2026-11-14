@@ -61,7 +61,7 @@ Una línea por decisión importante, con su porqué.
 
 ### Contenido
 
-- **Un JSON por categoría** en `src/content/processes/`: archivos más fáciles de revisar que uno solo con 111 procesos.
+- **Un JSON por categoría** en `src/content/processes/`: archivos más fáciles de revisar que uno solo con todos los procesos.
 - **Sin dueños**: ningún JSON tiene `owner`; quién hizo algo es solo la nota opcional `doneBy` de un evento.
 - **`estimatedMinutes` y `minutes` son cosas distintas**: el primero es el rango que estima el manual; el segundo, un tiempo medido en la cocina. Nunca se mezclan.
 - **`frequencyDays` y `frequencyLabel`**: el número sirve para calcular el vencimiento; el texto conserva las palabras del manual. Mensual = 30 días y, en un rango, el número menor, para que el aviso llegue temprano.
@@ -95,7 +95,7 @@ Una línea por decisión importante, con su porqué.
 ### Procesos (tarjetas, checklist y cronómetro)
 
 - **El filtro de categoría vive en la dirección** (`/?categoria=limpieza`), no en la memoria del componente: al abrir un proceso y volver, el filtro sigue igual.
-- **"Preparar" se muestra por grupos** (pollo, cerdo, sopas...): son 87 procesos y en una sola lista no se encuentra nada.
+- **"Preparar" se muestra por grupos** (preps, pollo, cerdo, sopas...): son más de cien procesos y en una sola lista no se encuentra nada.
 - **Cada paso marcado se guarda al momento** y la pantalla vuelve a leer el proceso: lo que se ve siempre sale de los eventos guardados.
 - **El cronómetro guarda la hora de arranque y calcula la diferencia**, en vez de sumar segundos: no se atrasa si el navegador pausa la pestaña.
 - **El cronómetro en curso se guarda en el dispositivo, fuera del historial**: no se pierde al recargar la página, y si estaba corriendo sigue contando. No es un evento porque no es algo que "pasó": no entra a Deshacer ni al respaldo.
@@ -167,3 +167,12 @@ Una línea por decisión importante, con su porqué.
 - **El aviso de "no instalada" sale mientras la app se use desde el navegador** y no se puede cerrar: desaparece solo al abrirla instalada, que es cuando el riesgo de perder datos baja.
 - **Sin service worker**: la app necesita conexión para abrir. Funcionar sin conexión no está en la fase 1.
 - **Los colores del manifest y de `theme-color` están escritos directo**: esos archivos no pueden leer las variables de CSS.
+
+### Pasos de los preps mensuales (capítulos 3 y 4 del PDF)
+
+- **De esos capítulos solo se tomaron los pasos de preparación**: el lugar de trabajo, los productos, el formato de etiqueta y las reglas siguen saliendo de la v0.
+- **La estación de carne va sobre la mesa de IKEA**, no sobre la KARLBY como decía el PDF: la v0 lo cambió (registro de cambios, fila 1).
+- **Cada procedimiento con pasos propios es un proceso aparte** (filetes de pechuga, moler carne, papas de desayuno, brócoli para congelar...): así cada uno tiene su checklist y su cronómetro.
+- **Dos grupos nuevos en "preparar"**, `prep-carnes` y `prep-verduras`: separan los procedimientos de prep de las recetas.
+- **No se copiaron las temperaturas ni las reglas de almacenamiento del PDF** (refri y congelador, air fryer, ajo en aceite): `CLAUDE.md` pide no tomarlas de esos capítulos; si hacen falta, se agregan primero a la v0.
+- **Los cortes que el PDF describe sin pasos** (chuletas, cubitos, tilapia...) quedaron como notas del prep de carnes, no como procesos vacíos.

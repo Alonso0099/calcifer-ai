@@ -47,7 +47,18 @@ export const HOUSE_TIME_ZONE = 'America/Denver';
 export const CATEGORIES = ['compra', 'guardar', 'preparar', 'limpieza', 'mantenimiento', 'seguridad'];
 
 /** Los grupos en que se divide la categoría "preparar", en el orden en que se muestran. */
-export const PREPARE_GROUPS = ['pollo', 'cerdo', 'res', 'seafood', 'sopas', 'flex', 'desayunos', 'marinadas'];
+export const PREPARE_GROUPS = [
+  'prep-carnes',
+  'prep-verduras',
+  'pollo',
+  'cerdo',
+  'res',
+  'seafood',
+  'sopas',
+  'flex',
+  'desayunos',
+  'marinadas',
+];
 
 /** Milisegundos en un segundo y en un minuto, para las cuentas del cronómetro. */
 export const MS_PER_SECOND = 1000;

@@ -34,6 +34,8 @@ export const text = {
     seguridad: 'Seguridad',
   },
   groups: {
+    'prep-carnes': 'Prep de carnes',
+    'prep-verduras': 'Prep de verduras, bases y frutas',
     pollo: 'Pollo',
     cerdo: 'Cerdo',
     res: 'Res',

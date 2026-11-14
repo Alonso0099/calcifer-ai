@@ -20,6 +20,7 @@ Quien mantiene el código es Alonso, estudiante de desarrollo de software (BYU-P
 
 - `docs/source/kitchen-manual-v0.md` es la **fuente oficial**. Si algo choca con otra fuente, manda la v0.
 - `docs/source/Kitchen_Manual_Final.pdf` (241 páginas) solo aporta el detalle de procedimientos y recetas (capítulos 5–8). Sus capítulos 1–4, 9 y 10 fueron reemplazados por la v0: no tomes de ahí reglas, productos de limpieza, temperaturas ni lugares de trabajo.
+- **Excepción: capítulos 3 y 4.** De ahí sí se toman los **pasos de preparación** del prep mensual de carnes y del prep de verduras, bases y frutas (qué se hace y en qué orden, cortes y tiempos de blanqueado). Todo lo demás de esos capítulos sigue reemplazado por la v0: el lugar de trabajo, los productos, las temperaturas, el formato de etiqueta y las reglas de almacenamiento salen de la v0.
 - **Nunca inventes datos.** Si a un proceso le falta algo (tiempo, frecuencia, zona), el valor va en `null` y el nombre del campo se agrega a la lista `pending` de ese proceso. La app muestra esos datos como "Pendiente".
 
 ## Fase actual: fase 1
@@ -216,7 +217,7 @@ Campos opcionales (solo se escriben cuando aplican):
 
 - `ingredients`: lista de textos, uno por ingrediente con su cantidad (`"2 chiles dulces en tiras"`). Para recetas y marinadas.
 - `notes`: lista de textos con lo que el manual dice del proceso y no es ingrediente ni paso: rendimiento ("Rinde 1 unidad"), con qué proteína es compatible una marinada, cuánto puede esperar después de descongelar, o el armado de Tita y el de Alonso en un desayuno. Son contenido del manual, de solo lectura; no confundir con las notas que escribe el usuario (funcionalidad 7).
-- `group`: solo en `preparar`, para dividir la categoría en la pantalla: `pollo` | `cerdo` | `res` | `seafood` | `sopas` | `flex` | `desayunos` | `marinadas`. Los procesos de `preparar` que no son recetas no lo llevan.
+- `group`: solo en `preparar`, para dividir la categoría en la pantalla: `prep-carnes` | `prep-verduras` | `pollo` | `cerdo` | `res` | `seafood` | `sopas` | `flex` | `desayunos` | `marinadas`. Los dos primeros son los procedimientos de los preps mensuales; los demás, recetas. Los procesos generales de `preparar` (menú, servicio diario, los dos preps completos) no lo llevan.
 
 No hay campo de dueño (ver "Sin dueños").
 
