@@ -34,17 +34,17 @@ export const text = {
     seguridad: 'Seguridad',
   },
   groups: {
-    'prep-carnes': 'Prep de carnes',
-    'prep-verduras': 'Prep de verduras, bases y frutas',
+    'prep-carnes': 'Preparación de carnes',
+    'prep-verduras': 'Preparación de verduras, bases y frutas',
     pollo: 'Pollo',
     cerdo: 'Cerdo',
     res: 'Res',
-    seafood: 'Seafood',
+    seafood: 'Pescado y mariscos',
     sopas: 'Sopas y ollas',
-    flex: 'Flex',
+    flex: 'Cenas rápidas',
     desayunos: 'Desayunos',
     marinadas: 'Marinadas y sazones',
-    none: 'Operación',
+    none: 'Organización de la cocina',
   },
   time: {
     /** @param {number} minutes */

@@ -4,7 +4,7 @@
     {
       "id": "domingo",
       "name": "Domingo",
-      "meal": "Almuerzo especial: seafood (1 unidad) + cena flex",
+      "meal": "Almuerzo especial de pescado o mariscos (1 unidad) y cena ligera",
       "blocks": [
         {
           "processId": "revision-semanal",
@@ -82,7 +82,7 @@
     {
       "id": "viernes",
       "name": "Viernes",
-      "meal": "Flex: leftovers o algo rápido",
+      "meal": "Cena libre: sobras o algo rápido",
       "blocks": [
         {
           "processId": "limpieza-semanal",

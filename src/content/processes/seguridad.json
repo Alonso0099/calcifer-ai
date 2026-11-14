@@ -3,7 +3,7 @@
   "processes": [
     {
       "id": "fuego-en-una-olla",
-      "name": "Si se prende fuego en una olla",
+      "name": "Qué hacer si se prende fuego en una olla",
       "category": "seguridad",
       "zone": "estufa-horno",
       "frequencyDays": null,
@@ -19,12 +19,12 @@
         },
         {
           "id": "paso-2",
-          "text": "Tapar con la tapa, una bandeja de metal o la manta",
+          "text": "Tapar la olla con su tapa, una bandeja de metal o la manta contra incendios",
           "minutes": null
         },
         {
           "id": "paso-3",
-          "text": "Nunca agua sobre aceite caliente",
+          "text": "Nunca echar agua sobre aceite caliente",
           "minutes": null
         },
         {
@@ -34,7 +34,7 @@
         },
         {
           "id": "paso-5",
-          "text": "Si no se apaga en segundos: salir y llamar al 911",
+          "text": "Si el fuego no se apaga en unos segundos: salir y llamar al 911",
           "minutes": null
         }
       ],
@@ -45,7 +45,7 @@
     },
     {
       "id": "habitos-de-seguridad",
-      "name": "Hábitos de seguridad",
+      "name": "Hábitos de seguridad al cocinar",
       "category": "seguridad",
       "zone": null,
       "frequencyDays": null,
@@ -56,22 +56,22 @@
       "steps": [
         {
           "id": "paso-1",
-          "text": "Antes de salir de la cocina, revisar que la luz de cubierta caliente/encendida de la estufa esté apagada",
+          "text": "Antes de salir de la cocina, revisar que esté apagada la luz que avisa que la estufa está caliente o encendida",
           "minutes": null
         },
         {
           "id": "paso-2",
-          "text": "Usar Cook Time en el horno para que se apague solo",
+          "text": "Programar el apagado automático del horno cada vez que se usa",
           "minutes": null
         },
         {
           "id": "paso-3",
-          "text": "Temporizador en el celular cada vez que algo queda en el fuego",
+          "text": "Poner un temporizador en el teléfono cada vez que algo se queda en el fuego",
           "minutes": null
         },
         {
           "id": "paso-4",
-          "text": "Carne cruda nunca sobre comida lista para comer; guantes de nitrilo solo para comida, guantes reutilizables solo para químicos",
+          "text": "Nunca poner carne cruda sobre comida lista para comer. Los guantes desechables son solo para comida; los guantes reutilizables, solo para productos de limpieza",
           "minutes": null
         }
       ],
@@ -82,7 +82,7 @@
     },
     {
       "id": "equipo-de-seguridad",
-      "name": "Equipo de seguridad por instalar",
+      "name": "Equipo de seguridad que falta instalar",
       "category": "seguridad",
       "zone": null,
       "frequencyDays": null,
@@ -93,32 +93,32 @@
       "steps": [
         {
           "id": "paso-1",
-          "text": "FireAvert eléctrico 240V: escucha el detector de humo y corta la corriente de la estufa. Antes de comprarlo, confirmar con King Chang si el enchufe es de 3 o de 4 patas",
+          "text": "Conseguir un corte automático de corriente para la estufa (de 240 V): escucha la alarma de humo y apaga la estufa. Antes de comprarlo, confirmar si el enchufe de la estufa es de 3 o de 4 patas",
           "minutes": null
         },
         {
           "id": "paso-2",
-          "text": "Detector de humo a unos 10 pies de la estufa (FireAvert lo necesita)",
+          "text": "Instalar un detector de humo a unos 10 pies de la estufa; el corte automático lo necesita para funcionar",
           "minutes": null
         },
         {
           "id": "paso-3",
-          "text": "Extintor tipo ABC o K cerca de la salida, no encima de la estufa",
+          "text": "Poner un extintor tipo ABC o K cerca de la salida, no encima de la estufa",
           "minutes": null
         },
         {
           "id": "paso-4",
-          "text": "Manta contra incendios a la vista",
+          "text": "Dejar una manta contra incendios a la vista",
           "minutes": null
         },
         {
           "id": "paso-5",
-          "text": "Soporte antivuelco de la estufa instalado",
+          "text": "Instalar el soporte que evita que la estufa se vuelque",
           "minutes": null
         },
         {
           "id": "paso-6",
-          "text": "Enchufe propio para el congelador vertical cuando llegue",
+          "text": "Tener un enchufe propio para el congelador vertical cuando llegue",
           "minutes": null
         }
       ],

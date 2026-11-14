@@ -3,7 +3,7 @@
   "processes": [
     {
       "id": "limpieza-de-cada-vez",
-      "name": "Limpieza de cada vez que se cocina",
+      "name": "Limpiar después de cocinar",
       "category": "limpieza",
       "zone": "cocina-general",
       "frequencyDays": null,
@@ -17,22 +17,22 @@
       "steps": [
         {
           "id": "paso-1",
-          "text": "Platos y utensilios: Dawn",
+          "text": "Lavar los platos y utensilios con Dawn",
           "minutes": null
         },
         {
           "id": "paso-2",
-          "text": "KARLBY o mesa: agua tibia + 1–2 gotas de ECOS, microfibra y secar",
+          "text": "Limpiar la encimera de madera o la mesa: agua tibia con 1 o 2 gotas de ECOS, paño de microfibra y secar",
           "minutes": null
         },
         {
           "id": "paso-3",
-          "text": "Cubierta de vidrio de la estufa: Weiman Daily (el Kit Heavy Duty solo para quemado)",
+          "text": "Limpiar la cubierta de vidrio de la estufa con Weiman Daily (el kit Weiman Heavy Duty solo si hay algo quemado)",
           "minutes": null
         },
         {
           "id": "paso-4",
-          "text": "Fregadero: ECOS",
+          "text": "Limpiar el fregadero con ECOS",
           "minutes": null
         },
         {
@@ -42,7 +42,7 @@
         },
         {
           "id": "paso-6",
-          "text": "Limpiar los derrames del piso",
+          "text": "Limpiar lo que se haya derramado en el piso",
           "minutes": null
         }
       ],
@@ -52,11 +52,11 @@
     },
     {
       "id": "cierre-diario",
-      "name": "Cierre diario",
+      "name": "Cerrar la cocina por la noche",
       "category": "limpieza",
       "zone": "cocina-general",
       "frequencyDays": null,
-      "frequencyLabel": "Diario (cierre)",
+      "frequencyLabel": "Todas las noches",
       "estimatedMinutes": {
         "min": 5,
         "max": 10
@@ -66,17 +66,17 @@
       "steps": [
         {
           "id": "paso-1",
-          "text": "Lavaplatos: cargar y correr con Cascade",
+          "text": "Cargar el lavaplatos y ponerlo a lavar con Cascade",
           "minutes": null
         },
         {
           "id": "paso-2",
-          "text": "Almuerzo de mañana empacado",
+          "text": "Confirmar que el almuerzo de mañana quedó empacado",
           "minutes": null
         },
         {
           "id": "paso-3",
-          "text": "Proteína de mañana al refri",
+          "text": "Pasar al refri la proteína de mañana para que se descongele",
           "minutes": null
         }
       ],
@@ -86,11 +86,11 @@
     },
     {
       "id": "limpieza-semanal",
-      "name": "Limpieza semanal",
+      "name": "Limpieza semanal de la cocina",
       "category": "limpieza",
       "zone": "cocina-general",
       "frequencyDays": 7,
-      "frequencyLabel": "Semanal (viernes; respaldo: domingo)",
+      "frequencyLabel": "Cada semana, el viernes (si no se puede, el domingo)",
       "estimatedMinutes": {
         "min": 45,
         "max": 60
@@ -100,42 +100,42 @@
       "steps": [
         {
           "id": "paso-1",
-          "text": "Campana, exterior: Krud Kutter si hay grasa, luego Weiman Stainless",
+          "text": "Limpiar la campana por fuera: Krud Kutter si tiene grasa y luego Weiman Stainless",
           "minutes": null
         },
         {
           "id": "paso-2",
-          "text": "Frentes y manijas: microfibra apenas húmeda con una gota de ECOS, sin empapar uniones ni bordes",
+          "text": "Limpiar los frentes de los gabinetes y sus manijas con un paño de microfibra apenas húmedo y una gota de ECOS, sin mojar de más las uniones ni las orillas",
           "minutes": null
         },
         {
           "id": "paso-3",
-          "text": "Llave dorada y manijas Ravinte: microfibra con ECOS diluido y secar (nunca Weiman, Krud Kutter, cloro, CLR, bicarbonato ni abrasivos)",
+          "text": "Limpiar la llave dorada y las manijas con microfibra y ECOS diluido, y secarlas. Nunca usar Weiman, Krud Kutter, cloro, CLR, bicarbonato ni nada que raye",
           "minutes": null
         },
         {
           "id": "paso-4",
-          "text": "Backsplash: jabón suave y microfibra (nunca Krud Kutter ni abrasivos)",
+          "text": "Limpiar la pared detrás de la encimera con jabón suave y microfibra. Nunca usar Krud Kutter ni nada que raye",
           "minutes": null
         },
         {
           "id": "paso-5",
-          "text": "Reset del refri: mover al frente lo que debe comerse antes de la siguiente compra; lo que no llegará se agrega a la lista o se congela",
+          "text": "Ordenar el refri: pasar al frente lo que hay que comerse antes de la próxima compra; lo que no va a alcanzar a comerse se congela o se anota en la lista",
           "minutes": null
         },
         {
           "id": "paso-6",
-          "text": "Microondas: método de vapor + ECOS",
+          "text": "Limpiar el microondas: ablandar la suciedad con vapor y pasar un paño con ECOS",
           "minutes": null
         },
         {
           "id": "paso-7",
-          "text": "Basurero: Krud Kutter",
+          "text": "Lavar el basurero con Krud Kutter",
           "minutes": null
         },
         {
           "id": "paso-8",
-          "text": "Piso: barrer y trapear con Zep pH neutro diluido, con el trapeador de microfibra apenas húmedo",
+          "text": "Barrer y trapear con Zep pH neutro diluido, con el trapeador de microfibra apenas húmedo",
           "minutes": null
         }
       ],
