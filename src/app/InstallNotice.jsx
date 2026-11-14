@@ -27,6 +27,7 @@ export default function InstallNotice() {
     <aside className="install-notice" role="note">
       <p>{text.install.notice}</p>
       <p>{text.install.howTo}</p>
+      <p>{text.install.offline}</p>
       <Link className="install-notice-link" to="/respaldo">
         {text.install.backupLink}
       </Link>

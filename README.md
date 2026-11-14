@@ -165,7 +165,7 @@ Una línea por decisión importante, con su porqué.
 - **El ícono es la misma ramita de las notas**, dibujada en `public/icons/icon.svg`: arte original y simple, sin personajes. Los PNG se generaron a partir de ese SVG.
 - **El dibujo queda dentro del centro del ícono**: así el mismo archivo sirve aunque el sistema lo recorte en círculo ("maskable").
 - **El aviso de "no instalada" sale mientras la app se use desde el navegador** y no se puede cerrar: desaparece solo al abrirla instalada, que es cuando el riesgo de perder datos baja.
-- **Sin service worker**: la app necesita conexión para abrir. Funcionar sin conexión no está en la fase 1.
+- **Service worker escrito a mano** (`public/sw.js`), sin librerías: guarda la app para abrirla sin conexión. La página se pide primero a internet (para ver siempre la versión nueva) y los archivos de `/assets/` salen de la copia guardada, porque su nombre cambia cuando cambia su contenido.
 - **Los colores del manifest y de `theme-color` están escritos directo**: esos archivos no pueden leer las variables de CSS.
 
 ### Pasos de los preps mensuales (capítulos 3 y 4 del PDF)
@@ -176,3 +176,13 @@ Una línea por decisión importante, con su porqué.
 - **Dos grupos nuevos en "preparar"**, `prep-carnes` y `prep-verduras`: separan los procedimientos de prep de las recetas.
 - **No se copiaron las temperaturas ni las reglas de almacenamiento del PDF** (refri y congelador, air fryer, ajo en aceite): `CLAUDE.md` pide no tomarlas de esos capítulos; si hacen falta, se agregan primero a la v0.
 - **Los cortes que el PDF describe sin pasos** (chuletas, cubitos, tilapia...) quedaron como notas del prep de carnes, no como procesos vacíos.
+
+### Fase 2: lenguaje, paleta y uso sin conexión
+
+- **Tareas en lenguaje claro**: cada paso es una acción que se entiende sola, sin palabras del manual que solo conoce quien lo escribió.
+- **Sin marcas de aparatos ni nombres propios** en los textos ("la campana", no su marca); el validador las rechaza. Las marcas se quedan en productos de limpieza, que es como se buscan en la tienda.
+- **Los ids no cambiaron** aunque algunos lleven una marca (`karlby`, `mesa-ikea`): un id nunca se renombra, y el usuario no lo ve.
+- **Paleta cálida de crema, madera y fuego**, con contraste medido: se lee de un vistazo y se siente como una cocina de cuento.
+- **Botones y campos con borde fuerte** (`--color-border-strong`, 4.2:1): se ve dónde se puede tocar.
+- **Títulos con la tipografía con remates del dispositivo**: aire de libro ilustrado sin descargar fuentes.
+- **La app abre sin conexión**: el historial ya vivía en el dispositivo; ahora también la app.

@@ -19,3 +19,11 @@ createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </StrictMode>,
 );
+
+// Registra el service worker (public/sw.js), que guarda la app para usarla sin conexión.
+// Solo en la versión publicada: mientras se programa estorbaría, porque serviría archivos viejos.
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}

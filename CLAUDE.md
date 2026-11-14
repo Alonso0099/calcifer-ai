@@ -23,11 +23,13 @@ Quien mantiene el código es Alonso, estudiante de desarrollo de software (BYU-P
 - **Excepción: capítulos 3 y 4.** De ahí sí se toman los **pasos de preparación** del prep mensual de carnes y del prep de verduras, bases y frutas (qué se hace y en qué orden, cortes y tiempos de blanqueado). Todo lo demás de esos capítulos sigue reemplazado por la v0: el lugar de trabajo, los productos, las temperaturas, el formato de etiqueta y las reglas de almacenamiento salen de la v0.
 - **Nunca inventes datos.** Si a un proceso le falta algo (tiempo, frecuencia, zona), el valor va en `null` y el nombre del campo se agrega a la lista `pending` de ese proceso. La app muestra esos datos como "Pendiente".
 
-## Fase actual: fase 1
+## Fases
 
-Un solo dispositivo (la tablet o el teléfono de la cocina). Sin cuentas, sin servidor, sin base de datos.
+La meta de la app es **quitarle carga mental a quien cocina**: la app recuerda, la persona confirma y el sistema se actualiza. Se construye por fases, y cada paso se prueba en la cocina antes de empezar el siguiente.
 
-Funciones de la fase 1, y nada más:
+### Fase 1 (terminada y publicada)
+
+Un solo dispositivo, sin cuentas ni servidor.
 
 1. Procesos como tarjetas, con checklist de pasos, cronómetro y pantalla siempre encendida mientras se cocina.
 2. Vista semanal: qué se hace cada día y cuánto tiempo estimado toma, sin nombres de personas ni totales por persona.
@@ -37,7 +39,25 @@ Funciones de la fase 1, y nada más:
 6. Respaldo: descargar el historial en un archivo y restaurarlo.
 7. Notas: crear, editar y borrar notas de texto (título y cuerpo), con la opción de ligarlas a un proceso. Un proceso muestra sus notas ligadas: las pide con `getNotes(processId)` y las dibuja con un componente de `src/shared/components/`, nunca importando archivos de `features/notes/`. La página de notas se ve como una hoja de papel con renglones (ver "Diseño de las notas").
 
-Fuera de alcance por ahora (no lo construyas aunque parezca útil): inventario, lista de compras, cuentas, sincronizar entre dispositivos, asignar o rotar tareas, gamificación, escalar porciones, códigos de barras, notificaciones, fotos o archivos en las notas.
+### Fase 2 (en construcción), en este orden
+
+El ciclo que debe funcionar completo es: planear → revisar qué hay → cocinar → empacar → actualizar → cerrar la cocina.
+
+1. **Base.** Funcionar sin conexión; sincronizar el historial entre dos dispositivos (un adaptador nuevo de la capa de datos, sobre los mismos eventos); ingredientes con nombre, cantidad y unidad por separado.
+2. **Hoy y menú.** Una pantalla de inicio que dice qué toca hoy (comida, tareas, qué descongelar, almuerzos por empacar) y un menú semanal que se puede cambiar: asignar recetas, mover días, cancelar.
+3. **Inventario del congelador** por unidades, con "25 − existencia = a comprar", y la preparación mensual que lo actualiza al confirmar.
+4. **Compras**: la lista sale del menú y del inventario; al terminar de comprar se confirma qué entra al inventario.
+5. **Modo de cocina** (un paso a la vez, con temporizadores), etiquetas imprimibles, bitácora de incidencias y los seis indicadores del manual.
+
+Reglas de la fase 2:
+
+- La app nunca cambia el inventario ni marca algo como hecho por suposición: siempre pide confirmación.
+- Una tarea aparece cuando toca; no se muestran todas las posibles a la vez.
+- Lo que se registra en un lugar no se vuelve a pedir en otro.
+- Todo lo nuevo se guarda como eventos (Regla 3): así se puede deshacer, respaldar y sincronizar sin conflictos.
+- Seguridad de alimentos: no se inventan tiempos de conservación, un temporizador no confirma que algo está cocido, y las mediciones reales (temperatura, peso) las confirma la persona.
+
+Fuera de alcance (no lo construyas aunque parezca útil): asignar o rotar tareas, perfiles públicos o funciones sociales, gamificación, códigos de barras, publicidad o analíticas de terceros, fotos o archivos en las notas, y una mascota o arte basados en personajes existentes. Escalar porciones y las notificaciones se deciden cuando llegue su paso.
 
 ## Stack fijo
 
@@ -51,6 +71,8 @@ Fuera de alcance por ahora (no lo construyas aunque parezca útil): inventario, 
 - Pensada primero para celular y tablet. Botones de al menos 44 px, texto legible a un brazo de distancia.
 - Interfaz en español. Código en inglés (archivos, componentes, funciones, variables, claves del JSON). Los textos que ve el usuario van en un solo archivo: `src/shared/text.js`.
 - La app se instala en la pantalla de inicio (incluye `manifest.webmanifest` e íconos). Safari puede borrar los datos de un sitio que no está instalado; por eso la app muestra un aviso si no se abrió como app instalada.
+- **Lenguaje claro.** Cada tarea se escribe como una acción que se entiende sola ("Limpiar el fregadero con ECOS"), sin palabras técnicas ni abreviaturas del manual. Los aparatos, muebles y materiales se nombran por lo que son ("la campana", "la encimera de madera", "la licuadora"), sin marca ni modelo, y no se mencionan nombres de personas ajenas a la casa. Las marcas sí se usan en productos de limpieza ("Krud Kutter") y en ingredientes que se compran por marca. El validador rechaza las marcas de aparatos. Los ids no cambian aunque contengan una marca.
+- Funciona sin conexión: un service worker (`public/sw.js`) guarda la app en el dispositivo.
 - Zona horaria de la casa: `America/Denver`. Las fechas se guardan en UTC (ISO 8601) y "hoy" se calcula en `America/Denver`.
 
 ### Sin dueños

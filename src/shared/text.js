@@ -22,6 +22,7 @@ export const text = {
   install: {
     notice:
       'La app no está instalada en este dispositivo. El navegador puede borrar el historial de un sitio que no está instalado.',
+    offline: 'Ya instalada, la app abre aunque no haya internet.',
     howTo: 'Para instalarla: en Safari, toca Compartir y luego "Agregar a inicio"; en Chrome, abre el menú y toca "Instalar app".',
     backupLink: 'Mientras tanto, descarga un respaldo',
   },
