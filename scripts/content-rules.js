@@ -2,6 +2,7 @@
 // Son funciones puras: reciben un proceso y regresan la lista de errores encontrados.
 
 import { findForbiddenTerms } from './content-language.js';
+import { checkIngredient } from './ingredient-rules.js';
 
 export const CATEGORIES = ['compra', 'guardar', 'preparar', 'limpieza', 'mantenimiento', 'seguridad'];
 const GROUPS = ['prep-carnes', 'prep-verduras', 'pollo', 'cerdo', 'res', 'seafood', 'sopas', 'flex', 'desayunos', 'marinadas'];
@@ -38,7 +39,7 @@ export function isValidEstimate(estimate) {
 }
 
 /**
- * Dice si un valor es una lista de textos no vacíos (así son ingredients y notes).
+ * Dice si un valor es una lista de textos no vacíos (así es notes).
  *
  * @param {unknown} value - El valor a revisar.
  * @returns {boolean} true si es una lista de textos.
@@ -141,14 +142,16 @@ export function checkProcess(process, fileCategory, zoneIds) {
   if (process.frequencyLabel !== null && typeof process.frequencyLabel !== 'string') errors.push('frequencyLabel debe ser texto o null');
   if (!isValidEstimate(process.estimatedMinutes)) errors.push('estimatedMinutes debe ser null o { min, max } con min <= max');
   if (typeof process.active !== 'boolean') errors.push('active debe ser true o false');
-  for (const field of ['ingredients', 'notes']) {
-    if (field in process && !isTextList(process[field])) errors.push(`${field} debe ser una lista de textos`);
+  if ('notes' in process && !isTextList(process.notes)) errors.push('notes debe ser una lista de textos');
+  if ('ingredients' in process) {
+    if (!Array.isArray(process.ingredients)) errors.push('ingredients debe ser una lista');
+    else for (const ingredient of process.ingredients) errors.push(...checkIngredient(ingredient));
   }
 
   const visibleTexts = [
     process.name,
     process.frequencyLabel ?? '',
-    ...(process.ingredients ?? []),
+    ...(Array.isArray(process.ingredients) ? process.ingredients.map((ingredient) => ingredient?.text ?? '') : []),
     ...(process.notes ?? []),
     ...(Array.isArray(process.steps) ? process.steps.map((step) => step.text ?? '') : []),
   ];

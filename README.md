@@ -212,3 +212,10 @@ Una línea por decisión importante, con su porqué.
 - **Un filtro elegido se ve hundido y dorado** usando `aria-pressed`: el mismo dato sirve para el lector de pantalla y para el estilo.
 - **`prefers-reduced-motion` apaga el movimiento** de los botones.
 
+### Fase 2: ingredientes con cantidad y unidad
+
+- **Cada ingrediente guarda las palabras del manual (`text`) y, aparte, sus piezas** (`name`, `amount`, `unit`): la pantalla sigue mostrando el texto original, y las piezas sirven para sumar cantidades y armar compras.
+- **Si el manual no da cantidad, `amount` es `null`**: de 559 ingredientes, 289 traen cantidad; a los demás ("Sal", "Aguacate") no se les inventó una.
+- **Los rangos se guardan completos** (`amount` y `amountMax`): "1–1½ lb" no se redondea a un solo número.
+- **Las unidades son una lista cerrada** que revisa el validador: un error de dedo en una unidad no pasa.
+

@@ -259,7 +259,17 @@ Campos obligatorios de cada proceso:
 
 Campos opcionales (solo se escriben cuando aplican):
 
-- `ingredients`: lista de textos, uno por ingrediente con su cantidad (`"2 chiles dulces en tiras"`). Para recetas y marinadas.
+- `ingredients`: lista de ingredientes, para recetas y marinadas. Cada uno es un objeto:
+
+  ```json
+  { "text": "1–1½ lb de cerdo en trocitos", "name": "cerdo en trocitos", "amount": 1, "amountMax": 1.5, "unit": "lb" }
+  ```
+
+  - `text`: las palabras del manual. Es lo que se muestra y lo que se busca; los demás campos lo parten en piezas para poder sumar cantidades y armar compras.
+  - `name`: el ingrediente sin cantidad ni unidad.
+  - `amount`: número, o `null` si el manual no da cantidad ("Sal"). Nunca se inventa. `amountMax` solo se escribe si el manual da un rango.
+  - `unit`: `cda` | `cdta` | `taza` | `lb` | `oz` | `lata` | `diente` | `pizca` | `tallo` | `unidad`, o `null` cuando se cuenta por piezas ("2 cebollas") o no hay cantidad.
+  - `optional: true` si el manual lo marca como opcional, y `section` ("Salsa") si el ingrediente pertenece a una parte de la receta. Solo se escriben cuando aplican.
 - `notes`: lista de textos con lo que el manual dice del proceso y no es ingrediente ni paso: rendimiento ("Rinde 1 unidad"), con qué proteína es compatible una marinada, cuánto puede esperar después de descongelar, o el armado de Tita y el de Alonso en un desayuno. Son contenido del manual, de solo lectura; no confundir con las notas que escribe el usuario (funcionalidad 7).
 - `group`: solo en `preparar`, para dividir la categoría en la pantalla: `prep-carnes` | `prep-verduras` | `pollo` | `cerdo` | `res` | `seafood` | `sopas` | `flex` | `desayunos` | `marinadas`. Los dos primeros son los procedimientos de los preps mensuales; los demás, recetas. Los procesos generales de `preparar` (menú, servicio diario, los dos preps completos) no lo llevan.
 

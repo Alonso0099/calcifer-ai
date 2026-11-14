@@ -31,7 +31,7 @@ function includesQuery(value, normalizedQuery) {
  * Explica por qué un proceso coincide con una búsqueda: por su nombre, por un paso
  * o por un ingrediente. Se revisa en ese orden y se regresa la primera coincidencia.
  *
- * @param {{name: string, steps: Array<{text: string}>, ingredients?: string[]}} process - El proceso a revisar.
+ * @param {{name: string, steps: Array<{text: string}>, ingredients?: Array<{text: string}>}} process - El proceso a revisar.
  * @param {string} query - Lo que escribió el usuario.
  * @returns {{kind: 'name'|'step'|'ingredient', text: string}|null} Dónde coincidió y con qué
  *   texto, o null si no coincide. Una búsqueda vacía no coincide con nada.
@@ -42,8 +42,8 @@ export function findSearchMatch(process, query) {
   if (includesQuery(process.name, normalizedQuery)) return { kind: 'name', text: process.name };
   const step = process.steps.find((candidate) => includesQuery(candidate.text, normalizedQuery));
   if (step) return { kind: 'step', text: step.text };
-  const ingredient = (process.ingredients ?? []).find((candidate) => includesQuery(candidate, normalizedQuery));
-  if (ingredient) return { kind: 'ingredient', text: ingredient };
+  const ingredient = (process.ingredients ?? []).find((candidate) => includesQuery(candidate.text, normalizedQuery));
+  if (ingredient) return { kind: 'ingredient', text: ingredient.text };
   return null;
 }
 

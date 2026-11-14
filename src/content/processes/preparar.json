@@ -405,9 +405,25 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 3",
       "ingredients": [
-        "1 unidad de filetes de pollo marinados",
-        "1 cda de aceite, si hace falta",
-        "2–4 cdas de agua o caldo de pollo, si la salsa necesita soltarse"
+        {
+          "text": "1 unidad de filetes de pollo marinados",
+          "name": "filetes de pollo marinados",
+          "amount": 1,
+          "unit": "unidad"
+        },
+        {
+          "text": "1 cda de aceite, si hace falta",
+          "name": "aceite, si hace falta",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "2–4 cdas de agua o caldo de pollo, si la salsa necesita soltarse",
+          "name": "agua o caldo de pollo, si la salsa necesita soltarse",
+          "amount": 2,
+          "amountMax": 4,
+          "unit": "cda"
+        }
       ],
       "notes": [
         "Sirve para: Teriyaki, Mustard-Honey, Mexican, Lizano, Cilantro-Lemon, BBQ, Italian y Cheese + Nutmeg Chicken. Rinde 1 unidad / 4 platos",
@@ -492,8 +508,18 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 4",
       "ingredients": [
-        "1 unidad de pollo en trocitos",
-        "Aproximadamente 1 cda de aceite"
+        {
+          "text": "1 unidad de pollo en trocitos",
+          "name": "pollo en trocitos",
+          "amount": 1,
+          "unit": "unidad"
+        },
+        {
+          "text": "Aproximadamente 1 cda de aceite",
+          "name": "aceite",
+          "amount": 1,
+          "unit": "cda"
+        }
       ],
       "notes": [
         "Para: chicken bowls, fajitas, curry, taco chicken, pasta chicken y salteados. Rinde 1 unidad"
@@ -557,23 +583,110 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 5",
       "ingredients": [
-        "1½ lb de pechuga de pollo en cubos",
-        "1 cda de aceite",
-        "1 cda de mantequilla",
-        "1 cebolla pequeña en cubitos",
-        "2 dientes de ajo picados",
-        "2 zanahorias en rodajas",
-        "1 taza de arvejas",
-        "1½ cdas de curry en polvo",
-        "½ cdta de comino",
-        "¼ cdta de canela",
-        "½ cdta de cúrcuma (opcional)",
-        "2 cdas de harina",
-        "1½ tazas de caldo de pollo",
-        "½ taza de crema espesa (heavy cream)",
-        "Sal",
-        "Pimienta negra",
-        "Culantro para terminar (opcional)"
+        {
+          "text": "1½ lb de pechuga de pollo en cubos",
+          "name": "pechuga de pollo en cubos",
+          "amount": 1.5,
+          "unit": "lb"
+        },
+        {
+          "text": "1 cda de aceite",
+          "name": "aceite",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "1 cda de mantequilla",
+          "name": "mantequilla",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "1 cebolla pequeña en cubitos",
+          "name": "cebolla pequeña en cubitos",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "2 dientes de ajo picados",
+          "name": "ajo picados",
+          "amount": 2,
+          "unit": "diente"
+        },
+        {
+          "text": "2 zanahorias en rodajas",
+          "name": "zanahorias en rodajas",
+          "amount": 2,
+          "unit": null
+        },
+        {
+          "text": "1 taza de arvejas",
+          "name": "arvejas",
+          "amount": 1,
+          "unit": "taza"
+        },
+        {
+          "text": "1½ cdas de curry en polvo",
+          "name": "curry en polvo",
+          "amount": 1.5,
+          "unit": "cda"
+        },
+        {
+          "text": "½ cdta de comino",
+          "name": "comino",
+          "amount": 0.5,
+          "unit": "cdta"
+        },
+        {
+          "text": "¼ cdta de canela",
+          "name": "canela",
+          "amount": 0.25,
+          "unit": "cdta"
+        },
+        {
+          "text": "½ cdta de cúrcuma (opcional)",
+          "name": "cúrcuma",
+          "amount": 0.5,
+          "unit": "cdta",
+          "optional": true
+        },
+        {
+          "text": "2 cdas de harina",
+          "name": "harina",
+          "amount": 2,
+          "unit": "cda"
+        },
+        {
+          "text": "1½ tazas de caldo de pollo",
+          "name": "caldo de pollo",
+          "amount": 1.5,
+          "unit": "taza"
+        },
+        {
+          "text": "½ taza de crema espesa (heavy cream)",
+          "name": "crema espesa (heavy cream)",
+          "amount": 0.5,
+          "unit": "taza"
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta negra",
+          "name": "Pimienta negra",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Culantro para terminar (opcional)",
+          "name": "Culantro para terminar",
+          "amount": null,
+          "unit": null,
+          "optional": true
+        }
       ],
       "notes": [
         "Rinde 1 unidad / 4 platos. Servir con arroz + vegetal"
@@ -687,18 +800,80 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 6",
       "ingredients": [
-        "12–14 oz de tortellini de queso",
-        "1 lb de pechuga de pollo en trocitos pequeños",
-        "2 tazas de floretes de brócoli",
-        "1 cda de mantequilla",
-        "2 dientes de ajo",
-        "1 taza de caldo de pollo",
-        "¾ taza de crema espesa (heavy cream)",
-        "½ taza de parmesano",
-        "2 oz de queso crema (opcional)",
-        "½ cdta de Italian seasoning",
-        "Sal",
-        "Pimienta"
+        {
+          "text": "12–14 oz de tortellini de queso",
+          "name": "tortellini de queso",
+          "amount": 12,
+          "amountMax": 14,
+          "unit": "oz"
+        },
+        {
+          "text": "1 lb de pechuga de pollo en trocitos pequeños",
+          "name": "pechuga de pollo en trocitos pequeños",
+          "amount": 1,
+          "unit": "lb"
+        },
+        {
+          "text": "2 tazas de floretes de brócoli",
+          "name": "floretes de brócoli",
+          "amount": 2,
+          "unit": "taza"
+        },
+        {
+          "text": "1 cda de mantequilla",
+          "name": "mantequilla",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "2 dientes de ajo",
+          "name": "ajo",
+          "amount": 2,
+          "unit": "diente"
+        },
+        {
+          "text": "1 taza de caldo de pollo",
+          "name": "caldo de pollo",
+          "amount": 1,
+          "unit": "taza"
+        },
+        {
+          "text": "¾ taza de crema espesa (heavy cream)",
+          "name": "crema espesa (heavy cream)",
+          "amount": 0.75,
+          "unit": "taza"
+        },
+        {
+          "text": "½ taza de parmesano",
+          "name": "parmesano",
+          "amount": 0.5,
+          "unit": "taza"
+        },
+        {
+          "text": "2 oz de queso crema (opcional)",
+          "name": "queso crema",
+          "amount": 2,
+          "unit": "oz",
+          "optional": true
+        },
+        {
+          "text": "½ cdta de Italian seasoning",
+          "name": "italian seasoning",
+          "amount": 0.5,
+          "unit": "cdta"
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta",
+          "name": "Pimienta",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde 1 unidad / 4 platos generosos"
@@ -807,20 +982,93 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 7",
       "ingredients": [
-        "1 unidad de pollo con hueso",
-        "1 cebolla pequeña",
-        "½ chile dulce",
-        "2 dientes de ajo",
-        "1 tomate",
-        "1 zanahoria",
-        "1–2 papas (opcional)",
-        "1 cdta de orégano",
-        "½ cdta de paprika",
-        "1 pizca pequeña de tomillo",
-        "Sal",
-        "Pimienta",
-        "1–1½ tazas de caldo de pollo o agua",
-        "Culantro"
+        {
+          "text": "1 unidad de pollo con hueso",
+          "name": "pollo con hueso",
+          "amount": 1,
+          "unit": "unidad"
+        },
+        {
+          "text": "1 cebolla pequeña",
+          "name": "cebolla pequeña",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "½ chile dulce",
+          "name": "chile dulce",
+          "amount": 0.5,
+          "unit": null
+        },
+        {
+          "text": "2 dientes de ajo",
+          "name": "ajo",
+          "amount": 2,
+          "unit": "diente"
+        },
+        {
+          "text": "1 tomate",
+          "name": "tomate",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "1 zanahoria",
+          "name": "zanahoria",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "1–2 papas (opcional)",
+          "name": "papas",
+          "amount": 1,
+          "amountMax": 2,
+          "unit": null,
+          "optional": true
+        },
+        {
+          "text": "1 cdta de orégano",
+          "name": "orégano",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "½ cdta de paprika",
+          "name": "paprika",
+          "amount": 0.5,
+          "unit": "cdta"
+        },
+        {
+          "text": "1 pizca pequeña de tomillo",
+          "name": "pequeña de tomillo",
+          "amount": 1,
+          "unit": "pizca"
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta",
+          "name": "Pimienta",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "1–1½ tazas de caldo de pollo o agua",
+          "name": "caldo de pollo o agua",
+          "amount": 1,
+          "amountMax": 1.5,
+          "unit": "taza"
+        },
+        {
+          "text": "Culantro",
+          "name": "Culantro",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde 1 unidad"
@@ -909,7 +1157,12 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 8",
       "ingredients": [
-        "1 unidad de pollo con hueso, con el adobo Herb Muslos / Encuentros"
+        {
+          "text": "1 unidad de pollo con hueso, con el adobo Herb Muslos / Encuentros",
+          "name": "pollo con hueso, con el adobo Herb Muslos / Encuentros",
+          "amount": 1,
+          "unit": "unidad"
+        }
       ],
       "notes": [
         "Rinde 1 unidad"
@@ -973,8 +1226,18 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 9",
       "ingredients": [
-        "1 unidad de alitas, con el adobo BBQ Wings",
-        "Salsa BBQ limpia"
+        {
+          "text": "1 unidad de alitas, con el adobo BBQ Wings",
+          "name": "alitas, con el adobo BBQ Wings",
+          "amount": 1,
+          "unit": "unidad"
+        },
+        {
+          "text": "Salsa BBQ limpia",
+          "name": "Salsa BBQ limpia",
+          "amount": null,
+          "unit": null
+        }
       ],
       "steps": [
         {
@@ -1015,12 +1278,42 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 10",
       "ingredients": [
-        "1 unidad de pollo Mexican en trocitos",
-        "2 chiles dulces en tiras",
-        "1 cebolla en tiras",
-        "Tortillas",
-        "Aguacate / guacamole",
-        "Salsa"
+        {
+          "text": "1 unidad de pollo Mexican en trocitos",
+          "name": "pollo Mexican en trocitos",
+          "amount": 1,
+          "unit": "unidad"
+        },
+        {
+          "text": "2 chiles dulces en tiras",
+          "name": "chiles dulces en tiras",
+          "amount": 2,
+          "unit": null
+        },
+        {
+          "text": "1 cebolla en tiras",
+          "name": "cebolla en tiras",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "Tortillas",
+          "name": "Tortillas",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Aguacate / guacamole",
+          "name": "Aguacate / guacamole",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Salsa",
+          "name": "Salsa",
+          "amount": null,
+          "unit": null
+        }
       ],
       "steps": [
         {
@@ -1071,10 +1364,30 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 11",
       "ingredients": [
-        "1 unidad de pollo cocido",
-        "Arroz o quinoa",
-        "2 vegetales",
-        "Aguacate o salsa"
+        {
+          "text": "1 unidad de pollo cocido",
+          "name": "pollo cocido",
+          "amount": 1,
+          "unit": "unidad"
+        },
+        {
+          "text": "Arroz o quinoa",
+          "name": "Arroz o quinoa",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "2 vegetales",
+          "name": "vegetales",
+          "amount": 2,
+          "unit": null
+        },
+        {
+          "text": "Aguacate o salsa",
+          "name": "Aguacate o salsa",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Es una fórmula: no necesita receta adicional. Usar la guía de combinaciones para elegir el armado"
@@ -1097,7 +1410,12 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 12",
       "ingredients": [
-        "1 unidad de cerdo marinado, en trocitos o en chuletas"
+        {
+          "text": "1 unidad de cerdo marinado, en trocitos o en chuletas",
+          "name": "cerdo marinado, en trocitos o en chuletas",
+          "amount": 1,
+          "unit": "unidad"
+        }
       ],
       "notes": [
         "Sirve para: Hawaiian, Mustard-Honey, Cilantro-Lemon, Italian, BBQ, Teriyaki, Lizano y Mexican. Los pasos 1–5 son para trocitos y los 6–10 para chuletas"
@@ -1171,12 +1489,42 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 13",
       "ingredients": [
-        "1 unidad de chuletas de cerdo",
-        "Sal",
-        "Pimienta",
-        "Ajo",
-        "Paprika",
-        "1 cda de aceite"
+        {
+          "text": "1 unidad de chuletas de cerdo",
+          "name": "chuletas de cerdo",
+          "amount": 1,
+          "unit": "unidad"
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta",
+          "name": "Pimienta",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Ajo",
+          "name": "Ajo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Paprika",
+          "name": "Paprika",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "1 cda de aceite",
+          "name": "aceite",
+          "amount": 1,
+          "unit": "cda"
+        }
       ],
       "notes": [
         "Rinde 1 unidad. Regla de la casa: preferir arroz blanco + vegetal/ensalada en vez de gallo pinto"
@@ -1230,20 +1578,91 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 14",
       "ingredients": [
-        "1–1½ lb de cerdo en trocitos",
-        "3 tazas de frijoles o legumbres cocidos",
-        "1 cebolla pequeña",
-        "½ chile dulce",
-        "2 dientes de ajo",
-        "1 tallo de apio",
-        "1 tomate",
-        "1 zanahoria",
-        "½ cdta de orégano",
-        "Paprika",
-        "Sal",
-        "Pimienta",
-        "Caldo, el necesario",
-        "Culantro"
+        {
+          "text": "1–1½ lb de cerdo en trocitos",
+          "name": "cerdo en trocitos",
+          "amount": 1,
+          "amountMax": 1.5,
+          "unit": "lb"
+        },
+        {
+          "text": "3 tazas de frijoles o legumbres cocidos",
+          "name": "frijoles o legumbres cocidos",
+          "amount": 3,
+          "unit": "taza"
+        },
+        {
+          "text": "1 cebolla pequeña",
+          "name": "cebolla pequeña",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "½ chile dulce",
+          "name": "chile dulce",
+          "amount": 0.5,
+          "unit": null
+        },
+        {
+          "text": "2 dientes de ajo",
+          "name": "ajo",
+          "amount": 2,
+          "unit": "diente"
+        },
+        {
+          "text": "1 tallo de apio",
+          "name": "apio",
+          "amount": 1,
+          "unit": "tallo"
+        },
+        {
+          "text": "1 tomate",
+          "name": "tomate",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "1 zanahoria",
+          "name": "zanahoria",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "½ cdta de orégano",
+          "name": "orégano",
+          "amount": 0.5,
+          "unit": "cdta"
+        },
+        {
+          "text": "Paprika",
+          "name": "Paprika",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta",
+          "name": "Pimienta",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Caldo, el necesario",
+          "name": "Caldo, el necesario",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Culantro",
+          "name": "Culantro",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde aproximadamente 4–6 platos"
@@ -1312,20 +1731,90 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 15",
       "ingredients": [
-        "1½ tazas de garbanzos secos, remojados toda la noche",
-        "1½ lb de cerdo en trocitos",
-        "1 cebolla",
-        "½ chile dulce",
-        "2 dientes de ajo",
-        "1 zanahoria",
-        "1 tallo de apio",
-        "1 tomate pequeño",
-        "½ cdta de orégano",
-        "1 cdta de paprika",
-        "Sal",
-        "Pimienta",
-        "Culantro",
-        "Agua o caldo"
+        {
+          "text": "1½ tazas de garbanzos secos, remojados toda la noche",
+          "name": "garbanzos secos, remojados toda la noche",
+          "amount": 1.5,
+          "unit": "taza"
+        },
+        {
+          "text": "1½ lb de cerdo en trocitos",
+          "name": "cerdo en trocitos",
+          "amount": 1.5,
+          "unit": "lb"
+        },
+        {
+          "text": "1 cebolla",
+          "name": "cebolla",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "½ chile dulce",
+          "name": "chile dulce",
+          "amount": 0.5,
+          "unit": null
+        },
+        {
+          "text": "2 dientes de ajo",
+          "name": "ajo",
+          "amount": 2,
+          "unit": "diente"
+        },
+        {
+          "text": "1 zanahoria",
+          "name": "zanahoria",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "1 tallo de apio",
+          "name": "apio",
+          "amount": 1,
+          "unit": "tallo"
+        },
+        {
+          "text": "1 tomate pequeño",
+          "name": "tomate pequeño",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "½ cdta de orégano",
+          "name": "orégano",
+          "amount": 0.5,
+          "unit": "cdta"
+        },
+        {
+          "text": "1 cdta de paprika",
+          "name": "paprika",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta",
+          "name": "Pimienta",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Culantro",
+          "name": "Culantro",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Agua o caldo",
+          "name": "Agua o caldo",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde aproximadamente 6 platos. Método en olla de presión"
@@ -1414,14 +1903,54 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 16",
       "ingredients": [
-        "1½ lb de cerdo molido",
-        "1 huevo",
-        "½ taza de pan molido",
-        "2 dientes de ajo",
-        "¼ taza de cebolla en cubitos finos",
-        "½ cdta de orégano",
-        "¾ cdta de sal",
-        "Pimienta"
+        {
+          "text": "1½ lb de cerdo molido",
+          "name": "cerdo molido",
+          "amount": 1.5,
+          "unit": "lb"
+        },
+        {
+          "text": "1 huevo",
+          "name": "huevo",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "½ taza de pan molido",
+          "name": "pan molido",
+          "amount": 0.5,
+          "unit": "taza"
+        },
+        {
+          "text": "2 dientes de ajo",
+          "name": "ajo",
+          "amount": 2,
+          "unit": "diente"
+        },
+        {
+          "text": "¼ taza de cebolla en cubitos finos",
+          "name": "cebolla en cubitos finos",
+          "amount": 0.25,
+          "unit": "taza"
+        },
+        {
+          "text": "½ cdta de orégano",
+          "name": "orégano",
+          "amount": 0.5,
+          "unit": "cdta"
+        },
+        {
+          "text": "¾ cdta de sal",
+          "name": "sal",
+          "amount": 0.75,
+          "unit": "cdta"
+        },
+        {
+          "text": "Pimienta",
+          "name": "Pimienta",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde 1 unidad"
@@ -1465,11 +1994,37 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 17",
       "ingredients": [
-        "1½–2 lb de bistec delgado",
-        "Adobo de Bistec Encebollado (base Lizano)",
-        "2 cebollas en juliana",
-        "1 cda de aceite",
-        "1 chorrito de caldo de res, si hace falta"
+        {
+          "text": "1½–2 lb de bistec delgado",
+          "name": "bistec delgado",
+          "amount": 1.5,
+          "amountMax": 2,
+          "unit": "lb"
+        },
+        {
+          "text": "Adobo de Bistec Encebollado (base Lizano)",
+          "name": "Adobo de Bistec Encebollado (base Lizano)",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "2 cebollas en juliana",
+          "name": "cebollas en juliana",
+          "amount": 2,
+          "unit": null
+        },
+        {
+          "text": "1 cda de aceite",
+          "name": "aceite",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "1 chorrito de caldo de res, si hace falta",
+          "name": "chorrito de caldo de res, si hace falta",
+          "amount": 1,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde 1 unidad"
@@ -1538,18 +2093,85 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 18",
       "ingredients": [
-        "1½ lb de res en rebanadas delgadas",
-        "Mezcla velvet de Beef & Broccoli",
-        "Salsa: ⅔ taza de caldo de pollo o de res",
-        "Salsa: 2 cdas de salsa de soya",
-        "Salsa: 1½ cdas de salsa de ostión",
-        "Salsa: ½ cdta de aceite de ajonjolí",
-        "Salsa: 1 cdta de azúcar o endulzante Lakanto",
-        "Salsa: 1 cda de maicena + 2 cdas de agua",
-        "4–5 tazas de brócoli",
-        "2 dientes de ajo",
-        "½ cdta de jengibre",
-        "Aceite"
+        {
+          "text": "1½ lb de res en rebanadas delgadas",
+          "name": "res en rebanadas delgadas",
+          "amount": 1.5,
+          "unit": "lb"
+        },
+        {
+          "text": "Mezcla velvet de Beef & Broccoli",
+          "name": "Mezcla velvet de Beef & Broccoli",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Salsa: ⅔ taza de caldo de pollo o de res",
+          "name": "caldo de pollo o de res",
+          "amount": 0.667,
+          "unit": "taza",
+          "section": "Salsa"
+        },
+        {
+          "text": "Salsa: 2 cdas de salsa de soya",
+          "name": "salsa de soya",
+          "amount": 2,
+          "unit": "cda",
+          "section": "Salsa"
+        },
+        {
+          "text": "Salsa: 1½ cdas de salsa de ostión",
+          "name": "salsa de ostión",
+          "amount": 1.5,
+          "unit": "cda",
+          "section": "Salsa"
+        },
+        {
+          "text": "Salsa: ½ cdta de aceite de ajonjolí",
+          "name": "aceite de ajonjolí",
+          "amount": 0.5,
+          "unit": "cdta",
+          "section": "Salsa"
+        },
+        {
+          "text": "Salsa: 1 cdta de azúcar o endulzante Lakanto",
+          "name": "azúcar o endulzante Lakanto",
+          "amount": 1,
+          "unit": "cdta",
+          "section": "Salsa"
+        },
+        {
+          "text": "Salsa: 1 cda de maicena + 2 cdas de agua",
+          "name": "maicena + 2 cdas de agua",
+          "amount": 1,
+          "unit": "cda",
+          "section": "Salsa"
+        },
+        {
+          "text": "4–5 tazas de brócoli",
+          "name": "brócoli",
+          "amount": 4,
+          "amountMax": 5,
+          "unit": "taza"
+        },
+        {
+          "text": "2 dientes de ajo",
+          "name": "ajo",
+          "amount": 2,
+          "unit": "diente"
+        },
+        {
+          "text": "½ cdta de jengibre",
+          "name": "jengibre",
+          "amount": 0.5,
+          "unit": "cdta"
+        },
+        {
+          "text": "Aceite",
+          "name": "Aceite",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde 1 unidad"
@@ -1638,19 +2260,85 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 19",
       "ingredients": [
-        "1½ lb de res en cubitos",
-        "1 cda de aceite",
-        "1 cebolla",
-        "½ chile dulce",
-        "2 dientes de ajo",
-        "1 tomate",
-        "1 zanahoria",
-        "2 papas (opcional)",
-        "1½ tazas de caldo de res",
-        "Orégano",
-        "Tomillo, poca cantidad",
-        "Sal",
-        "Pimienta"
+        {
+          "text": "1½ lb de res en cubitos",
+          "name": "res en cubitos",
+          "amount": 1.5,
+          "unit": "lb"
+        },
+        {
+          "text": "1 cda de aceite",
+          "name": "aceite",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "1 cebolla",
+          "name": "cebolla",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "½ chile dulce",
+          "name": "chile dulce",
+          "amount": 0.5,
+          "unit": null
+        },
+        {
+          "text": "2 dientes de ajo",
+          "name": "ajo",
+          "amount": 2,
+          "unit": "diente"
+        },
+        {
+          "text": "1 tomate",
+          "name": "tomate",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "1 zanahoria",
+          "name": "zanahoria",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "2 papas (opcional)",
+          "name": "papas",
+          "amount": 2,
+          "unit": null,
+          "optional": true
+        },
+        {
+          "text": "1½ tazas de caldo de res",
+          "name": "caldo de res",
+          "amount": 1.5,
+          "unit": "taza"
+        },
+        {
+          "text": "Orégano",
+          "name": "Orégano",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Tomillo, poca cantidad",
+          "name": "Tomillo, poca cantidad",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta",
+          "name": "Pimienta",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde 1 unidad"
@@ -1719,8 +2407,18 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 20",
       "ingredients": [
-        "Los ingredientes de Carne en Salsa",
-        "8 oz de hongos en rebanadas"
+        {
+          "text": "Los ingredientes de Carne en Salsa",
+          "name": "Los ingredientes de Carne en Salsa",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "8 oz de hongos en rebanadas",
+          "name": "hongos en rebanadas",
+          "amount": 8,
+          "unit": "oz"
+        }
       ],
       "steps": [
         {
@@ -1756,18 +2454,78 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 21",
       "ingredients": [
-        "2 lb de res en cubitos",
-        "1 cebolla",
-        "2 zanahorias",
-        "2 tallos de apio",
-        "3 dientes de ajo",
-        "2 papas",
-        "1 cda de pasta de tomate",
-        "4 tazas de caldo de res",
-        "1 cdta de tomillo",
-        "Sal",
-        "Pimienta",
-        "1 cda de maicena + agua, si hace falta"
+        {
+          "text": "2 lb de res en cubitos",
+          "name": "res en cubitos",
+          "amount": 2,
+          "unit": "lb"
+        },
+        {
+          "text": "1 cebolla",
+          "name": "cebolla",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "2 zanahorias",
+          "name": "zanahorias",
+          "amount": 2,
+          "unit": null
+        },
+        {
+          "text": "2 tallos de apio",
+          "name": "apio",
+          "amount": 2,
+          "unit": "tallo"
+        },
+        {
+          "text": "3 dientes de ajo",
+          "name": "ajo",
+          "amount": 3,
+          "unit": "diente"
+        },
+        {
+          "text": "2 papas",
+          "name": "papas",
+          "amount": 2,
+          "unit": null
+        },
+        {
+          "text": "1 cda de pasta de tomate",
+          "name": "pasta de tomate",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "4 tazas de caldo de res",
+          "name": "caldo de res",
+          "amount": 4,
+          "unit": "taza"
+        },
+        {
+          "text": "1 cdta de tomillo",
+          "name": "tomillo",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta",
+          "name": "Pimienta",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "1 cda de maicena + agua, si hace falta",
+          "name": "maicena + agua, si hace falta",
+          "amount": 1,
+          "unit": "cda"
+        }
       ],
       "notes": [
         "Rinde 6 platos"
@@ -1841,13 +2599,50 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 22",
       "ingredients": [
-        "1½–2 lb de molida para hamburguesa (res molida con más grasa)",
-        "Sal",
-        "Pimienta",
-        "Queso (opcional)",
-        "Pan de hamburguesa",
-        "Vegetales",
-        "Papas fritas del congelador"
+        {
+          "text": "1½–2 lb de molida para hamburguesa (res molida con más grasa)",
+          "name": "molida para hamburguesa (res molida con más grasa)",
+          "amount": 1.5,
+          "amountMax": 2,
+          "unit": "lb"
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta",
+          "name": "Pimienta",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Queso (opcional)",
+          "name": "Queso",
+          "amount": null,
+          "unit": null,
+          "optional": true
+        },
+        {
+          "text": "Pan de hamburguesa",
+          "name": "Pan de hamburguesa",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Vegetales",
+          "name": "Vegetales",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Papas fritas del congelador",
+          "name": "Papas fritas del congelador",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde 1 unidad"
@@ -1906,16 +2701,66 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 23",
       "ingredients": [
-        "1 unidad de res molida magra",
-        "½ cebolla",
-        "2 dientes de ajo",
-        "1 cdta de chili powder",
-        "1 cdta de paprika",
-        "½ cdta de comino",
-        "½ cdta de orégano",
-        "Sal",
-        "Pimienta",
-        "Limón al final"
+        {
+          "text": "1 unidad de res molida magra",
+          "name": "res molida magra",
+          "amount": 1,
+          "unit": "unidad"
+        },
+        {
+          "text": "½ cebolla",
+          "name": "cebolla",
+          "amount": 0.5,
+          "unit": null
+        },
+        {
+          "text": "2 dientes de ajo",
+          "name": "ajo",
+          "amount": 2,
+          "unit": "diente"
+        },
+        {
+          "text": "1 cdta de chili powder",
+          "name": "chili powder",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "1 cdta de paprika",
+          "name": "paprika",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "½ cdta de comino",
+          "name": "comino",
+          "amount": 0.5,
+          "unit": "cdta"
+        },
+        {
+          "text": "½ cdta de orégano",
+          "name": "orégano",
+          "amount": 0.5,
+          "unit": "cdta"
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta",
+          "name": "Pimienta",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Limón al final",
+          "name": "Limón al final",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Para burritos, bowls y tacos"
@@ -1974,11 +2819,37 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 24",
       "ingredients": [
-        "4 papas grandes horneadas",
-        "Mexican Ground Beef (relleno)",
-        "Queso",
-        "Greek yogurt o natilla (opcional)",
-        "Cebollín"
+        {
+          "text": "4 papas grandes horneadas",
+          "name": "papas grandes horneadas",
+          "amount": 4,
+          "unit": null
+        },
+        {
+          "text": "Mexican Ground Beef (relleno)",
+          "name": "Mexican Ground Beef (relleno)",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Queso",
+          "name": "Queso",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Greek yogurt o natilla (opcional)",
+          "name": "Greek yogurt o natilla",
+          "amount": null,
+          "unit": null,
+          "optional": true
+        },
+        {
+          "text": "Cebollín",
+          "name": "Cebollín",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde 4 porciones grandes"
@@ -2037,15 +2908,62 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 25",
       "ingredients": [
-        "1 lb de res molida magra",
-        "10–12 oz de pasta",
-        "1 taza de hongos",
-        "1 taza de maíz",
-        "1 tomate o salsa de tomate",
-        "½ cebolla",
-        "2 dientes de ajo",
-        "Parmesano",
-        "Aceitunas (opcional)"
+        {
+          "text": "1 lb de res molida magra",
+          "name": "res molida magra",
+          "amount": 1,
+          "unit": "lb"
+        },
+        {
+          "text": "10–12 oz de pasta",
+          "name": "pasta",
+          "amount": 10,
+          "amountMax": 12,
+          "unit": "oz"
+        },
+        {
+          "text": "1 taza de hongos",
+          "name": "hongos",
+          "amount": 1,
+          "unit": "taza"
+        },
+        {
+          "text": "1 taza de maíz",
+          "name": "maíz",
+          "amount": 1,
+          "unit": "taza"
+        },
+        {
+          "text": "1 tomate o salsa de tomate",
+          "name": "tomate o salsa de tomate",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "½ cebolla",
+          "name": "cebolla",
+          "amount": 0.5,
+          "unit": null
+        },
+        {
+          "text": "2 dientes de ajo",
+          "name": "ajo",
+          "amount": 2,
+          "unit": "diente"
+        },
+        {
+          "text": "Parmesano",
+          "name": "Parmesano",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Aceitunas (opcional)",
+          "name": "Aceitunas",
+          "amount": null,
+          "unit": null,
+          "optional": true
+        }
       ],
       "notes": [
         "Rinde 1 unidad"
@@ -2114,9 +3032,26 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 26",
       "ingredients": [
-        "Res en corte delgado",
-        "Fajitas: chiles dulces, cebolla y sazón Mexican",
-        "Tacos: tortillas, repollo/cebolla, pico de gallo y aguacate"
+        {
+          "text": "Res en corte delgado",
+          "name": "Res en corte delgado",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Fajitas: chiles dulces, cebolla y sazón Mexican",
+          "name": "chiles dulces, cebolla y sazón Mexican",
+          "amount": null,
+          "unit": null,
+          "section": "Fajitas"
+        },
+        {
+          "text": "Tacos: tortillas, repollo/cebolla, pico de gallo y aguacate",
+          "name": "tortillas, repollo/cebolla, pico de gallo y aguacate",
+          "amount": null,
+          "unit": null,
+          "section": "Tacos"
+        }
       ],
       "steps": [
         {
@@ -2147,9 +3082,24 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 27",
       "ingredients": [
-        "1 unidad = 4 steaks",
-        "Sal",
-        "Pimienta"
+        {
+          "text": "1 unidad = 4 steaks",
+          "name": "= 4 steaks",
+          "amount": 1,
+          "unit": "unidad"
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta",
+          "name": "Pimienta",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "No se marina por default"
@@ -2203,16 +3153,67 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 28",
       "ingredients": [
-        "4–6 filetes de tilapia, según el tamaño",
-        "½ taza de natilla (sour cream)",
-        "¼ taza de leche o agua",
-        "1 cdta de paprika",
-        "½ cdta de ajo en polvo",
-        "½ cdta de cebolla en polvo",
-        "Sal",
-        "Pimienta",
-        "3 tazas de cornflakes triturados",
-        "½ taza de harina"
+        {
+          "text": "4–6 filetes de tilapia, según el tamaño",
+          "name": "filetes de tilapia, según el tamaño",
+          "amount": 4,
+          "amountMax": 6,
+          "unit": null
+        },
+        {
+          "text": "½ taza de natilla (sour cream)",
+          "name": "natilla (sour cream)",
+          "amount": 0.5,
+          "unit": "taza"
+        },
+        {
+          "text": "¼ taza de leche o agua",
+          "name": "leche o agua",
+          "amount": 0.25,
+          "unit": "taza"
+        },
+        {
+          "text": "1 cdta de paprika",
+          "name": "paprika",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "½ cdta de ajo en polvo",
+          "name": "ajo en polvo",
+          "amount": 0.5,
+          "unit": "cdta"
+        },
+        {
+          "text": "½ cdta de cebolla en polvo",
+          "name": "cebolla en polvo",
+          "amount": 0.5,
+          "unit": "cdta"
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta",
+          "name": "Pimienta",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "3 tazas de cornflakes triturados",
+          "name": "cornflakes triturados",
+          "amount": 3,
+          "unit": "taza"
+        },
+        {
+          "text": "½ taza de harina",
+          "name": "harina",
+          "amount": 0.5,
+          "unit": "taza"
+        }
       ],
       "notes": [
         "Rinde 1 unidad"
@@ -2281,16 +3282,67 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 29",
       "ingredients": [
-        "4–6 filetes de tilapia",
-        "1 taza de harina",
-        "½ taza de harina de maíz (cornmeal)",
-        "Paprika",
-        "Ajo en polvo",
-        "Cebolla en polvo",
-        "Sal",
-        "Pimienta",
-        "1 taza de buttermilk",
-        "Aceite para freír"
+        {
+          "text": "4–6 filetes de tilapia",
+          "name": "filetes de tilapia",
+          "amount": 4,
+          "amountMax": 6,
+          "unit": null
+        },
+        {
+          "text": "1 taza de harina",
+          "name": "harina",
+          "amount": 1,
+          "unit": "taza"
+        },
+        {
+          "text": "½ taza de harina de maíz (cornmeal)",
+          "name": "harina de maíz (cornmeal)",
+          "amount": 0.5,
+          "unit": "taza"
+        },
+        {
+          "text": "Paprika",
+          "name": "Paprika",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Ajo en polvo",
+          "name": "Ajo en polvo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Cebolla en polvo",
+          "name": "Cebolla en polvo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta",
+          "name": "Pimienta",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "1 taza de buttermilk",
+          "name": "buttermilk",
+          "amount": 1,
+          "unit": "taza"
+        },
+        {
+          "text": "Aceite para freír",
+          "name": "Aceite para freír",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde 1 unidad"
@@ -2359,13 +3411,49 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 30",
       "ingredients": [
-        "4–6 filetes de tilapia",
-        "4 dientes de ajo en láminas delgadas",
-        "2 cdas de aceite de oliva",
-        "Sal",
-        "Pimienta",
-        "1 limón",
-        "Perejil o culantro"
+        {
+          "text": "4–6 filetes de tilapia",
+          "name": "filetes de tilapia",
+          "amount": 4,
+          "amountMax": 6,
+          "unit": null
+        },
+        {
+          "text": "4 dientes de ajo en láminas delgadas",
+          "name": "ajo en láminas delgadas",
+          "amount": 4,
+          "unit": "diente"
+        },
+        {
+          "text": "2 cdas de aceite de oliva",
+          "name": "aceite de oliva",
+          "amount": 2,
+          "unit": "cda"
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta",
+          "name": "Pimienta",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "1 limón",
+          "name": "limón",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "Perejil o culantro",
+          "name": "Perejil o culantro",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde 1 unidad"
@@ -2429,9 +3517,24 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 31",
       "ingredients": [
-        "1 unidad de salmón",
-        "Marinada Sweet Teriyaki para salmón",
-        "Salsa teriyaki limpia para glasear"
+        {
+          "text": "1 unidad de salmón",
+          "name": "salmón",
+          "amount": 1,
+          "unit": "unidad"
+        },
+        {
+          "text": "Marinada Sweet Teriyaki para salmón",
+          "name": "Marinada Sweet Teriyaki para salmón",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Salsa teriyaki limpia para glasear",
+          "name": "Salsa teriyaki limpia para glasear",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde 1 unidad"
@@ -2490,15 +3593,60 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 32",
       "ingredients": [
-        "4 tuna steaks",
-        "Marinada de soya para tuna steak",
-        "Arroz",
-        "Pepino",
-        "Zanahoria",
-        "Repollo",
-        "Aguacate",
-        "Ajonjolí",
-        "Salsa estilo mayo para tuna"
+        {
+          "text": "4 tuna steaks",
+          "name": "tuna steaks",
+          "amount": 4,
+          "unit": null
+        },
+        {
+          "text": "Marinada de soya para tuna steak",
+          "name": "Marinada de soya para tuna steak",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Arroz",
+          "name": "Arroz",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pepino",
+          "name": "Pepino",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Zanahoria",
+          "name": "Zanahoria",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Repollo",
+          "name": "Repollo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Aguacate",
+          "name": "Aguacate",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Ajonjolí",
+          "name": "Ajonjolí",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Salsa estilo mayo para tuna",
+          "name": "Salsa estilo mayo para tuna",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde 1 unidad"
@@ -2557,19 +3705,84 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 33",
       "ingredients": [
-        "1½ lb de camarones",
-        "1 cdta de chili powder",
-        "½ cdta de comino",
-        "1 cdta de paprika ahumada",
-        "Ajo en polvo",
-        "Ralladura de limón",
-        "1 cda de aceite",
-        "Sal",
-        "Tortillas",
-        "Repollo",
-        "Pico de gallo",
-        "Aguacate",
-        "Limón"
+        {
+          "text": "1½ lb de camarones",
+          "name": "camarones",
+          "amount": 1.5,
+          "unit": "lb"
+        },
+        {
+          "text": "1 cdta de chili powder",
+          "name": "chili powder",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "½ cdta de comino",
+          "name": "comino",
+          "amount": 0.5,
+          "unit": "cdta"
+        },
+        {
+          "text": "1 cdta de paprika ahumada",
+          "name": "paprika ahumada",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "Ajo en polvo",
+          "name": "Ajo en polvo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Ralladura de limón",
+          "name": "Ralladura de limón",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "1 cda de aceite",
+          "name": "aceite",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Tortillas",
+          "name": "Tortillas",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Repollo",
+          "name": "Repollo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pico de gallo",
+          "name": "Pico de gallo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Aguacate",
+          "name": "Aguacate",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Limón",
+          "name": "Limón",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde 1 unidad"
@@ -2628,14 +3841,54 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 34",
       "ingredients": [
-        "Los camarones de Shrimp Tacos",
-        "Arroz o quinoa (en lugar de tortillas)",
-        "Pepino",
-        "Repollo",
-        "Zanahoria",
-        "Maíz",
-        "Aguacate",
-        "La salsa que se quiera"
+        {
+          "text": "Los camarones de Shrimp Tacos",
+          "name": "Los camarones de Shrimp Tacos",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Arroz o quinoa (en lugar de tortillas)",
+          "name": "Arroz o quinoa (en lugar de tortillas)",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pepino",
+          "name": "Pepino",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Repollo",
+          "name": "Repollo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Zanahoria",
+          "name": "Zanahoria",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Maíz",
+          "name": "Maíz",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Aguacate",
+          "name": "Aguacate",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "La salsa que se quiera",
+          "name": "La salsa que se quiera",
+          "amount": null,
+          "unit": null
+        }
       ],
       "steps": [
         {
@@ -2671,16 +3924,67 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 35",
       "ingredients": [
-        "1½ lb de pollo",
-        "6 tazas de caldo de pollo",
-        "2 zanahorias",
-        "2 tallos de apio",
-        "1 cebolla",
-        "2 dientes de ajo",
-        "Sal",
-        "Pimienta",
-        "Culantro",
-        "Arroz, fideos o papa (opcional)"
+        {
+          "text": "1½ lb de pollo",
+          "name": "pollo",
+          "amount": 1.5,
+          "unit": "lb"
+        },
+        {
+          "text": "6 tazas de caldo de pollo",
+          "name": "caldo de pollo",
+          "amount": 6,
+          "unit": "taza"
+        },
+        {
+          "text": "2 zanahorias",
+          "name": "zanahorias",
+          "amount": 2,
+          "unit": null
+        },
+        {
+          "text": "2 tallos de apio",
+          "name": "apio",
+          "amount": 2,
+          "unit": "tallo"
+        },
+        {
+          "text": "1 cebolla",
+          "name": "cebolla",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "2 dientes de ajo",
+          "name": "ajo",
+          "amount": 2,
+          "unit": "diente"
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta",
+          "name": "Pimienta",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Culantro",
+          "name": "Culantro",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Arroz, fideos o papa (opcional)",
+          "name": "Arroz, fideos o papa",
+          "amount": null,
+          "unit": null,
+          "optional": true
+        }
       ],
       "notes": [
         "Rinde 6 platos"
@@ -2749,18 +4053,80 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 36",
       "ingredients": [
-        "6 tazas de caldo de pollo",
-        "2 tazas de pollo cocido",
-        "11–12 oz de gnocchi de papa",
-        "2 zanahorias",
-        "1 tallo de apio",
-        "3 dientes de ajo",
-        "1 taza de arvejas",
-        "2 tazas de espinaca",
-        "½ taza de crema espesa (opcional, versión cremosa)",
-        "Parmesano",
-        "Sal",
-        "Pimienta"
+        {
+          "text": "6 tazas de caldo de pollo",
+          "name": "caldo de pollo",
+          "amount": 6,
+          "unit": "taza"
+        },
+        {
+          "text": "2 tazas de pollo cocido",
+          "name": "pollo cocido",
+          "amount": 2,
+          "unit": "taza"
+        },
+        {
+          "text": "11–12 oz de gnocchi de papa",
+          "name": "gnocchi de papa",
+          "amount": 11,
+          "amountMax": 12,
+          "unit": "oz"
+        },
+        {
+          "text": "2 zanahorias",
+          "name": "zanahorias",
+          "amount": 2,
+          "unit": null
+        },
+        {
+          "text": "1 tallo de apio",
+          "name": "apio",
+          "amount": 1,
+          "unit": "tallo"
+        },
+        {
+          "text": "3 dientes de ajo",
+          "name": "ajo",
+          "amount": 3,
+          "unit": "diente"
+        },
+        {
+          "text": "1 taza de arvejas",
+          "name": "arvejas",
+          "amount": 1,
+          "unit": "taza"
+        },
+        {
+          "text": "2 tazas de espinaca",
+          "name": "espinaca",
+          "amount": 2,
+          "unit": "taza"
+        },
+        {
+          "text": "½ taza de crema espesa (opcional, versión cremosa)",
+          "name": "crema espesa",
+          "amount": 0.5,
+          "unit": "taza",
+          "optional": true
+        },
+        {
+          "text": "Parmesano",
+          "name": "Parmesano",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta",
+          "name": "Pimienta",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde 4–6 platos"
@@ -2834,16 +4200,67 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 37",
       "ingredients": [
-        "2 lb de paleta de cerdo (paleta de cerdo)",
-        "1 lb de costillas de cerdo",
-        "3 latas de 15 oz de maíz pozolero (hominy), escurrido",
-        "1 cebolla",
-        "6 dientes de ajo",
-        "4 chiles guajillo",
-        "4 chiles ancho",
-        "Sal",
-        "Agua",
-        "Para servir: repollo, rábano, cebolla, limón, aguacate y culantro"
+        {
+          "text": "2 lb de paleta de cerdo (paleta de cerdo)",
+          "name": "paleta de cerdo (paleta de cerdo)",
+          "amount": 2,
+          "unit": "lb"
+        },
+        {
+          "text": "1 lb de costillas de cerdo",
+          "name": "costillas de cerdo",
+          "amount": 1,
+          "unit": "lb"
+        },
+        {
+          "text": "3 latas de 15 oz de maíz pozolero (hominy), escurrido",
+          "name": "15 oz de maíz pozolero (hominy), escurrido",
+          "amount": 3,
+          "unit": "lata"
+        },
+        {
+          "text": "1 cebolla",
+          "name": "cebolla",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "6 dientes de ajo",
+          "name": "ajo",
+          "amount": 6,
+          "unit": "diente"
+        },
+        {
+          "text": "4 chiles guajillo",
+          "name": "chiles guajillo",
+          "amount": 4,
+          "unit": null
+        },
+        {
+          "text": "4 chiles ancho",
+          "name": "chiles ancho",
+          "amount": 4,
+          "unit": null
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Agua",
+          "name": "Agua",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Para servir: repollo, rábano, cebolla, limón, aguacate y culantro",
+          "name": "repollo, rábano, cebolla, limón, aguacate y culantro",
+          "amount": null,
+          "unit": null,
+          "section": "Para servir"
+        }
       ],
       "notes": [
         "Rinde 8 platos"
@@ -2912,22 +4329,105 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 38",
       "ingredients": [
-        "4–4½ lb de res con hueso",
-        "Sazón: ajo, orégano, un poco de tomillo, pimienta negra y sal",
-        "Aproximadamente 8–10 tazas de agua, ajustando",
-        "Cebolla",
-        "Ajo",
-        "Apio",
-        "Culantro coyote / culantro",
-        "Papa",
-        "Zanahoria",
-        "Elote",
-        "Camote",
-        "Ayote",
-        "Chayote",
-        "Yuca",
-        "Plátano verde",
-        "Plátano maduro"
+        {
+          "text": "4–4½ lb de res con hueso",
+          "name": "res con hueso",
+          "amount": 4,
+          "amountMax": 4.5,
+          "unit": "lb"
+        },
+        {
+          "text": "Sazón: ajo, orégano, un poco de tomillo, pimienta negra y sal",
+          "name": "ajo, orégano, un poco de tomillo, pimienta negra y sal",
+          "amount": null,
+          "unit": null,
+          "section": "Sazón"
+        },
+        {
+          "text": "Aproximadamente 8–10 tazas de agua, ajustando",
+          "name": "agua, ajustando",
+          "amount": 8,
+          "amountMax": 10,
+          "unit": "taza"
+        },
+        {
+          "text": "Cebolla",
+          "name": "Cebolla",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Ajo",
+          "name": "Ajo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Apio",
+          "name": "Apio",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Culantro coyote / culantro",
+          "name": "Culantro coyote / culantro",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Papa",
+          "name": "Papa",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Zanahoria",
+          "name": "Zanahoria",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Elote",
+          "name": "Elote",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Camote",
+          "name": "Camote",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Ayote",
+          "name": "Ayote",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Chayote",
+          "name": "Chayote",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Yuca",
+          "name": "Yuca",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Plátano verde",
+          "name": "Plátano verde",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Plátano maduro",
+          "name": "Plátano maduro",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde aproximadamente 6 porciones generosas"
@@ -3001,17 +4501,83 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 39",
       "ingredients": [
-        "Albóndigas: 1 lb de carne molida",
-        "Albóndigas: 1 huevo",
-        "Albóndigas: ⅓ taza de pan molido o arroz cocido",
-        "Albóndigas: ajo, cebolla, sal y pimienta",
-        "Sopa: 6 tazas de caldo",
-        "Sopa: tomate",
-        "Sopa: cebolla",
-        "Sopa: zanahoria",
-        "Sopa: papa",
-        "Sopa: zucchini / chayote",
-        "Sopa: culantro"
+        {
+          "text": "Albóndigas: 1 lb de carne molida",
+          "name": "carne molida",
+          "amount": 1,
+          "unit": "lb",
+          "section": "Albóndigas"
+        },
+        {
+          "text": "Albóndigas: 1 huevo",
+          "name": "huevo",
+          "amount": 1,
+          "unit": null,
+          "section": "Albóndigas"
+        },
+        {
+          "text": "Albóndigas: ⅓ taza de pan molido o arroz cocido",
+          "name": "pan molido o arroz cocido",
+          "amount": 0.333,
+          "unit": "taza",
+          "section": "Albóndigas"
+        },
+        {
+          "text": "Albóndigas: ajo, cebolla, sal y pimienta",
+          "name": "ajo, cebolla, sal y pimienta",
+          "amount": null,
+          "unit": null,
+          "section": "Albóndigas"
+        },
+        {
+          "text": "Sopa: 6 tazas de caldo",
+          "name": "caldo",
+          "amount": 6,
+          "unit": "taza",
+          "section": "Sopa"
+        },
+        {
+          "text": "Sopa: tomate",
+          "name": "tomate",
+          "amount": null,
+          "unit": null,
+          "section": "Sopa"
+        },
+        {
+          "text": "Sopa: cebolla",
+          "name": "cebolla",
+          "amount": null,
+          "unit": null,
+          "section": "Sopa"
+        },
+        {
+          "text": "Sopa: zanahoria",
+          "name": "zanahoria",
+          "amount": null,
+          "unit": null,
+          "section": "Sopa"
+        },
+        {
+          "text": "Sopa: papa",
+          "name": "papa",
+          "amount": null,
+          "unit": null,
+          "section": "Sopa"
+        },
+        {
+          "text": "Sopa: zucchini / chayote",
+          "name": "zucchini / chayote",
+          "amount": null,
+          "unit": null,
+          "section": "Sopa"
+        },
+        {
+          "text": "Sopa: culantro",
+          "name": "culantro",
+          "amount": null,
+          "unit": null,
+          "section": "Sopa"
+        }
       ],
       "notes": [
         "Rinde 6 platos"
@@ -3075,17 +4641,73 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 40",
       "ingredients": [
-        "1 lb de res molida",
-        "8 oz de pasta para lasagna, quebrada",
-        "1 cebolla",
-        "3 dientes de ajo",
-        "2 cdas de pasta de tomate",
-        "1 lata de tomate triturado",
-        "4 tazas de caldo",
-        "1 cdta de orégano",
-        "¼ taza de crema espesa",
-        "Parmesano",
-        "Ricotta (opcional)"
+        {
+          "text": "1 lb de res molida",
+          "name": "res molida",
+          "amount": 1,
+          "unit": "lb"
+        },
+        {
+          "text": "8 oz de pasta para lasagna, quebrada",
+          "name": "pasta para lasagna, quebrada",
+          "amount": 8,
+          "unit": "oz"
+        },
+        {
+          "text": "1 cebolla",
+          "name": "cebolla",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "3 dientes de ajo",
+          "name": "ajo",
+          "amount": 3,
+          "unit": "diente"
+        },
+        {
+          "text": "2 cdas de pasta de tomate",
+          "name": "pasta de tomate",
+          "amount": 2,
+          "unit": "cda"
+        },
+        {
+          "text": "1 lata de tomate triturado",
+          "name": "tomate triturado",
+          "amount": 1,
+          "unit": "lata"
+        },
+        {
+          "text": "4 tazas de caldo",
+          "name": "caldo",
+          "amount": 4,
+          "unit": "taza"
+        },
+        {
+          "text": "1 cdta de orégano",
+          "name": "orégano",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "¼ taza de crema espesa",
+          "name": "crema espesa",
+          "amount": 0.25,
+          "unit": "taza"
+        },
+        {
+          "text": "Parmesano",
+          "name": "Parmesano",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Ricotta (opcional)",
+          "name": "Ricotta",
+          "amount": null,
+          "unit": null,
+          "optional": true
+        }
       ],
       "notes": [
         "Rinde 4–6 platos. Para las sobras, guardar la pasta aparte da mejor textura"
@@ -3159,18 +4781,79 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 41",
       "ingredients": [
-        "1½ tazas de lentejas secas",
-        "1 lb de pollo",
-        "1 cebolla",
-        "1 zanahoria",
-        "1 tallo de apio",
-        "2 dientes de ajo",
-        "1 tomate",
-        "6 tazas de caldo o agua",
-        "Orégano",
-        "Sal",
-        "Pimienta",
-        "Espinaca (opcional)"
+        {
+          "text": "1½ tazas de lentejas secas",
+          "name": "lentejas secas",
+          "amount": 1.5,
+          "unit": "taza"
+        },
+        {
+          "text": "1 lb de pollo",
+          "name": "pollo",
+          "amount": 1,
+          "unit": "lb"
+        },
+        {
+          "text": "1 cebolla",
+          "name": "cebolla",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "1 zanahoria",
+          "name": "zanahoria",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "1 tallo de apio",
+          "name": "apio",
+          "amount": 1,
+          "unit": "tallo"
+        },
+        {
+          "text": "2 dientes de ajo",
+          "name": "ajo",
+          "amount": 2,
+          "unit": "diente"
+        },
+        {
+          "text": "1 tomate",
+          "name": "tomate",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "6 tazas de caldo o agua",
+          "name": "caldo o agua",
+          "amount": 6,
+          "unit": "taza"
+        },
+        {
+          "text": "Orégano",
+          "name": "Orégano",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta",
+          "name": "Pimienta",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Espinaca (opcional)",
+          "name": "Espinaca",
+          "amount": null,
+          "unit": null,
+          "optional": true
+        }
       ],
       "notes": [
         "Rinde 6 platos"
@@ -3234,14 +4917,54 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 42",
       "ingredients": [
-        "4 tazas de caldo de pollo",
-        "3 huevos ligeramente batidos",
-        "2 cdas de maicena",
-        "¼ taza de agua",
-        "½ cdta de aceite de ajonjolí",
-        "Pimienta blanca o negra",
-        "Sal",
-        "Cebollín"
+        {
+          "text": "4 tazas de caldo de pollo",
+          "name": "caldo de pollo",
+          "amount": 4,
+          "unit": "taza"
+        },
+        {
+          "text": "3 huevos ligeramente batidos",
+          "name": "huevos ligeramente batidos",
+          "amount": 3,
+          "unit": null
+        },
+        {
+          "text": "2 cdas de maicena",
+          "name": "maicena",
+          "amount": 2,
+          "unit": "cda"
+        },
+        {
+          "text": "¼ taza de agua",
+          "name": "agua",
+          "amount": 0.25,
+          "unit": "taza"
+        },
+        {
+          "text": "½ cdta de aceite de ajonjolí",
+          "name": "aceite de ajonjolí",
+          "amount": 0.5,
+          "unit": "cdta"
+        },
+        {
+          "text": "Pimienta blanca o negra",
+          "name": "Pimienta blanca o negra",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Cebollín",
+          "name": "Cebollín",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde 4–6 tazones"
@@ -3310,16 +5033,67 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 43",
       "ingredients": [
-        "1½ lb de brócoli",
-        "1 cebolla",
-        "2 dientes de ajo",
-        "3 cdas de mantequilla",
-        "4 tazas de caldo",
-        "¾ taza de crema o half-and-half",
-        "1½–2 tazas de queso Cheddar",
-        "1 pizca de nuez moscada",
-        "Sal",
-        "Pimienta"
+        {
+          "text": "1½ lb de brócoli",
+          "name": "brócoli",
+          "amount": 1.5,
+          "unit": "lb"
+        },
+        {
+          "text": "1 cebolla",
+          "name": "cebolla",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "2 dientes de ajo",
+          "name": "ajo",
+          "amount": 2,
+          "unit": "diente"
+        },
+        {
+          "text": "3 cdas de mantequilla",
+          "name": "mantequilla",
+          "amount": 3,
+          "unit": "cda"
+        },
+        {
+          "text": "4 tazas de caldo",
+          "name": "caldo",
+          "amount": 4,
+          "unit": "taza"
+        },
+        {
+          "text": "¾ taza de crema o half-and-half",
+          "name": "crema o half-and-half",
+          "amount": 0.75,
+          "unit": "taza"
+        },
+        {
+          "text": "1½–2 tazas de queso Cheddar",
+          "name": "queso Cheddar",
+          "amount": 1.5,
+          "amountMax": 2,
+          "unit": "taza"
+        },
+        {
+          "text": "1 pizca de nuez moscada",
+          "name": "nuez moscada",
+          "amount": 1,
+          "unit": "pizca"
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta",
+          "name": "Pimienta",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde 6 tazones"
@@ -3393,17 +5167,72 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 44",
       "ingredients": [
-        "3 tazas de frijoles blancos cocidos",
-        "1 cebolla",
-        "1 zanahoria",
-        "1 tallo de apio",
-        "2 dientes de ajo",
-        "4 tazas de caldo de pollo",
-        "Espinaca",
-        "Orégano o romero",
-        "Aceite de oliva",
-        "Sal",
-        "Pimienta"
+        {
+          "text": "3 tazas de frijoles blancos cocidos",
+          "name": "frijoles blancos cocidos",
+          "amount": 3,
+          "unit": "taza"
+        },
+        {
+          "text": "1 cebolla",
+          "name": "cebolla",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "1 zanahoria",
+          "name": "zanahoria",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "1 tallo de apio",
+          "name": "apio",
+          "amount": 1,
+          "unit": "tallo"
+        },
+        {
+          "text": "2 dientes de ajo",
+          "name": "ajo",
+          "amount": 2,
+          "unit": "diente"
+        },
+        {
+          "text": "4 tazas de caldo de pollo",
+          "name": "caldo de pollo",
+          "amount": 4,
+          "unit": "taza"
+        },
+        {
+          "text": "Espinaca",
+          "name": "Espinaca",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Orégano o romero",
+          "name": "Orégano o romero",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Aceite de oliva",
+          "name": "Aceite de oliva",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta",
+          "name": "Pimienta",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde 4–6 tazones"
@@ -3462,16 +5291,67 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 45",
       "ingredients": [
-        "1 cda de aceite de oliva o mantequilla",
-        "1 cebolla",
-        "2 dientes de ajo",
-        "28 oz de tomate enlatado",
-        "2 tazas de caldo",
-        "½ taza de crema (opcional)",
-        "Sal",
-        "Pimienta",
-        "Albahaca / orégano",
-        "Pan"
+        {
+          "text": "1 cda de aceite de oliva o mantequilla",
+          "name": "aceite de oliva o mantequilla",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "1 cebolla",
+          "name": "cebolla",
+          "amount": 1,
+          "unit": null
+        },
+        {
+          "text": "2 dientes de ajo",
+          "name": "ajo",
+          "amount": 2,
+          "unit": "diente"
+        },
+        {
+          "text": "28 oz de tomate enlatado",
+          "name": "tomate enlatado",
+          "amount": 28,
+          "unit": "oz"
+        },
+        {
+          "text": "2 tazas de caldo",
+          "name": "caldo",
+          "amount": 2,
+          "unit": "taza"
+        },
+        {
+          "text": "½ taza de crema (opcional)",
+          "name": "crema",
+          "amount": 0.5,
+          "unit": "taza",
+          "optional": true
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta",
+          "name": "Pimienta",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Albahaca / orégano",
+          "name": "Albahaca / orégano",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pan",
+          "name": "Pan",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde 4 tazones"
@@ -3535,12 +5415,42 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 46",
       "ingredients": [
-        "Fideos de ramen",
-        "Caldo / sazonador",
-        "Huevo",
-        "Cebollín",
-        "Vegetales congelados",
-        "Proteína que haya sobrado, si hay"
+        {
+          "text": "Fideos de ramen",
+          "name": "Fideos de ramen",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Caldo / sazonador",
+          "name": "Caldo / sazonador",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Huevo",
+          "name": "Huevo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Cebollín",
+          "name": "Cebollín",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Vegetales congelados",
+          "name": "Vegetales congelados",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Proteína que haya sobrado, si hay",
+          "name": "Proteína que haya sobrado, si hay",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Es un armado de Flex Dinner: la meta es volver el ramen una comida sin convertirlo en un proyecto grande de cocina"
@@ -3563,14 +5473,55 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 47",
       "ingredients": [
-        "Kimchi",
-        "Jugo de kimchi",
-        "Caldo o agua",
-        "Tofu",
-        "Cerdo o atún (opcional)",
-        "Cebollín",
-        "Ajo",
-        "Gochugaru / gochujang, si hay"
+        {
+          "text": "Kimchi",
+          "name": "Kimchi",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Jugo de kimchi",
+          "name": "Jugo de kimchi",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Caldo o agua",
+          "name": "Caldo o agua",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Tofu",
+          "name": "Tofu",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Cerdo o atún (opcional)",
+          "name": "Cerdo o atún",
+          "amount": null,
+          "unit": null,
+          "optional": true
+        },
+        {
+          "text": "Cebollín",
+          "name": "Cebollín",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Ajo",
+          "name": "Ajo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Gochugaru / gochujang, si hay",
+          "name": "Gochugaru / gochujang, si hay",
+          "amount": null,
+          "unit": null
+        }
       ],
       "steps": [
         {
@@ -3621,13 +5572,49 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 48",
       "ingredients": [
-        "2–3 legumbres o vegetales disponibles",
-        "Cebolla",
-        "Apio",
-        "Ajo",
-        "Tomate",
-        "Caldo",
-        "Hierbas"
+        {
+          "text": "2–3 legumbres o vegetales disponibles",
+          "name": "legumbres o vegetales disponibles",
+          "amount": 2,
+          "amountMax": 3,
+          "unit": null
+        },
+        {
+          "text": "Cebolla",
+          "name": "Cebolla",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Apio",
+          "name": "Apio",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Ajo",
+          "name": "Ajo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Tomate",
+          "name": "Tomate",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Caldo",
+          "name": "Caldo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Hierbas",
+          "name": "Hierbas",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Es una fórmula para usar el inventario, no una receta fija: la combinación exacta puede cambiar"
@@ -3690,12 +5677,45 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 51",
       "ingredients": [
-        "Arroz cocido",
-        "1–2 latas de atún",
-        "Mayonesa o la salsa que se quiera",
-        "Pepino (opcional)",
-        "Aguacate",
-        "Salsa de soya (opcional)"
+        {
+          "text": "Arroz cocido",
+          "name": "Arroz cocido",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "1–2 latas de atún",
+          "name": "atún",
+          "amount": 1,
+          "amountMax": 2,
+          "unit": "lata"
+        },
+        {
+          "text": "Mayonesa o la salsa que se quiera",
+          "name": "Mayonesa o la salsa que se quiera",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pepino (opcional)",
+          "name": "Pepino",
+          "amount": null,
+          "unit": null,
+          "optional": true
+        },
+        {
+          "text": "Aguacate",
+          "name": "Aguacate",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Salsa de soya (opcional)",
+          "name": "Salsa de soya",
+          "amount": null,
+          "unit": null,
+          "optional": true
+        }
       ],
       "notes": [
         "Para dos. Usa atún enlatado, no tuna steak"
@@ -3724,9 +5744,26 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 52",
       "ingredients": [
-        "Tortillas",
-        "Queso",
-        "Opcional: pollo, pavo, frijoles o vegetales"
+        {
+          "text": "Tortillas",
+          "name": "Tortillas",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Queso",
+          "name": "Queso",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Opcional: pollo, pavo, frijoles o vegetales",
+          "name": "pollo, pavo, frijoles o vegetales",
+          "amount": null,
+          "unit": null,
+          "optional": true,
+          "section": "Opcional"
+        }
       ],
       "steps": [
         {
@@ -3752,8 +5789,19 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 53",
       "ingredients": [
-        "Dumplings congelados",
-        "Para una cena más completa: pepino, edamame, vegetales y salsa sencilla de soya para dipear"
+        {
+          "text": "Dumplings congelados",
+          "name": "Dumplings congelados",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Para una cena más completa: pepino, edamame, vegetales y salsa sencilla de soya para dipear",
+          "name": "pepino, edamame, vegetales y salsa sencilla de soya para dipear",
+          "amount": null,
+          "unit": null,
+          "section": "Para una cena más completa"
+        }
       ],
       "steps": [
         {
@@ -3789,10 +5837,30 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 8, receta 54",
       "ingredients": [
-        "Proteína que sobró",
-        "Arroz o quinoa",
-        "Vegetal",
-        "Salsa o complemento"
+        {
+          "text": "Proteína que sobró",
+          "name": "Proteína que sobró",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Arroz o quinoa",
+          "name": "Arroz o quinoa",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Vegetal",
+          "name": "Vegetal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Salsa o complemento",
+          "name": "Salsa o complemento",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Existe para que no se desperdicien cantidades pequeñas de comida"
@@ -3815,10 +5883,30 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 5, sección 5",
       "ingredients": [
-        "Gallo pinto",
-        "Huevos",
-        "Cottage cheese",
-        "Aguacate"
+        {
+          "text": "Gallo pinto",
+          "name": "Gallo pinto",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Huevos",
+          "name": "Huevos",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Cottage cheese",
+          "name": "Cottage cheese",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Aguacate",
+          "name": "Aguacate",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Tita: aproximadamente ½ taza de gallo pinto, 2 huevos, cottage cheese y aguacate",
@@ -3843,10 +5931,34 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 5, sección 6",
       "ingredients": [
-        "Proteína: protein powder; kéfir y/o Greek yogurt",
-        "Fruta, una combinación: berries, banano o piña",
-        "Fibra / grasa: chía",
-        "Líquido: leche, kéfir o una combinación"
+        {
+          "text": "Proteína: protein powder; kéfir y/o Greek yogurt",
+          "name": "protein powder; kéfir y/o Greek yogurt",
+          "amount": null,
+          "unit": null,
+          "section": "Proteína"
+        },
+        {
+          "text": "Fruta, una combinación: berries, banano o piña",
+          "name": "berries, banano o piña",
+          "amount": null,
+          "unit": null,
+          "section": "Fruta, una combinación"
+        },
+        {
+          "text": "Fibra / grasa: chía",
+          "name": "chía",
+          "amount": null,
+          "unit": null,
+          "section": "Fibra / grasa"
+        },
+        {
+          "text": "Líquido: leche, kéfir o una combinación",
+          "name": "leche, kéfir o una combinación",
+          "amount": null,
+          "unit": null,
+          "section": "Líquido"
+        }
       ],
       "notes": [
         "Tita: priorizar suficiente protein powder, berries, chía y kéfir/Greek yogurt; el banano puede usarse, pero no como única fruta ni como la mayor parte",
@@ -3870,10 +5982,31 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 5, sección 7",
       "ingredients": [
-        "Huevos (revueltos, fritos, over-easy, duros o estilo omelette)",
-        "Tostada integral",
-        "Fruta o vegetal",
-        "Aguacate (opcional)"
+        {
+          "text": "Huevos (revueltos, fritos, over-easy, duros o estilo omelette)",
+          "name": "Huevos (revueltos, fritos, over-easy, duros o estilo omelette)",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Tostada integral",
+          "name": "Tostada integral",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Fruta o vegetal",
+          "name": "Fruta o vegetal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Aguacate (opcional)",
+          "name": "Aguacate",
+          "amount": null,
+          "unit": null,
+          "optional": true
+        }
       ],
       "notes": [
         "Tita, opción A: 2 huevos + tostada + aguacate. Opción B: 2 huevos + tostada + berries. Opción C: huevos + cottage cheese + tostada",
@@ -3897,13 +6030,50 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 5, sección 8",
       "ingredients": [
-        "Tortilla",
-        "Huevos",
-        "Papas de desayuno",
-        "Pavo / jamón",
-        "Queso",
-        "Cebolla / chile dulce, cuando se quiera",
-        "Opcional: frijoles, aguacate y salsa"
+        {
+          "text": "Tortilla",
+          "name": "Tortilla",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Huevos",
+          "name": "Huevos",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Papas de desayuno",
+          "name": "Papas de desayuno",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pavo / jamón",
+          "name": "Pavo / jamón",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Queso",
+          "name": "Queso",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Cebolla / chile dulce, cuando se quiera",
+          "name": "Cebolla / chile dulce, cuando se quiera",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Opcional: frijoles, aguacate y salsa",
+          "name": "frijoles, aguacate y salsa",
+          "amount": null,
+          "unit": null,
+          "optional": true,
+          "section": "Opcional"
+        }
       ],
       "notes": [
         "Tita: priorizar huevo, pavo, vegetales y aguacate; evitar que sea sobre todo tortilla + papa + queso sin suficiente proteína",
@@ -3927,9 +6097,26 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 5, sección 9",
       "ingredients": [
-        "Huevos",
-        "Elegir 2–4: hongos, espinaca, chile dulce, cebolla, tomate, pavo, jamón o queso",
-        "Para acompañar, según el menú: tostada, papa, fruta o gallo pinto"
+        {
+          "text": "Huevos",
+          "name": "Huevos",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Elegir 2–4: hongos, espinaca, chile dulce, cebolla, tomate, pavo, jamón o queso",
+          "name": "hongos, espinaca, chile dulce, cebolla, tomate, pavo, jamón o queso",
+          "amount": null,
+          "unit": null,
+          "section": "Elegir 2–4"
+        },
+        {
+          "text": "Para acompañar, según el menú: tostada, papa, fruta o gallo pinto",
+          "name": "tostada, papa, fruta o gallo pinto",
+          "amount": null,
+          "unit": null,
+          "section": "Para acompañar, según el menú"
+        }
       ],
       "notes": [
         "Tita: el omelette es el componente principal, con un acompañamiento moderado",
@@ -3953,9 +6140,26 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 5, sección 10",
       "ingredients": [
-        "Pancakes",
-        "Una proteína: huevos, Greek yogurt, cottage cheese o masa con proteína",
-        "Fruta: berries o banano"
+        {
+          "text": "Pancakes",
+          "name": "Pancakes",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Una proteína: huevos, Greek yogurt, cottage cheese o masa con proteína",
+          "name": "huevos, Greek yogurt, cottage cheese o masa con proteína",
+          "amount": null,
+          "unit": null,
+          "section": "Una proteína"
+        },
+        {
+          "text": "Fruta: berries o banano",
+          "name": "berries o banano",
+          "amount": null,
+          "unit": null,
+          "section": "Fruta"
+        }
       ],
       "notes": [
         "Regla: los pancakes son el carbohidrato, no todo el desayuno",
@@ -3980,12 +6184,44 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 5, sección 11 y 19",
       "ingredients": [
-        "Breakfast Potato Cubes (del congelador)",
-        "Huevos",
-        "Vegetales",
-        "Queso (opcional)",
-        "Aguacate",
-        "Puede llevar: pavo, jamón o frijoles"
+        {
+          "text": "Breakfast Potato Cubes (del congelador)",
+          "name": "Breakfast Potato Cubes (del congelador)",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Huevos",
+          "name": "Huevos",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Vegetales",
+          "name": "Vegetales",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Queso (opcional)",
+          "name": "Queso",
+          "amount": null,
+          "unit": null,
+          "optional": true
+        },
+        {
+          "text": "Aguacate",
+          "name": "Aguacate",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Puede llevar: pavo, jamón o frijoles",
+          "name": "pavo, jamón o frijoles",
+          "amount": null,
+          "unit": null,
+          "section": "Puede llevar"
+        }
       ],
       "notes": [
         "Tita: primero la proteína (huevos / pavo), luego vegetales, papa y aguacate",
@@ -4035,9 +6271,27 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 5, sección 12",
       "ingredients": [
-        "Potato waffles",
-        "Para acompañar: huevos, pavo o cottage cheese",
-        "Opcional: aguacate y vegetales"
+        {
+          "text": "Potato waffles",
+          "name": "Potato waffles",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Para acompañar: huevos, pavo o cottage cheese",
+          "name": "huevos, pavo o cottage cheese",
+          "amount": null,
+          "unit": null,
+          "section": "Para acompañar"
+        },
+        {
+          "text": "Opcional: aguacate y vegetales",
+          "name": "aguacate y vegetales",
+          "amount": null,
+          "unit": null,
+          "optional": true,
+          "section": "Opcional"
+        }
       ],
       "notes": [
         "Son el componente de carbohidrato, no un desayuno completo por sí solos"
@@ -4060,11 +6314,38 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 5, sección 13",
       "ingredients": [
-        "Tortilla",
-        "Huevos",
-        "Pavo / jamón",
-        "Queso",
-        "Opcional: frijoles, cebolla, chile dulce, aguacate y salsa"
+        {
+          "text": "Tortilla",
+          "name": "Tortilla",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Huevos",
+          "name": "Huevos",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pavo / jamón",
+          "name": "Pavo / jamón",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Queso",
+          "name": "Queso",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Opcional: frijoles, cebolla, chile dulce, aguacate y salsa",
+          "name": "frijoles, cebolla, chile dulce, aguacate y salsa",
+          "amount": null,
+          "unit": null,
+          "optional": true,
+          "section": "Opcional"
+        }
       ],
       "notes": [
         "Mejor uso: días en que no se quiere cocinar mucho, hay tortillas abiertas, sobró relleno de huevo o se necesita un desayuno portable"
@@ -4087,10 +6368,33 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 5, sección 15",
       "ingredients": [
-        "Avena",
-        "Proteína: Greek yogurt, protein powder, leche o cottage cheese aparte",
-        "Grasa / fibra: chía, mantequilla de maní o nueces",
-        "Fruta: berries, banano o manzana"
+        {
+          "text": "Avena",
+          "name": "Avena",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Proteína: Greek yogurt, protein powder, leche o cottage cheese aparte",
+          "name": "Greek yogurt, protein powder, leche o cottage cheese aparte",
+          "amount": null,
+          "unit": null,
+          "section": "Proteína"
+        },
+        {
+          "text": "Grasa / fibra: chía, mantequilla de maní o nueces",
+          "name": "chía, mantequilla de maní o nueces",
+          "amount": null,
+          "unit": null,
+          "section": "Grasa / fibra"
+        },
+        {
+          "text": "Fruta: berries, banano o manzana",
+          "name": "berries, banano o manzana",
+          "amount": null,
+          "unit": null,
+          "section": "Fruta"
+        }
       ],
       "steps": [],
       "pending": [
@@ -4110,9 +6414,26 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 5, sección 14",
       "ingredients": [
-        "Cereal + leche",
-        "Agregar al menos una proteína: Greek yogurt, huevos, cottage cheese o leche alta en proteína",
-        "Y/o grasa / fibra: chía, nueces, mantequilla de nueces o berries"
+        {
+          "text": "Cereal + leche",
+          "name": "Cereal + leche",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Agregar al menos una proteína: Greek yogurt, huevos, cottage cheese o leche alta en proteína",
+          "name": "Greek yogurt, huevos, cottage cheese o leche alta en proteína",
+          "amount": null,
+          "unit": null,
+          "section": "Agregar al menos una proteína"
+        },
+        {
+          "text": "Y/o grasa / fibra: chía, nueces, mantequilla de nueces o berries",
+          "name": "chía, nueces, mantequilla de nueces o berries",
+          "amount": null,
+          "unit": null,
+          "section": "Y/o grasa / fibra"
+        }
       ],
       "notes": [
         "Cereal + leche solo no es el desayuno default del sistema. Ejemplo: cereal + leche + Greek yogurt + berries"
@@ -4135,10 +6456,30 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 5, sección 24 y 25",
       "ingredients": [
-        "Greek yogurt",
-        "Berries",
-        "Chía",
-        "Nueces"
+        {
+          "text": "Greek yogurt",
+          "name": "Greek yogurt",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Berries",
+          "name": "Berries",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Chía",
+          "name": "Chía",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Nueces",
+          "name": "Nueces",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Está en la lista de desayunos del manual y sirve como desayuno de emergencia"
@@ -4161,11 +6502,38 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, sección 4",
       "ingredients": [
-        "2 cdas de salsa de soya o tamari",
-        "1 cda de vinagre de arroz o jugo de limón",
-        "1 cdta de jengibre",
-        "1–2 dientes de ajo",
-        "1–2 cdtas de endulzante Lakanto o azúcar"
+        {
+          "text": "2 cdas de salsa de soya o tamari",
+          "name": "salsa de soya o tamari",
+          "amount": 2,
+          "unit": "cda"
+        },
+        {
+          "text": "1 cda de vinagre de arroz o jugo de limón",
+          "name": "vinagre de arroz o jugo de limón",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "1 cdta de jengibre",
+          "name": "jengibre",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "1–2 dientes de ajo",
+          "name": "ajo",
+          "amount": 1,
+          "amountMax": 2,
+          "unit": "diente"
+        },
+        {
+          "text": "1–2 cdtas de endulzante Lakanto o azúcar",
+          "name": "endulzante Lakanto o azúcar",
+          "amount": 1,
+          "amountMax": 2,
+          "unit": "cdta"
+        }
       ],
       "notes": [
         "Para 1 unidad. Compatible: pollo y cerdo. Congelador: sí. Ácido: vinagre de arroz o limón",
@@ -4190,11 +6558,37 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, sección 5",
       "ingredients": [
-        "2 cdas de mostaza",
-        "1 cda de vinagre de manzana",
-        "1–2 cdtas de endulzante Lakanto o azúcar",
-        "Pimienta negra",
-        "Sal, la mínima"
+        {
+          "text": "2 cdas de mostaza",
+          "name": "mostaza",
+          "amount": 2,
+          "unit": "cda"
+        },
+        {
+          "text": "1 cda de vinagre de manzana",
+          "name": "vinagre de manzana",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "1–2 cdtas de endulzante Lakanto o azúcar",
+          "name": "endulzante Lakanto o azúcar",
+          "amount": 1,
+          "amountMax": 2,
+          "unit": "cdta"
+        },
+        {
+          "text": "Pimienta negra",
+          "name": "Pimienta negra",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Sal, la mínima",
+          "name": "Sal, la mínima",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Para 1 unidad. Compatible: pollo, cerdo y chuletas. Congelador: sí. Ácido: vinagre de manzana",
@@ -4218,14 +6612,54 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, sección 6",
       "ingredients": [
-        "1 cdta de chili powder",
-        "1 cdta de paprika",
-        "1 cdta de comino (½ cdta para un sabor más suave)",
-        "½ cdta de orégano",
-        "Ajo",
-        "Cebolla",
-        "Sal",
-        "½ tomate"
+        {
+          "text": "1 cdta de chili powder",
+          "name": "chili powder",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "1 cdta de paprika",
+          "name": "paprika",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "1 cdta de comino (½ cdta para un sabor más suave)",
+          "name": "comino (½ cdta para un sabor más suave)",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "½ cdta de orégano",
+          "name": "orégano",
+          "amount": 0.5,
+          "unit": "cdta"
+        },
+        {
+          "text": "Ajo",
+          "name": "Ajo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Cebolla",
+          "name": "Cebolla",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "½ tomate",
+          "name": "tomate",
+          "amount": 0.5,
+          "unit": null
+        }
       ],
       "notes": [
         "Para 1 unidad. Compatible: pollo y cerdo. Congelador: sí. El tomate da una acidez ligera",
@@ -4249,10 +6683,32 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, sección 7",
       "ingredients": [
-        "2–3 cdas de Salsa Lizano",
-        "1 cda de jugo de limón",
-        "Ajo (opcional)",
-        "Pimienta negra"
+        {
+          "text": "2–3 cdas de Salsa Lizano",
+          "name": "salsa Lizano",
+          "amount": 2,
+          "amountMax": 3,
+          "unit": "cda"
+        },
+        {
+          "text": "1 cda de jugo de limón",
+          "name": "jugo de limón",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "Ajo (opcional)",
+          "name": "Ajo",
+          "amount": null,
+          "unit": null,
+          "optional": true
+        },
+        {
+          "text": "Pimienta negra",
+          "name": "Pimienta negra",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Para 1 unidad. Compatible: pollo y cerdo. Congelador: sí. Ácido: limón",
@@ -4277,12 +6733,42 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, sección 8",
       "ingredients": [
-        "¼ taza de parmesano",
-        "1 cdta de ajo en polvo",
-        "Pimienta negra",
-        "1 pizca de sal",
-        "1 cdta de endulzante Lakanto o azúcar",
-        "1 cdta de nuez moscada"
+        {
+          "text": "¼ taza de parmesano",
+          "name": "parmesano",
+          "amount": 0.25,
+          "unit": "taza"
+        },
+        {
+          "text": "1 cdta de ajo en polvo",
+          "name": "ajo en polvo",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "Pimienta negra",
+          "name": "Pimienta negra",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "1 pizca de sal",
+          "name": "sal",
+          "amount": 1,
+          "unit": "pizca"
+        },
+        {
+          "text": "1 cdta de endulzante Lakanto o azúcar",
+          "name": "endulzante Lakanto o azúcar",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "1 cdta de nuez moscada",
+          "name": "nuez moscada",
+          "amount": 1,
+          "unit": "cdta"
+        }
       ],
       "notes": [
         "Para 1 unidad. Compatible: solo pollo. Congelador: sí. Sin ácido",
@@ -4307,11 +6793,37 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, sección 9",
       "ingredients": [
-        "½ taza de culantro",
-        "2–3 dientes de ajo",
-        "Jugo de 1 limón",
-        "Sal",
-        "Pimienta negra"
+        {
+          "text": "½ taza de culantro",
+          "name": "culantro",
+          "amount": 0.5,
+          "unit": "taza"
+        },
+        {
+          "text": "2–3 dientes de ajo",
+          "name": "ajo",
+          "amount": 2,
+          "amountMax": 3,
+          "unit": "diente"
+        },
+        {
+          "text": "Jugo de 1 limón",
+          "name": "Jugo de 1 limón",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta negra",
+          "name": "Pimienta negra",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Para 1 unidad. Compatible: pollo y cerdo. Congelador: sí. Acidez alta (limón)",
@@ -4337,13 +6849,49 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, sección 10",
       "ingredients": [
-        "1 cda de mostaza",
-        "2 cdas de pasta de tomate o ketchup sin azúcar",
-        "1½ cdas de paprika ahumada",
-        "Vinagre",
-        "Ajo en polvo",
-        "Cebolla en polvo",
-        "1–2 cdtas de endulzante Lakanto o azúcar"
+        {
+          "text": "1 cda de mostaza",
+          "name": "mostaza",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "2 cdas de pasta de tomate o ketchup sin azúcar",
+          "name": "pasta de tomate o ketchup sin azúcar",
+          "amount": 2,
+          "unit": "cda"
+        },
+        {
+          "text": "1½ cdas de paprika ahumada",
+          "name": "paprika ahumada",
+          "amount": 1.5,
+          "unit": "cda"
+        },
+        {
+          "text": "Vinagre",
+          "name": "Vinagre",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Ajo en polvo",
+          "name": "Ajo en polvo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Cebolla en polvo",
+          "name": "Cebolla en polvo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "1–2 cdtas de endulzante Lakanto o azúcar",
+          "name": "endulzante Lakanto o azúcar",
+          "amount": 1,
+          "amountMax": 2,
+          "unit": "cdta"
+        }
       ],
       "notes": [
         "Para 1 unidad. Compatible: pollo, cerdo, alitas y costillas. Congelador: sí. Ácido: vinagre + tomate",
@@ -4367,11 +6915,36 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, sección 11",
       "ingredients": [
-        "1 cdta de orégano",
-        "½ cdta de albahaca o Italian seasoning",
-        "Ajo",
-        "Pimienta negra",
-        "Jugo de limón o vinagre balsámico"
+        {
+          "text": "1 cdta de orégano",
+          "name": "orégano",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "½ cdta de albahaca o Italian seasoning",
+          "name": "albahaca o Italian seasoning",
+          "amount": 0.5,
+          "unit": "cdta"
+        },
+        {
+          "text": "Ajo",
+          "name": "Ajo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta negra",
+          "name": "Pimienta negra",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Jugo de limón o vinagre balsámico",
+          "name": "Jugo de limón o vinagre balsámico",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Para 1 unidad. Compatible: pollo y cerdo. Congelador: sí. Ácido: limón o balsámico",
@@ -4395,11 +6968,38 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, sección 12",
       "ingredients": [
-        "2 cdas de salsa de soya",
-        "2–3 cdas de jugo de piña",
-        "1 cda de vinagre de arroz",
-        "1 cdta de jengibre",
-        "1–2 cdtas de endulzante Lakanto o azúcar"
+        {
+          "text": "2 cdas de salsa de soya",
+          "name": "salsa de soya",
+          "amount": 2,
+          "unit": "cda"
+        },
+        {
+          "text": "2–3 cdas de jugo de piña",
+          "name": "jugo de piña",
+          "amount": 2,
+          "amountMax": 3,
+          "unit": "cda"
+        },
+        {
+          "text": "1 cda de vinagre de arroz",
+          "name": "vinagre de arroz",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "1 cdta de jengibre",
+          "name": "jengibre",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "1–2 cdtas de endulzante Lakanto o azúcar",
+          "name": "endulzante Lakanto o azúcar",
+          "amount": 1,
+          "amountMax": 2,
+          "unit": "cdta"
+        }
       ],
       "notes": [
         "Para 1 unidad. Compatible: cerdo. Congelador: sí. Ácido: vinagre de arroz + piña; la piña tiene enzimas que suavizan la carne",
@@ -4424,16 +7024,69 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, sección 13",
       "ingredients": [
-        "1½ cdas de paprika ahumada",
-        "1 cdta de ajo en polvo",
-        "1 cdta de cebolla en polvo",
-        "½ cdta de pimienta negra",
-        "¾ cdta de sal",
-        "1 cda de vinagre de manzana",
-        "1 cda de mostaza",
-        "1–2 cdtas de endulzante Lakanto (opcional)",
-        "1 cda de aceite",
-        "2 cdas de pasta de tomate o ketchup sin azúcar (opcional)"
+        {
+          "text": "1½ cdas de paprika ahumada",
+          "name": "paprika ahumada",
+          "amount": 1.5,
+          "unit": "cda"
+        },
+        {
+          "text": "1 cdta de ajo en polvo",
+          "name": "ajo en polvo",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "1 cdta de cebolla en polvo",
+          "name": "cebolla en polvo",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "½ cdta de pimienta negra",
+          "name": "pimienta negra",
+          "amount": 0.5,
+          "unit": "cdta"
+        },
+        {
+          "text": "¾ cdta de sal",
+          "name": "sal",
+          "amount": 0.75,
+          "unit": "cdta"
+        },
+        {
+          "text": "1 cda de vinagre de manzana",
+          "name": "vinagre de manzana",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "1 cda de mostaza",
+          "name": "mostaza",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "1–2 cdtas de endulzante Lakanto (opcional)",
+          "name": "endulzante Lakanto",
+          "amount": 1,
+          "amountMax": 2,
+          "unit": "cdta",
+          "optional": true
+        },
+        {
+          "text": "1 cda de aceite",
+          "name": "aceite",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "2 cdas de pasta de tomate o ketchup sin azúcar (opcional)",
+          "name": "pasta de tomate o ketchup sin azúcar",
+          "amount": 2,
+          "unit": "cda",
+          "optional": true
+        }
       ],
       "notes": [
         "Rinde 1 unidad. Tiempo de marinado: aproximadamente 2–12 horas",
@@ -4457,13 +7110,49 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, sección 14",
       "ingredients": [
-        "Paprika",
-        "Ajo",
-        "Cebolla",
-        "1 cdta de orégano",
-        "½ cdta de tomillo (opcional)",
-        "Pimienta negra",
-        "¾ cdta de sal"
+        {
+          "text": "Paprika",
+          "name": "Paprika",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Ajo",
+          "name": "Ajo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Cebolla",
+          "name": "Cebolla",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "1 cdta de orégano",
+          "name": "orégano",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "½ cdta de tomillo (opcional)",
+          "name": "tomillo",
+          "amount": 0.5,
+          "unit": "cdta",
+          "optional": true
+        },
+        {
+          "text": "Pimienta negra",
+          "name": "Pimienta negra",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "¾ cdta de sal",
+          "name": "sal",
+          "amount": 0.75,
+          "unit": "cdta"
+        }
       ],
       "notes": [
         "Rinde 1 unidad. Tiempo de marinado: aproximadamente 4–24 horas",
@@ -4487,12 +7176,43 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, sección 16",
       "ingredients": [
-        "2 cdas de Salsa Lizano",
-        "1 cda de aceite",
-        "2 dientes de ajo",
-        "½ cdta de sal",
-        "½ cdta de pimienta negra",
-        "½ cdta de salsa de soya (opcional)"
+        {
+          "text": "2 cdas de Salsa Lizano",
+          "name": "salsa Lizano",
+          "amount": 2,
+          "unit": "cda"
+        },
+        {
+          "text": "1 cda de aceite",
+          "name": "aceite",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "2 dientes de ajo",
+          "name": "ajo",
+          "amount": 2,
+          "unit": "diente"
+        },
+        {
+          "text": "½ cdta de sal",
+          "name": "sal",
+          "amount": 0.5,
+          "unit": "cdta"
+        },
+        {
+          "text": "½ cdta de pimienta negra",
+          "name": "pimienta negra",
+          "amount": 0.5,
+          "unit": "cdta"
+        },
+        {
+          "text": "½ cdta de salsa de soya (opcional)",
+          "name": "salsa de soya",
+          "amount": 0.5,
+          "unit": "cdta",
+          "optional": true
+        }
       ],
       "notes": [
         "Rinde 1 unidad. Tiempo de marinado: aproximadamente 30 minutos–2 horas. No lleva ácido fuerte a propósito",
@@ -4516,12 +7236,43 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, sección 17",
       "ingredients": [
-        "2½ cdas de salsa de soya",
-        "1 cda de vinagre de arroz",
-        "1 cdta de jengibre",
-        "1–2 dientes de ajo",
-        "1½ cdas de maicena",
-        "1 cdta de aceite"
+        {
+          "text": "2½ cdas de salsa de soya",
+          "name": "salsa de soya",
+          "amount": 2.5,
+          "unit": "cda"
+        },
+        {
+          "text": "1 cda de vinagre de arroz",
+          "name": "vinagre de arroz",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "1 cdta de jengibre",
+          "name": "jengibre",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "1–2 dientes de ajo",
+          "name": "ajo",
+          "amount": 1,
+          "amountMax": 2,
+          "unit": "diente"
+        },
+        {
+          "text": "1½ cdas de maicena",
+          "name": "maicena",
+          "amount": 1.5,
+          "unit": "cda"
+        },
+        {
+          "text": "1 cdta de aceite",
+          "name": "aceite",
+          "amount": 1,
+          "unit": "cdta"
+        }
       ],
       "notes": [
         "Rinde 1 unidad. No es marinada de congelador: es un tratamiento corto justo antes de cocinar",
@@ -4546,11 +7297,38 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, sección 22",
       "ingredients": [
-        "2½–3 cdas de salsa de soya",
-        "1 cda de vinagre de arroz o jugo de limón",
-        "1 cdta de jengibre",
-        "Ajo",
-        "2–3 cdtas de endulzante Lakanto o azúcar"
+        {
+          "text": "2½–3 cdas de salsa de soya",
+          "name": "salsa de soya",
+          "amount": 2.5,
+          "amountMax": 3,
+          "unit": "cda"
+        },
+        {
+          "text": "1 cda de vinagre de arroz o jugo de limón",
+          "name": "vinagre de arroz o jugo de limón",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "1 cdta de jengibre",
+          "name": "jengibre",
+          "amount": 1,
+          "unit": "cdta"
+        },
+        {
+          "text": "Ajo",
+          "name": "Ajo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "2–3 cdtas de endulzante Lakanto o azúcar",
+          "name": "endulzante Lakanto o azúcar",
+          "amount": 2,
+          "amountMax": 3,
+          "unit": "cdta"
+        }
       ],
       "notes": [
         "Rinde 1 unidad. Tiempo de marinado: aproximadamente 20–60 minutos. Se prepara el día de cocinar",
@@ -4575,10 +7353,31 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, sección 23",
       "ingredients": [
-        "2½ cdas de salsa de soya",
-        "1 cda de vinagre de arroz o limón",
-        "Jengibre (opcional)",
-        "Un poco de aceite"
+        {
+          "text": "2½ cdas de salsa de soya",
+          "name": "salsa de soya",
+          "amount": 2.5,
+          "unit": "cda"
+        },
+        {
+          "text": "1 cda de vinagre de arroz o limón",
+          "name": "vinagre de arroz o limón",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "Jengibre (opcional)",
+          "name": "Jengibre",
+          "amount": null,
+          "unit": null,
+          "optional": true
+        },
+        {
+          "text": "Un poco de aceite",
+          "name": "Un poco de aceite",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "Rinde 1 unidad. Marinada corta: 10–20 minutos"
@@ -4601,11 +7400,37 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, sección 24",
       "ingredients": [
-        "¼ taza de mayonesa",
-        "1½ cdas de salsa de soya",
-        "1 cda de jugo de limón",
-        "endulzante Lakanto o azúcar (opcional)",
-        "Ajo en polvo"
+        {
+          "text": "¼ taza de mayonesa",
+          "name": "mayonesa",
+          "amount": 0.25,
+          "unit": "taza"
+        },
+        {
+          "text": "1½ cdas de salsa de soya",
+          "name": "salsa de soya",
+          "amount": 1.5,
+          "unit": "cda"
+        },
+        {
+          "text": "1 cda de jugo de limón",
+          "name": "jugo de limón",
+          "amount": 1,
+          "unit": "cda"
+        },
+        {
+          "text": "endulzante Lakanto o azúcar (opcional)",
+          "name": "endulzante Lakanto o azúcar",
+          "amount": null,
+          "unit": null,
+          "optional": true
+        },
+        {
+          "text": "Ajo en polvo",
+          "name": "Ajo en polvo",
+          "amount": null,
+          "unit": null
+        }
       ],
       "notes": [
         "No se congela: se prepara al momento de cocinar. Se usa para bañar, como salsa de bowl o para dipear"
@@ -4628,14 +7453,55 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, sección 19",
       "ingredients": [
-        "Comino",
-        "Paprika",
-        "Chili powder",
-        "Orégano",
-        "Ajo",
-        "Cebolla",
-        "Sal",
-        "Para terminar: limón, si se quiere"
+        {
+          "text": "Comino",
+          "name": "Comino",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Paprika",
+          "name": "Paprika",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Chili powder",
+          "name": "Chili powder",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Orégano",
+          "name": "Orégano",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Ajo",
+          "name": "Ajo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Cebolla",
+          "name": "Cebolla",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Para terminar: limón, si se quiere",
+          "name": "limón, si se quiere",
+          "amount": null,
+          "unit": null,
+          "section": "Para terminar"
+        }
       ],
       "notes": [
         "Se usa al cocinar: la carne molida se congela sin sazonar"
@@ -4658,12 +7524,44 @@
       "active": true,
       "source": "Kitchen Manual Final (PDF), capítulo 6, sección 20",
       "ingredients": [
-        "Italian seasoning",
-        "Ajo",
-        "Cebolla",
-        "Sal",
-        "Pimienta negra",
-        "Para terminar: parmesano (opcional)"
+        {
+          "text": "Italian seasoning",
+          "name": "Italian seasoning",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Ajo",
+          "name": "Ajo",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Cebolla",
+          "name": "Cebolla",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Sal",
+          "name": "Sal",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Pimienta negra",
+          "name": "Pimienta negra",
+          "amount": null,
+          "unit": null
+        },
+        {
+          "text": "Para terminar: parmesano (opcional)",
+          "name": "parmesano",
+          "amount": null,
+          "unit": null,
+          "optional": true,
+          "section": "Para terminar"
+        }
       ],
       "notes": [
         "Se usa al cocinar: la carne molida se congela sin sazonar"
