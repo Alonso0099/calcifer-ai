@@ -9,6 +9,7 @@ const content = {
     { id: 'retirado', name: 'Proceso retirado', active: false, steps: [] },
   ],
   zones: [{ id: 'cocina-general', name: 'Cocina en general' }],
+  freezer: { marinatedUseByMonths: 3, proteins: [{ id: 'pollo', name: 'Pollo', target: 10, cuts: [{ id: 'pollo-filetes', name: 'Filetes', useByMonths: 6 }] }] },
   week: { schemaVersion: 1, days: [{ id: 'viernes', name: 'Viernes', meal: null, blocks: [{ processId: 'limpieza-semanal', estimatedMinutes: { min: 45, max: 60 } }] }] },
 };
 
@@ -96,4 +97,18 @@ test('el menú se planea, se cambia, se quita y se puede deshacer', async () => 
   assert.equal((await data.getMealPlan())['2026-11-16'].lunch.kind, 'leftovers');
   await assert.rejects(data.planMeal('2026-11-16', 'dinner', { kind: 'recipe', processId: 'no-existe' }));
   await assert.rejects(data.planMeal('2026-11-16', 'merienda', { kind: 'quick' }));
+});
+
+test('congelador: registrar bolsas, usar una y recuperarla con Deshacer', async () => {
+  const data = createTestAdapter();
+  const first = await data.saveFreezerItem({ cutId: 'pollo-filetes', marinated: true, units: 1, prepDay: '2026-11-07' });
+  await data.saveFreezerItem({ cutId: 'pollo-filetes', marinated: false, units: 1, prepDay: '2026-11-07' });
+  assert.equal((await data.getFreezer()).length, 2);
+  await data.removeFreezerItem(first, 'cooked');
+  assert.equal((await data.getFreezer()).length, 1);
+  await data.undoLastEvent();
+  assert.equal((await data.getFreezer()).length, 2);
+  await assert.rejects(data.saveFreezerItem({ cutId: 'no-existe', marinated: false, units: 1, prepDay: '2026-11-07' }));
+  await assert.rejects(data.saveFreezerItem({ cutId: 'pollo-filetes', marinated: false, units: 0, prepDay: '2026-11-07' }));
+  await assert.rejects(data.removeFreezerItem(first, 'perdida'));
 });

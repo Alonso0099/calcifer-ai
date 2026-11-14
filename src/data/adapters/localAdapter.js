@@ -6,6 +6,7 @@ import { getCurrentNotes } from '../../lib/notes.js';
 import { processMatchesSearch } from '../../lib/searchText.js';
 import { buildBackup, parseBackup } from '../../lib/backup.js';
 import { createEventStore } from './eventStore.js';
+import { createFreezerFunctions } from './freezerFunctions.js';
 import { createMealPlanFunctions } from './mealPlanFunctions.js';
 import { createStopwatchFunctions } from './stopwatchStore.js';
 
@@ -17,7 +18,7 @@ import { createStopwatchFunctions } from './stopwatchStore.js';
  * @param {object} options
  * @param {{getItem: Function, setItem: Function}} options.storage - Dónde se guardan los
  *   eventos (localStorage en la app; uno falso en las pruebas).
- * @param {{processes: object[], week: object, zones: object[]}} options.content - El contenido de los JSON.
+ * @param {{processes: object[], week: object, zones: object[], freezer: object}} options.content - El contenido de los JSON.
  * @returns {object} Las funciones de la tabla "Regla 2" de CLAUDE.md.
  */
 export function createLocalAdapter({ storage, content }) {
@@ -36,6 +37,8 @@ export function createLocalAdapter({ storage, content }) {
     ...createStopwatchFunctions(storage),
     // getMealPlan y planMeal (el menú) también viven aparte.
     ...createMealPlanFunctions(store, requireProcess),
+    // Las funciones del congelador (getFreezer, saveFreezerItem...) también viven aparte.
+    ...createFreezerFunctions(store, content.freezer),
 
     /** @returns {Promise<object[]>} Todos los procesos activos. */
     async getProcesses() {

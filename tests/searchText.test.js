@@ -21,7 +21,7 @@ test('una búsqueda vacía no coincide con nada', () => {
 });
 
 test('findSearchMatch dice si coincidió el nombre, un paso o un ingrediente', () => {
-  const recipe = { name: 'Marinada Lizano', steps: [], ingredients: ['1 cda de jugo de limón'] };
+  const recipe = { name: 'Marinada Lizano', steps: [], ingredients: [{ text: '1 cda de jugo de limón', name: 'jugo de limón', amount: 1, unit: 'cda' }] };
   assert.deepEqual(findSearchMatch(process, 'JABON'), { kind: 'step', text: 'Backsplash: jabón suave y microfibra' });
   assert.equal(findSearchMatch(process, 'limpieza').kind, 'name');
   assert.deepEqual(findSearchMatch(recipe, 'limon'), { kind: 'ingredient', text: '1 cda de jugo de limón' });

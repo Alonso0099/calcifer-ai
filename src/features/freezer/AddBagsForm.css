@@ -1,0 +1,42 @@
+/* Estilos del formulario para agregar bolsas al congelador. */
+
+.add-bags {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+}
+
+.add-bags h3 {
+  margin: 0;
+}
+
+.add-bags-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.add-bags-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.add-bags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.add-bags-row input {
+  max-width: 170px;
+}
+
+.add-bags-help {
+  margin: 0;
+  color: var(--color-text-muted);
+}

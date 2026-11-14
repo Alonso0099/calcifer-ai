@@ -178,6 +178,10 @@ Ningún componente lee `localStorage` ni importa el JSON directamente. Todo pasa
 | `deleteNote(noteId)` | Borra una nota (se puede recuperar con Deshacer) |
 | `getMealPlan()` | El menú: qué comida está planeada en cada día y momento (desayuno, almuerzo, cena) |
 | `planMeal(day, slot, meal)` | Planea, cambia o quita una comida; `meal` es una receta (`kind: "recipe"` y su `processId`), `"leftovers"`, `"eat_out"`, `"quick"` o `"none"` para quitar |
+| `getFreezerCatalog()` | Metas de proteína, cortes y tiempos máximos en el congelador (de `freezer.json`) |
+| `getFreezer()` | Las bolsas que hay hoy en el congelador |
+| `saveFreezerItem(item)` | Registra una bolsa o corrige una existente: corte, si va marinada, unidades y día de preparación |
+| `removeFreezerItem(itemId, reason)` | Saca una bolsa: `"cooked"`, `"discarded"` o `"correction"` |
 | `undoLastEvent()` | Anula el último evento |
 | `getStopwatch(processId)` / `saveStopwatch(processId, stopwatch)` | Lee y guarda el cronómetro en curso de un proceso, para que no se pierda al recargar la página. No es un evento: no entra al historial, al Deshacer ni al respaldo |
 | `exportBackup()` / `importBackup(file)` | Respaldo y restauración del historial |
@@ -191,7 +195,7 @@ Cada acción se guarda como un evento nuevo; nunca se edita ni se borra uno ante
 ```js
 {
   id: 'uuid generado con crypto.randomUUID()',
-  type: 'step_checked' | 'step_unchecked' | 'process_finished' | 'note_saved' | 'note_deleted' | 'meal_planned' | 'event_undone',
+  type: 'step_checked' | 'step_unchecked' | 'process_finished' | 'note_saved' | 'note_deleted' | 'meal_planned' | 'freezer_item_saved' | 'freezer_item_removed' | 'event_undone',
   processId: 'limpieza-semanal',  // en notas es opcional: null si la nota no está ligada a un proceso
   stepId: 'paso-3',        // solo en eventos de pasos
   minutes: 42,             // solo en process_finished
@@ -202,12 +206,20 @@ Cada acción se guarda como un evento nuevo; nunca se edita ni se borra uno ante
   day: '2026-11-16',       // solo en meal_planned: el día de la casa, sin hora
   slot: 'dinner',          // solo en meal_planned: 'breakfast' | 'lunch' | 'dinner'
   kind: 'recipe',          // solo en meal_planned: 'recipe' | 'leftovers' | 'eat_out' | 'quick' | 'none' (quitar)
+  itemId: 'uuid',          // solo en eventos del congelador: el mismo id mientras exista la bolsa
+  cutId: 'pollo-filetes',  // solo en freezer_item_saved: un corte de freezer.json
+  marinated: false,        // solo en freezer_item_saved
+  units: 1,                // solo en freezer_item_saved: cuántas unidades trae la bolsa
+  prepDay: '2026-11-07',   // solo en freezer_item_saved: día de preparación
+  reason: 'cooked',        // solo en freezer_item_removed: 'cooked' | 'discarded' | 'correction'
   targetEventId: '...',    // solo en event_undone
   createdAt: '2026-11-13T02:15:00.000Z'
 }
 ```
 
 En el menú, cada día y momento muestra el último `meal_planned` guardado ahí (`kind: 'none'` lo deja vacío).
+
+Una bolsa del congelador existe desde su último `freezer_item_saved` hasta un `freezer_item_removed`. Lo que falta por comprar (meta − existencia) y la fecha límite de cada bolsa se calculan; no se guardan.
 
 Una nota se ve siempre en su versión más reciente (el último `note_saved` con su `noteId`), a menos que exista un `note_deleted` posterior.
 
@@ -259,7 +271,17 @@ Campos obligatorios de cada proceso:
 
 Campos opcionales (solo se escriben cuando aplican):
 
-- `ingredients`: lista de textos, uno por ingrediente con su cantidad (`"2 chiles dulces en tiras"`). Para recetas y marinadas.
+- `ingredients`: lista de ingredientes, para recetas y marinadas. Cada uno es un objeto:
+
+  ```json
+  { "text": "1–1½ lb de cerdo en trocitos", "name": "cerdo en trocitos", "amount": 1, "amountMax": 1.5, "unit": "lb" }
+  ```
+
+  - `text`: las palabras del manual. Es lo que se muestra y lo que se busca; los demás campos lo parten en piezas para poder sumar cantidades y armar compras.
+  - `name`: el ingrediente sin cantidad ni unidad.
+  - `amount`: número, o `null` si el manual no da cantidad ("Sal"). Nunca se inventa. `amountMax` solo se escribe si el manual da un rango.
+  - `unit`: `cda` | `cdta` | `taza` | `lb` | `oz` | `lata` | `diente` | `pizca` | `tallo` | `unidad`, o `null` cuando se cuenta por piezas ("2 cebollas") o no hay cantidad.
+  - `optional: true` si el manual lo marca como opcional, y `section` ("Salsa") si el ingrediente pertenece a una parte de la receta. Solo se escriben cuando aplican.
 - `notes`: lista de textos con lo que el manual dice del proceso y no es ingrediente ni paso: rendimiento ("Rinde 1 unidad"), con qué proteína es compatible una marinada, cuánto puede esperar después de descongelar, o el armado de Tita y el de Alonso en un desayuno. Son contenido del manual, de solo lectura; no confundir con las notas que escribe el usuario (funcionalidad 7).
 - `group`: solo en `preparar`, para dividir la categoría en la pantalla: `prep-carnes` | `prep-verduras` | `pollo` | `cerdo` | `res` | `seafood` | `sopas` | `flex` | `desayunos` | `marinadas`. Los dos primeros son los procedimientos de los preps mensuales; los demás, recetas. Los procesos generales de `preparar` (menú, servicio diario, los dos preps completos) no lo llevan.
 
@@ -290,6 +312,8 @@ El tiempo que muestra la app para un proceso: si todos sus pasos tienen `minutes
 - `blocks`: los bloques del día, cada uno con `processId` y `estimatedMinutes` (misma forma que en los procesos, o `null`). Un día de descanso lleva `[]`.
 - `everyWeeks`: opcional; cada cuántas semanas toca el bloque. Si no está, el bloque es de todas las semanas.
 
+`src/content/freezer.json`: el inventario objetivo del congelador. Por cada proteína (`pollo`, `cerdo`, `res`, `seafood`): su meta en unidades (`target`) y sus cortes, cada uno con `useByMonths` (el tiempo máximo en el congelador según el manual). `marinatedUseByMonths` es el límite para cualquier proteína marinada.
+
 `src/content/zones.json`: las zonas de la cocina (`id`, `name`), por ejemplo `estufa-horno`, `refri`, `fregadero`, `piso`, `karlby` y `mesa-ikea`. La estufa y el horno son una sola zona.
 
 `scripts/validate-content.js` (Node, sin dependencias) revisa que los ids no se repitan entre todos los archivos, que cada `processId` y `zone` exista, que `category` sea válida y coincida con su archivo, que `group` sea válido, que en `estimatedMinutes` `min` no sea mayor que `max`, que no exista ningún campo `owner`, y que `pending` coincida con lo que de verdad falta. Imprime cuántos procesos hay y la lista de pendientes. Se corre con `npm run validate` y también antes de `npm run build`.
@@ -309,6 +333,7 @@ src/
 │   ├── processes/         (tarjetas, detalle, checklist, cronómetro)
 │   ├── week/              (vista semanal)
 │   ├── search/            (búsqueda)
+│   ├── freezer/           (inventario del congelador)
 │   ├── maintenance/       (zonas y barras de vencimiento)
 │   ├── notes/             (lista de notas, hoja de una nota)
 │   └── backup/            (respaldo y restauración)

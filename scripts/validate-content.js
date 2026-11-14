@@ -101,10 +101,34 @@ function printSummary(processes) {
   }
 }
 
+/**
+ * Revisa el inventario objetivo del congelador: ids, metas y tiempos máximos.
+ *
+ * @param {string[]} errors - Lista donde se agregan los errores encontrados.
+ */
+function validateFreezer(errors) {
+  const freezer = readContent('freezer.json');
+  const seenIds = new Set();
+  const isPositive = (value) => Number.isFinite(value) && value > 0;
+  if (!isPositive(freezer.marinatedUseByMonths)) errors.push('freezer.json: marinatedUseByMonths debe ser un número mayor que cero');
+  for (const protein of freezer.proteins) {
+    if (!isPositive(protein.target)) errors.push(`freezer.json: "${protein.id}" no tiene una meta válida`);
+    for (const entry of [protein, ...protein.cuts]) {
+      if (!isSlug(entry.id) || seenIds.has(entry.id)) errors.push(`freezer.json: id inválido o repetido "${entry.id}"`);
+      seenIds.add(entry.id);
+      for (const term of findForbiddenTerms([entry.name ?? ''])) errors.push(`freezer.json: "${entry.id}" menciona "${term}"`);
+    }
+    for (const cut of protein.cuts) {
+      if (!isPositive(cut.useByMonths)) errors.push(`freezer.json: "${cut.id}" no tiene useByMonths válido`);
+    }
+  }
+}
+
 const errors = [];
 const zoneIds = validateZones(errors);
 const processes = validateProcesses(zoneIds, errors);
 validateWeek(processes, errors);
+validateFreezer(errors);
 
 if (errors.length > 0) {
   console.error(`El contenido tiene ${errors.length} error(es):`);

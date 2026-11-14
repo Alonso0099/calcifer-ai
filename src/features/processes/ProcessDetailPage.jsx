@@ -83,7 +83,7 @@ export default function ProcessDetailPage() {
       {backLink}
       <ProcessSummary process={process} lastDoneIso={lastDoneIso} />
       <p className="process-detail-notice">{canKeepScreenOn ? text.wakeLock.active : text.wakeLock.unsupported}</p>
-      <TextList title={text.processDetail.ingredients} items={process.ingredients} />
+      <TextList title={text.processDetail.ingredients} items={process.ingredients?.map((ingredient) => ingredient.text)} />
       <TextList title={text.processDetail.notes} items={process.notes} />
       <StepChecklist steps={process.steps} onToggle={handleToggle} />
       <Stopwatch stopwatch={stopwatch} />

@@ -103,3 +103,30 @@ export function formatDayLong(dayText) {
   const formatter = new Intl.DateTimeFormat('es', { timeZone: 'UTC', weekday: 'long', day: 'numeric', month: 'long' });
   return formatter.format(new Date(Date.UTC(year, month - 1, day)));
 }
+
+/**
+ * Suma meses a un día escrito como "2026-08-31". Si el mes de llegada no tiene ese
+ * día (31 de agosto + 6 meses sería "31 de febrero"), usa el último día de ese mes.
+ *
+ * @param {string} dayText - Un día en formato año-mes-día.
+ * @param {number} months - Cuántos meses sumar.
+ * @returns {string} El día resultante, en el mismo formato.
+ */
+export function addMonths(dayText, months) {
+  const [year, month, day] = dayText.split('-').map(Number);
+  // El día 0 del mes siguiente es el último día del mes de llegada.
+  const lastDayOfTargetMonth = new Date(Date.UTC(year, month - 1 + months + 1, 0)).getUTCDate();
+  return new Date(Date.UTC(year, month - 1 + months, Math.min(day, lastDayOfTargetMonth))).toISOString().slice(0, 10);
+}
+
+/**
+ * Cuenta los días que hay de un día a otro (positivo si el segundo es después).
+ *
+ * @param {string} fromDay - Día inicial, en formato año-mes-día.
+ * @param {string} toDay - Día final, en formato año-mes-día.
+ * @returns {number} Días de diferencia.
+ */
+export function getDaysBetween(fromDay, toDay) {
+  const toNumber = (dayText) => Date.UTC(...dayText.split('-').map((part, index) => (index === 1 ? Number(part) - 1 : Number(part)))) / MS_PER_DAY;
+  return toNumber(toDay) - toNumber(fromDay);
+}

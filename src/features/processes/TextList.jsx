@@ -5,7 +5,7 @@
  *
  * @param {object} props
  * @param {string} props.title - El título de la sección.
- * @param {string[]|undefined} props.items - Los textos (por ejemplo, process.ingredients).
+ * @param {string[]|undefined} props.items - Los textos (por ejemplo, las notas del manual o el texto de cada ingrediente).
  * @returns {JSX.Element|null} La sección, o null si no hay nada que mostrar.
  */
 export default function TextList({ title, items }) {

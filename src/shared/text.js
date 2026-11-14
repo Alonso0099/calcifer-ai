@@ -17,6 +17,7 @@ export const text = {
     processes: 'Recetas',
     week: 'Semana',
     search: 'Buscar',
+    freezer: 'Congelador',
     maintenance: 'Limpieza',
     notes: 'Notas',
     backup: 'Respaldo',
@@ -62,6 +63,37 @@ export const text = {
     recipes: 'Recetas',
     searchLabel: 'Buscar receta',
     noRecipes: 'Ninguna receta coincide.',
+  },
+  freezer: {
+    title: 'Congelador',
+    /** @param {number} units @param {number} target */
+    total: (units, target) => `Hay ${units} de ${target} unidades de proteína`,
+    /** @param {number} missing */
+    totalMissing: (missing) => (missing === 1 ? 'Falta comprar 1 unidad.' : `Faltan por comprar ${missing} unidades.`),
+    totalComplete: 'El congelador está completo: no hace falta comprar proteína.',
+    summaryHelp: '1 unidad son 4 platos: la comida de hoy y el almuerzo de mañana. La meta se repone; no hay que consumirla.',
+    /** @param {number} units @param {number} target */
+    count: (units, target) => `${units} de ${target}`,
+    /** @param {number} missing */
+    missing: (missing) => (missing === 1 ? 'Falta 1 unidad' : `Faltan ${missing} unidades`),
+    complete: 'Completo',
+    noBags: 'No hay bolsas registradas.',
+    marinated: 'marinada',
+    /** @param {number} units */
+    units: (units) => `${units} unidades`,
+    useStatus: { ok: 'Usar antes del', soon: 'Usar pronto: antes del', expired: 'Ya venció: era para antes del' },
+    /** @param {string} dayLong @param {string} year */
+    useBy: (dayLong, year) => `${dayLong} de ${year}`,
+    used: 'La usé',
+    discarded: 'La tiré',
+    addTitle: 'Agregar bolsas',
+    cutLabel: 'Qué es',
+    marinatedLabel: 'Va marinada',
+    countLabel: 'Cuántas bolsas',
+    unitsLabel: 'Unidades por bolsa',
+    prepDayLabel: 'Día de preparación',
+    unitsHelp: 'Normalmente 1 bolsa es 1 unidad. En pescado, mariscos y paquetes grandes se cuenta la comida, no las bolsas.',
+    add: 'Agregar al congelador',
   },
   install: {
     notice:
@@ -237,6 +269,8 @@ export const text = {
     nothing: 'No hay nada que deshacer.',
     done: {
       meal_planned: 'Se deshizo: cambio en el menú.',
+      freezer_item_saved: 'Se deshizo: bolsa registrada en el congelador.',
+      freezer_item_removed: 'Se deshizo: la bolsa volvió al congelador.',
       step_checked: 'Se deshizo: paso marcado.',
       step_unchecked: 'Se deshizo: paso desmarcado.',
       process_finished: 'Se deshizo: registro de proceso terminado.',

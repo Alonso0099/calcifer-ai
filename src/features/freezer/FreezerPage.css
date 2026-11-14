@@ -1,0 +1,43 @@
+/* Estilos de la pantalla del congelador. */
+
+.freezer-title {
+  margin-top: 0;
+}
+
+.freezer-summary {
+  margin-bottom: 16px;
+  padding: 16px;
+}
+
+.freezer-summary p {
+  margin: 0;
+}
+
+.freezer-summary-total {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text-strong);
+}
+
+.freezer-summary-missing {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.freezer-summary-help {
+  margin-top: 6px;
+  color: var(--color-text-muted);
+}
+
+.freezer-proteins {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  align-items: start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.freezer-undo {
+  margin-top: 16px;
+}

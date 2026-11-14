@@ -6,6 +6,7 @@ import preparar from '../content/processes/preparar.json';
 import limpieza from '../content/processes/limpieza.json';
 import mantenimiento from '../content/processes/mantenimiento.json';
 import seguridad from '../content/processes/seguridad.json';
+import freezer from '../content/freezer.json';
 import week from '../content/week.json';
 import zones from '../content/zones.json';
 
@@ -14,4 +15,5 @@ export const content = {
   processes: [compra, guardar, preparar, limpieza, mantenimiento, seguridad].flatMap((file) => file.processes),
   week,
   zones: zones.zones,
+  freezer,
 };
