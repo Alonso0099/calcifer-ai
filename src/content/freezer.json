@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "source": "Kitchen Manual v0, secciones 1 (stock objetivo), 3 (zonas del congelador) y 5 (tiempos máximos en el congelador)",
+  "marinatedUseByMonths": 3,
+  "proteins": [
+    {
+      "id": "pollo",
+      "name": "Pollo",
+      "target": 10,
+      "cuts": [
+        { "id": "pollo-filetes", "name": "Filetes de pechuga", "useByMonths": 6 },
+        { "id": "pollo-trocitos", "name": "Trocitos de pechuga", "useByMonths": 6 },
+        { "id": "pollo-con-hueso", "name": "Pollo con hueso", "useByMonths": 6 }
+      ]
+    },
+    {
+      "id": "cerdo",
+      "name": "Cerdo",
+      "target": 6,
+      "cuts": [
+        { "id": "cerdo-chuletas", "name": "Chuletas", "useByMonths": 4 },
+        { "id": "cerdo-trocitos", "name": "Cerdo en trocitos", "useByMonths": 4 },
+        { "id": "cerdo-molido", "name": "Cerdo molido", "useByMonths": 3 }
+      ]
+    },
+    {
+      "id": "res",
+      "name": "Res",
+      "target": 5,
+      "cuts": [
+        { "id": "res-bistec", "name": "Bistec", "useByMonths": 6 },
+        { "id": "res-cubitos", "name": "Res en cubitos", "useByMonths": 6 },
+        { "id": "res-molida-hamburguesa", "name": "Molida para hamburguesa", "useByMonths": 3 },
+        { "id": "res-molida-magra", "name": "Molida magra", "useByMonths": 3 },
+        { "id": "res-steaks", "name": "Steaks", "useByMonths": 6 }
+      ]
+    },
+    {
+      "id": "seafood",
+      "name": "Pescado y mariscos",
+      "target": 4,
+      "cuts": [
+        { "id": "seafood-salmon", "name": "Salmón", "useByMonths": 3 },
+        { "id": "seafood-tuna-steak", "name": "Tuna steak", "useByMonths": 3 },
+        { "id": "seafood-tilapia", "name": "Tilapia", "useByMonths": 6 },
+        { "id": "seafood-camarones", "name": "Camarones", "useByMonths": 6 }
+      ]
+    }
+  ]
+}

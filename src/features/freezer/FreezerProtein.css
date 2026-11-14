@@ -1,0 +1,77 @@
+/* Estilos de la tarjeta de una proteína del congelador. */
+
+.freezer-protein {
+  padding: 14px 16px;
+}
+
+.freezer-protein-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 12px;
+}
+
+.freezer-protein-header h3,
+.freezer-protein-count {
+  margin: 0;
+}
+
+.freezer-protein-count {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.freezer-protein-missing {
+  margin: 4px 0 0;
+  font-weight: 600;
+  color: var(--color-due-text);
+}
+
+.freezer-protein-complete {
+  margin: 4px 0 0;
+  font-weight: 600;
+  color: var(--color-ok-text);
+}
+
+.freezer-protein-empty {
+  color: var(--color-text-muted);
+}
+
+.freezer-bags {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.freezer-bag {
+  padding: 10px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.freezer-bag-name {
+  margin: 0;
+  font-weight: 600;
+}
+
+.freezer-bag-date {
+  margin: 2px 0 8px;
+  color: var(--color-text-muted);
+}
+
+/* El estado de la fecha va escrito ("Ya venció", "Usar pronto"); el color solo lo refuerza. */
+.freezer-bag-expired {
+  font-weight: 600;
+  color: var(--color-late-text);
+}
+
+.freezer-bag-soon {
+  font-weight: 600;
+  color: var(--color-due-text);
+}
+
+.freezer-bag-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

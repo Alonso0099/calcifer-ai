@@ -14,6 +14,8 @@ export const EVENT_TYPES = {
   noteSaved: 'note_saved',
   noteDeleted: 'note_deleted',
   mealPlanned: 'meal_planned',
+  freezerItemSaved: 'freezer_item_saved',
+  freezerItemRemoved: 'freezer_item_removed',
   eventUndone: 'event_undone',
 };
 
@@ -102,3 +104,9 @@ export const DAYS_PER_WEEK = 7;
 
 /** El proceso que explica cómo descongelar la proteína de mañana. */
 export const THAW_PROCESS_ID = 'descongelar-para-manana';
+
+/** Por qué sale una bolsa del congelador. "correction" es para arreglar un registro equivocado. */
+export const FREEZER_REMOVE_REASONS = ['cooked', 'discarded', 'correction'];
+
+/** Días antes de la fecha límite en que una bolsa se marca como "usar pronto". */
+export const USE_SOON_THRESHOLD_DAYS = 30;

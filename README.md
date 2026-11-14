@@ -8,7 +8,7 @@ Esta versión fue construida con [Claude Code](https://claude.com/claude-code). 
 
 La fase 1 está terminada y publicada: procesos con checklist, cronómetro y Deshacer; semana tipo; búsqueda; limpieza y mantenimiento por zona; respaldo; y notas.
 
-La fase 2 está en construcción (el orden completo está en `CLAUDE.md`). Ya funcionan: el uso sin conexión, la pantalla **Hoy** y el **menú de la semana**. Falta: sincronizar dos dispositivos, ingredientes con cantidad y unidad, inventario del congelador, compras y el modo de cocina paso a paso.
+La fase 2 está en construcción (el orden completo está en `CLAUDE.md`). Ya funcionan: el uso sin conexión, la pantalla **Hoy**, el **menú de la semana**, los ingredientes con cantidad y unidad, y el **inventario del congelador**. Falta: compras, el modo de cocina paso a paso y sincronizar dos dispositivos (esto último se deja para el final, porque necesita una cuenta en un servicio externo).
 
 ## Cómo correrla
 
@@ -218,4 +218,16 @@ Una línea por decisión importante, con su porqué.
 - **Si el manual no da cantidad, `amount` es `null`**: de 559 ingredientes, 289 traen cantidad; a los demás ("Sal", "Aguacate") no se les inventó una.
 - **Los rangos se guardan completos** (`amount` y `amountMax`): "1–1½ lb" no se redondea a un solo número.
 - **Las unidades son una lista cerrada** que revisa el validador: un error de dedo en una unidad no pasa.
+
+### Fase 2: inventario del congelador
+
+- **Se cuenta por unidades de proteína, no por gramos**: es como lo cuenta el manual (1 unidad = 4 platos) y no pide báscula.
+- **Las metas (10, 6, 5 y 4) y los tiempos máximos están en `freezer.json`**, tomados del manual: cambiar una meta es cambiar un número del contenido.
+- **Lo que falta por comprar se calcula** (meta − existencia, nunca menos de cero); no se guarda en ningún lado.
+- **La fecha límite de cada bolsa se calcula** con su día de preparación y el tiempo máximo de su corte; una marinada usa el límite de marinadas si es más corto.
+- **El inventario solo cambia con una confirmación**: "La usé", "La tiré" o "Agregar al congelador". Cocinar una receta no descuenta nada por su cuenta.
+- **Lo más viejo va primero** en cada proteína, y se avisa con palabras cuando una bolsa ya venció o le queda un mes.
+- **Varias bolsas iguales se registran de una vez**: al terminar la preparación mensual, 6 bolsas de filetes son un solo formulario.
+- **Una bolsa puede valer más de 1 unidad**: en pescado, mariscos y paquetes grandes se cuenta la comida, no las bolsas.
+- **Sacar o registrar una bolsa se puede deshacer**: son eventos, como todo lo demás.
 
