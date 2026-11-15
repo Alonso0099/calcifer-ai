@@ -14,6 +14,7 @@ import ShoppingPage from '../features/shopping/ShoppingPage.jsx';
 import SearchPage from '../features/search/SearchPage.jsx';
 import TodayPage from '../features/today/TodayPage.jsx';
 import WeekPage from '../features/week/WeekPage.jsx';
+import { STEP_BY_STEP_PATH } from '../shared/constants.js';
 import { text } from '../shared/text.js';
 
 /**
@@ -28,7 +29,7 @@ export const routes = [
   { path: '/menu/elegir', element: <MealPickerPage /> },
   { path: '/procesos', element: <ProcessListPage />, menuLabel: text.menu.processes },
   { path: '/procesos/:processId', element: <ProcessDetailPage /> },
-  { path: '/cocinar/:processId', element: <CookingPage /> },
+  { path: `${STEP_BY_STEP_PATH}/:processId`, element: <CookingPage /> },
   { path: '/congelador', element: <FreezerPage />, menuLabel: text.menu.freezer },
   { path: '/compras', element: <ShoppingPage />, menuLabel: text.menu.shopping },
   { path: '/limpieza', element: <MaintenancePage />, menuLabel: text.menu.maintenance, menuGroup: 'more' },

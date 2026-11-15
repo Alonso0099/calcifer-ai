@@ -260,3 +260,11 @@ Una línea por decisión importante, con su porqué.
 - **El ajuste de tamaño (la mitad, normal, el doble) solo cambia las cantidades que se muestran** y la pantalla lo dice: no ajusta pasos, tiempos ni temperaturas. Sin unidad se escribe "cebolla en tiras: 2" porque no se pone un nombre en plural de forma segura.
 - **El aviso de "app no instalada" se oculta en el modo de cocina**: ahí estorba.
 
+### Ajustes después de probar en casa
+
+- **El botón del modo paso a paso dice lo que se va a hacer**: "Cocinar", "Preparar", "Limpiar", "Guardar", "Revisar" o "Seguir paso a paso", según el tipo de proceso. Los textos están en una tabla de `text.js`, y la dirección pasó de `/cocinar` a `/paso-a-paso`, porque no todo es cocinar.
+- **Los almuerzos se empacan de domingo a jueves**: el dato vive en `week.json` (`packLunchForTomorrow`), como lo dice la semana tipo del manual, y no escondido en el código.
+- **Un paso puede depender de ese dato** (`onlyIfPackingLunch`): el viernes y el sábado no aparecen "empacar los almuerzos" ni su confirmación, y no cuentan en el avance.
+- **La confirmación final se separó en dos**: "Guardé lo que sobró" sale siempre en las recetas que dejan sobras; "Empaqué los 2 almuerzos" solo los días en que se empaca.
+- **Las dos pantallas cargan el proceso igual** (`loadProcessForToday` en `shared/`): la receta y el paso a paso muestran exactamente los mismos pasos.
+

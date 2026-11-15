@@ -47,6 +47,7 @@ export async function loadToday() {
     today,
     todayMeals,
     usualMeal: weekDay.meal,
+    packsLunchToday: weekDay.packLunchForTomorrow,
     processesById,
     tasks: buildTodayTasks({ todayMeals, todayBlocks: weekDay.blocks, overdueProcessIds, processesById, lastDoneByProcessId, now }),
     recipesToThaw: getRecipesToThaw(mealPlan[addDays(today, 1)] ?? {}, processesById).map((recipe) => ({

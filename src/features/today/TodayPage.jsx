@@ -24,7 +24,7 @@ export default function TodayPage() {
     <>
       <h2 className="today-title">{text.today.title(formatDayLong(data.today))}</h2>
       <div className="today-grid">
-        <TodayMeals meals={data.todayMeals} usualMeal={data.usualMeal} processesById={data.processesById} />
+        <TodayMeals meals={data.todayMeals} usualMeal={data.usualMeal} processesById={data.processesById} packsLunchToday={data.packsLunchToday} />
         <TodayTasks tasks={data.tasks} />
         {data.recipesToThaw.length > 0 && (
           <section className="card today-card">

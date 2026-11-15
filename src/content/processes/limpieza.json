@@ -72,7 +72,8 @@
         {
           "id": "paso-2",
           "text": "Confirmar que el almuerzo de mañana quedó empacado",
-          "minutes": null
+          "minutes": null,
+          "onlyIfPackingLunch": true
         },
         {
           "id": "paso-3",

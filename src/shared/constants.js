@@ -151,3 +151,6 @@ export const BEEP = { frequencyHz: 880, volume: 0.2, seconds: 0.4 };
 
 /** El patrón de vibración al terminar un temporizador (vibra, pausa, vibra), en milisegundos. */
 export const VIBRATION_PATTERN_MS = [200, 100, 200];
+
+/** La dirección del modo paso a paso (sirve para recetas, limpiezas, compras...). */
+export const STEP_BY_STEP_PATH = '/paso-a-paso';

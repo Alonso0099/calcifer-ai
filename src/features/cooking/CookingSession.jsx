@@ -35,10 +35,11 @@ function getStartingPoint(process) {
  *
  * @param {object} props
  * @param {object} props.process - La receta, con cada paso marcado o no (de getProcess).
+ * @param {boolean} props.packsLunchToday - Si hoy se empacan los almuerzos de mañana (cambia las confirmaciones finales).
  * @param {() => Promise<void>} props.reload - Vuelve a leer la receta después de un cambio.
  * @returns {JSX.Element} La pantalla del modo de cocina.
  */
-export default function CookingSession({ process, reload }) {
+export default function CookingSession({ process, packsLunchToday, reload }) {
   const navigate = useNavigate();
   const stopwatch = useStopwatch(process.id);
   const canKeepScreenOn = useWakeLock();
@@ -121,7 +122,7 @@ export default function CookingSession({ process, reload }) {
           <CookingStep step={process.steps[stepIndex]} index={stepIndex} total={total} onDone={handleDone} onSkip={goNext} onPrevious={handlePrevious} />
         </>
       )}
-      {stage === 'finish' && <FinishPanel process={process} elapsedMs={stopwatch.elapsedMs} onConfirm={handleFinish} onBack={() => { setStage('steps'); setStepIndex(total - 1); }} />}
+      {stage === 'finish' && <FinishPanel process={process} packsLunchToday={packsLunchToday} elapsedMs={stopwatch.elapsedMs} onConfirm={handleFinish} onBack={() => { setStage('steps'); setStepIndex(total - 1); }} />}
       <UndoButton onUndone={reload} />
     </div>
   );

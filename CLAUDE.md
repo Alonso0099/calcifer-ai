@@ -274,7 +274,7 @@ Campos obligatorios de cada proceso:
 - `frequencyDays`: número de días, o `null` si el proceso no se repite por calendario (una receta) o si es una tarea diaria (las diarias no llevan registro de "última vez"). Conversión fija: mensual = 30 días; si el manual da un rango, se usa el número menor ("cada 2–3 meses" = 60).
 - `frequencyLabel`: la frecuencia con las palabras del manual ("Cada 2–3 meses", "Diario"), o `null`. Es el texto que ve el usuario; `frequencyDays` es el número con el que se calcula el vencimiento.
 - `estimatedMinutes`: `{ "min": 45, "max": 60 }`, el estimado del manual para el proceso completo, o `null` si el manual no lo da. Un estimado de un solo número lleva `min` y `max` iguales.
-- `steps`: lista de pasos (`id`, `text`, `minutes`). Si el manual todavía no da los pasos, va `[]` y se agrega `"steps"` a `pending`.
+- `steps`: lista de pasos (`id`, `text`, `minutes`). Si el manual todavía no da los pasos, va `[]` y se agrega `"steps"` a `pending`. Un paso puede llevar `"onlyIfPackingLunch": true`: entonces solo aparece los días en que se empacan los almuerzos de mañana (según `week.json`).
 - `minutes` de cada paso: un solo número **medido** en la cocina, o `null` mientras no se mida. Nunca se llena con un estimado.
 - `pending`: los nombres de los campos que faltan (`"estimatedMinutes"`, `"steps"`, `"steps.minutes"`). Lista vacía si no falta nada. Un `null` permitido por diseño no es un pendiente: `zone` en una receta, o `frequencyDays` en una receta o en una tarea diaria.
 - Minutos por paso en `pending`: mientras ningún paso esté medido, va una sola entrada `"steps.minutes"`. Cuando se mide el primero, esa entrada se cambia por una por cada paso que todavía falte (`"steps.paso-2.minutes"`, `"steps.paso-5.minutes"`).
@@ -319,6 +319,7 @@ El tiempo que muestra la app para un proceso: si todos sus pasos tienen `minutes
 ```
 
 - `meal`: la comida del sistema de ese día, con las palabras del manual, o `null`.
+- `packLunchForTomorrow`: `true` si ese día se empacan los almuerzos del día siguiente. Según la semana tipo del manual, de domingo a jueves; viernes y sábado no, porque el fin de semana no se empaca.
 - `blocks`: los bloques del día, cada uno con `processId` y `estimatedMinutes` (misma forma que en los procesos, o `null`). Un día de descanso lleva `[]`.
 - `everyWeeks`: opcional; cada cuántas semanas toca el bloque. Si no está, el bloque es de todas las semanas.
 
@@ -340,7 +341,7 @@ src/
 ├── features/
 │   ├── today/             (pantalla de inicio: qué toca hoy)
 │   ├── planner/           (menú de la semana y selector de comidas)
-│   ├── cooking/           (modo de cocina: un paso a la vez, temporizadores, confirmación final)
+│   ├── cooking/           (modo paso a paso, en /paso-a-paso: un paso a la vez, temporizadores, confirmación final)
 │   ├── processes/         (tarjetas, detalle, checklist)
 │   ├── week/              (vista semanal)
 │   ├── search/            (búsqueda)

@@ -142,7 +142,8 @@
         {
           "id": "paso-2",
           "text": "Antes de servir, empacar los 2 almuerzos de mañana",
-          "minutes": null
+          "minutes": null,
+          "onlyIfPackingLunch": true
         },
         {
           "id": "paso-3",

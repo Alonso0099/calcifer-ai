@@ -50,7 +50,7 @@ export const text = {
     /** @param {string} proteinName */
     thawNoStock: (proteinName) => `No hay bolsas de ${proteinName.toLowerCase()} registradas en el congelador: revísalo o regístralas.`,
     thawLink: 'Ver cómo descongelar',
-    packLunch: 'Antes de servir la cena, empacar los 2 almuerzos de mañana.',
+    packLunch: 'Hoy se empacan los 2 almuerzos de mañana: antes de servir la cena.',
   },
   planner: {
     title: 'Menú de la semana',
@@ -134,9 +134,18 @@ export const text = {
     finishTitle: 'Para terminar',
     confirmHelp: 'La app no da nada por hecho: confirma tú.',
     confirmCooked: 'Revisé que la comida está bien cocida (la temperatura la medí yo).',
-    confirmStored: 'Guardé lo que sobró y empaqué los almuerzos de mañana.',
+    confirmStored: 'Guardé lo que sobró en el refri.',
+    confirmPacked: 'Empaqué los 2 almuerzos de mañana.',
     backToSteps: 'Volver a los pasos',
-    cookStepByStep: 'Cocinar paso a paso',
+    /** El botón para abrir el modo paso a paso dice lo que se va a hacer, según el tipo de proceso. */
+    stepByStep: {
+      recipe: 'Cocinar paso a paso',
+      prep: 'Preparar paso a paso',
+      cleaning: 'Limpiar paso a paso',
+      storing: 'Guardar paso a paso',
+      shopping: 'Revisar paso a paso',
+      other: 'Seguir paso a paso',
+    },
   },
   units: {
     /** @param {string} unit @param {number} amount */
