@@ -12,6 +12,7 @@ import { createProgressFunctions } from './progressFunctions.js';
 import { createShoppingFunctions } from './shoppingFunctions.js';
 import { createStopwatchFunctions } from './stopwatchStore.js';
 import { createTimerFunctions } from './timerStore.js';
+import { createSettingsFunctions } from './settingsStore.js';
 
 /**
  * Crea el adaptador local. Todas sus funciones son "async" (regresan una promesa)
@@ -43,6 +44,7 @@ export function createLocalAdapter({ storage, content }) {
     ...stopwatchFunctions,
     // getTimers y saveTimers (temporizadores del modo paso a paso) tampoco usan eventos.
     ...timerFunctions,
+    ...createSettingsFunctions(storage),
     // Notas (getNotes, saveNote, deleteNote) y respaldo (exportBackup, importBackup), cada uno en su archivo.
     ...createNoteFunctions(store, requireProcess),
     ...createBackupFunctions(store),

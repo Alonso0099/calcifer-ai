@@ -12,9 +12,10 @@ import ProcessListPage from '../features/processes/ProcessListPage.jsx';
 import ProcessDetailPage from '../features/processes/ProcessDetailPage.jsx';
 import ShoppingPage from '../features/shopping/ShoppingPage.jsx';
 import SearchPage from '../features/search/SearchPage.jsx';
+import SettingsPage from '../features/settings/SettingsPage.jsx';
 import TodayPage from '../features/today/TodayPage.jsx';
 import WeekPage from '../features/week/WeekPage.jsx';
-import { STEP_BY_STEP_PATH } from '../shared/constants.js';
+import { SETTINGS_PATH, STEP_BY_STEP_PATH } from '../shared/constants.js';
 import { text } from '../shared/text.js';
 
 /**
@@ -37,7 +38,9 @@ export const routes = [
   { path: '/notas/nueva', element: <NoteEditorPage /> },
   { path: '/notas/:noteId', element: <NoteEditorPage /> },
   { path: '/buscar', element: <SearchPage />, menuLabel: text.menu.search, menuGroup: 'more' },
-  { path: '/respaldo', element: <BackupPage />, menuLabel: text.menu.backup, menuGroup: 'more' },
+  { path: SETTINGS_PATH, element: <SettingsPage />, menuLabel: text.menu.settings, menuGroup: 'more' },
+  // El respaldo ya no va en el menú: se abre desde Ajustes.
+  { path: '/respaldo', element: <BackupPage /> },
   // La semana tipo del manual ya no va en el menú: se abre desde la pantalla del menú semanal.
   { path: '/semana', element: <WeekPage /> },
 ];

@@ -36,7 +36,7 @@
   padding: 12px;
   border-radius: 8px;
   background-color: var(--color-highlight);
-  color: var(--color-text-strong);
+  color: var(--color-on-highlight);
 }
 
 .backup-confirm h4 {

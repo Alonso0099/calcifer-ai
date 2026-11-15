@@ -4,7 +4,54 @@
    y nunca escriben un color directo. */
 
 :root {
-  /* Fondos: crema cálida, como una cocina iluminada por el fuego */
+  /* TEMA OSCURO CAFÉ LEÑA (el predeterminado): la cocina de noche junto al fuego.
+     Contrastes medidos sobre el fondo café leña, que es el más claro de los dos fondos. */
+  --color-bg: #5B3A24;            /* café leña: fondo de la app */
+  --color-surface: #3F2416;       /* madera oscura: tarjetas, encabezado y barra de abajo */
+  --color-border: #7A5236;        /* madera media: divisores y canto de tarjetas (nunca texto) */
+  --color-border-strong: #C8A27A; /* madera clara: borde de botones y campos (4.3:1) */
+
+  /* Texto */
+  --color-text: #FFF2D9;          /* crema hogar: texto principal (9.1:1) */
+  --color-text-strong: #FFD84D;   /* amarillo luz: títulos y énfasis (7.3:1) */
+  --color-text-muted: #D8B899;    /* taupe: texto secundario (5.4:1) */
+
+  /* Acciones */
+  --color-primary: #FF8A00;       /* naranja fuego: botones principales, con texto madera oscura (6.0:1) */
+  --color-primary-hover: #FFA033; /* naranja claro: botón principal presionado (texto madera oscura 7.2:1) */
+  --color-primary-edge: #E84B2A;  /* rojo Calcifer: el canto debajo del botón principal (solo adorno) */
+  --color-on-primary: #3F2416;    /* madera oscura: texto sobre los botones naranja */
+  --color-highlight: #FFD84D;     /* amarillo luz: fondo de resaltado */
+  --color-on-highlight: #3F2416;  /* madera oscura: texto sobre el fondo amarillo (10.3:1) */
+  --color-accent: #FF8A00;        /* naranja fuego: adornos; nunca lo único que comunica algo */
+
+  /* Estado de tareas (barras de vencimiento) */
+  --color-ok: #A8C08A;            /* verde salvia: barra "al día" (5.1:1) */
+  --color-ok-text: #A8C08A;       /* verde salvia: texto "al día" (5.1:1) */
+  --color-due: #FF8A00;           /* naranja fuego: barra "vence pronto" (4.3:1) */
+  --color-due-text: #FFD84D;      /* amarillo luz: texto "vence pronto" (7.3:1) */
+  --color-late: #E84B2A;          /* rojo Calcifer: barra "atrasada", solo dentro de tarjetas (3.7:1 sobre madera oscura) */
+  --color-late-text: #E79A9A;     /* rosa cálido: texto "atrasada" (4.6:1) */
+
+  /* Categorías (punto de color junto al nombre; el texto siempre va en --color-text) */
+  --color-cat-compra: #8CBED9;        /* azul cielo (5.1:1) */
+  --color-cat-guardar: #A8C08A;       /* verde salvia (5.1:1) */
+  --color-cat-preparar: #FF8A00;      /* naranja fuego (4.3:1) */
+  --color-cat-limpieza: #C9B6E4;      /* lila suave (5.4:1) */
+  --color-cat-mantenimiento: #FFD84D; /* amarillo luz (7.3:1) */
+  --color-cat-seguridad: #E79A9A;     /* rosa cálido (4.6:1) */
+
+  /* Sombras y brillos del tema oscuro: sombras más hondas y un brillo crema muy suave. */
+  --color-shadow: #140802;
+  --shadow-soft: 0 12px 22px -10px color-mix(in srgb, var(--color-shadow) 80%, transparent);
+  --shine: linear-gradient(to bottom, color-mix(in srgb, var(--color-text) 10%, transparent), transparent 55%);
+  --sunken: inset 0 2px 5px color-mix(in srgb, var(--color-shadow) 60%, transparent);
+  /* Resplandor de chimenea detrás del encabezado. */
+  --glow: radial-gradient(ellipse 90% 45% at 50% 0%, color-mix(in srgb, var(--color-accent) 22%, transparent), transparent 70%);
+}
+
+:root[data-theme='light'] {
+  /* TEMA CLARO (se elige en Ajustes). Fondos: crema cálida, como una cocina de día */
   --color-bg: #FFF4DF;            /* crema: fondo de la app */
   --color-surface: #FFFBF2;       /* marfil: tarjetas y paneles */
   --color-border: #DDBF94;        /* trigo: divisores y bordes de tarjetas (nunca texto) */
@@ -19,6 +66,8 @@
   --color-primary: #B23A15;       /* brasa: botones principales, con texto blanco (6.0:1) */
   --color-primary-hover: #8E2C0E; /* brasa oscura: botón presionado (8.3:1) */
   --color-on-primary: #FFFFFF;    /* blanco: texto sobre los botones brasa */
+  --color-primary-edge: #8E2C0E;  /* brasa oscura: el canto debajo del botón principal */
+  --color-on-highlight: #6B2A12;  /* caoba: texto sobre el fondo dorado (6.7:1) */
   --color-highlight: #F7C65B;     /* dorado: fondo de resaltado, con texto caoba (6.7:1) */
   --color-accent: #F47735;        /* llama: solo adornos; nunca texto ni lo único que comunica algo */
 
@@ -37,7 +86,14 @@
   --color-cat-limpieza: #8E4F7C;      /* ciruela */
   --color-cat-mantenimiento: #B98300; /* latón */
   --color-cat-seguridad: #A32626;     /* rojo */
+
+  /* Sombras y brillos del tema claro */
+  --shadow-soft: 0 10px 18px -8px color-mix(in srgb, var(--color-text-strong) 35%, transparent);
+  --shine: linear-gradient(to bottom, color-mix(in srgb, var(--color-on-primary) 22%, transparent), transparent 55%);
+  --sunken: inset 0 2px 4px color-mix(in srgb, var(--color-text-strong) 22%, transparent);
+  --glow: none;
 }
+
 
 /* Forma y relieve: las medidas del diseño, también en un solo lugar.
    Cambiar cuánto "sobresale" un botón o qué tan redonda es una tarjeta es cambiar una línea. */
@@ -50,10 +106,6 @@
   --font-title: ui-serif, Georgia, 'Times New Roman', serif;
   --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
-  /* Sombras y brillos, hechos mezclando colores de la paleta con transparencia. */
-  --shadow-soft: 0 10px 18px -8px color-mix(in srgb, var(--color-text-strong) 35%, transparent);
-  --shine: linear-gradient(to bottom, color-mix(in srgb, var(--color-on-primary) 22%, transparent), transparent 55%);
-  --sunken: inset 0 2px 4px color-mix(in srgb, var(--color-text-strong) 22%, transparent);
 }
 
 /* El ancho y alto de cada elemento incluyen su relleno y su borde:
@@ -64,9 +116,16 @@
   box-sizing: border-box;
 }
 
+/* Letra grande (se elige en Ajustes): todo lo medido en rem crece junto. */
+:root[data-text-size='large'] {
+  font-size: 118.75%;
+}
+
 body {
   margin: 0;
   background-color: var(--color-bg);
+  background-image: var(--glow);
+  background-attachment: fixed;
   color: var(--color-text);
   /* Tipografía del sistema (ver --font-body): no hay que descargar nada y se lee bien en tablet y celular. */
   font-family: var(--font-body);

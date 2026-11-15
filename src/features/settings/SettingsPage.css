@@ -1,0 +1,33 @@
+/* Acomodo de la pantalla de ajustes. El aspecto de tarjetas y botones viene de components.css. */
+
+.settings-title {
+  margin-top: 0;
+}
+
+.settings-intro,
+.settings-help {
+  color: var(--color-text-muted);
+}
+
+.settings-section {
+  margin-bottom: 16px;
+  padding: 14px 16px;
+}
+
+.settings-section h3 {
+  margin-top: 0;
+}
+
+.settings-help {
+  margin: 10px 0 0;
+}
+
+.settings-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.settings-test {
+  margin-top: 12px;
+}

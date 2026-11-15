@@ -49,6 +49,8 @@ export const {
   getAllStopwatches,
   getStopwatch,
   saveStopwatch,
+  getSettings,
+  saveSettings,
   exportBackup,
   importBackup,
 } = chooseAdapter();

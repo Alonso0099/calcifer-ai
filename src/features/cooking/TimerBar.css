@@ -43,7 +43,13 @@
 .timer-check {
   flex-basis: 100%;
   font-weight: 600;
-  color: var(--color-text-strong);
+}
+
+/* Sobre el fondo dorado de un temporizador terminado, todo el texto usa el color hecho para ese fondo. */
+.timer-done .timer-label,
+.timer-done .timer-clock,
+.timer-done .timer-check {
+  color: var(--color-on-highlight);
 }
 
 .timer-add {

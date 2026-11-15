@@ -85,7 +85,7 @@ Ninguna tarea tiene un dueño fijo: quién hace cada cosa se decide en el moment
 
 ## Colores
 
-La paleta es cálida y acogedora: crema, madera y tonos de fuego, como una cocina de cuento ilustrado. Es fija. Todos los colores se definen una sola vez como variables en `src/styles/global.css`, y ningún componente escribe un color directo (`#...`): siempre usa la variable. Así, cambiar un color es cambiar una sola línea.
+La paleta es cálida y acogedora: madera, crema y tonos de fuego, como una cocina de cuento ilustrado. Hay **dos temas fijos**: el **oscuro café leña** (el predeterminado, la cocina de noche junto al fuego) y el **claro crema**. Se eligen en Ajustes (oscuro, claro o como el dispositivo). Todos los colores se definen una sola vez como variables en `src/styles/global.css`, y ningún componente escribe un color directo (`#...`): siempre usa la variable. Así, cambiar un color es cambiar una sola línea.
 
 ### El diseño vive en dos archivos
 
@@ -96,13 +96,39 @@ Para cambiar cómo se ve la app no hay que tocar las pantallas:
 
 El CSS de cada funcionalidad solo acomoda (espacios, columnas, tamaños de texto). Nunca vuelve a definir bordes, fondos, esquinas ni sombras de una tarjeta, un botón o un campo: usa la clase compartida.
 
-El estilo es **con relieve, no plano**: lo que se puede tocar sobresale y se hunde al presionarlo; las tarjetas descansan como tablas, con un canto abajo; los campos y las barras están hundidos. El movimiento es breve y se apaga si el dispositivo pide menos movimiento.
+El estilo es **con relieve, no plano**: lo que se puede tocar sobresale y se hunde al presionarlo; las tarjetas descansan como tablas, con un canto abajo; los campos y las barras están hundidos. El movimiento es breve y se apaga si el dispositivo pide menos movimiento o si se apaga en Ajustes.
 
-Los contrastes están medidos con la fórmula WCAG sobre el fondo más claro (mínimo 4.5:1 para texto, 3:1 para barras, puntos y bordes de botones y campos). El contraste alto es un requisito, no un adorno: la app tiene que leerse de un vistazo. No uses un color en un papel distinto al de esta tabla sin revisar su contraste.
+Los contrastes están medidos con la fórmula WCAG sobre el fondo más claro de cada tema (en el oscuro, el café leña `--color-bg`) (mínimo 4.5:1 para texto, 3:1 para barras, puntos y bordes de botones y campos). El contraste alto es un requisito, no un adorno: la app tiene que leerse de un vistazo. No uses un color en un papel distinto al de esta tabla sin revisar su contraste.
+
+El tema oscuro va en `:root` y el claro en `:root[data-theme='light']`; `src/shared/deviceSettings.js` pone `data-theme` en `<html>`. Los dos temas definen las mismas variables.
 
 ```css
 :root {
-  /* Fondos: crema cálida, como una cocina iluminada por el fuego */
+  /* TEMA OSCURO CAFÉ LEÑA (predeterminado) */
+  --color-bg: #5B3A24;            /* café leña: fondo de la app */
+  --color-surface: #3F2416;       /* madera oscura: tarjetas, encabezado y barra de abajo */
+  --color-border: #7A5236;        /* madera media: divisores (nunca texto) */
+  --color-border-strong: #C8A27A; /* madera clara: borde de botones y campos (4.3:1) */
+  --color-text: #FFF2D9;          /* crema hogar (9.1:1) */
+  --color-text-strong: #FFD84D;   /* amarillo luz: títulos (7.3:1) */
+  --color-text-muted: #D8B899;    /* taupe (5.4:1) */
+  --color-primary: #FF8A00;       /* naranja fuego, con texto madera oscura (6.0:1) */
+  --color-primary-hover: #FFA033; /* naranja claro: presionado */
+  --color-primary-edge: #E84B2A;  /* rojo Calcifer: canto del botón principal (solo adorno) */
+  --color-on-primary: #3F2416;    /* madera oscura */
+  --color-highlight: #FFD84D;     /* amarillo luz: fondo de resaltado */
+  --color-on-highlight: #3F2416;  /* texto sobre el resaltado (10.3:1) */
+  --color-accent: #FF8A00;        /* solo adornos */
+  --color-ok: #A8C08A;  --color-ok-text: #A8C08A;    /* verde salvia (5.1:1) */
+  --color-due: #FF8A00; --color-due-text: #FFD84D;   /* barra 4.3:1 / texto 7.3:1 */
+  --color-late: #E84B2A; --color-late-text: #E79A9A; /* barra solo dentro de tarjetas (3.7:1) / rosa cálido 4.6:1 */
+  --color-cat-compra: #8CBED9; --color-cat-guardar: #A8C08A; --color-cat-preparar: #FF8A00;
+  --color-cat-limpieza: #C9B6E4; --color-cat-mantenimiento: #FFD84D; --color-cat-seguridad: #E79A9A;
+  /* Además: --shadow-soft, --shine, --sunken y --glow (resplandor de chimenea detrás del encabezado). */
+}
+
+:root[data-theme='light'] {
+  /* TEMA CLARO: fondos de crema cálida */
   --color-bg: #FFF4DF;            /* crema: fondo de la app */
   --color-surface: #FFFBF2;       /* marfil: tarjetas y paneles */
   --color-border: #DDBF94;        /* trigo: divisores y bordes de tarjetas (nunca texto) */
@@ -117,7 +143,9 @@ Los contrastes están medidos con la fórmula WCAG sobre el fondo más claro (m�
   --color-primary: #B23A15;       /* brasa: botones principales, con texto blanco (6.0:1) */
   --color-primary-hover: #8E2C0E; /* brasa oscura: botón presionado (8.3:1) */
   --color-on-primary: #FFFFFF;    /* blanco: texto sobre los botones brasa */
-  --color-highlight: #F7C65B;     /* dorado: fondo de resaltado, con texto caoba (6.7:1) */
+  --color-primary-edge: #8E2C0E;  /* brasa oscura: canto del botón principal */
+  --color-highlight: #F7C65B;     /* dorado: fondo de resaltado */
+  --color-on-highlight: #6B2A12;  /* caoba: texto sobre el resaltado (6.7:1) */
   --color-accent: #F47735;        /* llama: solo adornos; nunca texto ni lo único que comunica algo */
 
   /* Estado de tareas (barras de vencimiento) */
@@ -135,16 +163,19 @@ Los contrastes están medidos con la fórmula WCAG sobre el fondo más claro (m�
   --color-cat-limpieza: #8E4F7C;      /* ciruela */
   --color-cat-mantenimiento: #B98300; /* latón */
   --color-cat-seguridad: #A32626;     /* rojo */
+  /* --glow: none */
 }
 ```
 
 Reglas de uso:
 
 - El estado de una tarea nunca se comunica solo con color: la barra siempre va con su texto ("Atrasada 5 días"), para que se entienda aunque el color no se distinga bien.
-- Dorado, trigo, llama, ámbar y los colores de barra nunca se usan como color de texto sobre los fondos claros; para texto se usan sus variables `-text`.
+- Los colores de barra (ok, due, late), el borde suave y el adorno nunca se usan como color de texto; para texto se usan sus variables `-text`.
+- El texto sobre `--color-highlight` usa `--color-on-highlight`, y el texto sobre `--color-primary` usa `--color-on-primary`. El canto de un botón principal usa `--color-primary-edge`.
 - Botones y campos llevan borde `--color-border-strong`, para que se vea dónde se puede tocar.
 - `--color-accent` (llama) es solo para adornos pequeños.
-- Por ahora solo hay modo claro.
+- Un color nuevo se agrega en los dos temas, con su contraste medido en cada uno.
+- Solo se usan los códigos de color de la paleta; ninguna ilustración ni personaje de la imagen de referencia entra en la app.
 
 ### Diseño de las notas
 
@@ -192,6 +223,7 @@ Ningún componente lee `localStorage` ni importa el JSON directamente. Todo pasa
 | `getInProgress()` | Lo empezado y no terminado: procesos con pasos marcados, cronómetro con tiempo o temporizadores puestos |
 | `discardProgress(processId)` | Descarta lo empezado: desmarca los pasos (un evento `process_discarded`, que Deshacer revierte), pone el cronómetro en cero y quita sus temporizadores. Nunca borra el proceso, sus pasos ni el historial |
 | `getTimers()` / `saveTimers(timers)` | Lee y guarda los temporizadores en curso del modo de cocina. Como el cronómetro, no son eventos: no entran al historial, al Deshacer ni al respaldo |
+| `getSettings()` / `saveSettings(settings)` | Lee y guarda los ajustes del dispositivo: `theme` (`dark` · `light` · `auto`), `textSize` (`normal` · `large`), `timerSound` y `motion`. No son eventos: no entran al historial, al Deshacer ni al respaldo |
 | `exportBackup()` / `importBackup(file)` | Respaldo y restauración del historial |
 
 `src/data/index.js` elige el adaptador con la variable `VITE_DATA_SOURCE` (por ahora solo existe `local`). Un adaptador futuro (por ejemplo, PostgreSQL en Neon) debe implementar las mismas funciones con los mismos parámetros y resultados, sin cambiar ningún componente.
@@ -354,6 +386,7 @@ src/
 │   ├── shopping/          (lista de compras)
 │   ├── maintenance/       (zonas y barras de vencimiento)
 │   ├── notes/             (lista de notas, hoja de una nota)
+│   ├── settings/          (ajustes del dispositivo: tema, letra, sonido, movimiento; abre el respaldo)
 │   └── backup/            (respaldo y restauración)
 ├── data/
 │   ├── index.js           (la capa de datos: las funciones de la tabla)

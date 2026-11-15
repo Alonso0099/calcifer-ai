@@ -8,18 +8,29 @@ import { BrowserRouter } from 'react-router-dom';
 import './styles/global.css';
 import './styles/components.css';
 import App from './app/App.jsx';
+import { getSettings } from './data/index.js';
+import { applySettings } from './shared/deviceSettings.js';
 
-// createRoot le dice a React en qué elemento del HTML debe dibujar.
-// StrictMode solo actúa mientras se programa: avisa de errores comunes.
-// BrowserRouter permite que la dirección del navegador (/, /semana, ...)
-// decida qué pantalla se muestra, sin recargar la página.
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </StrictMode>,
-);
+/**
+ * Dibuja la app.
+ * createRoot le dice a React en qué elemento del HTML debe dibujar.
+ * StrictMode solo actúa mientras se programa: avisa de errores comunes.
+ * BrowserRouter permite que la dirección del navegador (/, /semana, ...)
+ * decida qué pantalla se muestra, sin recargar la página.
+ */
+function renderApp() {
+  createRoot(document.getElementById('root')).render(
+    <StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </StrictMode>,
+  );
+}
+
+// Los ajustes (colores, tamaño de letra) se aplican antes de dibujar, para que la app no
+// aparezca un instante con otros colores. Si no se pueden leer, la app se dibuja igual.
+getSettings().then(applySettings).finally(renderApp);
 
 // Registra el service worker (public/sw.js), que guarda la app para usarla sin conexión.
 // Solo en la versión publicada: mientras se programa estorbaría, porque serviría archivos viejos.

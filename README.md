@@ -275,4 +275,7 @@ Una línea por decisión importante, con su porqué.
 - **Descartar es un solo evento (`process_discarded`)**: desmarca todos los pasos de una vez y Deshacer los recupera de un toque. También pone el cronómetro en cero y quita los temporizadores de ese proceso, pero nunca borra la tarea, sus pasos ni el historial.
 - **Cada temporizador recuerda de qué proceso es**: así aparece debajo del proceso correcto en "En curso".
 - **El adaptador local se dividió**: notas y respaldo pasaron a sus propios archivos para que ninguno pase de 150 líneas.
-
+- **Tema oscuro café leña como predeterminado**: se lee mejor en la cocina de noche y es más tranquilo para la vista. El claro sigue disponible. Los dos temas definen las mismas variables en `global.css`, así que ninguna pantalla cambió para tener dos temas.
+- **Variables para "texto sobre resaltado" y "canto del botón"**: en el oscuro el resaltado es amarillo y necesita texto oscuro, y en el claro es al revés; con una variable por papel cada tema elige el suyo.
+- **Ajustes del dispositivo (tema, letra grande, sonido, movimiento)**: son preferencias de cada aparato, no historial, así que no son eventos ni van en el respaldo. Se aplican como atributos en `<html>` que el CSS lee, antes de dibujar la app para que no parpadee.
+- **El respaldo se abre desde Ajustes**: deja el menú "Más" más corto; la dirección `/respaldo` no cambió.

@@ -3,6 +3,7 @@
 // en el toque que pone el temporizador, y al terminar se reusa ese mismo audio ya permitido.
 import { createBeepWav } from '../lib/wav.js';
 import { BEEP, VIBRATION_PATTERN_MS } from './constants.js';
+import { isTimerSoundOn } from './deviceSettings.js';
 
 let alertAudio = null; // el reproductor de audio, creado una sola vez
 
@@ -51,12 +52,12 @@ function playBeeps() {
 }
 
 /**
- * Avisa que terminó un temporizador: pitidos y vibración. La vibración no existe en Safari
- * de iPhone y iPad (Apple no la permite a las páginas web), así que ahí solo suena.
+ * Avisa que terminó un temporizador: pitidos (si el sonido está encendido en Ajustes) y vibración.
+ * La vibración no existe en Safari de iPhone y iPad (Apple no la permite a las páginas web).
  */
 export function alertTimerDone() {
   navigator.vibrate?.(VIBRATION_PATTERN_MS);
-  playBeeps();
+  if (isTimerSoundOn()) playBeeps();
 }
 
 /** Prueba de sonido para el botón "Probar sonido": al ser un toque, también deja el sonido listo. */
