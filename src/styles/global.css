@@ -4,51 +4,54 @@
    y nunca escriben un color directo. */
 
 :root {
-  /* TEMA OSCURO CAFÉ LEÑA (el predeterminado): la cocina de noche junto al fuego.
-     Contrastes medidos sobre el fondo café leña, que es el más claro de los dos fondos. */
-  --color-bg: #5B3A24;            /* café leña: fondo de la app */
-  --color-surface: #3F2416;       /* madera oscura: tarjetas, encabezado y barra de abajo */
-  --color-border: #7A5236;        /* madera media: divisores y canto de tarjetas (nunca texto) */
-  --color-border-strong: #C8A27A; /* madera clara: borde de botones y campos (4.3:1) */
+  /* TEMA OSCURO BRASA (el predeterminado): la cocina de noche junto a las brasas.
+     Rojos y naranjas en lo importante; el amarillo solo en detalles pequeños.
+     Contrastes medidos sobre el fondo café rojizo, que es el más claro de los dos fondos. */
+  --color-bg: #4E2A1E;            /* café rojizo: fondo de la app */
+  --color-surface: #33170F;       /* madera vino: tarjetas, encabezado y barra de abajo */
+  --color-border: #6E3A28;        /* madera rojiza: divisores y canto de tarjetas (nunca texto) */
+  --color-border-strong: #D4A57E; /* madera clara: borde de botones y campos (5.7:1) */
 
   /* Texto */
-  --color-text: #FFF2D9;          /* crema hogar: texto principal (9.1:1) */
-  --color-text-strong: #FFD84D;   /* amarillo luz: títulos y énfasis (7.3:1) */
-  --color-text-muted: #D8B899;    /* taupe: texto secundario (5.4:1) */
+  --color-text: #FFF2D9;          /* crema hogar: texto principal (11.3:1) */
+  --color-text-strong: #FF9966;   /* coral: títulos y énfasis (6.0:1) */
+  --color-text-muted: #E2BFA0;    /* taupe claro: texto secundario (7.3:1) */
+  --color-brand: #FFD84D;         /* amarillo luz: el nombre de la app, un detalle pequeño (9.1:1) */
 
   /* Acciones */
-  --color-primary: #FF8A00;       /* naranja fuego: botones principales, con texto madera oscura (6.0:1) */
-  --color-primary-hover: #FFA033; /* naranja claro: botón principal presionado (texto madera oscura 7.2:1) */
-  --color-primary-edge: #E84B2A;  /* rojo Calcifer: el canto debajo del botón principal (solo adorno) */
-  --color-on-primary: #3F2416;    /* madera oscura: texto sobre los botones naranja */
-  --color-highlight: #FFD84D;     /* amarillo luz: fondo de resaltado */
-  --color-on-highlight: #3F2416;  /* madera oscura: texto sobre el fondo amarillo (10.3:1) */
-  --color-accent: #FF8A00;        /* naranja fuego: adornos; nunca lo único que comunica algo */
+  --color-primary: #FF6A3D;       /* rojo brasa: botones principales, con texto café oscuro (6.1:1) */
+  --color-primary-hover: #FF8A5C; /* brasa clara: botón principal presionado (texto 7.5:1) */
+  --color-primary-edge: #B8321A;  /* rojo profundo: el canto debajo del botón principal (solo adorno) */
+  --color-on-primary: #2B140C;    /* café oscuro: texto sobre los botones brasa */
+  --color-highlight: #FFB27A;     /* durazno: fondo de avisos y botones elegidos */
+  --color-on-highlight: #2B140C;  /* café oscuro: texto sobre el durazno (9.9:1) */
+  --color-accent: #FFD84D;        /* amarillo luz: adornos pequeños; nunca lo único que comunica algo */
 
   /* Estado de tareas (barras de vencimiento) */
-  --color-ok: #A8C08A;            /* verde salvia: barra "al día" (5.1:1) */
-  --color-ok-text: #A8C08A;       /* verde salvia: texto "al día" (5.1:1) */
-  --color-due: #FF8A00;           /* naranja fuego: barra "vence pronto" (4.3:1) */
-  --color-due-text: #FFD84D;      /* amarillo luz: texto "vence pronto" (7.3:1) */
-  --color-late: #E84B2A;          /* rojo Calcifer: barra "atrasada", solo dentro de tarjetas (3.7:1 sobre madera oscura) */
-  --color-late-text: #E79A9A;     /* rosa cálido: texto "atrasada" (4.6:1) */
+  --color-ok: #A8C08A;            /* verde salvia: barra "al día" (6.3:1) */
+  --color-ok-text: #A8C08A;       /* verde salvia: texto "al día" (6.3:1) */
+  --color-due: #FF8A00;           /* naranja fuego: barra "vence pronto" (5.3:1) */
+  --color-due-text: #FFD84D;      /* amarillo luz: texto "vence pronto" (9.1:1) */
+  --color-late: #E84B2A;          /* rojo Calcifer: barra "atrasada" (3.3:1) */
+  --color-late-text: #E79A9A;     /* rosa cálido: texto "atrasada" (5.7:1) */
 
   /* Categorías (punto de color junto al nombre; el texto siempre va en --color-text) */
-  --color-cat-compra: #8CBED9;        /* azul cielo (5.1:1) */
-  --color-cat-guardar: #A8C08A;       /* verde salvia (5.1:1) */
-  --color-cat-preparar: #FF8A00;      /* naranja fuego (4.3:1) */
-  --color-cat-limpieza: #C9B6E4;      /* lila suave (5.4:1) */
-  --color-cat-mantenimiento: #FFD84D; /* amarillo luz (7.3:1) */
-  --color-cat-seguridad: #E79A9A;     /* rosa cálido (4.6:1) */
+  --color-cat-compra: #8CBED9;        /* azul cielo */
+  --color-cat-guardar: #A8C08A;       /* verde salvia */
+  --color-cat-preparar: #FF8A00;      /* naranja fuego */
+  --color-cat-limpieza: #C9B6E4;      /* lila suave */
+  --color-cat-mantenimiento: #FFD84D; /* amarillo luz */
+  --color-cat-seguridad: #E79A9A;     /* rosa cálido */
 
   /* Sombras y brillos del tema oscuro: sombras más hondas y un brillo crema muy suave. */
   --color-shadow: #140802;
   --shadow-soft: 0 12px 22px -10px color-mix(in srgb, var(--color-shadow) 80%, transparent);
   --shine: linear-gradient(to bottom, color-mix(in srgb, var(--color-text) 10%, transparent), transparent 55%);
   --sunken: inset 0 2px 5px color-mix(in srgb, var(--color-shadow) 60%, transparent);
-  /* Resplandor de chimenea detrás del encabezado. */
-  --glow: radial-gradient(ellipse 90% 45% at 50% 0%, color-mix(in srgb, var(--color-accent) 22%, transparent), transparent 70%);
+  /* Resplandor de brasas detrás del encabezado. */
+  --glow: radial-gradient(ellipse 90% 45% at 50% 0%, color-mix(in srgb, var(--color-primary) 28%, transparent), transparent 70%);
 }
+
 
 :root[data-theme='light'] {
   /* TEMA CLARO (se elige en Ajustes). Fondos: crema cálida, como una cocina de día */
@@ -61,6 +64,7 @@
   --color-text: #33241C;          /* café tostado: texto principal (13.7:1) */
   --color-text-strong: #6B2A12;   /* caoba: títulos y énfasis (9.8:1) */
   --color-text-muted: #6A5345;    /* café con leche: texto secundario (6.6:1) */
+  --color-brand: #6B2A12;         /* caoba: el nombre de la app */
 
   /* Acciones */
   --color-primary: #B23A15;       /* brasa: botones principales, con texto blanco (6.0:1) */

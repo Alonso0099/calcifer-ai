@@ -85,7 +85,7 @@ Ninguna tarea tiene un dueño fijo: quién hace cada cosa se decide en el moment
 
 ## Colores
 
-La paleta es cálida y acogedora: madera, crema y tonos de fuego, como una cocina de cuento ilustrado. Hay **dos temas fijos**: el **oscuro café leña** (el predeterminado, la cocina de noche junto al fuego) y el **claro crema**. Se eligen en Ajustes (oscuro, claro o como el dispositivo). Todos los colores se definen una sola vez como variables en `src/styles/global.css`, y ningún componente escribe un color directo (`#...`): siempre usa la variable. Así, cambiar un color es cambiar una sola línea.
+La paleta es cálida y acogedora: madera, crema y tonos de fuego, como una cocina de cuento ilustrado. Hay **dos temas fijos**: el **oscuro brasa** (el predeterminado: fondo café rojizo, rojos y naranjas en lo importante y el amarillo solo en detalles pequeños) y el **claro crema**. Se eligen en Ajustes (oscuro, claro o como el dispositivo). Todos los colores se definen una sola vez como variables en `src/styles/global.css`, y ningún componente escribe un color directo (`#...`): siempre usa la variable. Así, cambiar un color es cambiar una sola línea.
 
 ### El diseño vive en dos archivos
 
@@ -98,33 +98,34 @@ El CSS de cada funcionalidad solo acomoda (espacios, columnas, tamaños de texto
 
 El estilo es **con relieve, no plano**: lo que se puede tocar sobresale y se hunde al presionarlo; las tarjetas descansan como tablas, con un canto abajo; los campos y las barras están hundidos. El movimiento es breve y se apaga si el dispositivo pide menos movimiento o si se apaga en Ajustes.
 
-Los contrastes están medidos con la fórmula WCAG sobre el fondo más claro de cada tema (en el oscuro, el café leña `--color-bg`) (mínimo 4.5:1 para texto, 3:1 para barras, puntos y bordes de botones y campos). El contraste alto es un requisito, no un adorno: la app tiene que leerse de un vistazo. No uses un color en un papel distinto al de esta tabla sin revisar su contraste.
+Los contrastes están medidos con la fórmula WCAG sobre el fondo más claro de cada tema (en el oscuro, el café rojizo `--color-bg`) (mínimo 4.5:1 para texto, 3:1 para barras, puntos y bordes de botones y campos). El contraste alto es un requisito, no un adorno: la app tiene que leerse de un vistazo. No uses un color en un papel distinto al de esta tabla sin revisar su contraste.
 
 El tema oscuro va en `:root` y el claro en `:root[data-theme='light']`; `src/shared/deviceSettings.js` pone `data-theme` en `<html>`. Los dos temas definen las mismas variables.
 
 ```css
 :root {
-  /* TEMA OSCURO CAFÉ LEÑA (predeterminado) */
-  --color-bg: #5B3A24;            /* café leña: fondo de la app */
-  --color-surface: #3F2416;       /* madera oscura: tarjetas, encabezado y barra de abajo */
-  --color-border: #7A5236;        /* madera media: divisores (nunca texto) */
-  --color-border-strong: #C8A27A; /* madera clara: borde de botones y campos (4.3:1) */
-  --color-text: #FFF2D9;          /* crema hogar (9.1:1) */
-  --color-text-strong: #FFD84D;   /* amarillo luz: títulos (7.3:1) */
-  --color-text-muted: #D8B899;    /* taupe (5.4:1) */
-  --color-primary: #FF8A00;       /* naranja fuego, con texto madera oscura (6.0:1) */
-  --color-primary-hover: #FFA033; /* naranja claro: presionado */
-  --color-primary-edge: #E84B2A;  /* rojo Calcifer: canto del botón principal (solo adorno) */
-  --color-on-primary: #3F2416;    /* madera oscura */
-  --color-highlight: #FFD84D;     /* amarillo luz: fondo de resaltado */
-  --color-on-highlight: #3F2416;  /* texto sobre el resaltado (10.3:1) */
-  --color-accent: #FF8A00;        /* solo adornos */
-  --color-ok: #A8C08A;  --color-ok-text: #A8C08A;    /* verde salvia (5.1:1) */
-  --color-due: #FF8A00; --color-due-text: #FFD84D;   /* barra 4.3:1 / texto 7.3:1 */
-  --color-late: #E84B2A; --color-late-text: #E79A9A; /* barra solo dentro de tarjetas (3.7:1) / rosa cálido 4.6:1 */
+  /* TEMA OSCURO BRASA (predeterminado): rojos y naranjas; el amarillo solo en detalles */
+  --color-bg: #4E2A1E;            /* café rojizo: fondo de la app */
+  --color-surface: #33170F;       /* madera vino: tarjetas, encabezado y barra de abajo */
+  --color-border: #6E3A28;        /* madera rojiza: divisores (nunca texto) */
+  --color-border-strong: #D4A57E; /* madera clara: borde de botones y campos (5.7:1) */
+  --color-text: #FFF2D9;          /* crema hogar (11.3:1) */
+  --color-text-strong: #FF9966;   /* coral: títulos (6.0:1) */
+  --color-text-muted: #E2BFA0;    /* taupe claro (7.3:1) */
+  --color-brand: #FFD84D;         /* amarillo luz: el nombre de la app (9.1:1) */
+  --color-primary: #FF6A3D;       /* rojo brasa, con texto café oscuro (6.1:1) */
+  --color-primary-hover: #FF8A5C; /* brasa clara: presionado */
+  --color-primary-edge: #B8321A;  /* rojo profundo: canto del botón principal (solo adorno) */
+  --color-on-primary: #2B140C;    /* café oscuro */
+  --color-highlight: #FFB27A;     /* durazno: avisos y botones elegidos */
+  --color-on-highlight: #2B140C;  /* texto sobre el durazno (9.9:1) */
+  --color-accent: #FFD84D;        /* amarillo luz: solo adornos pequeños */
+  --color-ok: #A8C08A;  --color-ok-text: #A8C08A;    /* verde salvia (6.3:1) */
+  --color-due: #FF8A00; --color-due-text: #FFD84D;   /* barra 5.3:1 / texto 9.1:1 */
+  --color-late: #E84B2A; --color-late-text: #E79A9A; /* barra 3.3:1 / rosa cálido 5.7:1 */
   --color-cat-compra: #8CBED9; --color-cat-guardar: #A8C08A; --color-cat-preparar: #FF8A00;
   --color-cat-limpieza: #C9B6E4; --color-cat-mantenimiento: #FFD84D; --color-cat-seguridad: #E79A9A;
-  /* Además: --shadow-soft, --shine, --sunken y --glow (resplandor de chimenea detrás del encabezado). */
+  /* Además: --shadow-soft, --shine, --sunken y --glow (resplandor de brasas detrás del encabezado). */
 }
 
 :root[data-theme='light'] {
@@ -138,6 +139,7 @@ El tema oscuro va en `:root` y el claro en `:root[data-theme='light']`; `src/sha
   --color-text: #33241C;          /* café tostado: texto principal (13.7:1) */
   --color-text-strong: #6B2A12;   /* caoba: títulos y énfasis (9.8:1) */
   --color-text-muted: #6A5345;    /* café con leche: texto secundario (6.6:1) */
+  --color-brand: #6B2A12;         /* caoba: el nombre de la app */
 
   /* Acciones */
   --color-primary: #B23A15;       /* brasa: botones principales, con texto blanco (6.0:1) */
