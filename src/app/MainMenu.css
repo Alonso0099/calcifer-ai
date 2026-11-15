@@ -38,7 +38,7 @@
 .main-menu-link.active {
   background-color: var(--color-highlight);
   box-shadow: var(--sunken);
-  color: var(--color-text-strong);
+  color: var(--color-on-highlight);
   font-weight: 600;
 }
 

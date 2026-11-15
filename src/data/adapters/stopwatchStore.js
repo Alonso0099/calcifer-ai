@@ -16,6 +16,11 @@ export function createStopwatchFunctions(storage) {
   }
 
   return {
+    /** @returns {Promise<Record<string, {accumulatedMs: number, startedAt: number|null}>>} Todos los cronómetros guardados, por proceso. */
+    async getAllStopwatches() {
+      return readAll();
+    },
+
     /**
      * @param {string} processId - El id del proceso.
      * @returns {Promise<{accumulatedMs: number, startedAt: number|null}|null>}

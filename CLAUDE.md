@@ -85,7 +85,7 @@ Ninguna tarea tiene un dueño fijo: quién hace cada cosa se decide en el moment
 
 ## Colores
 
-La paleta es cálida y acogedora: crema, madera y tonos de fuego, como una cocina de cuento ilustrado. Es fija. Todos los colores se definen una sola vez como variables en `src/styles/global.css`, y ningún componente escribe un color directo (`#...`): siempre usa la variable. Así, cambiar un color es cambiar una sola línea.
+La paleta es cálida y acogedora: madera, crema y tonos de fuego, como una cocina de cuento ilustrado. Hay **dos temas fijos**: el **oscuro brasa** (el predeterminado: fondo café rojizo, rojos y naranjas en lo importante y el amarillo solo en detalles pequeños) y el **claro crema**. Se eligen en Ajustes (oscuro, claro o como el dispositivo). Todos los colores se definen una sola vez como variables en `src/styles/global.css`, y ningún componente escribe un color directo (`#...`): siempre usa la variable. Así, cambiar un color es cambiar una sola línea.
 
 ### El diseño vive en dos archivos
 
@@ -96,13 +96,40 @@ Para cambiar cómo se ve la app no hay que tocar las pantallas:
 
 El CSS de cada funcionalidad solo acomoda (espacios, columnas, tamaños de texto). Nunca vuelve a definir bordes, fondos, esquinas ni sombras de una tarjeta, un botón o un campo: usa la clase compartida.
 
-El estilo es **con relieve, no plano**: lo que se puede tocar sobresale y se hunde al presionarlo; las tarjetas descansan como tablas, con un canto abajo; los campos y las barras están hundidos. El movimiento es breve y se apaga si el dispositivo pide menos movimiento.
+El estilo es **con relieve, no plano**: lo que se puede tocar sobresale y se hunde al presionarlo; las tarjetas descansan como tablas, con un canto abajo; los campos y las barras están hundidos. El movimiento es breve y se apaga si el dispositivo pide menos movimiento o si se apaga en Ajustes.
 
-Los contrastes están medidos con la fórmula WCAG sobre el fondo más claro (mínimo 4.5:1 para texto, 3:1 para barras, puntos y bordes de botones y campos). El contraste alto es un requisito, no un adorno: la app tiene que leerse de un vistazo. No uses un color en un papel distinto al de esta tabla sin revisar su contraste.
+Los contrastes están medidos con la fórmula WCAG sobre el fondo más claro de cada tema (en el oscuro, el café rojizo `--color-bg`) (mínimo 4.5:1 para texto, 3:1 para barras, puntos y bordes de botones y campos). El contraste alto es un requisito, no un adorno: la app tiene que leerse de un vistazo. No uses un color en un papel distinto al de esta tabla sin revisar su contraste.
+
+El tema oscuro va en `:root` y el claro en `:root[data-theme='light']`; `src/shared/deviceSettings.js` pone `data-theme` en `<html>`. Los dos temas definen las mismas variables.
 
 ```css
 :root {
-  /* Fondos: crema cálida, como una cocina iluminada por el fuego */
+  /* TEMA OSCURO BRASA (predeterminado): rojos y naranjas; el amarillo solo en detalles */
+  --color-bg: #4E2A1E;            /* café rojizo: fondo de la app */
+  --color-surface: #33170F;       /* madera vino: tarjetas, encabezado y barra de abajo */
+  --color-border: #6E3A28;        /* madera rojiza: divisores (nunca texto) */
+  --color-border-strong: #D4A57E; /* madera clara: borde de botones y campos (5.7:1) */
+  --color-text: #FFF2D9;          /* crema hogar (11.3:1) */
+  --color-text-strong: #FF9966;   /* coral: títulos (6.0:1) */
+  --color-text-muted: #E2BFA0;    /* taupe claro (7.3:1) */
+  --color-brand: #FFD84D;         /* amarillo luz: el nombre de la app (9.1:1) */
+  --color-primary: #FF6A3D;       /* rojo brasa, con texto café oscuro (6.1:1) */
+  --color-primary-hover: #FF8A5C; /* brasa clara: presionado */
+  --color-primary-edge: #B8321A;  /* rojo profundo: canto del botón principal (solo adorno) */
+  --color-on-primary: #2B140C;    /* café oscuro */
+  --color-highlight: #FFB27A;     /* durazno: avisos y botones elegidos */
+  --color-on-highlight: #2B140C;  /* texto sobre el durazno (9.9:1) */
+  --color-accent: #FFD84D;        /* amarillo luz: solo adornos pequeños */
+  --color-ok: #A8C08A;  --color-ok-text: #A8C08A;    /* verde salvia (6.3:1) */
+  --color-due: #FF8A00; --color-due-text: #FFD84D;   /* barra 5.3:1 / texto 9.1:1 */
+  --color-late: #E84B2A; --color-late-text: #E79A9A; /* barra 3.3:1 / rosa cálido 5.7:1 */
+  --color-cat-compra: #8CBED9; --color-cat-guardar: #A8C08A; --color-cat-preparar: #FF8A00;
+  --color-cat-limpieza: #C9B6E4; --color-cat-mantenimiento: #FFD84D; --color-cat-seguridad: #E79A9A;
+  /* Además: --shadow-soft, --shine, --sunken y --glow (resplandor de brasas detrás del encabezado). */
+}
+
+:root[data-theme='light'] {
+  /* TEMA CLARO: fondos de crema cálida */
   --color-bg: #FFF4DF;            /* crema: fondo de la app */
   --color-surface: #FFFBF2;       /* marfil: tarjetas y paneles */
   --color-border: #DDBF94;        /* trigo: divisores y bordes de tarjetas (nunca texto) */
@@ -112,12 +139,15 @@ Los contrastes están medidos con la fórmula WCAG sobre el fondo más claro (m�
   --color-text: #33241C;          /* café tostado: texto principal (13.7:1) */
   --color-text-strong: #6B2A12;   /* caoba: títulos y énfasis (9.8:1) */
   --color-text-muted: #6A5345;    /* café con leche: texto secundario (6.6:1) */
+  --color-brand: #6B2A12;         /* caoba: el nombre de la app */
 
   /* Acciones */
   --color-primary: #B23A15;       /* brasa: botones principales, con texto blanco (6.0:1) */
   --color-primary-hover: #8E2C0E; /* brasa oscura: botón presionado (8.3:1) */
   --color-on-primary: #FFFFFF;    /* blanco: texto sobre los botones brasa */
-  --color-highlight: #F7C65B;     /* dorado: fondo de resaltado, con texto caoba (6.7:1) */
+  --color-primary-edge: #8E2C0E;  /* brasa oscura: canto del botón principal */
+  --color-highlight: #F7C65B;     /* dorado: fondo de resaltado */
+  --color-on-highlight: #6B2A12;  /* caoba: texto sobre el resaltado (6.7:1) */
   --color-accent: #F47735;        /* llama: solo adornos; nunca texto ni lo único que comunica algo */
 
   /* Estado de tareas (barras de vencimiento) */
@@ -135,16 +165,19 @@ Los contrastes están medidos con la fórmula WCAG sobre el fondo más claro (m�
   --color-cat-limpieza: #8E4F7C;      /* ciruela */
   --color-cat-mantenimiento: #B98300; /* latón */
   --color-cat-seguridad: #A32626;     /* rojo */
+  /* --glow: none */
 }
 ```
 
 Reglas de uso:
 
 - El estado de una tarea nunca se comunica solo con color: la barra siempre va con su texto ("Atrasada 5 días"), para que se entienda aunque el color no se distinga bien.
-- Dorado, trigo, llama, ámbar y los colores de barra nunca se usan como color de texto sobre los fondos claros; para texto se usan sus variables `-text`.
+- Los colores de barra (ok, due, late), el borde suave y el adorno nunca se usan como color de texto; para texto se usan sus variables `-text`.
+- El texto sobre `--color-highlight` usa `--color-on-highlight`, y el texto sobre `--color-primary` usa `--color-on-primary`. El canto de un botón principal usa `--color-primary-edge`.
 - Botones y campos llevan borde `--color-border-strong`, para que se vea dónde se puede tocar.
 - `--color-accent` (llama) es solo para adornos pequeños.
-- Por ahora solo hay modo claro.
+- Un color nuevo se agrega en los dos temas, con su contraste medido en cada uno.
+- Solo se usan los códigos de color de la paleta; ninguna ilustración ni personaje de la imagen de referencia entra en la app.
 
 ### Diseño de las notas
 
@@ -188,7 +221,11 @@ Ningún componente lee `localStorage` ni importa el JSON directamente. Todo pasa
 | `completeShopping()` | Termina la compra: vacía las casillas y saca lo anotado a mano que se compró. No cambia el congelador |
 | `undoLastEvent()` | Anula el último evento |
 | `getStopwatch(processId)` / `saveStopwatch(processId, stopwatch)` | Lee y guarda el cronómetro en curso de un proceso, para que no se pierda al recargar la página. No es un evento: no entra al historial, al Deshacer ni al respaldo |
+| `getAllStopwatches()` | Todos los cronómetros guardados, por proceso |
+| `getInProgress()` | Lo empezado y no terminado: procesos con pasos marcados, cronómetro con tiempo o temporizadores puestos |
+| `discardProgress(processId)` | Descarta lo empezado: desmarca los pasos (un evento `process_discarded`, que Deshacer revierte), pone el cronómetro en cero y quita sus temporizadores. Nunca borra el proceso, sus pasos ni el historial |
 | `getTimers()` / `saveTimers(timers)` | Lee y guarda los temporizadores en curso del modo de cocina. Como el cronómetro, no son eventos: no entran al historial, al Deshacer ni al respaldo |
+| `getSettings()` / `saveSettings(settings)` | Lee y guarda los ajustes del dispositivo: `theme` (`dark` · `light` · `auto`), `textSize` (`normal` · `large`), `timerSound` y `motion`. No son eventos: no entran al historial, al Deshacer ni al respaldo |
 | `exportBackup()` / `importBackup(file)` | Respaldo y restauración del historial |
 
 `src/data/index.js` elige el adaptador con la variable `VITE_DATA_SOURCE` (por ahora solo existe `local`). Un adaptador futuro (por ejemplo, PostgreSQL en Neon) debe implementar las mismas funciones con los mismos parámetros y resultados, sin cambiar ningún componente.
@@ -200,8 +237,8 @@ Cada acción se guarda como un evento nuevo; nunca se edita ni se borra uno ante
 ```js
 {
   id: 'uuid generado con crypto.randomUUID()',
-  type: 'step_checked' | 'step_unchecked' | 'process_finished' | 'note_saved' | 'note_deleted' | 'meal_planned' | 'freezer_item_saved' | 'freezer_item_removed' | 'shopping_item_added' | 'shopping_item_removed' | 'shopping_item_checked' | 'shopping_item_unchecked' | 'shopping_completed' | 'event_undone',
-  processId: 'limpieza-semanal',  // en notas es opcional: null si la nota no está ligada a un proceso
+  type: 'step_checked' | 'step_unchecked' | 'process_finished' | 'process_discarded' | 'note_saved' | 'note_deleted' | 'meal_planned' | 'freezer_item_saved' | 'freezer_item_removed' | 'shopping_item_added' | 'shopping_item_removed' | 'shopping_item_checked' | 'shopping_item_unchecked' | 'shopping_completed' | 'event_undone',
+  processId: 'limpieza-semanal',  // en notas es opcional: null si la nota no está ligada a un proceso. En process_discarded, el proceso cuyos pasos se desmarcan
   stepId: 'paso-3',        // solo en eventos de pasos
   minutes: 42,             // solo en process_finished
   doneBy: 'Tita',          // solo en process_finished; 'Nano' | 'Tita' | 'Ambos' | null. Es una nota, no una asignación
@@ -232,6 +269,8 @@ Una bolsa del congelador existe desde su último `freezer_item_saved` hasta un `
 La lista de compras no se guarda: se arma cada vez con lo que falta en el congelador, los ingredientes de las recetas del menú de los próximos 7 días y lo anotado a mano. Las casillas marcadas son eventos y se vacían con `shopping_completed`.
 
 Una nota se ve siempre en su versión más reciente (el último `note_saved` con su `noteId`), a menos que exista un `note_deleted` posterior.
+
+Los pasos marcados de un proceso son los posteriores a su último `process_finished` o `process_discarded`. Descartar no cuenta como terminado.
 
 Los valores derivados nunca se guardan: la última vez, la próxima fecha, si algo está vencido y el progreso de un checklist se calculan a partir de los eventos y del JSON. Así, cambiar una frecuencia en el JSON recalcula todo solo.
 
@@ -274,7 +313,7 @@ Campos obligatorios de cada proceso:
 - `frequencyDays`: número de días, o `null` si el proceso no se repite por calendario (una receta) o si es una tarea diaria (las diarias no llevan registro de "última vez"). Conversión fija: mensual = 30 días; si el manual da un rango, se usa el número menor ("cada 2–3 meses" = 60).
 - `frequencyLabel`: la frecuencia con las palabras del manual ("Cada 2–3 meses", "Diario"), o `null`. Es el texto que ve el usuario; `frequencyDays` es el número con el que se calcula el vencimiento.
 - `estimatedMinutes`: `{ "min": 45, "max": 60 }`, el estimado del manual para el proceso completo, o `null` si el manual no lo da. Un estimado de un solo número lleva `min` y `max` iguales.
-- `steps`: lista de pasos (`id`, `text`, `minutes`). Si el manual todavía no da los pasos, va `[]` y se agrega `"steps"` a `pending`.
+- `steps`: lista de pasos (`id`, `text`, `minutes`). Si el manual todavía no da los pasos, va `[]` y se agrega `"steps"` a `pending`. Un paso puede llevar `"onlyIfPackingLunch": true`: entonces solo aparece los días en que se empacan los almuerzos de mañana (según `week.json`).
 - `minutes` de cada paso: un solo número **medido** en la cocina, o `null` mientras no se mida. Nunca se llena con un estimado.
 - `pending`: los nombres de los campos que faltan (`"estimatedMinutes"`, `"steps"`, `"steps.minutes"`). Lista vacía si no falta nada. Un `null` permitido por diseño no es un pendiente: `zone` en una receta, o `frequencyDays` en una receta o en una tarea diaria.
 - Minutos por paso en `pending`: mientras ningún paso esté medido, va una sola entrada `"steps.minutes"`. Cuando se mide el primero, esa entrada se cambia por una por cada paso que todavía falte (`"steps.paso-2.minutes"`, `"steps.paso-5.minutes"`).
@@ -319,6 +358,7 @@ El tiempo que muestra la app para un proceso: si todos sus pasos tienen `minutes
 ```
 
 - `meal`: la comida del sistema de ese día, con las palabras del manual, o `null`.
+- `packLunchForTomorrow`: `true` si ese día se empacan los almuerzos del día siguiente. Según la semana tipo del manual, de domingo a jueves; viernes y sábado no, porque el fin de semana no se empaca.
 - `blocks`: los bloques del día, cada uno con `processId` y `estimatedMinutes` (misma forma que en los procesos, o `null`). Un día de descanso lleva `[]`.
 - `everyWeeks`: opcional; cada cuántas semanas toca el bloque. Si no está, el bloque es de todas las semanas.
 
@@ -340,7 +380,7 @@ src/
 ├── features/
 │   ├── today/             (pantalla de inicio: qué toca hoy)
 │   ├── planner/           (menú de la semana y selector de comidas)
-│   ├── cooking/           (modo de cocina: un paso a la vez, temporizadores, confirmación final)
+│   ├── cooking/           (modo paso a paso, en /paso-a-paso: un paso a la vez, temporizadores, confirmación final)
 │   ├── processes/         (tarjetas, detalle, checklist)
 │   ├── week/              (vista semanal)
 │   ├── search/            (búsqueda)
@@ -348,6 +388,7 @@ src/
 │   ├── shopping/          (lista de compras)
 │   ├── maintenance/       (zonas y barras de vencimiento)
 │   ├── notes/             (lista de notas, hoja de una nota)
+│   ├── settings/          (ajustes del dispositivo: tema, letra, sonido, movimiento; abre el respaldo)
 │   └── backup/            (respaldo y restauración)
 ├── data/
 │   ├── index.js           (la capa de datos: las funciones de la tabla)

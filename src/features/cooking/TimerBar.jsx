@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { formatStopwatch } from '../../lib/time.js';
 import { getRemainingMs, isTimerDone } from '../../lib/timers.js';
+import { playTestSound, unlockAlertSound } from '../../shared/beep.js';
 import { TIMER_PRESET_MINUTES } from '../../shared/constants.js';
 import { text } from '../../shared/text.js';
 import './TimerBar.css';
@@ -23,11 +24,17 @@ import './TimerBar.css';
 export default function TimerBar({ timers, now, defaultLabel, isFull, onAdd, onRemove }) {
   const [customMinutes, setCustomMinutes] = useState('');
 
+  /** Pone un temporizador. Como es un toque, aprovecha para dejar listo el sonido del aviso. */
+  function addTimer(minutes) {
+    unlockAlertSound();
+    onAdd(defaultLabel, minutes);
+  }
+
   /** Pone un temporizador con los minutos escritos y vacía el campo. */
   function handleCustom(event) {
     event.preventDefault();
     const minutes = Number(customMinutes);
-    if (minutes > 0) onAdd(defaultLabel, minutes);
+    if (minutes > 0) addTimer(minutes);
     setCustomMinutes('');
   }
 
@@ -52,7 +59,7 @@ export default function TimerBar({ timers, now, defaultLabel, isFull, onAdd, onR
       <div className="timer-add">
         <span className="timer-add-title">{text.cooking.timerAdd(defaultLabel)}</span>
         {TIMER_PRESET_MINUTES.map((minutes) => (
-          <button key={minutes} type="button" className="button" disabled={isFull} onClick={() => onAdd(defaultLabel, minutes)}>
+          <button key={minutes} type="button" className="button" disabled={isFull} onClick={() => addTimer(minutes)}>
             {text.cooking.minutes(minutes)}
           </button>
         ))}
@@ -62,7 +69,11 @@ export default function TimerBar({ timers, now, defaultLabel, isFull, onAdd, onR
             {text.cooking.timerStart}
           </button>
         </form>
+        <button type="button" className="button" onClick={playTestSound}>
+          {text.cooking.testSound}
+        </button>
       </div>
+      <p className="timer-help">{text.cooking.soundHelp}</p>
     </section>
   );
 }

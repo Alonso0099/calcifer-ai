@@ -255,8 +255,28 @@ Una línea por decisión importante, con su porqué.
 - **Si se cierra la app a la mitad, se retoma**: los pasos marcados son eventos y la sesión empieza en el primer paso que falta.
 - **Los temporizadores los pone la persona** (5, 10, 15, 30 minutos u otros): el manual no da tiempo por paso y no se inventan. Se pueden tener varios a la vez y sobreviven a recargar, porque guardan la hora de término.
 - **Un temporizador que termina avisa por escrito, con pitido y con vibración si el dispositivo puede, y dice que se revise la comida**: un temporizador no confirma que algo esté cocido.
+- **El sonido se prepara en el toque que pone el temporizador**: Safari y Chrome no dejan sonar audio que no nace de un toque, y la primera versión creaba el sonido al terminar, sin toque, así que en el iPhone nunca sonaba.
+- **Los pitidos son un archivo de audio generado en la app** (`lib/wav.js`), sin descargar nada: funciona sin conexión.
+- **Botón "Probar sonido"** junto a los temporizadores, y aviso visual fuerte: la tarjeta late y el título de la pestaña cambia.
+- **En iPhone no hay vibración**: Safari no permite que una página web vibre. Con la app cerrada tampoco hay aviso: necesitaría notificaciones con un servidor, que se dejan para el final.
 - **Los temporizadores no se pueden avisar con la app cerrada**: eso requeriría notificaciones, que están pendientes de decidir.
 - **Antes de registrar hay que confirmar**: "revisé que está bien cocida (la temperatura la medí yo)" y "guardé lo que sobró y empaqué los almuerzos". Solo aparecen las que aplican a esa receta.
 - **El ajuste de tamaño (la mitad, normal, el doble) solo cambia las cantidades que se muestran** y la pantalla lo dice: no ajusta pasos, tiempos ni temperaturas. Sin unidad se escribe "cebolla en tiras: 2" porque no se pone un nombre en plural de forma segura.
 - **El aviso de "app no instalada" se oculta en el modo de cocina**: ahí estorba.
 
+### Ajustes después de probar en casa
+
+- **El botón del modo paso a paso dice lo que se va a hacer**: "Cocinar", "Preparar", "Limpiar", "Guardar", "Revisar" o "Seguir paso a paso", según el tipo de proceso. Los textos están en una tabla de `text.js`, y la dirección pasó de `/cocinar` a `/paso-a-paso`, porque no todo es cocinar.
+- **Los almuerzos se empacan de domingo a jueves**: el dato vive en `week.json` (`packLunchForTomorrow`), como lo dice la semana tipo del manual, y no escondido en el código.
+- **Un paso puede depender de ese dato** (`onlyIfPackingLunch`): el viernes y el sábado no aparecen "empacar los almuerzos" ni su confirmación, y no cuentan en el avance.
+- **La confirmación final se separó en dos**: "Guardé lo que sobró" sale siempre en las recetas que dejan sobras; "Empaqué los 2 almuerzos" solo los días en que se empaca.
+- **Las dos pantallas cargan el proceso igual** (`loadProcessForToday` en `shared/`): la receta y el paso a paso muestran exactamente los mismos pasos.
+- **"En curso" en Hoy**: todo lo empezado y no terminado (pasos marcados, cronómetro con tiempo o temporizadores) aparece arriba, con su avance y su reloj, para no perderlo. Se puede continuar donde se quedó, pausar o descartar.
+- **Descartar es un solo evento (`process_discarded`)**: desmarca todos los pasos de una vez y Deshacer los recupera de un toque. También pone el cronómetro en cero y quita los temporizadores de ese proceso, pero nunca borra la tarea, sus pasos ni el historial.
+- **Cada temporizador recuerda de qué proceso es**: así aparece debajo del proceso correcto en "En curso".
+- **El adaptador local se dividió**: notas y respaldo pasaron a sus propios archivos para que ninguno pase de 150 líneas.
+- **Tema oscuro brasa como predeterminado**: fondo café rojizo con rojos y naranjas en lo importante y el amarillo solo en detalles; se lee mejor en la cocina de noche, es más tranquilo para la vista y sube el contraste. El claro sigue disponible. Los dos temas definen las mismas variables en `global.css`, así que ninguna pantalla cambió para tener dos temas.
+- **Variables para "texto sobre resaltado" y "canto del botón"**: en el oscuro el resaltado es amarillo y necesita texto oscuro, y en el claro es al revés; con una variable por papel cada tema elige el suyo.
+- **Ajustes del dispositivo (tema, letra grande, sonido, movimiento)**: son preferencias de cada aparato, no historial, así que no son eventos ni van en el respaldo. Se aplican como atributos en `<html>` que el CSS lee, antes de dibujar la app para que no parpadee.
+- **El respaldo se abre desde Ajustes**: deja el menú "Más" más corto; la dirección `/respaldo` no cambió.
+- **Una variable para el nombre de la app (`--color-brand`)**: en el oscuro es el detalle amarillo y en el claro es caoba, sin tocar el encabezado.

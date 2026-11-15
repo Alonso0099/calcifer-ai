@@ -23,6 +23,24 @@ export const text = {
     maintenance: 'Limpieza',
     notes: 'Notas',
     backup: 'Respaldo',
+    settings: 'Ajustes',
+  },
+  inProgress: {
+    title: 'En curso',
+    /** @param {number} done @param {number} total */
+    steps: (done, total) => `${done} de ${total} pasos`,
+    running: 'corriendo',
+    paused: 'en pausa',
+    /** @param {string} label @param {string} clock */
+    timer: (label, clock) => `Temporizador (${label.toLowerCase()}): ${clock}`,
+    continue: 'Continuar',
+    pause: 'Pausar',
+    resume: 'Seguir',
+    discard: 'Descartar',
+    confirmTitle: '¿Descartar lo empezado?',
+    confirmBody: 'Se desmarcan los pasos, el cronómetro vuelve a cero y se quitan sus temporizadores. La tarea y su historial no se borran, y los pasos se recuperan con Deshacer.',
+    confirmYes: 'Sí, descartar',
+    confirmNo: 'No',
   },
   slots: { breakfast: 'Desayuno', lunch: 'Almuerzo', dinner: 'Cena' },
   mealKinds: { leftovers: 'Sobras', eat_out: 'Comer afuera', quick: 'Algo rápido, sin receta' },
@@ -50,7 +68,7 @@ export const text = {
     /** @param {string} proteinName */
     thawNoStock: (proteinName) => `No hay bolsas de ${proteinName.toLowerCase()} registradas en el congelador: revísalo o regístralas.`,
     thawLink: 'Ver cómo descongelar',
-    packLunch: 'Antes de servir la cena, empacar los 2 almuerzos de mañana.',
+    packLunch: 'Hoy se empacan los 2 almuerzos de mañana: antes de servir la cena.',
   },
   planner: {
     title: 'Menú de la semana',
@@ -112,6 +130,9 @@ export const text = {
     timerRemove: 'Quitar',
     timerDone: '¡Listo!',
     timerCheck: 'Terminó el tiempo. Revisa que la comida esté lista: un temporizador no lo confirma.',
+    titleTimerDone: '¡Temporizador listo! · Calcifer',
+    testSound: 'Probar sonido',
+    soundHelp: 'El aviso suena solo con la app abierta y si el teléfono no está en silencio. El iPhone no permite que una página web vibre.',
     /** @param {number} number */
     stepLabel: (number) => `Paso ${number}`,
     ingredientsTitle: 'Ingredientes',
@@ -134,9 +155,18 @@ export const text = {
     finishTitle: 'Para terminar',
     confirmHelp: 'La app no da nada por hecho: confirma tú.',
     confirmCooked: 'Revisé que la comida está bien cocida (la temperatura la medí yo).',
-    confirmStored: 'Guardé lo que sobró y empaqué los almuerzos de mañana.',
+    confirmStored: 'Guardé lo que sobró en el refri.',
+    confirmPacked: 'Empaqué los 2 almuerzos de mañana.',
     backToSteps: 'Volver a los pasos',
-    cookStepByStep: 'Cocinar paso a paso',
+    /** El botón para abrir el modo paso a paso dice lo que se va a hacer, según el tipo de proceso. */
+    stepByStep: {
+      recipe: 'Cocinar paso a paso',
+      prep: 'Preparar paso a paso',
+      cleaning: 'Limpiar paso a paso',
+      storing: 'Guardar paso a paso',
+      shopping: 'Revisar paso a paso',
+      other: 'Seguir paso a paso',
+    },
   },
   units: {
     /** @param {string} unit @param {number} amount */
@@ -290,6 +320,23 @@ export const text = {
     linkedEmpty: 'Este proceso no tiene notas.',
     addToProcess: 'Agregar nota a este proceso',
   },
+  settings: {
+    title: 'Ajustes',
+    intro: 'Estos ajustes son de este dispositivo: cada teléfono o tablet guarda los suyos.',
+    themeTitle: 'Colores',
+    themeNames: { dark: 'Oscuro', light: 'Claro', auto: 'Como el dispositivo' },
+    themeHelp: '"Como el dispositivo" cambia solo entre oscuro y claro, según lo que tenga puesto el teléfono.',
+    textSizeTitle: 'Tamaño de la letra',
+    textSizeNames: { normal: 'Normal', large: 'Grande' },
+    soundTitle: 'Sonido de los temporizadores',
+    movementTitle: 'Movimiento de los botones',
+    movementHelp: 'Los botones se hunden al tocarlos. Si el movimiento distrae, se puede apagar.',
+    on: 'Encendido',
+    off: 'Apagado',
+    backupTitle: 'Respaldo del historial',
+    backupHelp: 'Descarga el historial en un archivo o restaura uno.',
+    backupLink: 'Abrir el respaldo',
+  },
   backup: {
     title: 'Respaldo',
     intro: 'El historial (pasos, procesos terminados y notas) vive solo en este dispositivo. Descarga un respaldo de vez en cuando.',
@@ -344,6 +391,7 @@ export const text = {
     nothing: 'No hay nada que deshacer.',
     done: {
       meal_planned: 'Se deshizo: cambio en el menú.',
+      process_discarded: 'Se deshizo: volvieron los pasos descartados.',
       freezer_item_saved: 'Se deshizo: bolsa registrada en el congelador.',
       freezer_item_removed: 'Se deshizo: la bolsa volvió al congelador.',
       shopping_item_added: 'Se deshizo: renglón agregado a la lista de compras.',

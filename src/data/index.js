@@ -44,8 +44,13 @@ export const {
   completeShopping,
   getTimers,
   saveTimers,
+  getInProgress,
+  discardProgress,
+  getAllStopwatches,
   getStopwatch,
   saveStopwatch,
+  getSettings,
+  saveSettings,
   exportBackup,
   importBackup,
 } = chooseAdapter();

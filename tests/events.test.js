@@ -49,3 +49,12 @@ test('terminar el proceso limpia el checklist; deshacerlo lo recupera', () => {
   events.push(undo('3', '2'));
   assert.deepEqual([...getCheckedStepIds(events, 'limpieza-semanal')], ['paso-1']);
 });
+
+test('descartar un proceso limpia su checklist como terminarlo, y deshacerlo lo recupera', () => {
+  const discard = { id: '3', type: 'process_discarded', processId: 'limpieza-semanal', createdAt: '2026-11-13T11:30:00.000Z' };
+  const events = [check('1', 'paso-1'), check('2', 'paso-2'), discard];
+  assert.equal(getCheckedStepIds(events, 'limpieza-semanal').size, 0);
+  assert.equal(getLastDoneIso(events, 'limpieza-semanal'), null, 'descartar no cuenta como terminado');
+  events.push(undo('4', '3'));
+  assert.equal(getCheckedStepIds(events, 'limpieza-semanal').size, 2);
+});

@@ -8,11 +8,12 @@
  * @param {string} label - Para qué es ("Paso 3", "Arroz").
  * @param {number} minutes - Cuántos minutos dura.
  * @param {number} now - La hora actual, en milisegundos.
- * @returns {{id: string, label: string, durationMs: number, endsAt: number}} El temporizador.
+ * @param {string|null} [processId] - El proceso al que pertenece, para mostrarlo en "En curso".
+ * @returns {{id: string, label: string, durationMs: number, endsAt: number, processId: string|null}} El temporizador.
  */
-export function createTimer(id, label, minutes, now) {
+export function createTimer(id, label, minutes, now, processId = null) {
   const durationMs = minutes * 60000;
-  return { id, label, durationMs, endsAt: now + durationMs };
+  return { id, label, durationMs, endsAt: now + durationMs, processId };
 }
 
 /**

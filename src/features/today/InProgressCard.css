@@ -1,0 +1,47 @@
+/* Estilos de la tarjeta "En curso" de Hoy. Ocupa todo el ancho, arriba de lo demás. */
+
+.in-progress {
+  grid-column: 1 / -1;
+}
+
+.in-progress-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.in-progress-item {
+  padding: 12px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.in-progress-name {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.in-progress-details,
+.in-progress-timer {
+  margin: 2px 0;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Un temporizador terminado se distingue por el texto "¡Listo!" y en negrita. */
+.in-progress-timer-done {
+  font-weight: 700;
+  color: var(--color-text-strong);
+}
+
+.in-progress-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.in-progress-confirm p {
+  margin: 8px 0 0;
+  font-weight: 600;
+}

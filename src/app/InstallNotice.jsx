@@ -1,5 +1,6 @@
 // Aviso que se muestra cuando la app se abrió en el navegador y no como app instalada.
 import { Link, useLocation } from 'react-router-dom';
+import { STEP_BY_STEP_PATH } from '../shared/constants.js';
 import { text } from '../shared/text.js';
 import './InstallNotice.css';
 
@@ -18,13 +19,13 @@ function isInstalledApp() {
  * Avisa que el historial corre riesgo mientras la app no esté instalada: Safari puede
  * borrar los datos de un sitio no instalado. Instalada, no dibuja nada.
  *
- * No se muestra en el modo de cocina (/cocinar): ahí la pantalla es para cocinar y el aviso estorba.
+ * No se muestra en el modo paso a paso: ahí la pantalla es para cocinar y el aviso estorba.
  *
  * @returns {JSX.Element|null} El aviso, o null si la app ya está instalada o se está cocinando.
  */
 export default function InstallNotice() {
   const location = useLocation();
-  if (isInstalledApp() || location.pathname.startsWith('/cocinar')) return null;
+  if (isInstalledApp() || location.pathname.startsWith(STEP_BY_STEP_PATH)) return null;
   return (
     // <aside> marca contenido aparte del principal; role="note" lo anuncia como una nota.
     <aside className="card install-notice" role="note">

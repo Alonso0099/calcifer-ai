@@ -34,7 +34,7 @@
 .meal-picker-current {
   border-width: 3px;
   background-color: var(--color-highlight);
-  color: var(--color-text-strong);
+  color: var(--color-on-highlight);
 }
 
 .meal-picker-search {

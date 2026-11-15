@@ -100,6 +100,7 @@ function checkSteps(steps) {
   const seenIds = new Set();
   for (const step of steps) {
     if (!STEP_ID_PATTERN.test(step.id)) errors.push(`id de paso inválido: "${step.id}"`);
+    if ('onlyIfPackingLunch' in step && step.onlyIfPackingLunch !== true) errors.push(`${step.id}: onlyIfPackingLunch solo se escribe cuando es true`);
     if (seenIds.has(step.id)) errors.push(`id de paso repetido: "${step.id}"`);
     seenIds.add(step.id);
     if (typeof step.text !== 'string' || step.text.trim() === '') errors.push(`${step.id}: falta el texto`);

@@ -43,7 +43,7 @@ export function getLastDoneIso(events, processId) {
 
 /**
  * Calcula qué pasos de un proceso están marcados en este momento.
- * Solo cuentan los eventos posteriores a la última vez que se terminó el proceso:
+ * Solo cuentan los eventos posteriores a la última vez que se terminó (o se descartó) el proceso:
  * así, al terminar, el checklist queda limpio para la siguiente vez sin borrar nada.
  *
  * @param {object[]} events - Todos los eventos, del más viejo al más nuevo.
@@ -54,7 +54,7 @@ export function getCheckedStepIds(events, processId) {
   const checkedStepIds = new Set();
   for (const event of getActiveEvents(events)) {
     if (event.processId !== processId) continue;
-    if (event.type === EVENT_TYPES.processFinished) checkedStepIds.clear();
+    if (event.type === EVENT_TYPES.processFinished || event.type === EVENT_TYPES.processDiscarded) checkedStepIds.clear();
     if (event.type === EVENT_TYPES.stepChecked) checkedStepIds.add(event.stepId);
     if (event.type === EVENT_TYPES.stepUnchecked) checkedStepIds.delete(event.stepId);
   }

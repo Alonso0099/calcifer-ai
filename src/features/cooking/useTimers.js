@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { getTimers, saveTimers } from '../../data/index.js';
 import { createTimer, isTimerDone, sortTimers } from '../../lib/timers.js';
 import { alertTimerDone } from '../../shared/beep.js';
+import { text } from '../../shared/text.js';
 import { MAX_TIMERS, MS_PER_SECOND } from '../../shared/constants.js';
 
 /**
@@ -46,16 +47,27 @@ export function useTimers() {
     }
   }, [timers, now]);
 
+  // Mientras haya un temporizador terminado, el título de la pestaña lo dice (se ve aunque se esté en otra pestaña).
+  const hasDoneTimer = timers.some((timer) => isTimerDone(timer, now));
+  useEffect(() => {
+    if (!hasDoneTimer) return undefined;
+    const originalTitle = document.title;
+    document.title = text.cooking.titleTimerDone;
+    return () => {
+      document.title = originalTitle;
+    };
+  }, [hasDoneTimer]);
+
   /** Cambia la lista en pantalla y la guarda en el dispositivo. */
   function update(nextTimers) {
     setTimers(nextTimers);
     saveTimers(nextTimers);
   }
 
-  /** Pone un temporizador nuevo de cierta cantidad de minutos. */
-  function addTimer(label, minutes) {
+  /** Pone un temporizador nuevo de cierta cantidad de minutos, ligado a su proceso (para "En curso"). */
+  function addTimer(label, minutes, processId = null) {
     if (timers.length >= MAX_TIMERS) return;
-    update([...timers, createTimer(crypto.randomUUID(), label, minutes, Date.now())]);
+    update([...timers, createTimer(crypto.randomUUID(), label, minutes, Date.now(), processId)]);
   }
 
   /** Quita un temporizador (terminado o no). */

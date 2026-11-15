@@ -11,6 +11,7 @@ export const EVENT_TYPES = {
   stepChecked: 'step_checked',
   stepUnchecked: 'step_unchecked',
   processFinished: 'process_finished',
+  processDiscarded: 'process_discarded',
   noteSaved: 'note_saved',
   noteDeleted: 'note_deleted',
   mealPlanned: 'meal_planned',
@@ -146,8 +147,30 @@ export const COOKED_FOOD_GROUPS = MENU_GROUPS;
 /** Grupos de recetas que dejan sobras o almuerzos: al terminar piden confirmar que se guardaron. */
 export const LEFTOVER_GROUPS = ['pollo', 'cerdo', 'res', 'seafood', 'sopas', 'flex'];
 
-/** El pitido cuando termina un temporizador: tono, volumen (0 a 1) y duración. */
-export const BEEP = { frequencyHz: 880, volume: 0.2, seconds: 0.4 };
+/**
+ * El aviso sonoro de un temporizador: tres pitidos. Tono, volumen (0 a 1), duración de cada
+ * pitido, silencio entre pitidos y calidad del audio generado (muestras por segundo).
+ */
+export const BEEP = { frequencyHz: 880, volume: 0.6, seconds: 0.35, count: 3, gapSeconds: 0.15, sampleRate: 22050 };
 
 /** El patrón de vibración al terminar un temporizador (vibra, pausa, vibra), en milisegundos. */
 export const VIBRATION_PATTERN_MS = [200, 100, 200];
+
+/** Clave con la que se guardan los ajustes de este dispositivo (no son parte del historial). */
+export const SETTINGS_STORAGE_KEY = 'calcifer.settings';
+
+/**
+ * Los ajustes con los que empieza la app. theme: 'dark' | 'light' | 'auto' (sigue al dispositivo);
+ * textSize: 'normal' | 'large'; timerSound: si suena el aviso; motion: si los botones se mueven al tocarlos.
+ */
+export const DEFAULT_SETTINGS = { theme: 'dark', textSize: 'normal', timerSound: true, motion: true };
+
+/** Las opciones de cada ajuste, en el orden en que se muestran. */
+export const THEME_OPTIONS = ['dark', 'light', 'auto'];
+export const TEXT_SIZE_OPTIONS = ['normal', 'large'];
+
+/** La dirección de la pantalla de ajustes (la de respaldo se abre desde ahí). */
+export const SETTINGS_PATH = '/ajustes';
+
+/** La dirección del modo paso a paso (sirve para recetas, limpiezas, compras...). */
+export const STEP_BY_STEP_PATH = '/paso-a-paso';

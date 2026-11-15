@@ -67,6 +67,7 @@ function validateWeek(processes, errors) {
   const processIds = new Set(processes.map((process) => process.id));
   for (const day of readContent('week.json').days) {
     if (!isSlug(day.id)) errors.push(`week.json: id de día inválido "${day.id}"`);
+    if (typeof day.packLunchForTomorrow !== 'boolean') errors.push(`week.json: "${day.id}" necesita packLunchForTomorrow (true o false)`);
     for (const block of day.blocks) {
       const where = `week.json → ${day.id} → ${block.processId}`;
       if (!processIds.has(block.processId)) errors.push(`${where}: ese proceso no existe`);

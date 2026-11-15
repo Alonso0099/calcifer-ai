@@ -39,9 +39,9 @@
 }
 
 .button-primary {
-  border-color: var(--color-primary-hover);
+  border-color: var(--color-primary-edge);
   background-color: var(--color-primary);
-  box-shadow: 0 var(--depth) 0 var(--color-primary-hover), var(--shadow-soft);
+  box-shadow: 0 var(--depth) 0 var(--color-primary-edge), var(--shadow-soft);
   color: var(--color-on-primary);
 }
 
@@ -50,7 +50,7 @@
 }
 
 .button-primary:active {
-  box-shadow: 0 0 0 var(--color-primary-hover);
+  box-shadow: 0 0 0 var(--color-primary-edge);
 }
 
 /* Un botón elegido (un filtro activo) se queda hundido y dorado. */
@@ -58,7 +58,7 @@
   background-color: var(--color-highlight);
   background-image: none;
   box-shadow: var(--sunken);
-  color: var(--color-text-strong);
+  color: var(--color-on-highlight);
 }
 
 .button:disabled {
@@ -145,10 +145,10 @@ input[type='radio'] {
 /* Marcada: se llena de color brasa y sobresale, con su palomita o su punto en blanco. */
 input[type='checkbox']:checked,
 input[type='radio']:checked {
-  border-color: var(--color-primary-hover);
+  border-color: var(--color-primary-edge);
   background-color: var(--color-primary);
   background-image: var(--shine);
-  box-shadow: 0 2px 0 var(--color-primary-hover);
+  box-shadow: 0 2px 0 var(--color-primary-edge);
 }
 
 input[type='checkbox']:checked::after {
@@ -194,11 +194,27 @@ input[type='radio']:checked::after {
   box-shadow: 0 var(--depth-card) 0 color-mix(in srgb, var(--color-highlight) 60%, var(--color-text-strong));
 }
 
-/* Quien pidió a su dispositivo menos movimiento no ve los botones moverse. */
+/* Quien pidió a su dispositivo menos movimiento (o lo apagó en Ajustes) no ve los botones moverse. */
 @media (prefers-reduced-motion: reduce) {
   .button,
   .tile,
   a.card {
     transition: none;
   }
+}
+
+:root[data-motion='off'] .button,
+:root[data-motion='off'] .tile,
+:root[data-motion='off'] a.card {
+  transition: none;
+}
+
+:root[data-motion='off'] .button:active,
+:root[data-motion='off'] .tile:active,
+:root[data-motion='off'] a.card:active {
+  transform: none;
+}
+
+:root[data-motion='off'] .timer-done {
+  animation: none;
 }

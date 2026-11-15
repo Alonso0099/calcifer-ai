@@ -1,14 +1,16 @@
 // Pantalla de un proceso: sus datos, el checklist, el cronómetro y el registro al terminar.
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { finishProcess, getLastDone, getNotes, getProcess, toggleStep } from '../../data/index.js';
+import { finishProcess, getLastDone, getNotes, toggleStep } from '../../data/index.js';
+import { getStepByStepKind } from '../../lib/stepByStep.js';
 import { getMinutesFromElapsed } from '../../lib/time.js';
-import { FOLLOW_UP_ROUTE_BY_PROCESS_ID } from '../../shared/constants.js';
+import { FOLLOW_UP_ROUTE_BY_PROCESS_ID, STEP_BY_STEP_PATH } from '../../shared/constants.js';
 import FinishForm from '../../shared/components/FinishForm.jsx';
 import LinkedNotes from '../../shared/components/LinkedNotes.jsx';
 import Stopwatch from '../../shared/components/Stopwatch.jsx';
 import UndoButton from '../../shared/components/UndoButton.jsx';
 import { text } from '../../shared/text.js';
+import { loadProcessForToday } from '../../shared/loadProcessForToday.js';
 import { useLoadedData } from '../../shared/useLoadedData.js';
 import { useStopwatch } from '../../shared/useStopwatch.js';
 import { useWakeLock } from '../../shared/useWakeLock.js';
@@ -34,7 +36,8 @@ export default function ProcessDetailPage() {
   // Se piden juntos el proceso, su última vez y sus notas; reload los vuelve a pedir tras cada cambio.
   const { data, isLoading, hasError, reload } = useLoadedData(
     async () => ({
-      process: await getProcess(processId),
+      // Solo los pasos que tocan hoy (empacar almuerzo no aparece viernes ni sábado).
+      process: (await loadProcessForToday(processId)).process,
       lastDoneIso: await getLastDone(processId),
       notes: await getNotes(processId),
     }),
@@ -91,8 +94,8 @@ export default function ProcessDetailPage() {
       <TextList title={text.processDetail.ingredients} items={process.ingredients?.map((ingredient) => ingredient.text)} />
       <TextList title={text.processDetail.notes} items={process.notes} />
       {process.steps.length > 0 && (
-        <Link className="button button-primary process-detail-cook" to={`/cocinar/${processId}`}>
-          {text.cooking.cookStepByStep}
+        <Link className="button button-primary process-detail-cook" to={`${STEP_BY_STEP_PATH}/${processId}`}>
+          {text.cooking.stepByStep[getStepByStepKind(process)]}
         </Link>
       )}
       <StepChecklist steps={process.steps} onToggle={handleToggle} />

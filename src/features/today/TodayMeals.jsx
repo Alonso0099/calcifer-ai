@@ -1,6 +1,6 @@
 // La tarjeta "Qué se come hoy" de la pantalla de inicio.
 import { Link } from 'react-router-dom';
-import { MEAL_KINDS, MEAL_SLOTS } from '../../shared/constants.js';
+import { MEAL_KINDS, MEAL_SLOTS, STEP_BY_STEP_PATH } from '../../shared/constants.js';
 import { getMealName } from '../../shared/mealName.js';
 import { text } from '../../shared/text.js';
 import './TodayMeals.css';
@@ -13,9 +13,10 @@ import './TodayMeals.css';
  * @param {Record<string, {kind: string, processId: string|null}>} props.meals - Lo planeado hoy, por momento.
  * @param {string|null} props.usualMeal - Lo habitual ese día según la semana tipo.
  * @param {Record<string, object>} props.processesById - Los procesos, por id.
+ * @param {boolean} props.packsLunchToday - Si hoy se empacan los almuerzos de mañana (domingo a jueves).
  * @returns {JSX.Element} La tarjeta de comidas.
  */
-export default function TodayMeals({ meals, usualMeal, processesById }) {
+export default function TodayMeals({ meals, usualMeal, processesById, packsLunchToday }) {
   // La comida que se cocina: la última receta del día (normalmente la cena).
   const recipeSlot = [...MEAL_SLOTS].reverse().find((slot) => meals[slot]?.kind === MEAL_KINDS.recipe);
   return (
@@ -32,7 +33,7 @@ export default function TodayMeals({ meals, usualMeal, processesById }) {
       {usualMeal && <p className="today-usual">{text.today.usual(usualMeal)}</p>}
       <div className="today-actions">
         {recipeSlot && (
-          <Link className="button button-primary today-start" to={`/cocinar/${meals[recipeSlot].processId}`}>
+          <Link className="button button-primary today-start" to={`${STEP_BY_STEP_PATH}/${meals[recipeSlot].processId}`}>
             {text.today.startCooking}
           </Link>
         )}
@@ -40,7 +41,7 @@ export default function TodayMeals({ meals, usualMeal, processesById }) {
           {text.today.planMenu}
         </Link>
       </div>
-      {recipeSlot === 'dinner' && <p className="today-reminder">{text.today.packLunch}</p>}
+      {recipeSlot && packsLunchToday && <p className="today-reminder">{text.today.packLunch}</p>}
     </section>
   );
 }

@@ -43,7 +43,13 @@
 .timer-check {
   flex-basis: 100%;
   font-weight: 600;
-  color: var(--color-text-strong);
+}
+
+/* Sobre el fondo dorado de un temporizador terminado, todo el texto usa el color hecho para ese fondo. */
+.timer-done .timer-label,
+.timer-done .timer-clock,
+.timer-done .timer-check {
+  color: var(--color-on-highlight);
 }
 
 .timer-add {
@@ -60,6 +66,28 @@
 .timer-custom {
   display: flex;
   gap: 8px;
+}
+
+.timer-help {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+/* Un temporizador terminado late suavemente para llamar la atención aunque no haya sonido. */
+.timer-done {
+  animation: timer-pulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes timer-pulse {
+  from { box-shadow: 0 0 0 0 var(--color-accent); }
+  to { box-shadow: 0 0 0 8px var(--color-accent); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timer-done {
+    animation: none;
+  }
 }
 
 .timer-custom input {

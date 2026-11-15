@@ -13,15 +13,19 @@ import './FinishPanel.css';
  *
  * @param {object} props
  * @param {{group?: string}} props.process - La receta o tarea.
+ * @param {boolean} props.packsLunchToday - Si hoy se empacan los almuerzos de mañana (viernes y sábado no).
  * @param {number} props.elapsedMs - Lo que marcó el cronómetro.
  * @param {(minutes: number, doneBy: string) => void} props.onConfirm - Se llama al registrar.
  * @param {() => void} props.onBack - Regresa a los pasos.
  * @returns {JSX.Element} Las confirmaciones y, cuando están todas, el formulario de registro.
  */
-export default function FinishPanel({ process, elapsedMs, onConfirm, onBack }) {
+export default function FinishPanel({ process, packsLunchToday, elapsedMs, onConfirm, onBack }) {
   const confirmations = [];
   if (COOKED_FOOD_GROUPS.includes(process.group)) confirmations.push({ id: 'cooked', label: text.cooking.confirmCooked });
-  if (LEFTOVER_GROUPS.includes(process.group)) confirmations.push({ id: 'stored', label: text.cooking.confirmStored });
+  if (LEFTOVER_GROUPS.includes(process.group)) {
+    confirmations.push({ id: 'stored', label: text.cooking.confirmStored });
+    if (packsLunchToday) confirmations.push({ id: 'packed', label: text.cooking.confirmPacked });
+  }
   const [confirmed, setConfirmed] = useState(new Set());
   const allConfirmed = confirmations.every((confirmation) => confirmed.has(confirmation.id));
 
