@@ -123,7 +123,7 @@ export default function CookingSession({ process, packsLunchToday, reload }) {
         </>
       )}
       {stage === 'finish' && <FinishPanel process={process} packsLunchToday={packsLunchToday} elapsedMs={stopwatch.elapsedMs} onConfirm={handleFinish} onBack={() => { setStage('steps'); setStepIndex(total - 1); }} />}
-      <UndoButton onUndone={reload} />
+      <UndoButton scope={{ processId: process.id }} onUndone={reload} />
     </div>
   );
 }

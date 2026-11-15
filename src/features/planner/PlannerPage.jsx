@@ -66,7 +66,7 @@ export default function PlannerPage() {
           />
         ))}
       </div>
-      <UndoButton onUndone={reload} />
+      <UndoButton scope={{ area: 'planner' }} onUndone={reload} />
       <p>
         <Link className="planner-typical" to="/semana">
           {text.planner.typicalWeek}

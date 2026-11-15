@@ -120,7 +120,7 @@ export default function ProcessDetailPage() {
           </>
         )}
       </p>
-      <UndoButton onUndone={reload} />
+      <UndoButton scope={{ processId }} onUndone={reload} />
       <LinkedNotes processId={processId} notes={notes} />
     </article>
   );

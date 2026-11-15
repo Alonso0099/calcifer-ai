@@ -17,14 +17,15 @@ export function getActiveEvents(events) {
 }
 
 /**
- * Encuentra el evento que anularía el botón Deshacer: el último que sigue vigente.
+ * Encuentra el evento que anularía un botón Deshacer: el último que sigue vigente
+ * y que pertenece al lugar de ese botón (ver lib/undoScope.js).
  *
  * @param {object[]} events - Todos los eventos, del más viejo al más nuevo.
- * @returns {object|null} El último evento vigente, o null si no hay nada que deshacer.
+ * @param {(event: object) => boolean} isInScope - Dice si un evento pertenece al lugar del botón.
+ * @returns {object|null} El último evento vigente de ese lugar, o null si no hay nada que deshacer ahí.
  */
-export function getLastUndoableEvent(events) {
-  const activeEvents = getActiveEvents(events);
-  return activeEvents.length > 0 ? activeEvents[activeEvents.length - 1] : null;
+export function getLastUndoableEvent(events, isInScope) {
+  return getActiveEvents(events).findLast(isInScope) ?? null;
 }
 
 /**

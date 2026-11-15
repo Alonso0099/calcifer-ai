@@ -31,7 +31,7 @@ test('toggleStep marca, desmarca y se puede deshacer', async () => {
   assert.equal(await data.toggleStep('limpieza-semanal', 'paso-1'), true);
   assert.equal((await data.getProcess('limpieza-semanal')).steps[0].checked, true);
   assert.equal(await data.toggleStep('limpieza-semanal', 'paso-1'), false);
-  await data.undoLastEvent();
+  await data.undoLastEvent({ processId: 'limpieza-semanal' });
   assert.equal((await data.getProcess('limpieza-semanal')).steps[0].checked, true);
   await assert.rejects(data.toggleStep('limpieza-semanal', 'paso-99'));
 });
@@ -54,7 +54,7 @@ test('notas: crear, editar, borrar y recuperar con Deshacer', async () => {
   assert.equal((await data.getNotes('limpieza-semanal'))[0].title, 'Idea 2');
   await data.deleteNote(note.id);
   assert.equal((await data.getNotes()).length, 0);
-  await data.undoLastEvent();
+  await data.undoLastEvent({ area: 'notes' });
   assert.equal((await data.getNotes()).length, 1);
 });
 
@@ -82,7 +82,7 @@ test('el cronómetro se guarda por proceso, fuera del historial', async () => {
   assert.equal(await data.getStopwatch('limpieza-semanal'), null);
   await data.saveStopwatch('limpieza-semanal', { accumulatedMs: 60000, startedAt: null });
   assert.deepEqual(await data.getStopwatch('limpieza-semanal'), { accumulatedMs: 60000, startedAt: null });
-  assert.equal(await data.undoLastEvent(), null, 'guardar el cronómetro no crea eventos');
+  assert.equal(await data.undoLastEvent({ processId: 'limpieza-semanal' }), null, 'guardar el cronómetro no crea eventos');
   await data.saveStopwatch('limpieza-semanal', null);
   assert.equal(await data.getStopwatch('limpieza-semanal'), null);
 });
@@ -93,7 +93,7 @@ test('el menú se planea, se cambia, se quita y se puede deshacer', async () => 
   await data.planMeal('2026-11-16', 'lunch', { kind: 'leftovers' });
   assert.deepEqual(await data.getMealPlan(), { '2026-11-16': { dinner: { kind: 'recipe', processId: 'limpieza-semanal' }, lunch: { kind: 'leftovers', processId: null } } });
   await data.planMeal('2026-11-16', 'lunch', { kind: 'none' });
-  await data.undoLastEvent();
+  await data.undoLastEvent({ area: 'planner' });
   assert.equal((await data.getMealPlan())['2026-11-16'].lunch.kind, 'leftovers');
   await assert.rejects(data.planMeal('2026-11-16', 'dinner', { kind: 'recipe', processId: 'no-existe' }));
   await assert.rejects(data.planMeal('2026-11-16', 'merienda', { kind: 'quick' }));
@@ -106,7 +106,7 @@ test('congelador: registrar bolsas, usar una y recuperarla con Deshacer', async 
   assert.equal((await data.getFreezer()).length, 2);
   await data.removeFreezerItem(first, 'cooked');
   assert.equal((await data.getFreezer()).length, 1);
-  await data.undoLastEvent();
+  await data.undoLastEvent({ area: 'freezer' });
   assert.equal((await data.getFreezer()).length, 2);
   await assert.rejects(data.saveFreezerItem({ cutId: 'no-existe', marinated: false, units: 1, prepDay: '2026-11-07' }));
   await assert.rejects(data.saveFreezerItem({ cutId: 'pollo-filetes', marinated: false, units: 0, prepDay: '2026-11-07' }));
@@ -119,7 +119,7 @@ test('los temporizadores se guardan completos, fuera del historial', async () =>
   const timers = [{ id: 't1', label: 'Paso 2', durationMs: 600000, endsAt: 1700000600000 }];
   await data.saveTimers(timers);
   assert.deepEqual(await data.getTimers(), timers);
-  assert.equal(await data.undoLastEvent(), null, 'guardar temporizadores no crea eventos');
+  assert.equal(await data.undoLastEvent({ processId: 'limpieza-semanal' }), null, 'guardar temporizadores no crea eventos');
 });
 
 test('en curso: pasos marcados y cronómetro aparecen; descartar los limpia y Deshacer recupera los pasos', async () => {
@@ -133,6 +133,19 @@ test('en curso: pasos marcados y cronómetro aparecen; descartar los limpia y De
   await data.discardProgress('limpieza-semanal');
   assert.deepEqual(await data.getInProgress(), []);
   assert.deepEqual((await data.getTimers()).map((timer) => timer.id), ['u']);
-  await data.undoLastEvent();
+  await data.undoLastEvent({ processId: 'limpieza-semanal' });
   assert.equal((await data.getProcess('limpieza-semanal')).steps[0].checked, true, 'Deshacer recupera los pasos');
+});
+
+test('Deshacer en una tarea nunca toca el menú ni otras secciones, aunque se toque de más', async () => {
+  const data = createTestAdapter();
+  await data.planMeal('2026-11-16', 'dinner', { kind: 'recipe', processId: 'limpieza-semanal' });
+  await data.saveNote({ title: 'Nota', body: 'Texto' });
+  await data.toggleStep('limpieza-semanal', 'paso-1');
+  const scope = { processId: 'limpieza-semanal' };
+  assert.equal((await data.undoLastEvent(scope)).type, 'step_checked');
+  assert.equal(await data.undoLastEvent(scope), null, 'ya no queda nada de esa tarea');
+  assert.equal(await data.undoLastEvent(scope), null);
+  assert.equal((await data.getMealPlan())['2026-11-16'].dinner.kind, 'recipe', 'el plan sigue ahí');
+  assert.equal((await data.getNotes()).length, 1, 'la nota sigue ahí');
 });

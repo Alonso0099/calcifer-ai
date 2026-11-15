@@ -85,7 +85,7 @@ Ninguna tarea tiene un dueño fijo: quién hace cada cosa se decide en el moment
 
 ## Colores
 
-La paleta es cálida y acogedora: madera, crema y tonos de fuego, como una cocina de cuento ilustrado. Hay **dos temas fijos**: el **oscuro brasa** (el predeterminado: fondo café rojizo, rojos y naranjas en lo importante y el amarillo solo en detalles pequeños) y el **claro crema**. Se eligen en Ajustes (oscuro, claro o como el dispositivo). Todos los colores se definen una sola vez como variables en `src/styles/global.css`, y ningún componente escribe un color directo (`#...`): siempre usa la variable. Así, cambiar un color es cambiar una sola línea.
+La paleta es cálida y acogedora: madera, crema y tonos de fuego, como una cocina de cuento ilustrado. Hay **dos temas fijos**: el **oscuro brasa** (el predeterminado: fondo café rojizo, rojos y naranjas en lo importante y el amarillo solo en detalles pequeños como "Vence pronto") y el **claro crema**. Se eligen en Ajustes (oscuro, claro o como el dispositivo). Todos los colores se definen una sola vez como variables en `src/styles/global.css`, y ningún componente escribe un color directo (`#...`): siempre usa la variable. Así, cambiar un color es cambiar una sola línea.
 
 ### El diseño vive en dos archivos
 
@@ -112,7 +112,9 @@ El tema oscuro va en `:root` y el claro en `:root[data-theme='light']`; `src/sha
   --color-text: #FFF2D9;          /* crema hogar (11.3:1) */
   --color-text-strong: #FF9966;   /* coral: títulos (6.0:1) */
   --color-text-muted: #E2BFA0;    /* taupe claro (7.3:1) */
-  --color-brand: #FFD84D;         /* amarillo luz: el nombre de la app (9.1:1) */
+  --color-brand: #FF6A3D;         /* rojo brasa: el nombre de la app (5.8:1 sobre el encabezado) */
+  --color-brand-flame: #FF9966;   /* coral: las llamas dentro del nombre */
+  --color-brand-tip: #FFB27A;     /* durazno: la punta de esas llamas */
   --color-primary: #FF6A3D;       /* rojo brasa, con texto café oscuro (6.1:1) */
   --color-primary-hover: #FF8A5C; /* brasa clara: presionado */
   --color-primary-edge: #B8321A;  /* rojo profundo: canto del botón principal (solo adorno) */
@@ -139,7 +141,9 @@ El tema oscuro va en `:root` y el claro en `:root[data-theme='light']`; `src/sha
   --color-text: #33241C;          /* café tostado: texto principal (13.7:1) */
   --color-text-strong: #6B2A12;   /* caoba: títulos y énfasis (9.8:1) */
   --color-text-muted: #6A5345;    /* café con leche: texto secundario (6.6:1) */
-  --color-brand: #6B2A12;         /* caoba: el nombre de la app */
+  --color-brand: #8E2C0E;         /* brasa oscura: el nombre de la app (8.0:1) */
+  --color-brand-flame: #B23A15;   /* brasa: las llamas dentro del nombre */
+  --color-brand-tip: #D2432A;     /* rojo fuego: la punta de esas llamas (el nombre es texto grande) */
 
   /* Acciones */
   --color-primary: #B23A15;       /* brasa: botones principales, con texto blanco (6.0:1) */
@@ -176,6 +180,7 @@ Reglas de uso:
 - El texto sobre `--color-highlight` usa `--color-on-highlight`, y el texto sobre `--color-primary` usa `--color-on-primary`. El canto de un botón principal usa `--color-primary-edge`.
 - Botones y campos llevan borde `--color-border-strong`, para que se vea dónde se puede tocar.
 - `--color-accent` (llama) es solo para adornos pequeños.
+- El nombre de la app lleva llamas hechas solo con CSS (`src/app/App.css`): degradados recortados con la forma de las letras que suben y bajan. Son abstractas (sin cara ni ojos) y se quedan quietas si el movimiento está apagado.
 - Un color nuevo se agrega en los dos temas, con su contraste medido en cada uno.
 - Solo se usan los códigos de color de la paleta; ninguna ilustración ni personaje de la imagen de referencia entra en la app.
 
@@ -219,7 +224,7 @@ Ningún componente lee `localStorage` ni importa el JSON directamente. Todo pasa
 | `addShoppingItem(name)` / `removeShoppingItem(itemId)` | Anota a mano algo que comprar, o lo quita |
 | `setShoppingItemChecked(key, isChecked)` | Marca o desmarca un renglón de la lista; si ya está en ese estado no guarda nada |
 | `completeShopping()` | Termina la compra: vacía las casillas y saca lo anotado a mano que se compró. No cambia el congelador |
-| `undoLastEvent()` | Anula el último evento |
+| `undoLastEvent(scope)` | Anula el último evento **del lugar desde donde se tocó Deshacer**, y nada más. `scope` es una tarea (`{ processId }`: solo sus pasos y su terminado o descartado, y solo los de hoy) o una sección (`{ area }`: `planner`, `freezer`, `shopping` o `notes`). Si ahí no queda nada, regresa `null` y no toca nada |
 | `getStopwatch(processId)` / `saveStopwatch(processId, stopwatch)` | Lee y guarda el cronómetro en curso de un proceso, para que no se pierda al recargar la página. No es un evento: no entra al historial, al Deshacer ni al respaldo |
 | `getAllStopwatches()` | Todos los cronómetros guardados, por proceso |
 | `getInProgress()` | Lo empezado y no terminado: procesos con pasos marcados, cronómetro con tiempo o temporizadores puestos |
@@ -269,6 +274,8 @@ Una bolsa del congelador existe desde su último `freezer_item_saved` hasta un `
 La lista de compras no se guarda: se arma cada vez con lo que falta en el congelador, los ingredientes de las recetas del menú de los próximos 7 días y lo anotado a mano. Las casillas marcadas son eventos y se vacían con `shopping_completed`.
 
 Una nota se ve siempre en su versión más reciente (el último `note_saved` con su `noteId`), a menos que exista un `note_deleted` posterior.
+
+Deshacer nunca es global: cada botón solo anula registros de su tarea o de su sección (`src/lib/undoScope.js`). Por eso deshacer de más en una tarea no puede quitar una comida del plan de hoy ni tocar otra tarea; el plan solo cambia desde el Menú.
 
 Los pasos marcados de un proceso son los posteriores a su último `process_finished` o `process_discarded`. Descartar no cuenta como terminado.
 

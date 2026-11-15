@@ -25,6 +25,28 @@ export const EVENT_TYPES = {
   eventUndone: 'event_undone',
 };
 
+/** Los registros de una tarea que su botón Deshacer puede anular (nunca el menú ni otras secciones). */
+export const PROCESS_UNDO_EVENT_TYPES = [
+  EVENT_TYPES.stepChecked,
+  EVENT_TYPES.stepUnchecked,
+  EVENT_TYPES.processFinished,
+  EVENT_TYPES.processDiscarded,
+];
+
+/** Los registros que puede anular el botón Deshacer de cada sección. */
+export const UNDO_AREA_EVENT_TYPES = {
+  planner: [EVENT_TYPES.mealPlanned],
+  freezer: [EVENT_TYPES.freezerItemSaved, EVENT_TYPES.freezerItemRemoved],
+  shopping: [
+    EVENT_TYPES.shoppingItemAdded,
+    EVENT_TYPES.shoppingItemRemoved,
+    EVENT_TYPES.shoppingItemChecked,
+    EVENT_TYPES.shoppingItemUnchecked,
+    EVENT_TYPES.shoppingCompleted,
+  ],
+  notes: [EVENT_TYPES.noteSaved, EVENT_TYPES.noteDeleted],
+};
+
 /** Opciones de "¿Quién lo hizo?". Es solo una nota de historial, nunca una asignación. */
 export const DONE_BY_OPTIONS = ['Nano', 'Tita', 'Ambos'];
 

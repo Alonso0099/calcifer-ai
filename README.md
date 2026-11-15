@@ -280,3 +280,5 @@ Una línea por decisión importante, con su porqué.
 - **Ajustes del dispositivo (tema, letra grande, sonido, movimiento)**: son preferencias de cada aparato, no historial, así que no son eventos ni van en el respaldo. Se aplican como atributos en `<html>` que el CSS lee, antes de dibujar la app para que no parpadee.
 - **El respaldo se abre desde Ajustes**: deja el menú "Más" más corto; la dirección `/respaldo` no cambió.
 - **Una variable para el nombre de la app (`--color-brand`)**: en el oscuro es el detalle amarillo y en el claro es caoba, sin tocar el encabezado.
+- **Deshacer por lugar, no global**: cada botón Deshacer solo anula registros de su tarea (los de hoy) o de su sección. Antes, tocarlo de más seguía con otras tareas y con el menú, y se podía perder algo importante del plan de hoy sin querer. El plan de hoy solo cambia desde el Menú.
+- **El nombre en llamas con CSS**: degradados recortados con la forma de las letras, sin imágenes ni dependencias. Es rojo brasa para verse fuerte, y respeta el ajuste de movimiento.

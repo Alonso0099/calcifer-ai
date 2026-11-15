@@ -60,7 +60,7 @@ export default function FreezerPage() {
       </div>
       <AddBagsForm proteins={data.proteins} today={data.today} onAdd={handleAdd} />
       <div className="freezer-undo">
-        <UndoButton onUndone={reload} />
+        <UndoButton scope={{ area: 'freezer' }} onUndone={reload} />
       </div>
     </>
   );
