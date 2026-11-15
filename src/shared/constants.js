@@ -147,8 +147,11 @@ export const COOKED_FOOD_GROUPS = MENU_GROUPS;
 /** Grupos de recetas que dejan sobras o almuerzos: al terminar piden confirmar que se guardaron. */
 export const LEFTOVER_GROUPS = ['pollo', 'cerdo', 'res', 'seafood', 'sopas', 'flex'];
 
-/** El pitido cuando termina un temporizador: tono, volumen (0 a 1) y duración. */
-export const BEEP = { frequencyHz: 880, volume: 0.2, seconds: 0.4 };
+/**
+ * El aviso sonoro de un temporizador: tres pitidos. Tono, volumen (0 a 1), duración de cada
+ * pitido, silencio entre pitidos y calidad del audio generado (muestras por segundo).
+ */
+export const BEEP = { frequencyHz: 880, volume: 0.6, seconds: 0.35, count: 3, gapSeconds: 0.15, sampleRate: 22050 };
 
 /** El patrón de vibración al terminar un temporizador (vibra, pausa, vibra), en milisegundos. */
 export const VIBRATION_PATTERN_MS = [200, 100, 200];

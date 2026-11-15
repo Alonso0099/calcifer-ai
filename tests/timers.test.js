@@ -3,6 +3,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createTimer, getRemainingMs, isTimerDone, sortTimers } from '../src/lib/timers.js';
 import { describeIngredient } from '../src/lib/scaling.js';
+import { createBeepWav } from '../src/lib/wav.js';
 
 test('un temporizador guarda su hora de término y calcula lo que falta', () => {
   const timer = createTimer('a', 'Paso 2', 10, 1000000, 'pollo-sudado');
@@ -43,4 +44,16 @@ test('sin cantidad o sin unidad el ingrediente se muestra bien', () => {
   assert.equal(describeIngredient(optional, 2, label), '2 tazas de cilantro (opcional)');
   const inSection = { text: 'Salsa: 2 cdas de salsa de soya', name: 'salsa de soya', amount: 2, unit: 'cda', section: 'Salsa' };
   assert.equal(describeIngredient(inSection, 2, label), 'Salsa: 4 cdas de salsa de soya');
+});
+
+
+test('createBeepWav genera un WAV válido con el largo correcto', () => {
+  const beep = { frequencyHz: 880, volume: 0.5, seconds: 0.1, count: 3, gapSeconds: 0.05, sampleRate: 1000 };
+  const bytes = createBeepWav(beep);
+  const letters = (start) => String.fromCharCode(...bytes.slice(start, start + 4));
+  assert.equal(letters(0), 'RIFF');
+  assert.equal(letters(8), 'WAVE');
+  assert.equal(letters(36), 'data');
+  // 3 pitidos de 100 muestras + 2 silencios de 50 = 400 muestras de 2 bytes, más 44 de cabecera.
+  assert.equal(bytes.length, 44 + 400 * 2);
 });

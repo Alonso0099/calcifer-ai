@@ -129,6 +129,9 @@ export const text = {
     timerRemove: 'Quitar',
     timerDone: '¡Listo!',
     timerCheck: 'Terminó el tiempo. Revisa que la comida esté lista: un temporizador no lo confirma.',
+    titleTimerDone: '¡Temporizador listo! · Calcifer',
+    testSound: 'Probar sonido',
+    soundHelp: 'El aviso suena solo con la app abierta y si el teléfono no está en silencio. El iPhone no permite que una página web vibre.',
     /** @param {number} number */
     stepLabel: (number) => `Paso ${number}`,
     ingredientsTitle: 'Ingredientes',

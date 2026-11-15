@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { getTimers, saveTimers } from '../../data/index.js';
 import { createTimer, isTimerDone, sortTimers } from '../../lib/timers.js';
 import { alertTimerDone } from '../../shared/beep.js';
+import { text } from '../../shared/text.js';
 import { MAX_TIMERS, MS_PER_SECOND } from '../../shared/constants.js';
 
 /**
@@ -45,6 +46,17 @@ export function useTimers() {
       }
     }
   }, [timers, now]);
+
+  // Mientras haya un temporizador terminado, el título de la pestaña lo dice (se ve aunque se esté en otra pestaña).
+  const hasDoneTimer = timers.some((timer) => isTimerDone(timer, now));
+  useEffect(() => {
+    if (!hasDoneTimer) return undefined;
+    const originalTitle = document.title;
+    document.title = text.cooking.titleTimerDone;
+    return () => {
+      document.title = originalTitle;
+    };
+  }, [hasDoneTimer]);
 
   /** Cambia la lista en pantalla y la guarda en el dispositivo. */
   function update(nextTimers) {

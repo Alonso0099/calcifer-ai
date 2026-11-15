@@ -255,6 +255,10 @@ Una línea por decisión importante, con su porqué.
 - **Si se cierra la app a la mitad, se retoma**: los pasos marcados son eventos y la sesión empieza en el primer paso que falta.
 - **Los temporizadores los pone la persona** (5, 10, 15, 30 minutos u otros): el manual no da tiempo por paso y no se inventan. Se pueden tener varios a la vez y sobreviven a recargar, porque guardan la hora de término.
 - **Un temporizador que termina avisa por escrito, con pitido y con vibración si el dispositivo puede, y dice que se revise la comida**: un temporizador no confirma que algo esté cocido.
+- **El sonido se prepara en el toque que pone el temporizador**: Safari y Chrome no dejan sonar audio que no nace de un toque, y la primera versión creaba el sonido al terminar, sin toque, así que en el iPhone nunca sonaba.
+- **Los pitidos son un archivo de audio generado en la app** (`lib/wav.js`), sin descargar nada: funciona sin conexión.
+- **Botón "Probar sonido"** junto a los temporizadores, y aviso visual fuerte: la tarjeta late y el título de la pestaña cambia.
+- **En iPhone no hay vibración**: Safari no permite que una página web vibre. Con la app cerrada tampoco hay aviso: necesitaría notificaciones con un servidor, que se dejan para el final.
 - **Los temporizadores no se pueden avisar con la app cerrada**: eso requeriría notificaciones, que están pendientes de decidir.
 - **Antes de registrar hay que confirmar**: "revisé que está bien cocida (la temperatura la medí yo)" y "guardé lo que sobró y empaqué los almuerzos". Solo aparecen las que aplican a esa receta.
 - **El ajuste de tamaño (la mitad, normal, el doble) solo cambia las cantidades que se muestran** y la pantalla lo dice: no ajusta pasos, tiempos ni temperaturas. Sin unidad se escribe "cebolla en tiras: 2" porque no se pone un nombre en plural de forma segura.
