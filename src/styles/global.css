@@ -16,7 +16,9 @@
   --color-text: #FFF2D9;          /* crema hogar: texto principal (11.3:1) */
   --color-text-strong: #FF9966;   /* coral: títulos y énfasis (6.0:1) */
   --color-text-muted: #E2BFA0;    /* taupe claro: texto secundario (7.3:1) */
-  --color-brand: #FFD84D;         /* amarillo luz: el nombre de la app, un detalle pequeño (9.1:1) */
+  --color-brand: #FF6A3D;         /* rojo brasa: el nombre de la app (5.8:1 sobre el encabezado) */
+  --color-brand-flame: #FF9966;   /* coral: las llamas que suben dentro del nombre (7.9:1) */
+  --color-brand-tip: #FFB27A;     /* durazno: la punta de esas llamas (9.4:1) */
 
   /* Acciones */
   --color-primary: #FF6A3D;       /* rojo brasa: botones principales, con texto café oscuro (6.1:1) */
@@ -64,7 +66,9 @@
   --color-text: #33241C;          /* café tostado: texto principal (13.7:1) */
   --color-text-strong: #6B2A12;   /* caoba: títulos y énfasis (9.8:1) */
   --color-text-muted: #6A5345;    /* café con leche: texto secundario (6.6:1) */
-  --color-brand: #6B2A12;         /* caoba: el nombre de la app */
+  --color-brand: #8E2C0E;         /* brasa oscura: el nombre de la app (8.0:1 sobre el encabezado) */
+  --color-brand-flame: #B23A15;   /* brasa: las llamas que suben dentro del nombre (5.8:1) */
+  --color-brand-tip: #D2432A;     /* rojo fuego: la punta de esas llamas (4.1:1; el nombre es texto grande) */
 
   /* Acciones */
   --color-primary: #B23A15;       /* brasa: botones principales, con texto blanco (6.0:1) */

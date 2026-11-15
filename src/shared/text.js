@@ -388,7 +388,7 @@ export const text = {
   },
   undo: {
     button: 'Deshacer',
-    nothing: 'No hay nada que deshacer.',
+    nothing: 'No hay nada más que deshacer aquí.',
     done: {
       meal_planned: 'Se deshizo: cambio en el menú.',
       process_discarded: 'Se deshizo: volvieron los pasos descartados.',

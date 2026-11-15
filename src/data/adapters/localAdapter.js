@@ -11,6 +11,7 @@ import { createNoteFunctions } from './noteFunctions.js';
 import { createProgressFunctions } from './progressFunctions.js';
 import { createShoppingFunctions } from './shoppingFunctions.js';
 import { createStopwatchFunctions } from './stopwatchStore.js';
+import { isEventInUndoScope } from '../../lib/undoScope.js';
 import { createTimerFunctions } from './timerStore.js';
 import { createSettingsFunctions } from './settingsStore.js';
 
@@ -132,9 +133,15 @@ export function createLocalAdapter({ storage, content }) {
       return getLastDoneIso(store.readEvents(), processId);
     },
 
-    /** @returns {Promise<object|null>} El evento que se anuló, o null si no había nada. */
-    async undoLastEvent() {
-      const lastEvent = getLastUndoableEvent(store.readEvents());
+    /**
+     * Anula el último registro del lugar desde donde se tocó Deshacer, y nada más.
+     *
+     * @param {{processId?: string, area?: string}} scope - Una tarea ({ processId }) o una sección ({ area }).
+     * @returns {Promise<object|null>} El evento que se anuló, o null si ahí no había nada que deshacer.
+     */
+    async undoLastEvent(scope) {
+      const now = new Date();
+      const lastEvent = getLastUndoableEvent(store.readEvents(), (event) => isEventInUndoScope(event, scope, now));
       if (lastEvent) store.appendEvent(EVENT_TYPES.eventUndone, { targetEventId: lastEvent.id });
       return lastEvent;
     },

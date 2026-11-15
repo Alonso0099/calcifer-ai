@@ -65,7 +65,7 @@ export default function ShoppingPage() {
         <button type="button" className="button button-primary" disabled={list.checkedCount === 0} onClick={handleComplete}>
           {text.shopping.finish}
         </button>
-        <UndoButton onUndone={reload} />
+        <UndoButton scope={{ area: 'shopping' }} onUndone={reload} />
       </div>
       {message && (
         <p className="shopping-message" role="status">

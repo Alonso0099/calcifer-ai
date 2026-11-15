@@ -52,7 +52,7 @@ export default function NotesListPage() {
           </li>
         ))}
       </ul>
-      <UndoButton onUndone={reload} />
+      <UndoButton scope={{ area: 'notes' }} onUndone={reload} />
     </>
   );
 }
