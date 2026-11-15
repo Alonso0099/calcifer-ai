@@ -1,0 +1,28 @@
+/* Estilos de la pantalla final del modo de cocina. */
+
+.finish-panel {
+  padding: 20px;
+}
+
+.finish-panel h3 {
+  margin-top: 0;
+}
+
+.finish-panel-help {
+  color: var(--color-text-muted);
+}
+
+.finish-panel-list {
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.finish-panel-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  font-size: 1.15rem;
+  cursor: pointer;
+}

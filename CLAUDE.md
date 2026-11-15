@@ -47,7 +47,7 @@ El ciclo que debe funcionar completo es: planear → revisar qué hay → cocina
 2. **Hoy y menú.** Una pantalla de inicio que dice qué toca hoy (comida, tareas, qué descongelar, almuerzos por empacar) y un menú semanal que se puede cambiar: asignar recetas, mover días, cancelar.
 3. **Inventario del congelador** por unidades, con "25 − existencia = a comprar", y la preparación mensual que lo actualiza al confirmar.
 4. **Compras**: la lista sale sola del menú y del congelador, y se puede anotar a mano. Terminar la compra no toca el inventario: la proteína entra al congelador cuando se porciona y se registran sus bolsas.
-5. **Modo de cocina** (un paso a la vez, con temporizadores), etiquetas imprimibles, bitácora de incidencias y los seis indicadores del manual.
+5. **Modo de cocina** (un paso a la vez, con temporizadores; ya construido), etiquetas imprimibles, bitácora de incidencias y los seis indicadores del manual.
 
 Reglas de la fase 2:
 
@@ -57,7 +57,7 @@ Reglas de la fase 2:
 - Todo lo nuevo se guarda como eventos (Regla 3): así se puede deshacer, respaldar y sincronizar sin conflictos.
 - Seguridad de alimentos: no se inventan tiempos de conservación, un temporizador no confirma que algo está cocido, y las mediciones reales (temperatura, peso) las confirma la persona.
 
-Fuera de alcance (no lo construyas aunque parezca útil): asignar o rotar tareas, perfiles públicos o funciones sociales, gamificación, códigos de barras, publicidad o analíticas de terceros, fotos o archivos en las notas, y una mascota o arte basados en personajes existentes. Escalar porciones y las notificaciones se deciden cuando llegue su paso.
+Fuera de alcance (no lo construyas aunque parezca útil): asignar o rotar tareas, perfiles públicos o funciones sociales, gamificación, códigos de barras, publicidad o analíticas de terceros, fotos o archivos en las notas, y una mascota o arte basados en personajes existentes. Las notificaciones se deciden cuando llegue su paso. Escalar porciones: en el modo de cocina hay un ajuste de tamaño (la mitad, normal, el doble) que solo cambia las cantidades que se muestran en los ingredientes; no cambia pasos, tiempos ni temperaturas, ni se guarda.
 
 ## Stack fijo
 
@@ -188,6 +188,7 @@ Ningún componente lee `localStorage` ni importa el JSON directamente. Todo pasa
 | `completeShopping()` | Termina la compra: vacía las casillas y saca lo anotado a mano que se compró. No cambia el congelador |
 | `undoLastEvent()` | Anula el último evento |
 | `getStopwatch(processId)` / `saveStopwatch(processId, stopwatch)` | Lee y guarda el cronómetro en curso de un proceso, para que no se pierda al recargar la página. No es un evento: no entra al historial, al Deshacer ni al respaldo |
+| `getTimers()` / `saveTimers(timers)` | Lee y guarda los temporizadores en curso del modo de cocina. Como el cronómetro, no son eventos: no entran al historial, al Deshacer ni al respaldo |
 | `exportBackup()` / `importBackup(file)` | Respaldo y restauración del historial |
 
 `src/data/index.js` elige el adaptador con la variable `VITE_DATA_SOURCE` (por ahora solo existe `local`). Un adaptador futuro (por ejemplo, PostgreSQL en Neon) debe implementar las mismas funciones con los mismos parámetros y resultados, sin cambiar ningún componente.
@@ -339,7 +340,8 @@ src/
 ├── features/
 │   ├── today/             (pantalla de inicio: qué toca hoy)
 │   ├── planner/           (menú de la semana y selector de comidas)
-│   ├── processes/         (tarjetas, detalle, checklist, cronómetro)
+│   ├── cooking/           (modo de cocina: un paso a la vez, temporizadores, confirmación final)
+│   ├── processes/         (tarjetas, detalle, checklist)
 │   ├── week/              (vista semanal)
 │   ├── search/            (búsqueda)
 │   ├── freezer/           (inventario del congelador)

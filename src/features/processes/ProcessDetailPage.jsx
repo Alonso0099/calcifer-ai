@@ -4,17 +4,17 @@ import { Link, useParams } from 'react-router-dom';
 import { finishProcess, getLastDone, getNotes, getProcess, toggleStep } from '../../data/index.js';
 import { getMinutesFromElapsed } from '../../lib/time.js';
 import { FOLLOW_UP_ROUTE_BY_PROCESS_ID } from '../../shared/constants.js';
+import FinishForm from '../../shared/components/FinishForm.jsx';
 import LinkedNotes from '../../shared/components/LinkedNotes.jsx';
+import Stopwatch from '../../shared/components/Stopwatch.jsx';
 import UndoButton from '../../shared/components/UndoButton.jsx';
 import { text } from '../../shared/text.js';
 import { useLoadedData } from '../../shared/useLoadedData.js';
-import FinishForm from './FinishForm.jsx';
+import { useStopwatch } from '../../shared/useStopwatch.js';
+import { useWakeLock } from '../../shared/useWakeLock.js';
 import ProcessSummary from './ProcessSummary.jsx';
 import StepChecklist from './StepChecklist.jsx';
-import Stopwatch from './Stopwatch.jsx';
 import TextList from './TextList.jsx';
-import { useStopwatch } from './useStopwatch.js';
-import { useWakeLock } from './useWakeLock.js';
 import './ProcessDetailPage.css';
 
 /**
@@ -90,6 +90,11 @@ export default function ProcessDetailPage() {
       <p className="process-detail-notice">{canKeepScreenOn ? text.wakeLock.active : text.wakeLock.unsupported}</p>
       <TextList title={text.processDetail.ingredients} items={process.ingredients?.map((ingredient) => ingredient.text)} />
       <TextList title={text.processDetail.notes} items={process.notes} />
+      {process.steps.length > 0 && (
+        <Link className="button button-primary process-detail-cook" to={`/cocinar/${processId}`}>
+          {text.cooking.cookStepByStep}
+        </Link>
+      )}
       <StepChecklist steps={process.steps} onToggle={handleToggle} />
       <Stopwatch stopwatch={stopwatch} />
       {isFinishing ? (

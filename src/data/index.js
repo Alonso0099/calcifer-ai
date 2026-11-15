@@ -42,6 +42,8 @@ export const {
   removeShoppingItem,
   setShoppingItemChecked,
   completeShopping,
+  getTimers,
+  saveTimers,
   getStopwatch,
   saveStopwatch,
   exportBackup,

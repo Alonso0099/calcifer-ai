@@ -127,3 +127,27 @@ export const PROTEIN_UNIT_PATTERN = /unidad(es)? de /i;
 
 /** Ingredientes que solo remiten a otra receta ("Los ingredientes de Carne en Salsa"): no se compran. */
 export const REFERENCE_INGREDIENT_PATTERN = /^(los|las) (ingredientes|camarones) de |^la salsa que se quiera/i;
+
+/** Clave con la que se guardan los temporizadores en curso (no son parte del historial). */
+export const TIMERS_STORAGE_KEY = 'calcifer.timers';
+
+/** Minutos de los botones rápidos de temporizador del modo de cocina. */
+export const TIMER_PRESET_MINUTES = [5, 10, 15, 30];
+
+/** Cuántos temporizadores puede haber a la vez en el modo de cocina. */
+export const MAX_TIMERS = 8;
+
+/** Tamaños para ajustar cuánto se cocina. Solo cambian lo que se muestra en los ingredientes. */
+export const QUANTITY_FACTORS = [0.5, 1, 2];
+
+/** Grupos de recetas que son comida cocinada: al terminar piden confirmar que quedó bien cocida. */
+export const COOKED_FOOD_GROUPS = MENU_GROUPS;
+
+/** Grupos de recetas que dejan sobras o almuerzos: al terminar piden confirmar que se guardaron. */
+export const LEFTOVER_GROUPS = ['pollo', 'cerdo', 'res', 'seafood', 'sopas', 'flex'];
+
+/** El pitido cuando termina un temporizador: tono, volumen (0 a 1) y duración. */
+export const BEEP = { frequencyHz: 880, volume: 0.2, seconds: 0.4 };
+
+/** El patrón de vibración al terminar un temporizador (vibra, pausa, vibra), en milisegundos. */
+export const VIBRATION_PATTERN_MS = [200, 100, 200];

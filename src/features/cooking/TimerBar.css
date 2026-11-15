@@ -1,0 +1,67 @@
+/* Estilos de los temporizadores del modo de cocina. */
+
+.timer-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.timer-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  padding: 8px 12px;
+}
+
+.timer-label {
+  color: var(--color-text-muted);
+}
+
+.timer-clock {
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-strong);
+}
+
+/* Un temporizador terminado se distingue por borde grueso, fondo dorado y el texto "¡Listo!". */
+.timer-done {
+  border: 3px solid var(--color-primary);
+  background-color: var(--color-highlight);
+}
+
+.timer-check {
+  flex-basis: 100%;
+  font-weight: 600;
+  color: var(--color-text-strong);
+}
+
+.timer-add {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.timer-add-title {
+  font-weight: 600;
+}
+
+.timer-custom {
+  display: flex;
+  gap: 8px;
+}
+
+.timer-custom input {
+  width: 12rem;
+}

@@ -32,7 +32,7 @@ export default function TodayMeals({ meals, usualMeal, processesById }) {
       {usualMeal && <p className="today-usual">{text.today.usual(usualMeal)}</p>}
       <div className="today-actions">
         {recipeSlot && (
-          <Link className="button button-primary today-start" to={`/procesos/${meals[recipeSlot].processId}`}>
+          <Link className="button button-primary today-start" to={`/cocinar/${meals[recipeSlot].processId}`}>
             {text.today.startCooking}
           </Link>
         )}

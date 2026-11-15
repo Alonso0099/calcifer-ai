@@ -1,7 +1,7 @@
 // Formulario para registrar que un proceso se terminó: minutos y, si se quiere, quién lo hizo.
 import { useState } from 'react';
-import { DEFAULT_DONE_BY, DONE_BY_OPTIONS } from '../../shared/constants.js';
-import { text } from '../../shared/text.js';
+import { DEFAULT_DONE_BY, DONE_BY_OPTIONS } from '../constants.js';
+import { text } from '../text.js';
 import './FinishForm.css';
 
 /**

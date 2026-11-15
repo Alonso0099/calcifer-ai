@@ -101,6 +101,50 @@ export const text = {
     unitsHelp: 'Normalmente 1 bolsa es 1 unidad. En pescado, mariscos y paquetes grandes se cuenta la comida, no las bolsas.',
     add: 'Agregar al congelador',
   },
+  cooking: {
+    timersTitle: 'Temporizadores',
+    /** @param {string} label */
+    timerAdd: (label) => `Temporizador para ${label.toLowerCase()}:`,
+    /** @param {number} minutes */
+    minutes: (minutes) => `${minutes} min`,
+    customMinutes: 'Otros minutos',
+    timerStart: 'Poner',
+    timerRemove: 'Quitar',
+    timerDone: '¡Listo!',
+    timerCheck: 'Terminó el tiempo. Revisa que la comida esté lista: un temporizador no lo confirma.',
+    /** @param {number} number */
+    stepLabel: (number) => `Paso ${number}`,
+    ingredientsTitle: 'Ingredientes',
+    scaleLabel: 'Cuánto cocinar',
+    scaleNames: { 0.5: 'La mitad', 1: 'Normal', 2: 'El doble' },
+    scaleNote: 'Solo cambian las cantidades de los ingredientes. Los pasos, los tiempos y las temperaturas no se ajustan.',
+    begin: 'Empezar los pasos',
+    showIngredients: 'Ver los ingredientes',
+    /** @param {number} current @param {number} total */
+    stepCount: (current, total) => `Paso ${current} de ${total}`,
+    stepDone: 'Hecho',
+    stepNext: 'Listo, siguiente',
+    lastStepDone: 'Listo, era el último',
+    previous: 'Anterior',
+    skip: 'Saltar',
+    pause: 'Pausar',
+    resume: 'Continuar',
+    exit: 'Salir',
+    noSteps: 'Esta receta todavía no tiene pasos para seguir uno por uno.',
+    finishTitle: 'Para terminar',
+    confirmHelp: 'La app no da nada por hecho: confirma tú.',
+    confirmCooked: 'Revisé que la comida está bien cocida (la temperatura la medí yo).',
+    confirmStored: 'Guardé lo que sobró y empaqué los almuerzos de mañana.',
+    backToSteps: 'Volver a los pasos',
+    cookStepByStep: 'Cocinar paso a paso',
+  },
+  units: {
+    /** @param {string} unit @param {number} amount */
+    label: (unit, amount) => {
+      const labels = { cda: ['cda', 'cdas'], cdta: ['cdta', 'cdtas'], taza: ['taza', 'tazas'], lb: ['lb', 'lb'], oz: ['oz', 'oz'], lata: ['lata', 'latas'], diente: ['diente', 'dientes'], pizca: ['pizca', 'pizcas'], tallo: ['tallo', 'tallos'], unidad: ['unidad', 'unidades'] };
+      return labels[unit][amount > 1 ? 1 : 0];
+    },
+  },
   shopping: {
     title: 'Compras',
     empty: 'No hay nada que comprar por ahora.',
@@ -116,11 +160,6 @@ export const text = {
     manualHelp: 'Lo que agregaste tú.',
     /** @param {string} recipeNames */
     forRecipes: (recipeNames) => `Para: ${recipeNames}`,
-    /** @param {string} unit @param {number} amount */
-    unitLabel: (unit, amount) => {
-      const labels = { cda: ['cda', 'cdas'], cdta: ['cdta', 'cdtas'], taza: ['taza', 'tazas'], lb: ['lb', 'lb'], oz: ['oz', 'oz'], lata: ['lata', 'latas'], diente: ['diente', 'dientes'], pizca: ['pizca', 'pizcas'], tallo: ['tallo', 'tallos'], unidad: ['unidad', 'unidades'] };
-      return labels[unit][amount > 1 ? 1 : 0];
-    },
     addLabel: 'Anotar algo que comprar',
     addPlaceholder: 'Por ejemplo: pilas, bolsas para congelar',
     add: 'Agregar',

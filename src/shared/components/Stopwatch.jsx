@@ -1,6 +1,6 @@
 // El cronómetro en pantalla: el reloj y sus botones.
 import { formatStopwatch } from '../../lib/time.js';
-import { text } from '../../shared/text.js';
+import { text } from '../text.js';
 import './Stopwatch.css';
 
 /**
