@@ -188,6 +188,9 @@ Ningún componente lee `localStorage` ni importa el JSON directamente. Todo pasa
 | `completeShopping()` | Termina la compra: vacía las casillas y saca lo anotado a mano que se compró. No cambia el congelador |
 | `undoLastEvent()` | Anula el último evento |
 | `getStopwatch(processId)` / `saveStopwatch(processId, stopwatch)` | Lee y guarda el cronómetro en curso de un proceso, para que no se pierda al recargar la página. No es un evento: no entra al historial, al Deshacer ni al respaldo |
+| `getAllStopwatches()` | Todos los cronómetros guardados, por proceso |
+| `getInProgress()` | Lo empezado y no terminado: procesos con pasos marcados, cronómetro con tiempo o temporizadores puestos |
+| `discardProgress(processId)` | Descarta lo empezado: desmarca los pasos (un evento `process_discarded`, que Deshacer revierte), pone el cronómetro en cero y quita sus temporizadores. Nunca borra el proceso, sus pasos ni el historial |
 | `getTimers()` / `saveTimers(timers)` | Lee y guarda los temporizadores en curso del modo de cocina. Como el cronómetro, no son eventos: no entran al historial, al Deshacer ni al respaldo |
 | `exportBackup()` / `importBackup(file)` | Respaldo y restauración del historial |
 
@@ -200,8 +203,8 @@ Cada acción se guarda como un evento nuevo; nunca se edita ni se borra uno ante
 ```js
 {
   id: 'uuid generado con crypto.randomUUID()',
-  type: 'step_checked' | 'step_unchecked' | 'process_finished' | 'note_saved' | 'note_deleted' | 'meal_planned' | 'freezer_item_saved' | 'freezer_item_removed' | 'shopping_item_added' | 'shopping_item_removed' | 'shopping_item_checked' | 'shopping_item_unchecked' | 'shopping_completed' | 'event_undone',
-  processId: 'limpieza-semanal',  // en notas es opcional: null si la nota no está ligada a un proceso
+  type: 'step_checked' | 'step_unchecked' | 'process_finished' | 'process_discarded' | 'note_saved' | 'note_deleted' | 'meal_planned' | 'freezer_item_saved' | 'freezer_item_removed' | 'shopping_item_added' | 'shopping_item_removed' | 'shopping_item_checked' | 'shopping_item_unchecked' | 'shopping_completed' | 'event_undone',
+  processId: 'limpieza-semanal',  // en notas es opcional: null si la nota no está ligada a un proceso. En process_discarded, el proceso cuyos pasos se desmarcan
   stepId: 'paso-3',        // solo en eventos de pasos
   minutes: 42,             // solo en process_finished
   doneBy: 'Tita',          // solo en process_finished; 'Nano' | 'Tita' | 'Ambos' | null. Es una nota, no una asignación
@@ -232,6 +235,8 @@ Una bolsa del congelador existe desde su último `freezer_item_saved` hasta un `
 La lista de compras no se guarda: se arma cada vez con lo que falta en el congelador, los ingredientes de las recetas del menú de los próximos 7 días y lo anotado a mano. Las casillas marcadas son eventos y se vacían con `shopping_completed`.
 
 Una nota se ve siempre en su versión más reciente (el último `note_saved` con su `noteId`), a menos que exista un `note_deleted` posterior.
+
+Los pasos marcados de un proceso son los posteriores a su último `process_finished` o `process_discarded`. Descartar no cuenta como terminado.
 
 Los valores derivados nunca se guardan: la última vez, la próxima fecha, si algo está vencido y el progreso de un checklist se calculan a partir de los eventos y del JSON. Así, cambiar una frecuencia en el JSON recalcula todo solo.
 

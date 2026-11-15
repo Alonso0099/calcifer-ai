@@ -121,3 +121,18 @@ test('los temporizadores se guardan completos, fuera del historial', async () =>
   assert.deepEqual(await data.getTimers(), timers);
   assert.equal(await data.undoLastEvent(), null, 'guardar temporizadores no crea eventos');
 });
+
+test('en curso: pasos marcados y cronómetro aparecen; descartar los limpia y Deshacer recupera los pasos', async () => {
+  const data = createTestAdapter();
+  assert.deepEqual(await data.getInProgress(), []);
+  await data.toggleStep('limpieza-semanal', 'paso-1');
+  await data.saveStopwatch('limpieza-semanal', { accumulatedMs: 120000, startedAt: null });
+  await data.saveTimers([{ id: 't', label: 'Paso 1', durationMs: 1, endsAt: 1, processId: 'limpieza-semanal' }, { id: 'u', label: 'Otro', durationMs: 1, endsAt: 1, processId: null }]);
+  const [session] = await data.getInProgress();
+  assert.deepEqual([session.processId, session.checkedCount, session.totalSteps, session.elapsedMs, session.isRunning, session.timers.length], ['limpieza-semanal', 1, 2, 120000, false, 1]);
+  await data.discardProgress('limpieza-semanal');
+  assert.deepEqual(await data.getInProgress(), []);
+  assert.deepEqual((await data.getTimers()).map((timer) => timer.id), ['u']);
+  await data.undoLastEvent();
+  assert.equal((await data.getProcess('limpieza-semanal')).steps[0].checked, true, 'Deshacer recupera los pasos');
+});

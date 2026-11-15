@@ -267,4 +267,8 @@ Una línea por decisión importante, con su porqué.
 - **Un paso puede depender de ese dato** (`onlyIfPackingLunch`): el viernes y el sábado no aparecen "empacar los almuerzos" ni su confirmación, y no cuentan en el avance.
 - **La confirmación final se separó en dos**: "Guardé lo que sobró" sale siempre en las recetas que dejan sobras; "Empaqué los 2 almuerzos" solo los días en que se empaca.
 - **Las dos pantallas cargan el proceso igual** (`loadProcessForToday` en `shared/`): la receta y el paso a paso muestran exactamente los mismos pasos.
+- **"En curso" en Hoy**: todo lo empezado y no terminado (pasos marcados, cronómetro con tiempo o temporizadores) aparece arriba, con su avance y su reloj, para no perderlo. Se puede continuar donde se quedó, pausar o descartar.
+- **Descartar es un solo evento (`process_discarded`)**: desmarca todos los pasos de una vez y Deshacer los recupera de un toque. También pone el cronómetro en cero y quita los temporizadores de ese proceso, pero nunca borra la tarea, sus pasos ni el historial.
+- **Cada temporizador recuerda de qué proceso es**: así aparece debajo del proceso correcto en "En curso".
+- **El adaptador local se dividió**: notas y respaldo pasaron a sus propios archivos para que ninguno pase de 150 líneas.
 

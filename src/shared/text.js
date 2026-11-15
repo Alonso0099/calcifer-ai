@@ -24,6 +24,23 @@ export const text = {
     notes: 'Notas',
     backup: 'Respaldo',
   },
+  inProgress: {
+    title: 'En curso',
+    /** @param {number} done @param {number} total */
+    steps: (done, total) => `${done} de ${total} pasos`,
+    running: 'corriendo',
+    paused: 'en pausa',
+    /** @param {string} label @param {string} clock */
+    timer: (label, clock) => `Temporizador (${label.toLowerCase()}): ${clock}`,
+    continue: 'Continuar',
+    pause: 'Pausar',
+    resume: 'Seguir',
+    discard: 'Descartar',
+    confirmTitle: '¿Descartar lo empezado?',
+    confirmBody: 'Se desmarcan los pasos, el cronómetro vuelve a cero y se quitan sus temporizadores. La tarea y su historial no se borran, y los pasos se recuperan con Deshacer.',
+    confirmYes: 'Sí, descartar',
+    confirmNo: 'No',
+  },
   slots: { breakfast: 'Desayuno', lunch: 'Almuerzo', dinner: 'Cena' },
   mealKinds: { leftovers: 'Sobras', eat_out: 'Comer afuera', quick: 'Algo rápido, sin receta' },
   today: {
@@ -353,6 +370,7 @@ export const text = {
     nothing: 'No hay nada que deshacer.',
     done: {
       meal_planned: 'Se deshizo: cambio en el menú.',
+      process_discarded: 'Se deshizo: volvieron los pasos descartados.',
       freezer_item_saved: 'Se deshizo: bolsa registrada en el congelador.',
       freezer_item_removed: 'Se deshizo: la bolsa volvió al congelador.',
       shopping_item_added: 'Se deshizo: renglón agregado a la lista de compras.',

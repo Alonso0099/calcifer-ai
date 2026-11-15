@@ -102,7 +102,7 @@ export default function CookingSession({ process, packsLunchToday, reload }) {
         </div>
       </header>
       {!canKeepScreenOn && <p className="cooking-notice">{text.wakeLock.unsupported}</p>}
-      <TimerBar {...timersApi} defaultLabel={text.cooking.stepLabel(stepIndex + 1)} onAdd={timersApi.addTimer} onRemove={timersApi.removeTimer} />
+      <TimerBar {...timersApi} defaultLabel={text.cooking.stepLabel(stepIndex + 1)} onAdd={(label, minutes) => timersApi.addTimer(label, minutes, process.id)} onRemove={timersApi.removeTimer} />
       {stage === 'ingredients' && (
         <>
           <IngredientsPanel ingredients={process.ingredients} factor={factor} onFactorChange={setFactor} />

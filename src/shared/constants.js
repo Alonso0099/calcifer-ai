@@ -11,6 +11,7 @@ export const EVENT_TYPES = {
   stepChecked: 'step_checked',
   stepUnchecked: 'step_unchecked',
   processFinished: 'process_finished',
+  processDiscarded: 'process_discarded',
   noteSaved: 'note_saved',
   noteDeleted: 'note_deleted',
   mealPlanned: 'meal_planned',

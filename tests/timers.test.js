@@ -5,8 +5,10 @@ import { createTimer, getRemainingMs, isTimerDone, sortTimers } from '../src/lib
 import { describeIngredient } from '../src/lib/scaling.js';
 
 test('un temporizador guarda su hora de término y calcula lo que falta', () => {
-  const timer = createTimer('a', 'Paso 2', 10, 1000000);
+  const timer = createTimer('a', 'Paso 2', 10, 1000000, 'pollo-sudado');
   assert.equal(timer.endsAt, 1600000);
+  assert.equal(timer.processId, 'pollo-sudado');
+  assert.equal(createTimer('b', 'x', 1, 0).processId, null);
   assert.equal(getRemainingMs(timer, 1000000), 600000);
   assert.equal(getRemainingMs(timer, 1500000), 100000);
   assert.equal(isTimerDone(timer, 1599999), false);

@@ -52,10 +52,10 @@ export function useTimers() {
     saveTimers(nextTimers);
   }
 
-  /** Pone un temporizador nuevo de cierta cantidad de minutos. */
-  function addTimer(label, minutes) {
+  /** Pone un temporizador nuevo de cierta cantidad de minutos, ligado a su proceso (para "En curso"). */
+  function addTimer(label, minutes, processId = null) {
     if (timers.length >= MAX_TIMERS) return;
-    update([...timers, createTimer(crypto.randomUUID(), label, minutes, Date.now())]);
+    update([...timers, createTimer(crypto.randomUUID(), label, minutes, Date.now(), processId)]);
   }
 
   /** Quita un temporizador (terminado o no). */

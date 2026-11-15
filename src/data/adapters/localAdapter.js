@@ -2,12 +2,13 @@
 // de los JSON y guardando los eventos en el propio dispositivo.
 import { DONE_BY_OPTIONS, EVENT_TYPES } from '../../shared/constants.js';
 import { getCheckedStepIds, getLastDoneIso, getLastUndoableEvent } from '../../lib/events.js';
-import { getCurrentNotes } from '../../lib/notes.js';
 import { processMatchesSearch } from '../../lib/searchText.js';
-import { buildBackup, parseBackup } from '../../lib/backup.js';
+import { createBackupFunctions } from './backupFunctions.js';
 import { createEventStore } from './eventStore.js';
 import { createFreezerFunctions } from './freezerFunctions.js';
 import { createMealPlanFunctions } from './mealPlanFunctions.js';
+import { createNoteFunctions } from './noteFunctions.js';
+import { createProgressFunctions } from './progressFunctions.js';
 import { createShoppingFunctions } from './shoppingFunctions.js';
 import { createStopwatchFunctions } from './stopwatchStore.js';
 import { createTimerFunctions } from './timerStore.js';
@@ -34,11 +35,19 @@ export function createLocalAdapter({ storage, content }) {
     return process;
   }
 
+  const stopwatchFunctions = createStopwatchFunctions(storage);
+  const timerFunctions = createTimerFunctions(storage);
+
   return {
     // getStopwatch y saveStopwatch viven en su propio archivo porque no usan eventos.
-    ...createStopwatchFunctions(storage),
-    // getTimers y saveTimers (temporizadores del modo de cocina) tampoco usan eventos.
-    ...createTimerFunctions(storage),
+    ...stopwatchFunctions,
+    // getTimers y saveTimers (temporizadores del modo paso a paso) tampoco usan eventos.
+    ...timerFunctions,
+    // Notas (getNotes, saveNote, deleteNote) y respaldo (exportBackup, importBackup), cada uno en su archivo.
+    ...createNoteFunctions(store, requireProcess),
+    ...createBackupFunctions(store),
+    // getInProgress y discardProgress juntan historial, cronómetros y temporizadores.
+    ...createProgressFunctions({ store, stopwatches: stopwatchFunctions, timers: timerFunctions, processes: activeProcesses, requireProcess }),
     // getMealPlan y planMeal (el menú) también viven aparte.
     ...createMealPlanFunctions(store, requireProcess),
     // Las funciones del congelador (getFreezer, saveFreezerItem...) también viven aparte.
@@ -121,36 +130,6 @@ export function createLocalAdapter({ storage, content }) {
       return getLastDoneIso(store.readEvents(), processId);
     },
 
-    /**
-     * @param {string} [processId] - Si se da, solo las notas ligadas a ese proceso.
-     * @returns {Promise<object[]>} Las notas, la más reciente primero.
-     */
-    async getNotes(processId) {
-      return getCurrentNotes(store.readEvents(), processId);
-    },
-
-    /**
-     * Crea una nota (si no trae id) o guarda una versión nueva de una existente.
-     *
-     * @param {{id?: string, processId?: string|null, title: string, body: string}} note
-     * @returns {Promise<object>} La nota como quedó guardada.
-     */
-    async saveNote(note) {
-      const noteId = note.id ?? crypto.randomUUID();
-      const processId = note.processId ?? null;
-      if (processId !== null) requireProcess(processId);
-      store.appendEvent(EVENT_TYPES.noteSaved, { noteId, processId, title: note.title, body: note.body });
-      return getCurrentNotes(store.readEvents()).find((savedNote) => savedNote.id === noteId);
-    },
-
-    /**
-     * @param {string} noteId - El id de la nota. Se puede recuperar con Deshacer.
-     * @returns {Promise<void>}
-     */
-    async deleteNote(noteId) {
-      store.appendEvent(EVENT_TYPES.noteDeleted, { noteId });
-    },
-
     /** @returns {Promise<object|null>} El evento que se anuló, o null si no había nada. */
     async undoLastEvent() {
       const lastEvent = getLastUndoableEvent(store.readEvents());
@@ -158,21 +137,5 @@ export function createLocalAdapter({ storage, content }) {
       return lastEvent;
     },
 
-    /** @returns {Promise<string>} El texto JSON del respaldo, con todo el historial. */
-    async exportBackup() {
-      return buildBackup(store.readEvents(), new Date().toISOString());
-    },
-
-    /**
-     * Reemplaza todo el historial con el de un archivo de respaldo, si es válido.
-     *
-     * @param {{text: Function}} file - El archivo elegido (un File del navegador).
-     * @returns {Promise<number>} Cuántos eventos se restauraron.
-     */
-    async importBackup(file) {
-      const events = parseBackup(await file.text());
-      store.replaceEvents(events);
-      return events.length;
-    },
   };
 }

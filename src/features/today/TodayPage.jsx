@@ -5,6 +5,7 @@ import { THAW_PROCESS_ID } from '../../shared/constants.js';
 import { text } from '../../shared/text.js';
 import { useLoadedData } from '../../shared/useLoadedData.js';
 import { loadToday } from './loadToday.js';
+import InProgressCard from './InProgressCard.jsx';
 import TodayMeals from './TodayMeals.jsx';
 import TodayTasks from './TodayTasks.jsx';
 import './TodayPage.css';
@@ -16,7 +17,7 @@ import './TodayPage.css';
  * @returns {JSX.Element} El tablero del día.
  */
 export default function TodayPage() {
-  const { data, isLoading, hasError } = useLoadedData(loadToday, []);
+  const { data, isLoading, hasError, reload } = useLoadedData(loadToday, []);
 
   if (isLoading) return <p>{text.common.loading}</p>;
   if (hasError) return <p>{text.common.loadError}</p>;
@@ -24,6 +25,7 @@ export default function TodayPage() {
     <>
       <h2 className="today-title">{text.today.title(formatDayLong(data.today))}</h2>
       <div className="today-grid">
+        <InProgressCard sessions={data.inProgress} onChange={reload} />
         <TodayMeals meals={data.todayMeals} usualMeal={data.usualMeal} processesById={data.processesById} packsLunchToday={data.packsLunchToday} />
         <TodayTasks tasks={data.tasks} />
         {data.recipesToThaw.length > 0 && (
