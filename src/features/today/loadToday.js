@@ -1,6 +1,7 @@
 // Pide a la capa de datos todo lo que necesita la pantalla "Hoy" y lo deja listo para dibujar.
-import { getLastDone, getMealPlan, getProcesses, getWeekPlan, getZones } from '../../data/index.js';
+import { getFreezer, getFreezerCatalog, getLastDone, getMealPlan, getProcesses, getWeekPlan, getZones } from '../../data/index.js';
 import { addDays, getHouseDayText, getWeekdayId } from '../../lib/dates.js';
+import { buildFreezerBoard, getProteinStock } from '../../lib/freezer.js';
 import { buildZoneBoards } from '../../lib/maintenance.js';
 import { buildTodayTasks, getRecipesToThaw } from '../../lib/today.js';
 import { AFTER_COOKING_PROCESS_ID, MAINTENANCE_CATEGORIES, NIGHT_CLOSE_PROCESS_ID } from '../../shared/constants.js';
@@ -9,12 +10,20 @@ import { AFTER_COOKING_PROCESS_ID, MAINTENANCE_CATEGORIES, NIGHT_CLOSE_PROCESS_I
  * Junta el menú de hoy, las tareas del día y el aviso de descongelar para mañana.
  * Nada de esto se guarda: se calcula cada vez con el menú, la semana tipo y el historial.
  *
- * @returns {Promise<object>} today (día), todayMeals, usualMeal, tasks, recipesToThaw y processesById.
+ * @returns {Promise<object>} today (día), todayMeals, usualMeal, tasks, processesById y recipesToThaw
+ *   (cada receta con su `stock`: cuánto hay de su proteína en el congelador y cuál bolsa se saca primero).
  */
 export async function loadToday() {
   const now = new Date();
   const today = getHouseDayText(now);
-  const [processes, mealPlan, weekPlan, zones] = await Promise.all([getProcesses(), getMealPlan(), getWeekPlan(), getZones()]);
+  const [processes, mealPlan, weekPlan, zones, freezerItems, freezerCatalog] = await Promise.all([
+    getProcesses(),
+    getMealPlan(),
+    getWeekPlan(),
+    getZones(),
+    getFreezer(),
+    getFreezerCatalog(),
+  ]);
   const processesById = Object.fromEntries(processes.map((process) => [process.id, process]));
   const todayMeals = mealPlan[today] ?? {};
   const weekDay = weekPlan.days.find((day) => day.id === getWeekdayId(today));
@@ -33,12 +42,16 @@ export async function loadToday() {
     .filter((task) => task.status === 'late' || task.status === 'today')
     .map((task) => task.process.id);
 
+  const freezerBoard = buildFreezerBoard(freezerItems, freezerCatalog, today);
   return {
     today,
     todayMeals,
     usualMeal: weekDay.meal,
     processesById,
     tasks: buildTodayTasks({ todayMeals, todayBlocks: weekDay.blocks, overdueProcessIds, processesById, lastDoneByProcessId, now }),
-    recipesToThaw: getRecipesToThaw(mealPlan[addDays(today, 1)] ?? {}, processesById),
+    recipesToThaw: getRecipesToThaw(mealPlan[addDays(today, 1)] ?? {}, processesById).map((recipe) => ({
+      ...recipe,
+      stock: getProteinStock(freezerBoard, recipe.group),
+    })),
   };
 }

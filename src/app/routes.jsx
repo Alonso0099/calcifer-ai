@@ -9,6 +9,7 @@ import MealPickerPage from '../features/planner/MealPickerPage.jsx';
 import PlannerPage from '../features/planner/PlannerPage.jsx';
 import ProcessListPage from '../features/processes/ProcessListPage.jsx';
 import ProcessDetailPage from '../features/processes/ProcessDetailPage.jsx';
+import ShoppingPage from '../features/shopping/ShoppingPage.jsx';
 import SearchPage from '../features/search/SearchPage.jsx';
 import TodayPage from '../features/today/TodayPage.jsx';
 import WeekPage from '../features/week/WeekPage.jsx';
@@ -16,7 +17,8 @@ import { text } from '../shared/text.js';
 
 /**
  * Cada ruta une una dirección (path) con el componente que se dibuja ahí (element).
- * Las rutas con "menuLabel" aparecen en el menú, en este orden.
+ * Las rutas con "menuLabel" aparecen en el menú, en este orden; las que dicen menuGroup: 'more'
+ * van dentro de "Más".
  * ":processId" es una parte variable: /procesos/pozole-rojo abre el proceso "pozole-rojo".
  */
 export const routes = [
@@ -26,12 +28,13 @@ export const routes = [
   { path: '/procesos', element: <ProcessListPage />, menuLabel: text.menu.processes },
   { path: '/procesos/:processId', element: <ProcessDetailPage /> },
   { path: '/congelador', element: <FreezerPage />, menuLabel: text.menu.freezer },
-  { path: '/limpieza', element: <MaintenancePage />, menuLabel: text.menu.maintenance },
-  { path: '/notas', element: <NotesListPage />, menuLabel: text.menu.notes },
+  { path: '/compras', element: <ShoppingPage />, menuLabel: text.menu.shopping },
+  { path: '/limpieza', element: <MaintenancePage />, menuLabel: text.menu.maintenance, menuGroup: 'more' },
+  { path: '/notas', element: <NotesListPage />, menuLabel: text.menu.notes, menuGroup: 'more' },
   { path: '/notas/nueva', element: <NoteEditorPage /> },
   { path: '/notas/:noteId', element: <NoteEditorPage /> },
-  { path: '/buscar', element: <SearchPage />, menuLabel: text.menu.search },
-  { path: '/respaldo', element: <BackupPage />, menuLabel: text.menu.backup },
+  { path: '/buscar', element: <SearchPage />, menuLabel: text.menu.search, menuGroup: 'more' },
+  { path: '/respaldo', element: <BackupPage />, menuLabel: text.menu.backup, menuGroup: 'more' },
   // La semana tipo del manual ya no va en el menú: se abre desde la pantalla del menú semanal.
   { path: '/semana', element: <WeekPage /> },
 ];

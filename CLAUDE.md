@@ -46,7 +46,7 @@ El ciclo que debe funcionar completo es: planear → revisar qué hay → cocina
 1. **Base.** Funcionar sin conexión; sincronizar el historial entre dos dispositivos (un adaptador nuevo de la capa de datos, sobre los mismos eventos); ingredientes con nombre, cantidad y unidad por separado.
 2. **Hoy y menú.** Una pantalla de inicio que dice qué toca hoy (comida, tareas, qué descongelar, almuerzos por empacar) y un menú semanal que se puede cambiar: asignar recetas, mover días, cancelar.
 3. **Inventario del congelador** por unidades, con "25 − existencia = a comprar", y la preparación mensual que lo actualiza al confirmar.
-4. **Compras**: la lista sale del menú y del inventario; al terminar de comprar se confirma qué entra al inventario.
+4. **Compras**: la lista sale sola del menú y del congelador, y se puede anotar a mano. Terminar la compra no toca el inventario: la proteína entra al congelador cuando se porciona y se registran sus bolsas.
 5. **Modo de cocina** (un paso a la vez, con temporizadores), etiquetas imprimibles, bitácora de incidencias y los seis indicadores del manual.
 
 Reglas de la fase 2:
@@ -182,6 +182,10 @@ Ningún componente lee `localStorage` ni importa el JSON directamente. Todo pasa
 | `getFreezer()` | Las bolsas que hay hoy en el congelador |
 | `saveFreezerItem(item)` | Registra una bolsa o corrige una existente: corte, si va marinada, unidades y día de preparación |
 | `removeFreezerItem(itemId, reason)` | Saca una bolsa: `"cooked"`, `"discarded"` o `"correction"` |
+| `getShoppingState()` | Lo anotado a mano en la lista de compras, las casillas marcadas y cuándo se terminó la última compra |
+| `addShoppingItem(name)` / `removeShoppingItem(itemId)` | Anota a mano algo que comprar, o lo quita |
+| `setShoppingItemChecked(key, isChecked)` | Marca o desmarca un renglón de la lista; si ya está en ese estado no guarda nada |
+| `completeShopping()` | Termina la compra: vacía las casillas y saca lo anotado a mano que se compró. No cambia el congelador |
 | `undoLastEvent()` | Anula el último evento |
 | `getStopwatch(processId)` / `saveStopwatch(processId, stopwatch)` | Lee y guarda el cronómetro en curso de un proceso, para que no se pierda al recargar la página. No es un evento: no entra al historial, al Deshacer ni al respaldo |
 | `exportBackup()` / `importBackup(file)` | Respaldo y restauración del historial |
@@ -195,7 +199,7 @@ Cada acción se guarda como un evento nuevo; nunca se edita ni se borra uno ante
 ```js
 {
   id: 'uuid generado con crypto.randomUUID()',
-  type: 'step_checked' | 'step_unchecked' | 'process_finished' | 'note_saved' | 'note_deleted' | 'meal_planned' | 'freezer_item_saved' | 'freezer_item_removed' | 'event_undone',
+  type: 'step_checked' | 'step_unchecked' | 'process_finished' | 'note_saved' | 'note_deleted' | 'meal_planned' | 'freezer_item_saved' | 'freezer_item_removed' | 'shopping_item_added' | 'shopping_item_removed' | 'shopping_item_checked' | 'shopping_item_unchecked' | 'shopping_completed' | 'event_undone',
   processId: 'limpieza-semanal',  // en notas es opcional: null si la nota no está ligada a un proceso
   stepId: 'paso-3',        // solo en eventos de pasos
   minutes: 42,             // solo en process_finished
@@ -206,7 +210,10 @@ Cada acción se guarda como un evento nuevo; nunca se edita ni se borra uno ante
   day: '2026-11-16',       // solo en meal_planned: el día de la casa, sin hora
   slot: 'dinner',          // solo en meal_planned: 'breakfast' | 'lunch' | 'dinner'
   kind: 'recipe',          // solo en meal_planned: 'recipe' | 'leftovers' | 'eat_out' | 'quick' | 'none' (quitar)
-  itemId: 'uuid',          // solo en eventos del congelador: el mismo id mientras exista la bolsa
+  itemId: 'uuid',          // solo en eventos del congelador y de renglones anotados a mano: el mismo id mientras exista
+  name: 'Pilas',           // solo en shopping_item_added: lo que se anotó a mano
+  key: 'protein:pollo',    // solo en shopping_item_checked/unchecked: qué renglón ('protein:id', 'menu:nombre|unidad' o 'manual:itemId')
+  checkedCount: 3,         // solo en shopping_completed: cuántos renglones estaban marcados
   cutId: 'pollo-filetes',  // solo en freezer_item_saved: un corte de freezer.json
   marinated: false,        // solo en freezer_item_saved
   units: 1,                // solo en freezer_item_saved: cuántas unidades trae la bolsa
@@ -220,6 +227,8 @@ Cada acción se guarda como un evento nuevo; nunca se edita ni se borra uno ante
 En el menú, cada día y momento muestra el último `meal_planned` guardado ahí (`kind: 'none'` lo deja vacío).
 
 Una bolsa del congelador existe desde su último `freezer_item_saved` hasta un `freezer_item_removed`. Lo que falta por comprar (meta − existencia) y la fecha límite de cada bolsa se calculan; no se guardan.
+
+La lista de compras no se guarda: se arma cada vez con lo que falta en el congelador, los ingredientes de las recetas del menú de los próximos 7 días y lo anotado a mano. Las casillas marcadas son eventos y se vacían con `shopping_completed`.
 
 Una nota se ve siempre en su versión más reciente (el último `note_saved` con su `noteId`), a menos que exista un `note_deleted` posterior.
 
@@ -334,6 +343,7 @@ src/
 │   ├── week/              (vista semanal)
 │   ├── search/            (búsqueda)
 │   ├── freezer/           (inventario del congelador)
+│   ├── shopping/          (lista de compras)
 │   ├── maintenance/       (zonas y barras de vencimiento)
 │   ├── notes/             (lista de notas, hoja de una nota)
 │   └── backup/            (respaldo y restauración)

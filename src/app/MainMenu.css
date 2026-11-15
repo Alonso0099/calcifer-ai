@@ -42,6 +42,15 @@
   font-weight: 600;
 }
 
+/* En teléfono no hay botón "Más": sus secciones van seguidas en la misma lista desplegable. */
+.main-menu-more-toggle {
+  display: none;
+}
+
+.main-menu-more {
+  display: contents;
+}
+
 /* Tablet (700 px de ancho o más): el botón desaparece y las secciones forman una
    barra fija en la parte de abajo, al alcance de los pulgares. */
 @media (min-width: 700px) {
@@ -74,5 +83,37 @@
     justify-content: center;
     min-height: 52px;
     text-align: center;
+  }
+
+  /* En tablet, "Más" es un botón de la barra y sus secciones salen en un panel encima de ella. */
+  .main-menu-more-toggle {
+    display: flex;
+    border: none;
+    background-color: transparent;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .main-menu-more {
+    position: absolute;
+    right: 8px;
+    bottom: calc(100% + 8px);
+    display: none;
+    flex-direction: column;
+    min-width: 200px;
+    padding: 8px;
+    border: 2px solid var(--color-border-strong);
+    border-radius: var(--radius-card);
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .main-menu-more-open {
+    display: flex;
+  }
+
+  .main-menu-more .main-menu-link {
+    flex: none;
+    justify-content: flex-start;
   }
 }

@@ -1,0 +1,24 @@
+/* Estilos de la pantalla de compras. */
+
+.shopping-title {
+  margin-top: 0;
+}
+
+.shopping-intro {
+  color: var(--color-text-muted);
+}
+
+.shopping-finish {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.shopping-message {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background-color: var(--color-highlight);
+  color: var(--color-text-strong);
+  font-weight: 600;
+}

@@ -8,7 +8,7 @@ Esta versión fue construida con [Claude Code](https://claude.com/claude-code). 
 
 La fase 1 está terminada y publicada: procesos con checklist, cronómetro y Deshacer; semana tipo; búsqueda; limpieza y mantenimiento por zona; respaldo; y notas.
 
-La fase 2 está en construcción (el orden completo está en `CLAUDE.md`). Ya funcionan: el uso sin conexión, la pantalla **Hoy**, el **menú de la semana**, los ingredientes con cantidad y unidad, y el **inventario del congelador**. Falta: compras, el modo de cocina paso a paso y sincronizar dos dispositivos (esto último se deja para el final, porque necesita una cuenta en un servicio externo).
+La fase 2 está en construcción (el orden completo está en `CLAUDE.md`). Ya funcionan: el uso sin conexión, la pantalla **Hoy**, el **menú de la semana**, los ingredientes con cantidad y unidad, y el **inventario del congelador** y las **compras**. Falta: el modo de cocina paso a paso y sincronizar dos dispositivos (esto último se deja para el final, porque necesita una cuenta en un servicio externo).
 
 ## Cómo correrla
 
@@ -230,4 +230,21 @@ Una línea por decisión importante, con su porqué.
 - **Varias bolsas iguales se registran de una vez**: al terminar la preparación mensual, 6 bolsas de filetes son un solo formulario.
 - **Una bolsa puede valer más de 1 unidad**: en pescado, mariscos y paquetes grandes se cuenta la comida, no las bolsas.
 - **Sacar o registrar una bolsa se puede deshacer**: son eventos, como todo lo demás.
+
+### Fase 2: compras
+
+- **La lista no se arma a mano: se calcula** con la proteína que falta en el congelador (meta − existencia), los ingredientes de las recetas del menú de los próximos 7 días y lo que se anote a mano.
+- **Los ingredientes del menú se suman** por nombre y unidad (2 dientes de ajo + 3 dientes de ajo = 5), y una receta planeada dos veces cuenta doble.
+- **No entran los ingredientes opcionales, las unidades de proteína ni las líneas que solo remiten a otra receta**: la proteína ya sale del congelador, y duplicarla confundiría.
+- **No resta lo que hay en la despensa, porque no hay inventario de despensa**: la persona marca lo que ya tiene. Un inventario de despensa se decide más adelante.
+- **Marcar una casilla es un evento** y marcarla dos veces no duplica nada; se puede deshacer.
+- **Terminar la compra no cambia el congelador**: comprar proteína no es lo mismo que porcionarla y congelarla; las bolsas se registran al terminar la preparación mensual.
+- **Lo anotado a mano sale de la lista cuando se compra**; lo que no se compró se queda para la siguiente.
+- **El menú pasó a tener "Más"**: con nueve secciones la barra de abajo ya no cabía. En teléfono sigue siendo una sola lista; en tablet, "Más" abre un panel encima de la barra.
+
+### Fase 2: conexiones entre pantallas
+
+- **"Hoy" avisa qué hay en el congelador de la proteína de mañana**: cuántas unidades y cuál es la bolsa más vieja. Si no hay ninguna registrada, lo dice. No decide qué bolsa sacar.
+- **Al terminar la preparación mensual de carnes se ofrece registrar las bolsas**: un enlace al congelador, no un registro automático, porque el inventario solo cambia con una confirmación.
+- **Los enlaces de "siguiente paso" salen de una tabla** (`FOLLOW_UP_ROUTE_BY_PROCESS_ID` en `constants.js`): agregar otro es una línea.
 
