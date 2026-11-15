@@ -10,6 +10,7 @@ import { createFreezerFunctions } from './freezerFunctions.js';
 import { createMealPlanFunctions } from './mealPlanFunctions.js';
 import { createShoppingFunctions } from './shoppingFunctions.js';
 import { createStopwatchFunctions } from './stopwatchStore.js';
+import { createTimerFunctions } from './timerStore.js';
 
 /**
  * Crea el adaptador local. Todas sus funciones son "async" (regresan una promesa)
@@ -36,6 +37,8 @@ export function createLocalAdapter({ storage, content }) {
   return {
     // getStopwatch y saveStopwatch viven en su propio archivo porque no usan eventos.
     ...createStopwatchFunctions(storage),
+    // getTimers y saveTimers (temporizadores del modo de cocina) tampoco usan eventos.
+    ...createTimerFunctions(storage),
     // getMealPlan y planMeal (el menú) también viven aparte.
     ...createMealPlanFunctions(store, requireProcess),
     // Las funciones del congelador (getFreezer, saveFreezerItem...) también viven aparte.

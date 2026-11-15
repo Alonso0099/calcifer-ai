@@ -22,6 +22,11 @@
   color: var(--color-text-strong);
 }
 
+.process-detail-cook {
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
 .process-detail-finish {
   align-self: flex-start;
   margin-top: 8px;

@@ -1,0 +1,51 @@
+/* Estilos de la sesión del modo de cocina. */
+
+.cooking {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cooking-header h2 {
+  margin: 0 0 8px;
+}
+
+.cooking-clock {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+.cooking-clock-time {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-strong);
+}
+
+.cooking-clock .button,
+.cooking-begin {
+  text-decoration: none;
+}
+
+.cooking-begin {
+  align-self: flex-start;
+  min-height: 64px;
+  padding: 8px 28px;
+  font-size: 1.2rem;
+}
+
+.cooking-notice {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background-color: var(--color-highlight);
+  color: var(--color-text-strong);
+}
+
+.cooking-ingredients summary {
+  min-height: 44px;
+  font-weight: 600;
+  cursor: pointer;
+}

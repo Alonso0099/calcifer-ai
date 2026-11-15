@@ -1,0 +1,40 @@
+/* Estilos del paso grande del modo de cocina. */
+
+.cooking-step {
+  padding: 20px;
+}
+
+.cooking-step-count {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.cooking-step-done {
+  color: var(--color-ok-text);
+}
+
+/* Letra grande para leer el paso desde lejos, con las manos ocupadas. */
+.cooking-step-text {
+  margin: 12px 0 20px;
+  font-size: 1.9rem;
+  line-height: 1.4;
+  color: var(--color-text-strong);
+}
+
+.cooking-step-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cooking-step-buttons .button {
+  min-height: 64px;
+  padding: 8px 24px;
+  font-size: 1.2rem;
+}
+
+.cooking-step-next {
+  flex: 1;
+  min-width: 220px;
+}

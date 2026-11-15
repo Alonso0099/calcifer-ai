@@ -112,3 +112,12 @@ test('congelador: registrar bolsas, usar una y recuperarla con Deshacer', async 
   await assert.rejects(data.saveFreezerItem({ cutId: 'pollo-filetes', marinated: false, units: 0, prepDay: '2026-11-07' }));
   await assert.rejects(data.removeFreezerItem(first, 'perdida'));
 });
+
+test('los temporizadores se guardan completos, fuera del historial', async () => {
+  const data = createTestAdapter();
+  assert.deepEqual(await data.getTimers(), []);
+  const timers = [{ id: 't1', label: 'Paso 2', durationMs: 600000, endsAt: 1700000600000 }];
+  await data.saveTimers(timers);
+  assert.deepEqual(await data.getTimers(), timers);
+  assert.equal(await data.undoLastEvent(), null, 'guardar temporizadores no crea eventos');
+});

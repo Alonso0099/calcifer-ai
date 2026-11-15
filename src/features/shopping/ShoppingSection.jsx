@@ -12,7 +12,7 @@ import './ShoppingSection.css';
 function describeQuantity(item) {
   if (item.amount === null) return '';
   const amountText = formatAmount(item.amount, item.amountMax);
-  return item.unit ? `${amountText} ${text.shopping.unitLabel(item.unit, item.amountMax ?? item.amount)}` : amountText;
+  return item.unit ? `${amountText} ${text.units.label(item.unit, item.amountMax ?? item.amount)}` : amountText;
 }
 
 /**

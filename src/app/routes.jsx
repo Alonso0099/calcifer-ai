@@ -1,6 +1,7 @@
 // La lista de pantallas de la app: una línea por pantalla.
 // Para agregar una funcionalidad se agregan sus líneas aquí; para quitarla, se borran.
 import BackupPage from '../features/backup/BackupPage.jsx';
+import CookingPage from '../features/cooking/CookingPage.jsx';
 import FreezerPage from '../features/freezer/FreezerPage.jsx';
 import MaintenancePage from '../features/maintenance/MaintenancePage.jsx';
 import NoteEditorPage from '../features/notes/NoteEditorPage.jsx';
@@ -27,6 +28,7 @@ export const routes = [
   { path: '/menu/elegir', element: <MealPickerPage /> },
   { path: '/procesos', element: <ProcessListPage />, menuLabel: text.menu.processes },
   { path: '/procesos/:processId', element: <ProcessDetailPage /> },
+  { path: '/cocinar/:processId', element: <CookingPage /> },
   { path: '/congelador', element: <FreezerPage />, menuLabel: text.menu.freezer },
   { path: '/compras', element: <ShoppingPage />, menuLabel: text.menu.shopping },
   { path: '/limpieza', element: <MaintenancePage />, menuLabel: text.menu.maintenance, menuGroup: 'more' },

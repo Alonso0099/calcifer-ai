@@ -8,7 +8,7 @@ Esta versión fue construida con [Claude Code](https://claude.com/claude-code). 
 
 La fase 1 está terminada y publicada: procesos con checklist, cronómetro y Deshacer; semana tipo; búsqueda; limpieza y mantenimiento por zona; respaldo; y notas.
 
-La fase 2 está en construcción (el orden completo está en `CLAUDE.md`). Ya funcionan: el uso sin conexión, la pantalla **Hoy**, el **menú de la semana**, los ingredientes con cantidad y unidad, y el **inventario del congelador** y las **compras**. Falta: el modo de cocina paso a paso y sincronizar dos dispositivos (esto último se deja para el final, porque necesita una cuenta en un servicio externo).
+La fase 2 está en construcción (el orden completo está en `CLAUDE.md`). Ya funcionan: el uso sin conexión, la pantalla **Hoy**, el **menú de la semana**, los ingredientes con cantidad y unidad, el **inventario del congelador**, las **compras** y el **modo de cocina**. Falta: etiquetas imprimibles, bitácora de incidencias, indicadores, y sincronizar dos dispositivos (esto último se deja para el final, porque necesita una cuenta en un servicio externo).
 
 ## Cómo correrla
 
@@ -247,4 +247,16 @@ Una línea por decisión importante, con su porqué.
 - **"Hoy" avisa qué hay en el congelador de la proteína de mañana**: cuántas unidades y cuál es la bolsa más vieja. Si no hay ninguna registrada, lo dice. No decide qué bolsa sacar.
 - **Al terminar la preparación mensual de carnes se ofrece registrar las bolsas**: un enlace al congelador, no un registro automático, porque el inventario solo cambia con una confirmación.
 - **Los enlaces de "siguiente paso" salen de una tabla** (`FOLLOW_UP_ROUTE_BY_PROCESS_ID` en `constants.js`): agregar otro es una línea.
+
+### Fase 2: modo de cocina
+
+- **Un paso a la vez, con letra grande y botones de 64 px**: se usa con las manos ocupadas. "Listo, siguiente" marca el paso (se guarda al momento), "Saltar" avanza sin marcar y "Anterior" regresa.
+- **Comparte el cronómetro y las casillas con la pantalla de la receta**: lo que se avanza en el modo de cocina se ve en la receta, y al revés. Por eso el cronómetro, la pantalla encendida y el formulario de terminar se movieron a `src/shared/`.
+- **Si se cierra la app a la mitad, se retoma**: los pasos marcados son eventos y la sesión empieza en el primer paso que falta.
+- **Los temporizadores los pone la persona** (5, 10, 15, 30 minutos u otros): el manual no da tiempo por paso y no se inventan. Se pueden tener varios a la vez y sobreviven a recargar, porque guardan la hora de término.
+- **Un temporizador que termina avisa por escrito, con pitido y con vibración si el dispositivo puede, y dice que se revise la comida**: un temporizador no confirma que algo esté cocido.
+- **Los temporizadores no se pueden avisar con la app cerrada**: eso requeriría notificaciones, que están pendientes de decidir.
+- **Antes de registrar hay que confirmar**: "revisé que está bien cocida (la temperatura la medí yo)" y "guardé lo que sobró y empaqué los almuerzos". Solo aparecen las que aplican a esa receta.
+- **El ajuste de tamaño (la mitad, normal, el doble) solo cambia las cantidades que se muestran** y la pantalla lo dice: no ajusta pasos, tiempos ni temperaturas. Sin unidad se escribe "cebolla en tiras: 2" porque no se pone un nombre en plural de forma segura.
+- **El aviso de "app no instalada" se oculta en el modo de cocina**: ahí estorba.
 

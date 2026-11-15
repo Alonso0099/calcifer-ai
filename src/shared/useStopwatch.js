@@ -1,8 +1,8 @@
 // Hook del cronómetro: lleva la cuenta del tiempo mientras se hace un proceso.
 import { useEffect, useState } from 'react';
-import { getStopwatch, saveStopwatch } from '../../data/index.js';
-import { getElapsedMs } from '../../lib/time.js';
-import { MS_PER_SECOND } from '../../shared/constants.js';
+import { getStopwatch, saveStopwatch } from '../data/index.js';
+import { getElapsedMs } from '../lib/time.js';
+import { MS_PER_SECOND } from './constants.js';
 
 const EMPTY_STOPWATCH = { accumulatedMs: 0, startedAt: null };
 
